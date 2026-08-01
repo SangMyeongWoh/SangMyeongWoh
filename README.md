@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/profile.svg" alt="우상명 Sangmyeong Woh — AI Engineer. 게임 현지화 LLM 파이프라인 설계 및 운영. 넷마블 AI플랫폼, MarbleAI 언어파트 프로젝트 리딩." width="100%" />
+<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/profile.svg?v=2" alt="우상명 Sangmyeong Woh — AI Engineer. 게임 현지화 LLM 파이프라인 설계 및 운영. 넷마블 AI플랫폼, MarbleAI 언어파트 프로젝트 리딩." width="100%" />
 
 <br>
 
