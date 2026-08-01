@@ -37,7 +37,7 @@
 </tr>
 </table>
 
-**사이드 프로젝트** — 직접 기획하고 만든 게임 [TheFlower (2023)](https://youtube.com/shorts/KI9Z2TUjRLg) · [TheRoom (2020)](https://youtu.be/OV0ysmhSOIE)
+**사이드 프로젝트** — [TheFlower (2023)](https://youtube.com/shorts/KI9Z2TUjRLg) · [TheRoom (2020)](https://youtu.be/OV0ysmhSOIE)
 
 > 프로젝트별 상세 소개 덱(웹 슬라이드)을 준비하고 있습니다.
 
