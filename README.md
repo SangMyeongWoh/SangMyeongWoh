@@ -40,7 +40,7 @@
 
 — 준비 중
 
-`RAG` `Semantic Chunking` `문서 충돌 감지`
+`RAG`
 
 </td>
 </tr>
