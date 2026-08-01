@@ -16,6 +16,20 @@
 
 <br>
 
+## 기술 스택
+
+<p>
+  <img src="https://skillicons.dev/icons?i=python,pytorch,fastapi,gcp,postgres,docker,githubactions,git,linux&theme=dark" alt="Python, PyTorch, FastAPI, GCP, PostgreSQL, Docker, GitHub Actions, Git, Linux" />
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/AGENT-Google_ADK_·_MCP_·_Claude_Skills-F0A93B?style=flat-square&labelColor=0F1719" alt="Agent: Google ADK, MCP, Claude Skills" />
+  <img src="https://img.shields.io/badge/LLM-Gemini_·_Claude_·_Bedrock-4FB6A5?style=flat-square&labelColor=0F1719" alt="LLM: Gemini, Claude, Bedrock" />
+  <img src="https://img.shields.io/badge/NLP-Hugging_Face_Transformers-7A8B88?style=flat-square&labelColor=0F1719" alt="NLP: Hugging Face Transformers" />
+</p>
+
+<br>
+
 ## 대표 프로젝트
 
 <table>
@@ -46,20 +60,6 @@
 **사이드 프로젝트** — 직접 기획하고 만든 게임입니다 &nbsp;·&nbsp; [**TheFlower** (2023)](https://youtube.com/shorts/KI9Z2TUjRLg) &nbsp;·&nbsp; [**TheRoom** (2020)](https://youtu.be/OV0ysmhSOIE)
 
 > 프로젝트별 상세 소개 덱(웹 슬라이드)을 준비하고 있습니다.
-
-<br>
-
-## 기술 스택
-
-<p>
-  <img src="https://skillicons.dev/icons?i=python,pytorch,fastapi,gcp,postgres,docker,githubactions,git,linux&theme=dark" alt="Python, PyTorch, FastAPI, GCP, PostgreSQL, Docker, GitHub Actions, Git, Linux" />
-</p>
-
-<p>
-  <img src="https://img.shields.io/badge/AGENT-Google_ADK_·_MCP_·_Claude_Skills-F0A93B?style=flat-square&labelColor=0F1719" alt="Agent: Google ADK, MCP, Claude Skills" />
-  <img src="https://img.shields.io/badge/LLM-Gemini_·_Claude_·_Bedrock-4FB6A5?style=flat-square&labelColor=0F1719" alt="LLM: Gemini, Claude, Bedrock" />
-  <img src="https://img.shields.io/badge/NLP-Hugging_Face_Transformers-7A8B88?style=flat-square&labelColor=0F1719" alt="NLP: Hugging Face Transformers" />
-</p>
 
 <br>
 
