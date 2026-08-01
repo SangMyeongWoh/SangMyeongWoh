@@ -2,9 +2,17 @@
 
 ## 기술 스택
 
-<img src="https://skillicons.dev/icons?i=python,pytorch,fastapi,gcp,postgres,docker,githubactions,git,linux&theme=light" alt="Python, PyTorch, FastAPI, GCP, PostgreSQL, Docker, GitHub Actions, Git, Linux" height="44" />
-
-**LLM · Agent** &nbsp; Gemini · Claude · Hugging Face · Google ADK · MCP · Claude Skills
+<img src="https://cdn.simpleicons.org/python" alt="Python" height="36" />&nbsp;&nbsp;
+<img src="https://cdn.simpleicons.org/pytorch" alt="PyTorch" height="36" />&nbsp;&nbsp;
+<img src="https://cdn.simpleicons.org/huggingface" alt="Hugging Face" height="36" />&nbsp;&nbsp;
+<img src="https://cdn.simpleicons.org/fastapi" alt="FastAPI" height="36" />&nbsp;&nbsp;
+<img src="https://cdn.simpleicons.org/googlecloud" alt="Google Cloud" height="36" />&nbsp;&nbsp;
+<img src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" height="36" />&nbsp;&nbsp;
+<img src="https://cdn.simpleicons.org/docker" alt="Docker" height="36" />&nbsp;&nbsp;
+<img src="https://cdn.simpleicons.org/githubactions" alt="GitHub Actions" height="36" />&nbsp;&nbsp;
+<img src="https://cdn.simpleicons.org/googlegemini" alt="Google Gemini" height="36" />&nbsp;&nbsp;
+<img src="https://cdn.simpleicons.org/anthropic/D97757/E8927C" alt="Anthropic Claude" height="36" />&nbsp;&nbsp;
+<img src="https://cdn.simpleicons.org/modelcontextprotocol/16211F/E6EDEA" alt="Model Context Protocol" height="36" />
 
 <br>
 
