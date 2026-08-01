@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 214" width="1200" height="214" role="img"
+     aria-label="기술 스택 — Language: Python. ML: PyTorch, Hugging Face Transformers. Backend: FastAPI. Cloud: GCP Cloud Run, Cloud Tasks, Docker, GitHub Actions. Data: PostgreSQL. LLM and Agent: Gemini, Claude, Bedrock, Google ADK, MCP, Claude Skills.">
+  <title>기술 스택</title>
+  <style>
+    :root { color-scheme: light dark; }
+    .sans { font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif }
+    .mono { font-family:ui-monospace,'SF Mono','Cascadia Mono',Consolas,'D2Coding',monospace }
+    .val   { fill:#16211F }
+    .label { fill:#0E7C6B }
+    .rule  { stroke:#D3DCD9 }
+    @media (prefers-color-scheme: dark) {
+      .val{fill:#E6EDEA} .label{fill:#5FD3BE} .rule{stroke:#2B3A38}
+    }
+  </style>
+
+  <g>
+    <line x1="56" y1="18" x2="1144" y2="18" class="rule" stroke-width="1"/>
+
+    <g class="mono label" font-size="10.5" letter-spacing="2.2" font-weight="700">
+      <text x="56"  y="46">LANGUAGE</text>
+      <text x="624" y="46">ML</text>
+      <text x="56"  y="112">BACKEND</text>
+      <text x="624" y="112">CLOUD</text>
+      <text x="56"  y="178">DATA · CI</text>
+      <text x="624" y="178">LLM · AGENT</text>
+    </g>
+
+    <g class="sans val" font-size="17" font-weight="500">
+      <text x="56"  y="72">Python</text>
+      <text x="624" y="72">PyTorch &#183; Hugging Face Transformers</text>
+      <text x="56"  y="138">FastAPI</text>
+      <text x="624" y="138">GCP &#8212; Cloud Run &#183; Cloud Tasks</text>
+      <text x="56"  y="204">PostgreSQL &#183; Docker &#183; GitHub Actions</text>
+      <text x="624" y="204">Gemini &#183; Claude &#183; Google ADK &#183; MCP</text>
+    </g>
+
+    <line x1="56" y1="88"  x2="1144" y2="88"  class="rule" stroke-width="1"/>
+    <line x1="56" y1="154" x2="1144" y2="154" class="rule" stroke-width="1"/>
+  </g>
+</svg>
