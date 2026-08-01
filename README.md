@@ -52,7 +52,7 @@
 - 의미 단위 청킹 등 문서 전처리 파이프라인 구축
 - HR·정책·인프라·QA 등 여러 팀이 사용 중
 
-`RAG` `pgvector` `Semantic Chunking`
+`RAG` `Semantic Chunking` `문서 충돌 감지`
 
 </td>
 </tr>
@@ -75,7 +75,6 @@
   <img src="https://img.shields.io/badge/Agent-Google_ADK_·_MCP_·_Claude_Skills-38BDF8?style=flat-square&logoColor=white" alt="Agent: Google ADK, MCP, Claude Skills" />
   <img src="https://img.shields.io/badge/🤗_Hugging_Face-Transformers-FFD21E?style=flat-square&labelColor=1E293B" alt="Hugging Face Transformers" />
   <img src="https://img.shields.io/badge/LLM-Gemini_·_Claude_·_Bedrock-A78BFA?style=flat-square&logoColor=white" alt="LLM: Gemini, Claude, Bedrock" />
-  <img src="https://img.shields.io/badge/Retrieval-pgvector_·_Aho--Corasick-1E293B?style=flat-square&logoColor=white" alt="Retrieval: pgvector, Aho-Corasick" />
 </p>
 
 <br>
