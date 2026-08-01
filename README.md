@@ -4,8 +4,7 @@
 
 **근무지** &nbsp; 넷마블 AI플랫폼 개발팀 · 서울
 **경력** &nbsp; 7년 — NLP 엔지니어로 시작해 AI 엔지니어로
-**관심사** &nbsp; 업무 자동화 · 에이전트 시스템
-**잘하는 것** &nbsp; LLM 파이프라인 설계와 운영 · 비개발 부서와의 소통
+**핵심역량** &nbsp; LLM 파이프라인 설계와 운영 · 업무 자동화 · 에이전트 시스템 · 비개발 부서와의 소통
 **연락** &nbsp; [woodullee@naver.com](mailto:woodullee@naver.com)
 
 <br>
