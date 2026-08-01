@@ -10,9 +10,10 @@
     .muted  { fill:#6B7C79 }
     .accent { fill:#0B6B5C }
     .rule   { stroke:#D3DCD9 }
+    .bullet { fill:#0B6B5C }
     @media (prefers-color-scheme: dark) {
       .ink{fill:#E6EDEA} .sub{fill:#BCC9C6} .muted{fill:#849692}
-      .accent{fill:#6FDCC6} .rule{stroke:#2B3A38}
+      .accent{fill:#6FDCC6} .rule{stroke:#2B3A38} .bullet{fill:#6FDCC6}
     }
   </style>
 
@@ -37,9 +38,12 @@
       <text x="374" y="62" class="ink" font-size="15.5" font-weight="500">넷마블 AI플랫폼 개발팀 &#183; 서울</text>
       <text x="374" y="126" class="ink" font-size="15.5" font-weight="500">7년 &#8212; NLP 엔지니어에서 AI 엔지니어로</text>
       <g class="sub" font-size="15">
-        <text x="374" y="190">LLM 파이프라인 설계와 운영</text>
-        <text x="374" y="211">업무 자동화 &#183; 에이전트 시스템</text>
-        <text x="374" y="232">비개발 부서와의 협업과 소통</text>
+        <circle cx="379" cy="185" r="2.4" class="bullet"/>
+        <text x="392" y="190">LLM 파이프라인 설계와 운영</text>
+        <circle cx="379" cy="206" r="2.4" class="bullet"/>
+        <text x="392" y="211">업무 자동화 &#183; 에이전트 시스템</text>
+        <circle cx="379" cy="227" r="2.4" class="bullet"/>
+        <text x="392" y="232">비개발 부서와의 협업과 소통</text>
       </g>
     </g>
 
