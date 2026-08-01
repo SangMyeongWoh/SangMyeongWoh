@@ -63,4 +63,4 @@
 
 ---
 
-**연락** &nbsp; [woodullee@naver.com](mailto:woodullee@naver.com) &nbsp;·&nbsp; 010-8988-1864
+**연락** &nbsp; [woodullee@naver.com](mailto:woodullee@naver.com) &nbsp;·&nbsp; 010-8988-1684
