@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="우상명 Sangmyeong Woh — AI Engineer, 게임 현지화 LLM 파이프라인">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1120"/>
+      <stop offset="55%" stop-color="#131F3A"/>
+      <stop offset="100%" stop-color="#1A1636"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#A78BFA" stop-opacity="0.85"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="300" rx="20" fill="url(#bg)"/>
+  <circle cx="1050" cy="46" r="200" fill="#38BDF8" opacity="0.05"/>
+  <circle cx="150" cy="270" r="170" fill="#A78BFA" opacity="0.05"/>
+  <rect x="0" y="0" width="6" height="300" rx="3" fill="url(#accent)"/>
+
+  <g font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Segoe UI',sans-serif">
+    <text x="64" y="96" fill="#7DD3FC" font-size="16" letter-spacing="4.5" font-weight="600">AI ENGINEER</text>
+    <text x="62" y="164" fill="#F8FAFC" font-size="54" font-weight="800" letter-spacing="-1">우상명 <tspan fill="#64748B" font-size="30" font-weight="600">Sangmyeong Woh</tspan></text>
+    <text x="64" y="206" fill="#CBD5E1" font-size="21" font-weight="500">게임 현지화 LLM 파이프라인 설계 · 운영</text>
+    <text x="64" y="243" fill="#64748B" font-size="16.5">넷마블 AI플랫폼 · MarbleAI 언어파트 프로젝트 리딩</text>
+  </g>
+
+  <g transform="translate(770,150)">
+    <line x1="0" y1="0" x2="330" y2="0" stroke="url(#line)" stroke-width="2.5"/>
+    <g font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Segoe UI',sans-serif"
+       font-size="13" font-weight="600" fill="#94A3B8" text-anchor="middle">
+      <circle cx="0"   cy="0" r="9" fill="#0B1120" stroke="#38BDF8" stroke-width="2.5" filter="url(#glow)"/>
+      <text x="0"   y="34">번역</text>
+      <circle cx="110" cy="0" r="9" fill="#0B1120" stroke="#5AB0F5" stroke-width="2.5" filter="url(#glow)"/>
+      <text x="110" y="34">교정</text>
+      <circle cx="220" cy="0" r="9" fill="#0B1120" stroke="#7C9DF8" stroke-width="2.5" filter="url(#glow)"/>
+      <text x="220" y="34">용어집</text>
+      <circle cx="330" cy="0" r="9" fill="#0B1120" stroke="#A78BFA" stroke-width="2.5" filter="url(#glow)"/>
+      <text x="330" y="34">평가</text>
+    </g>
+    <circle cx="0" cy="0" r="5" fill="#E0F2FE">
+      <animate attributeName="cx" values="0;330;0" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="7s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
