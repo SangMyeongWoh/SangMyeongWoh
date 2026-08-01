@@ -43,11 +43,9 @@
 
 **활동 · 수상**
 
-| | |
-|---|---|
-| 특허 | **등록 제102456513호** — 텍스트 데이터 증강 |
-| 수상 | **IEEE Computational Intelligence in Games** — runner-up (regression 부문) |
-| 발표 | 넷마블 **Game Development Forum** 2023 · 2024 |
+- **특허 등록 제102456513호** — 텍스트 데이터 증강
+- **IEEE Computational Intelligence in Games** — runner-up (regression 부문)
+- 넷마블 **Game Development Forum** 발표 — 2023 · 2024
 
 </details>
 
