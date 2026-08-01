@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 262" width="1200" height="262" role="img"
-     aria-label="우상명 Sangmyeong Woh — AI Engineer. 게임 현지화 LLM 파이프라인 설계와 운영. 넷마블 AI플랫폼, MarbleAI 언어파트 프로젝트 리딩.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 284" width="1200" height="284" role="img"
+     aria-label="우상명 Sangmyeong Woh, AI Engineer. 언어를 다루는 AI 시스템을 만듭니다. 근무지: 넷마블 AI플랫폼 개발팀, 서울. 경력: 7년, NLP 엔지니어로 시작해 AI 엔지니어로. 핵심역량: LLM 파이프라인 설계와 운영, 업무 자동화와 에이전트 시스템, 비개발 부서와의 협업과 소통.">
   <title>우상명 · Sangmyeong Woh — AI Engineer</title>
   <style>
     :root { color-scheme: light dark; }
@@ -10,48 +10,39 @@
     .muted  { fill:#71837F }
     .accent { fill:#0E7C6B }
     .rule   { stroke:#D3DCD9 }
-    .row { opacity:0; animation:in .45s ease-out forwards }
-    .r1{animation-delay:.10s} .r2{animation-delay:.26s} .r3{animation-delay:.42s} .r4{animation-delay:.58s}
-    @keyframes in { from{opacity:0;transform:translateX(-5px)} to{opacity:1;transform:none} }
     @media (prefers-color-scheme: dark) {
       .ink{fill:#E6EDEA} .sub{fill:#B4C2BF} .muted{fill:#7F918D}
       .accent{fill:#5FD3BE} .rule{stroke:#2B3A38}
     }
-    @media (prefers-reduced-motion: reduce) { .row{animation:none;opacity:1} }
   </style>
 
   <g class="sans">
     <text x="56" y="48" class="mono accent" font-size="12" letter-spacing="5.4" font-weight="700">AI ENGINEER</text>
-    <text x="54" y="114" class="ink" font-size="54" font-weight="800" letter-spacing="-1.5">우상명</text>
-    <text x="57" y="145" class="mono muted" font-size="14.5" letter-spacing="2.8" font-weight="600">SANGMYEONG WOH</text>
-    <text x="56" y="188" class="sub" font-size="18.5" font-weight="500">게임 현지화 LLM 파이프라인 설계 &#183; 운영</text>
-    <text x="56" y="217" class="muted" font-size="14.5">넷마블 AI플랫폼 &#183; MarbleAI 언어파트 프로젝트 리딩</text>
+    <text x="54" y="118" class="ink" font-size="54" font-weight="800" letter-spacing="-1.5">우상명</text>
+    <text x="57" y="149" class="mono muted" font-size="14.5" letter-spacing="2.8" font-weight="600">SANGMYEONG WOH</text>
+    <text x="56" y="212" class="sub" font-size="18.5" font-weight="500">언어를 다루는 AI 시스템을 만듭니다</text>
   </g>
 
-  <line x1="640" y1="34" x2="640" y2="228" class="rule" stroke-width="1"/>
+  <line x1="640" y1="34" x2="640" y2="256" class="rule" stroke-width="1"/>
 
   <g>
-    <text x="686" y="48" class="mono muted" font-size="11" letter-spacing="1.9">STRING TABLE</text>
-    <text x="1144" y="48" class="mono accent" font-size="11" letter-spacing="1.4" font-weight="700" text-anchor="end">LQE 98</text>
-    <line x1="686" y1="62" x2="1144" y2="62" class="rule" stroke-width="1"/>
+    <g class="mono accent" font-size="10.5" letter-spacing="2.2" font-weight="700">
+      <text x="686" y="46">근무지</text>
+      <text x="686" y="110">경력</text>
+      <text x="686" y="174">핵심역량</text>
+    </g>
 
-    <g class="mono" font-size="14.5">
-      <g class="row r1">
-        <text x="686" y="96" class="accent" font-weight="700">ko</text>
-        <text x="730" y="96" class="ink"><tspan class="accent">{PLAYER}</tspan>님, 환영합니다</text>
-      </g>
-      <g class="row r2">
-        <text x="686" y="130" class="muted">en</text>
-        <text x="730" y="130" class="sub">Welcome, <tspan class="accent">{PLAYER}</tspan></text>
-      </g>
-      <g class="row r3">
-        <text x="686" y="164" class="muted">ja</text>
-        <text x="730" y="164" class="sub"><tspan class="accent">{PLAYER}</tspan>さん、ようこそ</text>
-      </g>
-      <g class="row r4">
-        <text x="686" y="198" class="muted">zh</text>
-        <text x="730" y="198" class="sub">欢迎，<tspan class="accent">{PLAYER}</tspan></text>
+    <g class="sans" font-size="16" font-weight="500">
+      <text x="686" y="72" class="ink">넷마블 AI플랫폼 개발팀 &#183; 서울</text>
+      <text x="686" y="136" class="ink">7년 &#8212; NLP 엔지니어로 시작해 AI 엔지니어로</text>
+      <g class="sub" font-size="15.5">
+        <text x="686" y="200">LLM 파이프라인 설계와 운영</text>
+        <text x="686" y="223">업무 자동화 &#183; 에이전트 시스템</text>
+        <text x="686" y="246">비개발 부서와의 협업과 소통</text>
       </g>
     </g>
+
+    <line x1="686" y1="88"  x2="1144" y2="88"  class="rule" stroke-width="1"/>
+    <line x1="686" y1="152" x2="1144" y2="152" class="rule" stroke-width="1"/>
   </g>
 </svg>

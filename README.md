@@ -1,16 +1,6 @@
-<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/banner.svg?v=3" alt="우상명 Sangmyeong Woh — AI Engineer. 게임 현지화 LLM 파이프라인 설계 및 운영. 넷마블 AI플랫폼, MarbleAI 언어파트 프로젝트 리딩." width="100%" />
+<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/banner.svg?v=4" alt="우상명 Sangmyeong Woh — AI Engineer. 게임 현지화 LLM 파이프라인 설계 및 운영. 넷마블 AI플랫폼, MarbleAI 언어파트 프로젝트 리딩." width="100%" />
 
-언어를 다루는 AI 시스템을 만듭니다.
-
-**근무지** &nbsp; 넷마블 AI플랫폼 개발팀 · 서울
-**경력** &nbsp; 7년 — NLP 엔지니어로 시작해 AI 엔지니어로
 **연락** &nbsp; [woodullee@naver.com](mailto:woodullee@naver.com)
-
-**핵심역량**
-
-- LLM 파이프라인 설계와 운영
-- 업무 자동화 · 에이전트 시스템
-- 비개발 부서와의 협업과 소통
 
 <br>
 
