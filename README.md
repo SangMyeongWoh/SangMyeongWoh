@@ -68,13 +68,14 @@
 ## 🛠️ 기술 스택
 
 <p>
-  <img src="https://skillicons.dev/icons?i=python,fastapi,gcp,postgres,docker,githubactions,git,linux&theme=dark" alt="Python, FastAPI, GCP, PostgreSQL, Docker, GitHub Actions, Git, Linux" />
+  <img src="https://skillicons.dev/icons?i=python,pytorch,fastapi,gcp,postgres,docker,githubactions,git,linux&theme=dark" alt="Python, PyTorch, FastAPI, GCP, PostgreSQL, Docker, GitHub Actions, Git, Linux" />
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/LLM-Gemini_·_Claude_·_Bedrock-38BDF8?style=flat-square&logoColor=white" alt="LLM: Gemini, Claude, Bedrock" />
-  <img src="https://img.shields.io/badge/Retrieval-pgvector_·_Aho--Corasick-A78BFA?style=flat-square&logoColor=white" alt="Retrieval: pgvector, Aho-Corasick" />
-  <img src="https://img.shields.io/badge/Agent-MCP_·_Claude_Skills-1E293B?style=flat-square&logoColor=white" alt="Agent: MCP, Claude Skills" />
+  <img src="https://img.shields.io/badge/Agent-Google_ADK_·_MCP_·_Claude_Skills-38BDF8?style=flat-square&logoColor=white" alt="Agent: Google ADK, MCP, Claude Skills" />
+  <img src="https://img.shields.io/badge/🤗_Hugging_Face-Transformers-FFD21E?style=flat-square&labelColor=1E293B" alt="Hugging Face Transformers" />
+  <img src="https://img.shields.io/badge/LLM-Gemini_·_Claude_·_Bedrock-A78BFA?style=flat-square&logoColor=white" alt="LLM: Gemini, Claude, Bedrock" />
+  <img src="https://img.shields.io/badge/Retrieval-pgvector_·_Aho--Corasick-1E293B?style=flat-square&logoColor=white" alt="Retrieval: pgvector, Aho-Corasick" />
 </p>
 
 <br>
