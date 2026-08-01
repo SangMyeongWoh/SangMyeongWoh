@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="휴대폰">
+  <style>
+    .s { stroke:#0B6B5C; fill:none; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round }
+    .d { fill:#0B6B5C }
+    @media (prefers-color-scheme: dark) { .s { stroke:#6FDCC6 } .d { fill:#6FDCC6 } }
+  </style>
+  <rect class="s" x="6.5" y="2.5" width="11" height="19" rx="2.6"/>
+  <path class="s" d="M10.4 5.4h3.2"/>
+  <circle class="d" cx="12" cy="18.3" r="1.15"/>
+</svg>

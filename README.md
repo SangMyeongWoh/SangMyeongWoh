@@ -63,4 +63,6 @@
 
 ---
 
-**연락** &nbsp; [woodullee@naver.com](mailto:woodullee@naver.com) &nbsp;·&nbsp; 010-8988-1684
+<a href="mailto:woodullee@naver.com"><img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/ic-mail.svg" alt="이메일" height="17" align="absmiddle" /></a>&nbsp;&nbsp;[woodullee@naver.com](mailto:woodullee@naver.com)
+
+<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/ic-phone.svg" alt="휴대폰" height="17" align="absmiddle" />&nbsp;&nbsp;010-8988-1684
