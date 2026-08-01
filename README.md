@@ -1,5 +1,7 @@
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/profile.svg?v=6" alt="우상명 Sangmyeong Woh — AI Engineer. 게임 현지화 LLM 파이프라인 설계 및 운영. 넷마블 AI플랫폼, MarbleAI 언어파트 프로젝트 리딩." width="100%" />
 
+## 기술 스택
+
 <img src="https://skillicons.dev/icons?i=python,pytorch,fastapi,gcp,postgres,docker,githubactions,git,linux&theme=light" alt="Python, PyTorch, FastAPI, GCP, PostgreSQL, Docker, GitHub Actions, Git, Linux" height="44" />
 
 **LLM · Agent** &nbsp; Gemini · Claude · Hugging Face · Google ADK · MCP · Claude Skills
