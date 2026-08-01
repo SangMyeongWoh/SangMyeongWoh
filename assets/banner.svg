@@ -19,8 +19,8 @@
   <!-- 정체성 -->
   <g class="sans">
     <text x="56" y="84" class="mono" fill="#F0A93B" font-size="12.5" letter-spacing="5.5" font-weight="600">AI ENGINEER</text>
-    <text x="54" y="152" fill="#E6EDEA" font-size="56" font-weight="800" letter-spacing="-1.5">우상명</text>
-    <text x="196" y="152" fill="#7A8B88" font-size="23" font-weight="600" letter-spacing="0.4">Sangmyeong Woh</text>
+    <text x="54" y="152" fill="#E6EDEA" font-size="56" font-weight="800" letter-spacing="-1.5">우상명<tspan
+          dx="30" fill="#7A8B88" font-size="23" font-weight="600" letter-spacing="0.4">Sangmyeong Woh</tspan></text>
     <text x="56" y="196" fill="#C3CFCB" font-size="19.5" font-weight="500">게임 현지화 LLM 파이프라인 설계 · 운영</text>
     <text x="56" y="232" fill="#6B7C79" font-size="15">넷마블 AI플랫폼 &#183; MarbleAI 언어파트 프로젝트 리딩</text>
   </g>
