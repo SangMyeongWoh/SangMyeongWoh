@@ -2,7 +2,7 @@
 
 ## 기술 스택
 
-<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/stack.svg?v=3" alt="기술 스택 — Python, PyTorch, Hugging Face, FastAPI, GCP, PostgreSQL, Docker, GitHub Actions, Gemini, Claude, MCP" width="100%" />
+<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/stack.svg?v=4" alt="기술 스택 — Python, PyTorch, Hugging Face, FastAPI, GCP, PostgreSQL, Docker, GitHub Actions, Gemini, Claude, MCP" width="100%" />
 
 <br>
 
