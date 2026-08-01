@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 240" width="760" height="240" role="img"
-     aria-label="우상명 Sangmyeong Woh, AI Engineer. 언어를 다루는 AI 시스템을 만듭니다. 근무지: 넷마블 AI플랫폼 개발팀, 서울. 경력: 7년, NLP 및 AI 엔지니어. 핵심역량: LLM 파이프라인 설계와 운영, 업무 자동화와 에이전트 시스템, 비개발 부서와의 협업과 소통.">
+     aria-label="우상명 Sangmyeong Woh, AI Engineer. 문제 정의부터 개발과 운영까지 AI를 활용해 빠르게 만듭니다. 근무지: 넷마블 AI플랫폼 개발팀, 서울. 경력: 7년, NLP 및 AI 엔지니어. 핵심역량: LLM 파이프라인 설계와 운영, 업무 자동화와 에이전트 시스템, 비개발 부서와의 협업과 소통.">
   <title>우상명 · Sangmyeong Woh — AI Engineer</title>
   <style>
     :root { color-scheme: light dark; }
@@ -21,8 +21,8 @@
     <text x="24" y="42" class="mono accent" font-size="13" letter-spacing="3.4" font-weight="700">AI ENGINEER</text>
     <text x="22" y="100" class="ink" font-size="44" font-weight="800" letter-spacing="-1.2">우상명</text>
     <text x="24" y="126" class="mono muted" font-size="13" letter-spacing="2.2" font-weight="600">SANGMYEONG WOH</text>
-    <text x="24" y="172" class="sub" font-size="16" font-weight="500">언어를 다루는</text>
-    <text x="24" y="196" class="sub" font-size="16" font-weight="500">AI 시스템을 만듭니다</text>
+    <text x="24" y="172" class="sub" font-size="16" font-weight="500">문제 정의부터 개발&#183;운영까지</text>
+    <text x="24" y="196" class="sub" font-size="16" font-weight="500">AI를 활용해 빠르게 만듭니다</text>
   </g>
 
   <line x1="342" y1="20" x2="342" y2="216" class="rule" stroke-width="1"/>
