@@ -60,3 +60,7 @@
 - 넷마블 **Game Development Forum** 발표 2회 (2023 · 2024)
 
 </details>
+
+---
+
+**연락** &nbsp; [woodullee@naver.com](mailto:woodullee@naver.com)
