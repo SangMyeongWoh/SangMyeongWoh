@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/banner.svg" alt="우상명 Sangmyeong Woh — AI Engineer, 게임 현지화 LLM 파이프라인 설계 및 운영" width="100%" />
+  <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/banner.svg?v=2" alt="우상명 Sangmyeong Woh — AI Engineer, 게임 현지화 LLM 파이프라인 설계 및 운영" width="100%" />
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@
 ### nDIS
 **사내 문서 관리 + RAG 챗봇**
 
-문서를 넣으면 답하는 사내 지식 서비스의 백엔드와 핵심 엔진을 개발했습니다. 검색·응답 엔진과 의미 단위 청킹 전처리 파이프라인을 설계했고, 상반된 내용을 가진 문서를 탐지해 경고하는 문서 충돌 감지 시스템을 만들었습니다. 현재 HR·정책·인프라·QA 등 여러 팀이 사용 중입니다.
+— 준비 중
 
 `RAG` `Semantic Chunking` `문서 충돌 감지`
 
