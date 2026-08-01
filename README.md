@@ -39,14 +39,7 @@
 <summary><b>경력 · 학력 · 활동</b></summary>
 <br>
 
-<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/career.svg" alt="경력 — 넷마블(2023.05~) AI플랫폼 개발팀, 데이터헌트(2022.10-2023.04) NLP 엔지니어, 테스트웍스(2021.06-2022.09) NLP 엔지니어, 아크릴(2019.07-2021.06) NLP 엔지니어" width="100%" />
-
-**학력**
-
-| 기간 | 학교 · 전공 |
-|---|---|
-| 2017.03 – 2019.08 | 성균관대학교 컴퓨터공학 **석사** — 정보 및 지능시스템 연구실 |
-| 2010.03 – 2017.03 | 성균관대학교 전기전자공학 / 컴퓨터공학 복수전공 |
+<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/career2.svg" alt="경력·학력 타임라인 — 넷마블(2023.05~), 데이터헌트(2022.10-2023.04), 테스트웍스(2021.06-2022.09), 아크릴(2019.07-2021.06), 성균관대 컴퓨터공학 석사(2017.03-2019.08), 성균관대 학사(2010.03-2017.03)" width="100%" />
 
 **활동 · 수상**
 
