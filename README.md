@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/intro8.svg" alt="우상명 Sangmyeong Woh — 7년차 NLP·AI 엔지니어. 문제 정의부터 개발·운영까지 AI를 활용해 빠르게 구현합니다. 넷마블 AI플랫폼 개발팀." width="100%" />
+<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/intro9.svg" alt="우상명 Sangmyeong Woh — 7년차 NLP·AI 엔지니어. 문제 정의부터 개발·기획·운영 등 풀스택 영역에서 AI를 활용해 빠르게 구현합니다. 넷마블 AI플랫폼 개발팀." width="100%" />
 
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/main5.svg" alt="기술 스택과 경력·학력 — Python, PyTorch, HuggingFace, Gemini, MCP, Claude Code, FastAPI, PostgreSQL, MongoDB, Redis, GCP, GKE, Docker, Airflow, Jenkins, GitHub, Actions, Unity, Flutter / 넷마블(2023.05~), 데이터헌트, 테스트웍스, 아크릴, 성균관대 석사·학사" width="100%" />
 
