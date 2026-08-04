@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" width="760" height="200" role="img"
-     aria-label="프로젝트: MarbleAI 언어파트 게임 현지화 LLM 파이프라인 · 프로젝트 리딩; nDIS 사내 문서 관리 + RAG 챗봇; 사이드 프로젝트 TheFlower (2023) · TheRoom (2020). 활동·수상: 특허 등록 제102456513호 텍스트 데이터 증강; IEEE CIG runner-up Computational Intelligence in Games, regression; 넷마블 GDF 발표 Game Development Forum · 2023 · 2024">
+     aria-label="프로젝트: MarbleAI 언어파트 게임 현지화 LLM 파이프라인 · 프로젝트 리딩; nDIS 사내 문서 관리 + RAG 챗봇. 활동·수상: 특허 등록 제102456513호 텍스트 데이터 증강; IEEE CIG runner-up Computational Intelligence in Games, regression; 넷마블 GDF 발표 Game Development Forum · 2023 · 2024">
   <title>프로젝트 · 활동 · 수상</title>
   <style>
     text { font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif }
@@ -26,9 +26,6 @@
   <rect class="mk" x="32" y="111" width="5" height="5" rx="1.4"/>
   <text x="48" y="116" class="it">nDIS</text>
   <text x="48" y="135" class="ds">사내 문서 관리 + RAG 챗봇</text>
-  <rect class="mk" x="32" y="157" width="5" height="5" rx="1.4"/>
-  <text x="48" y="162" class="it">사이드 프로젝트</text>
-  <text x="48" y="181" class="ds">TheFlower (2023) · TheRoom (2020)</text>
   <rect class="mk" x="410.0" y="65" width="5" height="5" rx="1.4"/>
   <text x="426.0" y="70" class="it">특허 등록 제102456513호</text>
   <text x="426.0" y="89" class="ds">텍스트 데이터 증강</text>
