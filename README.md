@@ -4,14 +4,33 @@
 
 ## 프로젝트
 
+<table>
+<tr>
+<td width="50%" valign="top">
+
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/ic-dot.svg" alt="" height="10" align="absmiddle" />&nbsp;&nbsp;**MarbleAI 언어파트**
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;게임 현지화 LLM 파이프라인 · 프로젝트 리딩
+
+</td>
+<td width="50%" valign="top">
 
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/ic-dot.svg" alt="" height="10" align="absmiddle" />&nbsp;&nbsp;**nDIS**
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사내 문서 관리 + RAG 챗봇
 
+</td>
+</tr>
+<tr>
+<td valign="top">
+
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/ic-dot.svg" alt="" height="10" align="absmiddle" />&nbsp;&nbsp;**사이드 프로젝트**
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TheFlower (2023)](https://youtube.com/shorts/KI9Z2TUjRLg) · [TheRoom (2020)](https://youtu.be/OV0ysmhSOIE)
+
+</td>
+<td valign="top">
+
+</td>
+</tr>
+</table>
 
 ## 활동 · 수상
 
