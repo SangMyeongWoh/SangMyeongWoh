@@ -6,7 +6,7 @@
 
 <br>
 
-## 대표 프로젝트
+## 프로젝트
 
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/ic-dot.svg" alt="" height="10" align="absmiddle" />&nbsp;&nbsp;**MarbleAI 언어파트**
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;게임 현지화 LLM 파이프라인 · 프로젝트 리딩
