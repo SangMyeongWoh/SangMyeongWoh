@@ -39,7 +39,7 @@
 <summary><b>경력 · 학력 · 활동</b></summary>
 <br>
 
-<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/career2.svg" alt="경력·학력 타임라인 — 넷마블(2023.05~), 데이터헌트(2022.10-2023.04), 테스트웍스(2021.06-2022.09), 아크릴(2019.07-2021.06), 성균관대 컴퓨터공학 석사(2017.03-2019.08), 성균관대 학사(2010.03-2017.03)" width="100%" />
+<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/career3.svg" alt="경력·학력 타임라인 — 넷마블(2023.05~), 데이터헌트(2022.10-2023.04), 테스트웍스(2021.06-2022.09), 아크릴(2019.07-2021.06), 성균관대 컴퓨터공학 석사(2017.03-2019.08), 성균관대 학사(2010.03-2017.03)" width="100%" />
 
 **활동 · 수상**
 

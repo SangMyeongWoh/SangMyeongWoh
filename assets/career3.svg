@@ -18,6 +18,7 @@
     }
   </style>
 
+  <g transform="translate(144,0)">
   <line class="line" x1="150" y1="26" x2="150" y2="386"/>
 
   <g class="sans">
@@ -50,5 +51,6 @@
     <circle class="edu" cx="150" cy="386" r="5.4"/>
     <text class="co"   x="176" y="392">성균관대학교 <tspan class="role" font-size="15">학사</tspan></text>
     <text class="role" x="176" y="414">전기전자공학 · 컴퓨터공학 복수전공</text>
+  </g>
   </g>
 </svg>
