@@ -8,30 +8,13 @@
 
 ## 대표 프로젝트
 
-<table>
-<tr>
-<td width="50%" valign="top">
+**MarbleAI 언어파트** &nbsp;—&nbsp; 게임 현지화 LLM 파이프라인 · 프로젝트 리딩
 
-### MarbleAI 언어파트
-게임 현지화 LLM 파이프라인 · 프로젝트 리딩
+**nDIS** &nbsp;—&nbsp; 사내 문서 관리 + RAG 챗봇
 
-번역·교정·용어집·평가 **4개 시스템**을 총괄합니다. 단일 VM Airflow를 서버리스 기반으로 전면 재작성하고, 수 주 걸리던 외부 품질 검수(LQA)를 자동 채점 체계로 대체했습니다. 번역 전 원본 교정 단계를 신설해 오류가 전 언어로 증폭되는 것을 차단했고, 엑셀 형식 자동 인식과 Claude Skill 배포로 사용성을 끌어올렸습니다.
+**사이드 프로젝트** &nbsp;—&nbsp; [TheFlower (2023)](https://youtube.com/shorts/KI9Z2TUjRLg) · [TheRoom (2020)](https://youtu.be/OV0ysmhSOIE)
 
-</td>
-<td width="50%" valign="top">
-
-### nDIS
-사내 문서 관리 + RAG 챗봇
-
-준비 중
-
-</td>
-</tr>
-</table>
-
-**사이드 프로젝트** — [TheFlower (2023)](https://youtube.com/shorts/KI9Z2TUjRLg) · [TheRoom (2020)](https://youtu.be/OV0ysmhSOIE)
-
-> 프로젝트별 상세 소개 덱(웹 슬라이드)을 준비하고 있습니다.
+> 프로젝트별 상세 소개 덱을 준비하고 있습니다.
 
 <br>
 
