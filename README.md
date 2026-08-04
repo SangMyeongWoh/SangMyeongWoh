@@ -1,8 +1,6 @@
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/intro4.svg" alt="우상명 Sangmyeong Woh — AI Engineer. 게임 현지화 LLM 파이프라인 설계 및 운영. 넷마블 AI플랫폼, MarbleAI 언어파트 프로젝트 리딩." width="100%" />
 
-## 기술 스택
-
-<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/tech4.svg" alt="기술 스택 — Python, PyTorch, Hugging Face, Gemini, MCP, Claude Code, FastAPI, PostgreSQL, MongoDB, Redis, GCP, GKE, Docker, Airflow, Jenkins, GitHub, GitHub Actions, Unity, Flutter" width="100%" />
+<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/main.svg" alt="기술 스택과 경력·학력 — Python, PyTorch, HuggingFace, Gemini, MCP, Claude Code, FastAPI, PostgreSQL, MongoDB, Redis, GCP, GKE, Docker, Airflow, Jenkins, GitHub, Actions, Unity, Flutter / 넷마블(2023.05~), 데이터헌트, 테스트웍스, 아크릴, 성균관대 석사·학사" width="100%" />
 
 <br>
 
@@ -19,11 +17,7 @@
 
 <br>
 
-## 경력 · 학력
-
-<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/career3.svg" alt="경력·학력 타임라인 — 넷마블(2023.05~), 데이터헌트(2022.10-2023.04), 테스트웍스(2021.06-2022.09), 아크릴(2019.07-2021.06), 성균관대 컴퓨터공학 석사(2017.03-2019.08), 성균관대 학사(2010.03-2017.03)" width="100%" />
-
-**활동 · 수상**
+## 활동 · 수상
 
 - **특허 등록 제102456513호** — 텍스트 데이터 증강
 - **IEEE Computational Intelligence in Games** — runner-up (regression 부문)
