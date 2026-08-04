@@ -25,26 +25,26 @@
     <text x="24" y="196" class="sub" font-size="16" font-weight="500">AI를 활용해 빠르게 만듭니다</text>
   </g>
 
-  <line x1="342" y1="20" x2="342" y2="216" class="rule" stroke-width="1"/>
+  <line x1="380" y1="20" x2="380" y2="216" class="rule" stroke-width="1"/>
 
   <g>
     <g class="sans accent" font-size="13.5" letter-spacing="0.6" font-weight="700">
-      <text x="374" y="38">근무지</text>
-      <text x="374" y="102">경력</text>
-      <text x="374" y="166">핵심역량</text>
+      <text x="412" y="38">근무지</text>
+      <text x="412" y="102">경력</text>
+      <text x="412" y="166">핵심역량</text>
     </g>
 
     <g class="sans">
-      <text x="374" y="62" class="ink" font-size="15.5" font-weight="500">넷마블 AI플랫폼 개발팀 &#183; 서울</text>
-      <text x="374" y="126" class="ink" font-size="15.5" font-weight="500">7년 &#8212; NLP &#183; AI 엔지니어</text>
+      <text x="412" y="62" class="ink" font-size="15.5" font-weight="500">넷마블 AI플랫폼 개발팀 &#183; 서울</text>
+      <text x="412" y="126" class="ink" font-size="15.5" font-weight="500">7년 &#8212; NLP &#183; AI 엔지니어</text>
       <g class="sub" font-size="15">
-        <text x="374" y="190"><tspan class="bullet">&#8226;</tspan>&#160;&#160;LLM 파이프라인 설계와 운영</text>
-        <text x="374" y="211"><tspan class="bullet">&#8226;</tspan>&#160;&#160;업무 자동화 &#183; 에이전트 시스템</text>
-        <text x="374" y="232"><tspan class="bullet">&#8226;</tspan>&#160;&#160;비개발 부서와의 협업과 소통</text>
+        <text x="412" y="190"><tspan class="bullet">&#8226;</tspan>&#160;&#160;LLM 파이프라인 설계와 운영</text>
+        <text x="412" y="211"><tspan class="bullet">&#8226;</tspan>&#160;&#160;업무 자동화 &#183; 에이전트 시스템</text>
+        <text x="412" y="232"><tspan class="bullet">&#8226;</tspan>&#160;&#160;비개발 부서와의 협업과 소통</text>
       </g>
     </g>
 
-    <line x1="374" y1="78"  x2="736" y2="78"  class="rule" stroke-width="1"/>
-    <line x1="374" y1="142" x2="736" y2="142" class="rule" stroke-width="1"/>
+    <line x1="412" y1="78"  x2="738" y2="78"  class="rule" stroke-width="1"/>
+    <line x1="412" y1="142" x2="738" y2="142" class="rule" stroke-width="1"/>
   </g>
 </svg>
