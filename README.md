@@ -17,8 +17,6 @@
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/ic-dot.svg" alt="" height="10" align="absmiddle" />&nbsp;&nbsp;**사이드 프로젝트**
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TheFlower (2023)](https://youtube.com/shorts/KI9Z2TUjRLg) · [TheRoom (2020)](https://youtu.be/OV0ysmhSOIE)
 
-> 프로젝트별 상세 소개 덱을 준비하고 있습니다.
-
 <br>
 
 ## 경력 · 학력
