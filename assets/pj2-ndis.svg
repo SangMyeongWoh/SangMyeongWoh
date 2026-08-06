@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 112" width="380" height="112" role="img" aria-label="nDIS — 사내 문서 관리 및 RAG 챗봇">
+  <title>nDIS</title>
+  <style>
+    text { font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif }
+    .panel { fill:#F4F8F7 }
+    .h  { fill:#16211F; font-size:19px; font-weight:800; letter-spacing:-.2px }
+    .nm { fill:#16211F; font-size:16px; font-weight:800; letter-spacing:-.2px }
+    .it { fill:#16211F; font-size:14.5px; font-weight:700 }
+    .ds { fill:#4A5C59; font-size:12.5px; font-weight:500 }
+    .mk { fill:#0B6B5C }
+    .go { fill:#0B6B5C; font-size:12px; font-weight:700 }
+    .ey { fill:#7E908C; font-size:10.5px; font-weight:700; letter-spacing:.18em;
+          font-family:ui-monospace,'SF Mono',Consolas,monospace }
+    .thin { stroke:#DCE5E2; stroke-width:1 }
+    @media (prefers-color-scheme: dark) {
+      .panel{fill:#101817} .h{fill:#E6EDEA} .nm{fill:#E6EDEA} .it{fill:#E6EDEA}
+      .ds{fill:#A9B8B5} .mk{fill:#6FDCC6} .go{fill:#6FDCC6} .ey{fill:#7F918D} .thin{stroke:#26332F}
+    }
+  </style>
+  <rect class="panel" x="18" y="0" width="362" height="112" rx="14"/>
+  <text x="44" y="32" class="ey">PROJECT 02</text>
+  <text x="44" y="64" class="nm">nDIS</text>
+  <text x="44" y="86" class="ds">사내 문서 관리 + RAG 챗봇</text>
+</svg>
