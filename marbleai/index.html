@@ -340,6 +340,20 @@ ul.dots li b { color: var(--ink); font-weight: 600; }
 .edit-toggle.show, .edit-toggle.active { opacity: 1; pointer-events: auto; }
 .edit-toggle.active { border-color: var(--accent); color: var(--accent); }
 body.editing .slide.active [contenteditable="true"] { outline: 1px dashed rgba(111,220,198,0.5); outline-offset: 3px; }
+
+/* === APPENDIX — 아키텍처 도면 === */
+.apx-intro .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:38px}
+.apx-note{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 30px}
+.apx-note .k{font-family:var(--font-mono);font-size:15px;letter-spacing:.18em;color:var(--accent);font-weight:700;margin-bottom:10px}
+.apx-note p{font-size:20px;line-height:1.62;color:var(--sub);margin:0}
+.apx .pad{padding:64px 96px 82px}
+.apx-head{display:flex;align-items:baseline;gap:18px;margin-bottom:6px}
+.apx-head h3{font-size:34px;font-weight:800;color:var(--ink);margin:0;letter-spacing:-.4px}
+.apx-head .tag{font-family:var(--font-mono);font-size:15px;letter-spacing:.14em;color:var(--muted)}
+.apx-sub{font-size:18px;color:var(--muted);margin:0 0 18px}
+.apx-frame{flex:1;min-height:0;background:#fff;border:1px solid var(--line);border-radius:14px;
+           padding:18px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.apx-frame img{max-width:100%;max-height:100%;object-fit:contain;display:block}
 </style>
 </head>
 <body>
@@ -851,6 +865,52 @@ docker compose up -d</pre>
         </div>
     </div>
     <div class="foot"><span>Sangmyeong Woh — Portfolio</span><span class="pg"></span></div>
+</section>
+
+<!-- ============ APPENDIX ============ -->
+<section class="slide apx-intro">
+    <div class="pad">
+        <div class="eyebrow reveal">Appendix</div>
+        <h2 class="headline reveal d1">실제 <span class="mint">아키텍처 도면</span></h2>
+        <div class="lede reveal d2">본문에서 풀어 설명한 구조를, 실제 시스템 이름과 리소스 단위로 그린 도면입니다. 코드와 운영 문서를 근거로 직접 작도했습니다.</div>
+        <div class="grid2 reveal d3">
+            <div class="apx-note"><div class="k">A1 · BEFORE</div><p>구 번역 시스템 — 서버 1대 위 Airflow 구성, 폴백 사다리, 리뉴얼의 배경이 된 구조적 특징</p></div>
+            <div class="apx-note"><div class="k">A2 · AFTER</div><p>현행 번역·평가 시스템 — 라우팅 5단계 판정, LLM 백엔드 3종, 평가 6단계</p></div>
+            <div class="apx-note"><div class="k">A3 · SHARED</div><p>용어집 — 세 시스템이 공유하는 매칭 엔진의 내부 구조</p></div>
+            <div class="apx-note"><div class="k">NOTE</div><p>본문은 외부 독자 기준으로 용어를 풀어 썼고, 부록은 실제 명칭을 그대로 둡니다.</p></div>
+        </div>
+    </div>
+    <div class="foot"><span>Appendix</span><span class="pg"></span></div>
+</section>
+
+<section class="slide apx">
+    <div class="pad">
+        <div class="eyebrow reveal">Appendix A1 / Before</div>
+        <div class="apx-head reveal d1"><h3>구 번역 시스템</h3><span class="tag">GCE VM 1대 · docker-compose Airflow</span></div>
+        <p class="apx-sub reveal d1">리뉴얼 이전 구조. 우측 하단이 전면 재작성을 택한 근거입니다.</p>
+        <div class="apx-frame reveal d2"><img src="img/m2p-mamt.png" alt="구 MAMT 시스템 아키텍처 — GCE VM 1대 위 Airflow, DAG v3 파이프라인, redis TTL 1일, 번역 폴백 사다리, 구조적 특징 4가지"></div>
+    </div>
+    <div class="foot"><span>Appendix A1</span><span class="pg"></span></div>
+</section>
+
+<section class="slide apx">
+    <div class="pad">
+        <div class="eyebrow reveal">Appendix A2 / After</div>
+        <div class="apx-head reveal d1"><h3>현행 번역 · 평가 시스템</h3><span class="tag">Cloud Run · Service 3 + Job 2</span></div>
+        <p class="apx-sub reveal d1">접수 서버의 5단계 경로 판정, 언어쌍별 LLM 라우팅, 평가기 6단계까지의 현행 구조입니다.</p>
+        <div class="apx-frame reveal d2"><img src="img/mamt_new.png" alt="현행 번역 시스템 아키텍처 — 접수 서버, Cloud Tasks 큐, Worker/Pipeline/Vectors, LLM 백엔드 3종, 평가 LQE 6단계, 공용 저장소"></div>
+    </div>
+    <div class="foot"><span>Appendix A2</span><span class="pg"></span></div>
+</section>
+
+<section class="slide apx">
+    <div class="pad">
+        <div class="eyebrow reveal">Appendix A3 / Shared</div>
+        <div class="apx-head reveal d1"><h3>용어집 매칭 엔진</h3><span class="tag">번역 · 교정 · 평가 공용</span></div>
+        <p class="apx-sub reveal d1">문자열 다중 검색과 단어 원형 분석을 함께 쓰는 이원 매칭의 내부 구조입니다.</p>
+        <div class="apx-frame reveal d2"><img src="img/mai-glossary.png" alt="용어집 시스템 아키텍처 — 매칭 엔진 이원 경로, 캐시 계층, API 엔드포인트"></div>
+    </div>
+    <div class="foot"><span>Appendix A3</span><span class="pg"></span></div>
 </section>
 
 </main>
