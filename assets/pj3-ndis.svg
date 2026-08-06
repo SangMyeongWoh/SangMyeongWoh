@@ -17,8 +17,8 @@
       .ds{fill:#A9B8B5} .mk{fill:#6FDCC6} .go{fill:#6FDCC6} .ey{fill:#7F918D} .thin{stroke:#26332F}
     }
   </style>
-  <rect class="panel" x="18" y="0" width="362" height="112" rx="14"/>
-  <text x="44" y="32" class="ey">PROJECT 02</text>
-  <text x="44" y="64" class="nm">nDIS</text>
-  <text x="44" y="86" class="ds">사내 문서 관리 + RAG 챗봇</text>
+  <rect class="panel" x="12" y="0" width="368" height="112" rx="14"/>
+  <text x="38" y="32" class="ey">PROJECT 02</text>
+  <text x="38" y="64" class="nm">nDIS</text>
+  <text x="38" y="86" class="ds">사내 문서 관리 + RAG 챗봇</text>
 </svg>
