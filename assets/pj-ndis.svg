@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 368 112" width="368" height="112" role="img" aria-label="nDIS — 사내 문서 관리 및 RAG 챗봇">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 112" width="380" height="112" role="img" aria-label="nDIS — 사내 문서 관리 및 RAG 챗봇">
   <title>nDIS</title>
   <style>
     text { font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif }
@@ -17,8 +17,8 @@
       .ds{fill:#A9B8B5} .mk{fill:#6FDCC6} .go{fill:#6FDCC6} .ey{fill:#7F918D} .thin{stroke:#26332F}
     }
   </style>
-  <rect class="panel" x="0" y="0" width="368" height="112" rx="14"/>
-  <text x="26" y="32" class="ey">PROJECT 02</text>
-  <text x="26" y="64" class="nm">nDIS</text>
-  <text x="26" y="86" class="ds">사내 문서 관리 + RAG 챗봇</text>
+  <rect class="panel" x="12" y="0" width="368" height="112" rx="14"/>
+  <text x="38" y="32" class="ey">PROJECT 02</text>
+  <text x="38" y="64" class="nm">nDIS</text>
+  <text x="38" y="86" class="ds">사내 문서 관리 + RAG 챗봇</text>
 </svg>
