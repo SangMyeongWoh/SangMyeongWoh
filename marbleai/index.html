@@ -102,6 +102,12 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 .lbl { display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent);
        border: 1px solid var(--accent); border-radius: 999px; padding: 1px 10px; margin-right: 10px;
        vertical-align: 2px; }
+
+/* Problem 항목 참조 배지 */
+.ref { display: inline-block; font-family: ui-monospace,'SF Mono',Consolas,monospace;
+       font-size: 12px; font-weight: 800; color: var(--accent);
+       border: 1px solid var(--accent); border-radius: 5px; padding: 0 5px;
+       margin-right: 3px; vertical-align: 2px; }
 </style>
 </head>
 <body>
@@ -141,9 +147,10 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 <!-- ============ A1 ============ -->
 <section class="narr">
     <h2><span class="mono">Analyze</span>어떻게 판단했나</h2>
-    <p>겉으로 보이는 고통(배포 사고, 데이터 소실)은 사실 플랫폼 탓이 아니었습니다. 플랫폼 교체를 정당화한 건 하나 — <b>워크플로 엔진(Airflow)을 쓰면서 정작 정기 워크플로가 하나도 없었다</b>는 사실입니다. 부하도 요청 빈도가 아니라 한 건의 크기로 오는, 엔진의 전제와 다른 모양이었습니다.</p>
-    <p style="margin-top:12px;">그리고 번역만 자동화해서는 검수·용어 통일이라는 병목이 여전히 사람에게 남습니다. 시스템의 범위를 <b>번역 한 단계에서 현지화 전 과정(교정 → 번역 → 용어 → 평가)으로 넓히기로</b> 했습니다.</p>
-    <p style="margin-top:12px;">실행 기반은 관리형 Airflow와 쿠버네티스를 검토한 뒤 Cloud Run을 택했습니다. 기준은 성능이 아니라 <b>운영 인력</b>이었습니다.</p>
+    <p>네 문제는 두 종류였습니다. <b><span class="ref">02</span><span class="ref">04</span>는 실행 기반의 문제</b>였습니다. 서버를 늘려도 격리와 대기는 그대로고 배포도 달라지지 않으니, 무엇을 얹을지가 아니라 <b>어디에 얹을지</b>를 바꿔야 했습니다.</p>
+    <p style="margin-top:12px;"><b><span class="ref">01</span><span class="ref">03</span>은 범위의 문제</b>였습니다. 번역만 자동화된 시스템에서는 품질 검증과 용어 통일이 갈 곳이 없어 사람과 외주에 남습니다. 도구를 고쳐서 될 일이 아니라, <b>시스템이 덮는 범위</b>를 넓혀야 했습니다.</p>
+    <p style="margin-top:18px;"><b>실행 기반</b> — 관리형 Airflow와 쿠버네티스를 검토한 뒤 Cloud Run을 택했습니다. Airflow를 유지하는 안은 <b>정기 워크플로가 하나도 없는</b> 우리 사용 형태와 맞지 않았고(부하도 요청 빈도가 아니라 한 건의 크기로 왔습니다), 쿠버네티스는 전담 관리 인력이 필요했습니다. 기준은 성능이 아니라 <b>운영 인력</b>이었습니다.</p>
+    <p style="margin-top:12px;"><b>범위</b> — 번역 한 단계에서 <b>현지화 전 과정(교정 → 번역 → 용어집 → 평가)</b>으로 넓히기로 했습니다. 용어집은 번역 코드에서 떼어내 세 시스템이 함께 쓰는 독립 서비스로, 품질 검증은 외주가 아니라 시스템 안에서 돌게 만들기로 했습니다.</p>
     <p class="pull">작은 팀에 지속 가능한 건 "잘 튜닝된 인프라"가 아니라 "튜닝할 게 없는 인프라"라고 판단했습니다.</p>
 </section>
 
