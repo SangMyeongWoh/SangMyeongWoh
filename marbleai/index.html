@@ -148,7 +148,7 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
     <h2><span class="mono">Analyze &amp; Apply</span>분석 및 적용</h2>
     <p><span class="ref"><b>01</b>확장성</span>작업 특성상 요청 빈도보다 <b>한 건의 크기</b>가 중요했습니다. 큐 하나를 빠르게 만드는 대신, 작은 작업과 큰 작업을 <b>다른 경로로 나누기로</b> 했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>02</b>배포</span><b>Cloud Composer, GKE, Cloud Run</b> 세 가지를 고려했고, <b>Cloud Run</b>을 택했습니다. Composer는 <b>필요한 기능에 비해 과하고 비쌌습니다.</b> GKE는 <b>상대적으로 유지보수에 사람 인력이 더 들어간다</b>고 판단했습니다. 배포는 <b>GitHub Actions</b>로 CI/CD를 간단히 할 수 있게 했습니다.</p>
-    <p style="margin-top:14px;"><span class="ref"><b>03</b>운영비용</span>흩어진 로그를 <b>작업 ID별로 모으고</b>, 그 위에 ID만 넣으면 원인을 짚어주는 <b>진단 도구를 두기로</b> 했습니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>03</b>운영비용</span><b>모든 수정에 사람이 직접 관여할 필요는 없다</b>고 판단했습니다. 흩어져 있던 로그를 <b>작업 ID별로 한곳에</b> 모으고, ID만 넣으면 로그를 읽어 <b>문제를 진단해 주는 Claude Code 스킬</b>을 만들었습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>용어집</span><b>교정, 평가도 같은 용어집을 써야 한다</b>고 봤습니다. 그래서 기계번역에서 떼어내 <b>별도 서비스와 DB로 분리하기로</b> 했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>05</b>품질 검증</span>평가 기준은 이미 사내에 있었고, 외주는 <b>그 기준을 사람이 적용</b>하던 것이었습니다. 기준이 문서로 존재한다면 <b>채점은 자동화할 수 있다</b>고 판단했습니다. 목표는 사람을 대체하는 게 아니라, <b>모델을 바꿀 때마다 바로 돌려볼 검증</b>을 갖는 것이었습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>+</b>원본 교정</span>여기에 하나를 더했습니다. 한국어 원본의 오탈자와 잘못된 용어는 번역을 거치면 <b>모든 언어로 증폭</b>됩니다. 번역 앞단에서 먼저 걸러야 한다고 봤습니다.</p>
