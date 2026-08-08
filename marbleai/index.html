@@ -92,6 +92,15 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 .narr .pull { font-size: 20.5px; }
 .narr li { padding-left: 24px; margin-top: 14px; }
 .narr li::before { left: 5px; top: 14px; width: 7px; height: 7px; }
+
+/* 번호 매긴 항목 (Problem ↔ Result 대응) */
+.idxlist li { padding-left: 0; }
+.idxlist li::before { display: none; }
+.idx { font-family: ui-monospace,'SF Mono',Consolas,monospace; font-size: 14px; font-weight: 800;
+       color: var(--accent); margin-right: 10px; letter-spacing: .06em; }
+.lbl { display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent);
+       border: 1px solid var(--accent); border-radius: 999px; padding: 1px 10px; margin-right: 10px;
+       vertical-align: 2px; }
 </style>
 </head>
 <body>
@@ -120,11 +129,11 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 <!-- ============ P ============ -->
 <section class="narr">
     <h2><span class="mono">Problem</span>왜 손대야 했나</h2>
-    <ul>
-        <li>번역 품질을 확인하려면 <b>외부 업체 검수</b>가 필요했습니다. 한 번 돌리는 데 2주에서 한 달이 걸렸고, 비용이 커서 <b>분기에 한 번 할까 말까</b>였습니다. 프롬프트나 모델을 바꿔도 다음 분기까지 기다려야 좋아졌는지 알 수 있었으니, <b>점점 빨라지는 LLM 발전 속도를 따라갈 수 없었습니다.</b></li>
-        <li><b>서버 한 대에 모든 것이 얹혀</b> 있었습니다. 자원이 고정돼 요청이 몰려도 늘릴 수 없었고, 작업 간 격리도 없었습니다. 크기와 무관하게 모든 요청이 <b>하나의 큐를 들어온 순서대로</b> 지나서, 몇 문장짜리 번역도 앞의 대량 작업이 끝나기를 기다려야 했습니다.</li>
-        <li>게임 용어를 통일하는 <b>용어집이 번역 코드 안에 박혀</b> 있었습니다. 원본이 엑셀 파일이라 요청마다 통째로 읽어 검색 구조를 새로 만들었고, 로직을 고치려면 번역 시스템 전체를 다시 배포해야 했습니다. <b>번역 말고는 누구도 쓸 수 없는 구조</b>였습니다.</li>
-        <li>배포 자동화가 없어 이미지 빌드부터 서버 반영까지 사람이 직접 했습니다. 컨테이너를 통째로 내렸다 올리는 방식이라 <b>진행 중인 번역이 없는 때를 골라</b> 배포해야 했습니다.</li>
+    <ul class="idxlist">
+        <li><span class="idx">01</span><span class="lbl">품질 검증</span>번역 품질을 확인하려면 <b>외부 업체 검수</b>가 필요했습니다. 한 번 돌리는 데 2주에서 한 달이 걸렸고, 비용이 커서 <b>분기에 한 번 할까 말까</b>였습니다. 프롬프트나 모델을 바꿔도 다음 분기까지 기다려야 좋아졌는지 알 수 있었으니, <b>점점 빨라지는 LLM 발전 속도를 따라갈 수 없었습니다.</b></li>
+        <li><span class="idx">02</span><span class="lbl">확장성</span><b>서버 한 대에 모든 것이 얹혀</b> 있었습니다. 자원이 고정돼 요청이 몰려도 늘릴 수 없었고, 작업 간 격리도 없었습니다. 크기와 무관하게 모든 요청이 <b>하나의 큐를 들어온 순서대로</b> 지나서, 몇 문장짜리 번역도 앞의 대량 작업이 끝나기를 기다려야 했습니다.</li>
+        <li><span class="idx">03</span><span class="lbl">용어집</span>게임 용어를 통일하는 <b>용어집이 번역 코드 안에 박혀</b> 있었습니다. 원본이 엑셀 파일이라 요청마다 통째로 읽어 검색 구조를 새로 만들었고, 로직을 고치려면 번역 시스템 전체를 다시 배포해야 했습니다. <b>번역 말고는 누구도 쓸 수 없는 구조</b>였습니다.</li>
+        <li><span class="idx">04</span><span class="lbl">배포</span>배포 자동화가 없어 이미지 빌드부터 서버 반영까지 사람이 직접 했습니다. 컨테이너를 통째로 내렸다 올리는 방식이라 <b>진행 중인 번역이 없는 때를 골라</b> 배포해야 했습니다.</li>
     </ul>
     <p class="pull">고칠 방향은 보였지만, 고칠 수 있는 구조가 아니었습니다.</p>
 </section>
