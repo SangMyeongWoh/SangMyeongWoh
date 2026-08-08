@@ -145,7 +145,7 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 
 <!-- ============ A1 ============ -->
 <section class="narr">
-    <h2><span class="mono">Analyze</span>분석 및 판단</h2>
+    <h2><span class="mono">Analyze &amp; Apply</span>분석 및 적용</h2>
     <p><span class="ref"><b>01</b>확장성</span>작업 특성상 요청 빈도보다 <b>한 건의 크기</b>가 중요했습니다. 큐 하나를 빠르게 만드는 대신, 작은 작업과 큰 작업을 <b>다른 경로로 나누기로</b> 했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>02</b>배포</span>배포도 <b>사람이 서버에 붙지 않아도 되는 구조</b>여야 했습니다. 둘 다 만족하려면 실행 기반을 옮겨야 했고, <b>Cloud Composer, GKE, Cloud Run</b> 세 가지를 고려해 <b>Cloud Run</b>을 택했습니다. Composer는 필요한 기능에 비해 과하고 비쌌고, GKE는 <b>상대적으로 유지보수에 사람 인력이 더 들어간다</b>고 판단했습니다. 작은 작업은 <b>Service</b>, 큰 작업은 <b>Job</b>으로 나눌 수 있다는 점도 이유였습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>운영비용</span>흩어진 로그를 <b>작업 ID별로 모으고</b>, 그 위에 ID만 넣으면 원인을 짚어주는 <b>진단 도구를 두기로</b> 했습니다.</p>
