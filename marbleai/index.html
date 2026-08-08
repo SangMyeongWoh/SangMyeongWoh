@@ -146,7 +146,7 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 <!-- ============ A1 ============ -->
 <section class="narr">
     <h2><span class="mono">Analyze</span>분석 및 판단</h2>
-    <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer</b>·<b>GKE</b>·<b>Cloud Run</b> 세 가지를 고려했고, <b>Cloud Run</b>을 택했습니다. Composer는 <b>필요한 기능에 비해 과하고 비쌌습니다.</b> GKE는 <b>상대적으로 유지보수에 사람 인력이 더 들어간다</b>고 판단했습니다.</p>
+    <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer</b>, <b>GKE</b>, <b>Cloud Run</b> 세 가지를 고려했고, <b>Cloud Run</b>을 택했습니다. Composer는 <b>필요한 기능에 비해 과하고 비쌌습니다.</b> GKE는 <b>상대적으로 유지보수에 사람 인력이 더 들어간다</b>고 판단했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>01</b>확장성</span>작업 특성상 요청 빈도보다는 <b>한 건의 크기</b>가 중요했습니다. 작은 작업은 <b>Cloud Run Service</b>로, 큰 작업은 <b>Cloud Run Job</b>으로 처리되는 분기를 만들었습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>운영비용</span>시스템이 넷으로 늘면 <b>실패 지점도 넷</b>이 됩니다. 각자 로그를 남기면 진단은 더 어려워집니다. 무엇이 어디까지 갔는지를 <b>원장 하나</b>에 모으기로 했습니다. 사람이 뒤지던 일을 <b>도구가 대신할 수 있게</b>.</p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>용어집</span>용어집은 기계번역에서 <b>떼어내 독립 서비스</b>로 만들기로 했습니다. DB로 옮기면 요청마다 다시 읽을 이유가 없고, <b>교정·평가도 같은 용어집을 쓸 수 있습니다.</b> 용어 통일은 기계번역만의 문제가 아니었습니다.</p>
