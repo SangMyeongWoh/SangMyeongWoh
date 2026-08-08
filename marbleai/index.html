@@ -147,8 +147,8 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 <section class="narr">
     <h2><span class="mono">Analyze &amp; Apply</span>분석 및 적용</h2>
     <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer, GKE, Cloud Run</b> 세 가지를 고려했고, <b>Cloud Run</b>을 택했습니다. Composer는 <b>필요한 기능에 비해 과하고 비쌌습니다.</b> GKE는 <b>상대적으로 유지보수에 사람 인력이 더 들어간다</b>고 판단했습니다.</p>
-    <p style="margin-top:10px;">작업 특성상 요청 빈도보다는 <b>한 건의 크기</b>가 중요했으므로, 작은 작업은 <b>Cloud Run Service</b>로, 큰 작업은 <b>Cloud Run Job</b>으로 처리되는 분기를 만들었습니다.</p>
-    <p style="margin-top:10px;">배포는 <b>GitHub Actions</b>로 CI/CD를 간단히 할 수 있게 했습니다.</p>
+    <p style="margin-top:10px;padding-left:14px;border-left:2px solid var(--line);">작업 특성상 요청 빈도보다는 <b>한 건의 크기</b>가 중요했으므로, 작은 작업은 <b>Cloud Run Service</b>로, 큰 작업은 <b>Cloud Run Job</b>으로 처리되는 분기를 만들었습니다.</p>
+    <p style="margin-top:10px;padding-left:14px;border-left:2px solid var(--line);">배포는 <b>GitHub Actions</b>로 CI/CD를 간단히 할 수 있게 했습니다.</p>
     
     <p style="margin-top:14px;"><span class="ref"><b>03</b>운영비용</span><b>모든 수정에 사람이 직접 관여할 필요는 없다</b>고 판단했습니다. 흩어져 있던 로그를 <b>작업 ID별로 한곳에</b> 모으고, ID만 넣으면 로그를 읽어 <b>문제를 진단해 주는 Claude Code 스킬</b>을 만들었습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>용어집</span>용어집도 <b>원활한 패치와 관리를 위해 별도 서비스로 분리</b>하고, <b>DB를 만들어 관리</b>하도록 했습니다. 덕분에 <b>교정, 평가도 같은 용어집을 쓸 수 있게</b> 됐습니다.</p>
