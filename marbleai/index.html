@@ -146,7 +146,7 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 <!-- ============ A1 ============ -->
 <section class="narr">
     <h2><span class="mono">Analyze</span>분석 및 판단</h2>
-    <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span>먼저 <b>어디서 돌릴지</b>를 정했습니다. <b>Cloud Composer</b>(관리형 Airflow)·<b>GKE</b>(쿠버네티스)·<b>Cloud Run</b> 세 가지를 놓고 조사해 팀과 논의했고, <b>Cloud Run</b>을 택했습니다. Composer는 <b>정해진 시각에 도는 작업</b>을 위한 도구인데, 우리에겐 그런 작업이 없었습니다. GKE는 성능은 충분했지만 <b>전담 관리 인력</b>이 필요했습니다. 기준은 성능이 아니라 <b>누가 계속 돌볼 것인가</b>였습니다.</p>
+    <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer</b>(관리형 Airflow)·<b>GKE</b>(쿠버네티스)·<b>Cloud Run</b> 세 가지를 놓고 조사해 팀과 논의했고, <b>Cloud Run</b>을 택했습니다. Composer는 <b>정해진 시각에 도는 작업</b>을 위한 도구인데, 우리에겐 그런 작업이 없었습니다. GKE는 성능은 충분했지만 <b>전담 관리 인력</b>이 필요했습니다. 기준은 성능이 아니라 <b>누가 계속 돌볼 것인가</b>였습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>01</b>확장성</span>부하는 요청 빈도가 아니라 <b>한 건의 크기</b>로 왔습니다. 그래서 큐 하나를 빠르게 만드는 대신 <b>경로를 나눴습니다</b> — 짧은 요청은 대기 없는 전용 경로로, 대량 작업은 따로 확장되게.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>운영비용</span>시스템이 넷으로 늘면 <b>실패 지점도 넷</b>이 됩니다. 각자 로그를 남기면 진단은 더 어려워집니다. 무엇이 어디까지 갔는지를 <b>원장 하나</b>에 모으기로 했습니다. 사람이 뒤지던 일을 <b>도구가 대신할 수 있게</b>.</p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>용어집</span>용어집은 기계번역에서 <b>떼어내 독립 서비스</b>로 만들기로 했습니다. DB로 옮기면 요청마다 다시 읽을 이유가 없고, <b>교정·평가도 같은 용어집을 쓸 수 있습니다.</b> 용어 통일은 기계번역만의 문제가 아니었습니다.</p>
