@@ -155,14 +155,13 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 <!-- ============ R ============ -->
 <section class="narr">
     <h2><span class="mono">Result</span>무엇이 달라졌나</h2>
-    <p><b>규모</b> — 사내 <b>248개</b> 게임 워크스페이스가 사용하고, 누적 <b>7,000건 이상</b>을 처리했습니다. 대상 언어는 <b>최대 31개</b>입니다.</p>
-    <p style="margin-top:22px;"><b>개선</b> — 앞의 다섯 문제가 각각 이렇게 닫혔습니다.</p>
+    <p>사내 <b>248개</b> 게임 워크스페이스가 사용하고, 누적 <b>7,000건 이상</b>을 처리했습니다. 1세대와 비교하면 이렇습니다.</p>
     <ul class="idxlist">
-        <li><span class="lbl"><b>01</b>확장성</span><b>62분 → 26분</b> — 무거운 계산을 별도 Job으로 분리해 대형 작업 처리 시간을 줄였습니다.</li>
-        <li><span class="lbl"><b>02</b>배포</span><b>3.81GB → 1.44GB</b> — 베이스 이미지를 정리해 배포 이미지를 줄였고, 배포는 사람 손을 떠났습니다.</li>
-        <li><span class="lbl"><b>03</b>운영비용</span><b>LLM 비용 −79%</b> — 모든 작업의 상태와 품질이 하나의 기록으로 조회되고, 그 위에서 병목과 낭비를 찾아 고칩니다.</li>
-        <li><span class="lbl"><b>04</b>용어집</span><b>오탐 26.8만 건 제거</b> — 용어집이 독립 서비스가 되면서 매칭 문제를 기계번역과 무관하게 고칠 수 있게 됐습니다.</li>
-        <li><span class="lbl"><b>05</b>품질 검증</span><b>분기 1회 → 상시</b> — 외주 검수를 자동 채점으로 대체해, 번역량이 늘어도 검증 기간과 비용이 따라 늘지 않습니다.</li>
+        <li><span class="lbl"><b>01</b>확장성</span>서버 한 대 고정 → <b>작업 크기에 따라 자동 확장</b> (작은 요청이 대량 작업 뒤에서 기다리지 않음)</li>
+        <li><span class="lbl"><b>02</b>배포</span>수동 배포 → <b>CI/CD 자동화</b> (작업 없는 때를 고를 필요 없음)</li>
+        <li><span class="lbl"><b>03</b>운영비용</span>로그가 흩어져 사람이 뒤짐 → <b>한곳에 모인 기록 + 진단 스킬</b></li>
+        <li><span class="lbl"><b>04</b>용어집</span>엑셀 + 기계번역 내장 → <b>독립 서비스와 DB, 세 시스템이 공유</b></li>
+        <li><span class="lbl"><b>05</b>품질 검증</span>분기 1회 외주 검수 → <b>상시 자동 채점</b></li>
     </ul>
 </section>
 
