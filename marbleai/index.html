@@ -64,7 +64,10 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .num { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
 .num b { display: block; font-size: 21px; color: var(--accent); letter-spacing: -.3px; }
 .num span { font-size: 13px; color: var(--muted); line-height: 1.45; display: block; margin-top: 4px; }
-@media (max-width: 620px) { .nums { grid-template-columns: repeat(2, 1fr); } }
+.nums.n3 { grid-template-columns: repeat(3, 1fr); }
+.glab { font-size: 15px; font-weight: 800; color: var(--muted); letter-spacing: .02em; margin-bottom: 10px; }
+.narr .glab { font-size: 15px; }
+@media (max-width: 620px) { .nums, .nums.n3 { grid-template-columns: repeat(2, 1fr); } }
 
 /* 본문 리스트 */
 ul { list-style: none; margin-top: 4px; }
@@ -155,14 +158,20 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 <!-- ============ R ============ -->
 <section class="narr">
     <h2><span class="mono">Result</span>지금의 MaMT</h2>
-    <p>사내 <b>248개</b> 게임 워크스페이스가 사용하고, 누적 <b>7,000건 이상</b>을 처리했습니다. 1세대와 비교하면 이렇습니다.</p>
-    <ul class="idxlist">
-        <li><span class="lbl"><b>01</b>확장성</span>서버 한 대 고정 → <b>작업 크기에 맞춰 Job 인스턴스가 자동으로 늘어나 병렬 처리</b>됩니다. 작은 요청은 <b>별도 경로로 할당</b>되어 대량 작업 뒤에서 기다리지 않습니다.</li>
-        <li><span class="lbl"><b>02</b>배포</span>사람이 직접 하던 배포 → <b>GitHub Actions 기반 CI/CD</b>, real/dev <b>환경별로 분리</b>해 배포합니다.</li>
-        <li><span class="lbl"><b>03</b>운영비용</span>사람이 직접 뒤지던 진단 → <b>운영 로그를 통일</b>하고 <b>에러 진단을 자동화한 스킬</b>을 구성했습니다. 게임 태그(문장 속 변수·서식 코드) 추출도 <b>AI로 자동화</b>해, 규칙을 손으로 추가하던 일을 없앴습니다.</li>
-        <li><span class="lbl"><b>04</b>용어집</span>엑셀 + 기계번역 내장 → <b>독립 서비스와 DB, 세 시스템이 공유</b></li>
-        <li><span class="lbl"><b>05</b>품질 검증</span>분기 1회 외주 검수 → <b>상시 자동 채점</b></li>
-    </ul>
+    <p class="glab">규모</p>
+    <div class="nums n3">
+        <div class="num"><b>248개</b><span>사내 게임 워크스페이스가 사용</span></div>
+        <div class="num"><b>7,000+ 건</b><span>누적 기계번역 작업 (1·2세대 합산)</span></div>
+        <div class="num"><b>최대 31개</b><span>동시 대응 언어</span></div>
+    </div>
+    <p class="glab" style="margin-top:30px;">개선</p>
+    <div class="nums n3">
+        <div class="num"><b>분기 1회 → 상시</b><span>품질 검증 — 외주 검수를 자동 채점으로 대체</span></div>
+        <div class="num"><b>62분 → 26분</b><span>대형 작업 처리 시간 — 무거운 계산을 전담 Job으로 분리</span></div>
+        <div class="num"><b>LLM 비용 −79%</b><span>번역 호출 비용 — 추론 예산 조정 A/B 실측</span></div>
+        <div class="num"><b>3.81 → 1.44GB</b><span>배포 이미지 크기 — 베이스 이미지 정리</span></div>
+        <div class="num"><b>26.8만 건</b><span>용어집 오탐 제거 — 검증 로직 수리 후 실측</span></div>
+    </div>
 </section>
 
 <hr style="margin-top:64px;">
