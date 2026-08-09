@@ -65,9 +65,10 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .num b { display: block; font-size: 21px; color: var(--accent); letter-spacing: -.3px; }
 .num span { font-size: 13px; color: var(--muted); line-height: 1.45; display: block; margin-top: 4px; }
 .nums.n3 { grid-template-columns: repeat(3, 1fr); }
+.nums.n2 { grid-template-columns: repeat(2, 1fr); }
 .glab { font-size: 15px; font-weight: 800; color: var(--muted); letter-spacing: .02em; margin-bottom: 10px; }
 .narr .glab { font-size: 15px; }
-@media (max-width: 620px) { .nums, .nums.n3 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .nums, .nums.n3, .nums.n2 { grid-template-columns: repeat(2, 1fr); } }
 
 /* 본문 리스트 */
 ul { list-style: none; margin-top: 4px; }
@@ -165,10 +166,9 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
         <div class="num"><b>최대 31개</b><span>동시 대응 언어</span></div>
     </div>
     <p class="glab" style="margin-top:30px;">개선</p>
-    <div class="nums n3">
+    <div class="nums n2">
         <div class="num"><b>분기 1회 → 상시</b><span>품질 검증 — 외주 검수를 자동 채점으로 대체</span></div>
         <div class="num"><b>62분 → 26분</b><span>대형 작업 처리 시간 — 무거운 계산을 전담 Job으로 분리</span></div>
-        <div class="num"><b>LLM 비용 −79%</b><span>번역 호출 비용 — 추론 예산 조정 A/B 실측</span></div>
         <div class="num"><b>3.81 → 1.44GB</b><span>배포 이미지 크기 — 베이스 이미지 정리</span></div>
         <div class="num"><b>26.8만 건</b><span>용어집 오탐 제거 — 검증 로직 수리 후 실측</span></div>
     </div>
