@@ -129,7 +129,7 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
     <h2><span class="mono">Problem</span>1세대 MaMT의 문제점</h2>
     <ul class="idxlist">
         <li><span class="lbl"><b>01</b>확장성</span>서버 한 대 고정 → <b>작업 크기에 맞춰 Job 인스턴스가 자동으로 늘어나 병렬 처리</b>됩니다. 작은 요청은 <b>별도 경로로 할당</b>되어 대량 작업 뒤에서 기다리지 않습니다.</li>
-        <li><span class="lbl"><b>02</b>배포</span>배포 자동화가 없어 빌드부터 서버 반영까지 <b>사람이 직접</b> 했습니다. 컨테이너를 통째로 내렸다 올려서 <b>진행 중인 기계번역이 없는 때를 골라야</b> 했습니다.</li>
+        <li><span class="lbl"><b>02</b>배포</span>사람이 직접 하던 배포 → <b>GitHub Actions 기반 CI/CD</b>, real/dev <b>환경별로 분리</b>해 배포합니다.</li>
         <li><span class="lbl"><b>03</b>운영비용</span><b>체계화된 모니터링이 없어</b> 기계번역에 문제가 생겼을 때 정확한 진단이 어려웠습니다. 사소한 수정 하나에도 <b>사람이 직접 문제 지점을 찾아</b> 유지보수해야 했고, 이 일이 <b>한 달에 몇 번씩</b> 반복됐습니다.</li>
         <li><span class="lbl"><b>04</b>용어집</span>용어는 엑셀, <b>매칭 엔진은 기계번역 이미지 안에</b> 있었습니다. 요청마다 엑셀을 다시 읽어 검색 구조를 새로 빌드했고, 매칭을 고치려면 <b>기계번역을 통째로 재배포</b>해야 했습니다.</li>
         <li><span class="lbl"><b>05</b>품질 검증</span>기계번역 품질 확인이 <b>외부 업체 검수</b>라 한 번에 2주~한 달, 비용 때문에 <b>분기 1회</b>가 한계였습니다. 모델을 바꿔도 다음 분기에야 결과를 알 수 있어 <b>빨라지는 LLM 흐름을 따라갈 수 없었습니다.</b></li>
