@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 348" width="760" height="348" role="img" aria-label="2세대 MaMT 개요 — 원본 교정, 기계번역, 품질 평가 세 단계와 작업 크기에 따른 두 경로, 공용 서비스">
+<style>
+  .bg  { fill: #ffffff; }
+  .pan { fill: #f4f8f7; stroke: #dce5e2; }
+  .box { fill: #ffffff; stroke: #dce5e2; }
+  .hot { stroke: #0b6b5c; }
+  .ink { fill: #16211f; }
+  .sub { fill: #33403e; }
+  .mut { fill: #6b7c79; }
+  .acc { fill: #0b6b5c; }
+  .ln  { stroke: #6b7c79; }
+  @media (prefers-color-scheme: dark) {
+    .bg  { fill: #0d1413; }
+    .pan { fill: #101817; stroke: #26332f; }
+    .box { fill: #0d1413; stroke: #26332f; }
+    .hot { stroke: #6fdcc6; }
+    .ink { fill: #e6edea; }
+    .sub { fill: #bcc9c6; }
+    .mut { fill: #849692; }
+    .acc { fill: #6fdcc6; }
+    .ln  { stroke: #849692; }
+  }
+  text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
+  .t { font-size: 15px; font-weight: 700; }
+  .s { font-size: 12.5px; }
+  .k { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; }
+  rect { stroke-width: 1.2; }
+  .hot { stroke-width: 1.7; }
+  .ln  { fill: none; stroke-width: 1.4; }
+</style>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="#6b7c79"/>
+  </marker>
+</defs>
+
+<rect class="bg" x="0" y="0" width="760" height="348"/>
+
+<!-- 입력 -->
+<rect class="box" x="16" y="12" width="228" height="42" rx="9"/>
+<text class="t sub" x="30" y="31">요청</text>
+<text class="s mut" x="30" y="47">사내 웹 · 대화창에서 파일 업로드</text>
+<path class="ln" d="M130 54 L130 76" marker-end="url(#a)"/>
+
+<!-- 3단 파이프라인 -->
+<rect class="box" x="16" y="80" width="228" height="68" rx="10"/>
+<text class="t ink" x="30" y="104">① 원본 교정</text>
+<text class="s mut" x="30" y="124">한국어 원본의 오탈자·용어를</text>
+<text class="s mut" x="30" y="139">번역 전에 바로잡습니다</text>
+
+<rect class="box hot" x="266" y="80" width="228" height="68" rx="10"/>
+<text class="t ink" x="280" y="104">② 기계번역</text>
+<text class="s mut" x="280" y="124">최대 31개 언어로 옮기고</text>
+<text class="s mut" x="280" y="139">태그·용어를 검사합니다</text>
+
+<rect class="box" x="516" y="80" width="228" height="68" rx="10"/>
+<text class="t ink" x="530" y="104">③ 품질 평가</text>
+<text class="s mut" x="530" y="124">국제 표준(MQM) 기준으로</text>
+<text class="s mut" x="530" y="139">자동 채점합니다</text>
+
+<path class="ln" d="M244 114 L262 114" marker-end="url(#a)"/>
+<path class="ln" d="M494 114 L512 114" marker-end="url(#a)"/>
+
+<!-- 크기에 따라 갈리는 두 경로 -->
+<path class="ln" d="M380 148 L380 178"/>
+<path class="ln" d="M374 178 L636 178"/>
+<path class="ln" d="M374 178 L374 200" marker-end="url(#a)"/>
+<path class="ln" d="M636 178 L636 200" marker-end="url(#a)"/>
+<text class="k mut" x="300" y="174">작으면</text>
+<text class="k mut" x="648" y="174">크면</text>
+
+<rect class="box" x="266" y="204" width="216" height="54" rx="9"/>
+<text class="t sub" x="280" y="226">소형 — 즉시 처리</text>
+<text class="s mut" x="280" y="245">대기 없이 바로 응답합니다</text>
+
+<rect class="box" x="528" y="204" width="216" height="54" rx="9"/>
+<text class="t sub" x="542" y="226">대형 — 배치 처리</text>
+<text class="s mut" x="542" y="245">크기만큼 인스턴스가 늘어납니다</text>
+
+<!-- 공용 -->
+<rect class="pan" x="16" y="282" width="728" height="54" rx="12"/>
+<text class="k acc" x="32" y="303">세 단계가 함께 쓰는 것</text>
+<text class="t sub" x="32" y="325">용어집</text>
+<text class="s mut" x="90" y="325">게임마다 정해진 표기를 한곳에서 관리</text>
+<text class="t sub" x="400" y="325">작업 원장</text>
+<text class="s mut" x="478" y="325">모든 작업의 상태·이력이 한 기록으로</text>
+</svg>
