@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 346" width="760" height="346" role="img" aria-label="평가 구성">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 368" width="760" height="368" role="img" aria-label="평가 구성">
 <style>
   .bg  { fill: #ffffff; }
   .pan { fill: #f4f8f7; stroke: #dce5e2; }
@@ -36,31 +36,33 @@
   .dl { stroke-dasharray: 4 4; }
 </style>
 <defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4.5" orient="auto"><path class="ah" d="M0.5 0.6 L9 4.5 L0.5 8.4 z"/></marker><marker id="d" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4.5" orient="auto"><path class="ahd" d="M0.5 0.6 L9 4.5 L0.5 8.4 z"/></marker></defs>
-<rect class="bg" x="0" y="0" width="760" height="346"/>
-<rect class="box" x="16" y="14" width="260" height="54" rx="9"/>
+<rect class="bg" x="0" y="0" width="760" height="368"/>
+<rect class="box" x="16" y="14" width="236" height="54" rx="9"/>
 <text class="t ink" x="30" y="38">번역 산출물</text>
-<text class="s mut" x="30" y="57">완료된 번역 건</text>
-<path class="ln" d="M276 41 L310 41" marker-end="url(#a)"/>
-<rect class="box" x="314" y="8" width="260" height="54" rx="9"/>
-<text class="t ink" x="328" y="32">접수 서버</text>
-<text class="s mut" x="328" y="51">요청 접수 · 진행 조회</text>
-<path class="ln" d="M574 41 L608 41" marker-end="url(#a)"/>
-<rect class="box" x="612" y="20" width="132" height="42" rx="9"/>
-<text class="t sub" x="626" y="46">큐</text>
-<path class="ln" d="M678 62 L678 88 L380 88"/>
-<path class="ln" d="M380 88 L380 112" marker-end="url(#a)"/>
-<rect class="box hot" x="16" y="116" width="728" height="54" rx="9"/>
-<text class="t ink" x="30" y="140">채점 워커</text>
-<text class="s mut" x="30" y="159">한 건씩 차분히 — 채점 일관성 우선</text>
-<path class="ln" d="M200 170 L200 194" marker-end="url(#a)"/>
-<path class="ln" d="M560 170 L560 194" marker-end="url(#a)"/>
-<rect class="box" x="16" y="198" width="344" height="54" rx="9"/>
-<text class="t ink" x="30" y="222">채점 LLM</text>
-<text class="s mut" x="30" y="241">번역과 다른 계열 모델</text>
-<rect class="box" x="400" y="198" width="344" height="54" rx="9"/>
-<text class="t ink" x="414" y="222">용어집 API</text>
-<text class="s mut" x="414" y="241">지정 용어 사용 대조</text>
-<path class="ln" d="M380 252 L380 276" marker-end="url(#a)"/>
-<rect class="box" x="16" y="280" width="728" height="46" rx="9"/>
-<text class="t sub" x="30" y="308">채점 리포트 — 점수 · 오류 목록 저장</text>
+<text class="s mut" x="30" y="57">완료된 번역 건 — 수동 투입</text>
+<path class="ln" d="M252 41 L282 41" marker-end="url(#a)"/>
+<rect class="box" x="286" y="14" width="244" height="54" rx="9"/>
+<text class="t ink" x="300" y="38">평가 Router</text>
+<text class="s mut" x="300" y="57">Cloud Run Service — 접수 · 진행 조회</text>
+<path class="ln" d="M530 41 L560 41" marker-end="url(#a)"/>
+<rect class="box" x="564" y="14" width="180" height="54" rx="9"/>
+<text class="t ink" x="578" y="38">Cloud Tasks</text>
+<text class="s mut" x="578" y="57">채점 큐</text>
+<path class="ln" d="M654 68 L654 94 L380 94"/>
+<path class="ln" d="M380 94 L380 118" marker-end="url(#a)"/>
+<rect class="box hot" x="16" y="122" width="728" height="58" rx="9"/>
+<text class="t ink" x="30" y="146">평가 Worker · Cloud Run Service</text>
+<text class="s mut" x="30" y="165">동시 실행 1 — 채점 일관성 우선</text>
+<path class="ln" d="M200 180 L200 204" marker-end="url(#a)"/>
+<path class="ln" d="M560 180 L560 204" marker-end="url(#a)"/>
+<rect class="box" x="16" y="208" width="344" height="58" rx="9"/>
+<text class="t ink" x="30" y="232">채점 LLM</text>
+<text class="s mut" x="30" y="251">번역과 다른 계열 모델</text>
+<rect class="box" x="400" y="208" width="344" height="58" rx="9"/>
+<text class="t ink" x="414" y="232">용어집 API</text>
+<text class="s mut" x="414" y="251">지정 용어 사용 대조</text>
+<path class="ln" d="M380 266 L380 290" marker-end="url(#a)"/>
+<rect class="box" x="16" y="294" width="728" height="58" rx="9"/>
+<text class="t ink" x="30" y="318">채점 리포트</text>
+<text class="s mut" x="30" y="337">점수 · 오류 목록 — Cloud SQL · GCS에 저장</text>
 </svg>
