@@ -204,7 +204,7 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
     <details>
         <summary>기계번역 — 게임 텍스트가 깨지지 않게<span class="role">직접 구현</span></summary>
         <div>
-            <p style="font-size:15px;line-height:1.7;margin-top:4px;">핵심은 <b>번역 전후의 보호 장치</b>입니다. 번역 전엔 게임이 깨질 수 있는 코드 조각을 가리고 용어집·유사 문장·캐릭터 말투를 모아 프롬프트를 조립하며, 번역 후엔 태그·변수·용어가 온전한지 <b>LLM이 아니라 코드가 검사</b>해 문제 문장만 다시 번역합니다. 모델은 87개 언어 조합별로 관리하고, 백엔드 3종(Gemini·Claude·AWS Bedrock)을 운영해 한 벤더에 묶이지 않습니다.</p>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">번역 전, 깨질 수 있는 민감한 태그를 마스킹하고 <b>용어집·유사 문장·캐릭터 말투</b>를 모아 프롬프트를 조립합니다. 번역 후엔 태그·변수·용어가 온전한지 <b>룰베이스 기반으로 검증</b>합니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
             <img src="img/flow-translation.svg" alt="기계번역 처리 흐름" style="width:100%;margin-top:6px;">
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">시스템 아키텍처</p>
