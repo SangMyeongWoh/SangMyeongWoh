@@ -62,8 +62,4 @@
 <path class="ln" d="M572 236 L572 256" marker-end="url(#a)"/>
 <rect class="box" x="400" y="260" width="344" height="42" rx="9"/>
 <text class="t sub" x="414" y="286">채점 리포트</text>
-<text class="s mut" x="16" y="250">채점 모델은 번역 모델과</text>
-<text class="s mut" x="16" y="268">다른 계열입니다 — 자기가 한</text>
-<text class="s mut" x="16" y="286">번역을 자기가 채점하는</text>
-<text class="s mut" x="16" y="304">편향을 구조로 차단합니다.</text>
 </svg>
