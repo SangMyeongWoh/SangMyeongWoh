@@ -37,21 +37,22 @@
 </style>
 <defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4.5" orient="auto"><path class="ah" d="M0.5 0.6 L9 4.5 L0.5 8.4 z"/></marker><marker id="d" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4.5" orient="auto"><path class="ahd" d="M0.5 0.6 L9 4.5 L0.5 8.4 z"/></marker></defs>
 <rect class="bg" x="0" y="0" width="760" height="372"/>
-<rect class="box" x="16" y="14" width="200" height="42" rx="9"/>
-<text class="t sub" x="30" y="40">교정 요청</text>
-<path class="ln" d="M216 35 L250 35" marker-end="url(#a)"/>
-<rect class="box" x="254" y="8" width="260" height="54" rx="9"/>
-<text class="t ink" x="268" y="32">교정 App</text>
-<text class="s mut" x="268" y="51">Cloud Run Service — 문장 수로 경로 판정</text>
-<path class="ln" d="M514 35 L548 35" marker-end="url(#a)"/>
-<rect class="box" x="552" y="8" width="192" height="54" rx="9"/>
-<text class="t ink" x="566" y="32">Cloud Tasks</text>
-<text class="s mut" x="566" y="51">큐 하나 · 타깃만 다름</text>
-<path class="ln" d="M648 62 L648 84 L140 84"/>
+<rect class="box" x="16" y="14" width="208" height="42" rx="9"/>
+<text class="t sub" x="30" y="40">AI 스튜디오 (사내 웹)</text>
+<path class="ln" d="M224 35 L254 35" marker-end="url(#a)"/>
+<rect class="box" x="258" y="8" width="200" height="54" rx="9"/>
+<text class="t ink" x="272" y="32">Bridge</text>
+<text class="s mut" x="272" y="51">GKE — 작업 ID 발급</text>
+<path class="ln" d="M458 35 L488 35" marker-end="url(#a)"/>
+<rect class="box" x="492" y="8" width="252" height="54" rx="9"/>
+<text class="t ink" x="506" y="32">Router · Cloud Run Service</text>
+<text class="s mut" x="506" y="51">문장 수를 세어 경로 판정</text>
+<path class="ln" d="M618 62 L618 84 L140 84"/>
 <path class="ln" d="M140 84 L140 106" marker-end="url(#a)"/>
 <text class="k mut" x="150" y="80">100문장 미만</text>
-<path class="ln" d="M648 84 L648 106" marker-end="url(#a)"/>
-<text class="k mut" x="658" y="80">이상</text>
+<path class="ln" d="M618 84 L618 106" marker-end="url(#a)"/>
+<text class="k mut" x="628" y="80">이상</text>
+<text class="s mut" x="230" y="100">요청은 Cloud Tasks 큐를 경유합니다</text>
 <rect class="box" x="16" y="110" width="340" height="58" rx="9"/>
 <text class="t ink" x="30" y="134">Worker · Cloud Run Service</text>
 <text class="s mut" x="30" y="153">적은 문장 — 바로 처리</text>
