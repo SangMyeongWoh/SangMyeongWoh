@@ -47,7 +47,7 @@
 <path class="ln" d="M380 56 L380 84"/>
 <path class="ln" d="M380 84 L380 108" marker-end="url(#a)"/>
 <rect class="box hot" x="16" y="112" width="728" height="76" rx="9"/>
-<text class="t ink" x="30" y="136">Cloud Run Service</text>
+<text class="t ink" x="30" y="136">용어집 API · Cloud Run Service</text>
 <text class="s mut" x="30" y="155">FastAPI · 8 vCPU / 16 GiB · 최소 3대 상시 · 최대 60대</text>
 <text class="s mut" x="30" y="170">매칭 엔진: Aho-Corasick + 형태소 분석기(kiwi · spaCy) · 내부 전용</text>
 <path class="ln" d="M380 188 L380 212" marker-end="url(#a)"/>

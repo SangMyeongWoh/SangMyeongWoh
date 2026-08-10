@@ -45,7 +45,7 @@
 <text class="s mut" x="272" y="51">GKE — 작업 ID 발급</text>
 <path class="ln" d="M458 35 L488 35" marker-end="url(#a)"/>
 <rect class="box" x="492" y="8" width="252" height="54" rx="9"/>
-<text class="t ink" x="506" y="32">Cloud Run Service</text>
+<text class="t ink" x="506" y="32">요청 접수 · Cloud Run Service</text>
 <text class="s mut" x="506" y="51">문장 수를 세어 경로 판정</text>
 <path class="ln" d="M618 62 L618 84 L140 84"/>
 <path class="ln" d="M140 84 L140 106" marker-end="url(#a)"/>
@@ -54,10 +54,10 @@
 <text class="k mut" x="628" y="80">이상</text>
 <text class="s mut" x="230" y="100">요청은 Cloud Tasks 큐를 경유합니다</text>
 <rect class="box" x="16" y="110" width="340" height="58" rx="9"/>
-<text class="t ink" x="30" y="134">Cloud Run Service</text>
+<text class="t ink" x="30" y="134">소형 작업 · Cloud Run Service</text>
 <text class="s mut" x="30" y="153">적은 문장 — 바로 처리</text>
 <rect class="box" x="404" y="110" width="340" height="58" rx="9"/>
-<text class="t ink" x="418" y="134">Cloud Run Job</text>
+<text class="t ink" x="418" y="134">대형 작업 · Cloud Run Job</text>
 <text class="s mut" x="418" y="153">128문장 묶음 × N개 병렬 실행</text>
 <path class="ln" d="M186 168 L186 192" marker-end="url(#a)"/>
 <path class="ln" d="M574 168 L574 192" marker-end="url(#a)"/>
