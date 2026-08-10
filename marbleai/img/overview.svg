@@ -34,7 +34,6 @@
   </marker>
 </defs>
 
-<rect class="bg" x="0" y="0" width="760" height="348"/>
 
 <!-- 입력 -->
 <rect class="box" x="16" y="12" width="228" height="42" rx="9"/>
