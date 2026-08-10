@@ -42,8 +42,8 @@
 <text class="s mut" x="30" y="57">완료된 번역 건 — 수동 투입</text>
 <path class="ln" d="M252 41 L282 41" marker-end="url(#a)"/>
 <rect class="box" x="286" y="14" width="244" height="54" rx="9"/>
-<text class="t ink" x="300" y="38">평가 Router</text>
-<text class="s mut" x="300" y="57">Cloud Run Service — 접수 · 진행 조회</text>
+<text class="t ink" x="300" y="38">Cloud Run Service</text>
+<text class="s mut" x="300" y="57">평가 접수 · 진행 조회</text>
 <path class="ln" d="M530 41 L560 41" marker-end="url(#a)"/>
 <rect class="box" x="564" y="14" width="180" height="54" rx="9"/>
 <text class="t ink" x="578" y="38">Cloud Tasks</text>
@@ -51,8 +51,8 @@
 <path class="ln" d="M654 68 L654 94 L380 94"/>
 <path class="ln" d="M380 94 L380 118" marker-end="url(#a)"/>
 <rect class="box hot" x="16" y="122" width="728" height="58" rx="9"/>
-<text class="t ink" x="30" y="146">평가 Worker · Cloud Run Service</text>
-<text class="s mut" x="30" y="165">동시 실행 1 — 채점 일관성 우선</text>
+<text class="t ink" x="30" y="146">Cloud Run Service</text>
+<text class="s mut" x="30" y="165">채점 워커 — 동시 실행 1로 일관성 우선</text>
 <path class="ln" d="M200 180 L200 204" marker-end="url(#a)"/>
 <path class="ln" d="M560 180 L560 204" marker-end="url(#a)"/>
 <rect class="box" x="16" y="208" width="344" height="58" rx="9"/>

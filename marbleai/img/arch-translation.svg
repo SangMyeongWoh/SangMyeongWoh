@@ -45,7 +45,7 @@
 <text class="s mut" x="272" y="51">GKE — 작업 ID 발급</text>
 <path class="ln" d="M458 35 L488 35" marker-end="url(#a)"/>
 <rect class="box" x="492" y="8" width="252" height="54" rx="9"/>
-<text class="t ink" x="506" y="32">Router · Cloud Run Service</text>
+<text class="t ink" x="506" y="32">Cloud Run Service</text>
 <text class="s mut" x="506" y="51">요청 크기를 보고 경로 판정</text>
 <path class="ln" d="M618 62 L618 84 L140 84"/>
 <path class="ln" d="M140 84 L140 106" marker-end="url(#a)"/>
@@ -53,18 +53,18 @@
 <path class="ln" d="M618 84 L618 106" marker-end="url(#a)"/>
 <text class="k mut" x="628" y="80">크면</text>
 <rect class="box" x="16" y="110" width="340" height="58" rx="9"/>
-<text class="t ink" x="30" y="134">Worker · Cloud Run Service</text>
+<text class="t ink" x="30" y="134">Cloud Run Service</text>
 <text class="s mut" x="30" y="153">소형 작업 — 30분 한계</text>
 <rect class="box" x="404" y="110" width="340" height="58" rx="9"/>
-<text class="t ink" x="418" y="134">Pipeline · Cloud Run Job</text>
+<text class="t ink" x="418" y="134">Cloud Run Job</text>
 <text class="s mut" x="418" y="153">대형 작업 — 최대 24시간 · 샤드 병렬</text>
 <text class="s mut" x="178" y="100">요청은 전 구간 Cloud Tasks 큐를 경유합니다 — 재시도 0회</text>
 <text class="k acc" x="16" y="194">그 밖의 실행 리소스</text>
 <rect class="box" x="16" y="204" width="340" height="58" rx="9"/>
-<text class="t ink" x="30" y="228">Vectors · Cloud Run Job</text>
+<text class="t ink" x="30" y="228">Cloud Run Job</text>
 <text class="s mut" x="30" y="247">유사 문장 임베딩 전담</text>
 <rect class="box" x="404" y="204" width="340" height="58" rx="9"/>
-<text class="t ink" x="418" y="228">quick · Cloud Run Service</text>
+<text class="t ink" x="418" y="228">Cloud Run Service</text>
 <text class="s mut" x="418" y="247">짧은 텍스트 전용 — 동기 · 서울 리전</text>
 <rect class="box hot" x="16" y="282" width="728" height="58" rx="9"/>
 <text class="t ink" x="30" y="306">LLM 백엔드 3종</text>
