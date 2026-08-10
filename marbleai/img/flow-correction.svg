@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 396" width="760" height="396" role="img" aria-label="원본 교정 처리 흐름">
+<style>
+  .bg  { fill: #ffffff; }
+  .pan { fill: #f4f8f7; stroke: #dce5e2; }
+  .box { fill: #ffffff; stroke: #dce5e2; }
+  .hot { stroke: #0b6b5c; }
+  .ink { fill: #16211f; }
+  .sub { fill: #33403e; }
+  .mut { fill: #6b7c79; }
+  .acc { fill: #0b6b5c; }
+  .ln  { stroke: #6b7c79; }
+  .dl  { stroke: #9db0ab; }
+  @media (prefers-color-scheme: dark) {
+    .bg  { fill: #0d1413; }
+    .pan { fill: #101817; stroke: #26332f; }
+    .box { fill: #0d1413; stroke: #26332f; }
+    .hot { stroke: #6fdcc6; }
+    .ink { fill: #e6edea; }
+    .sub { fill: #bcc9c6; }
+    .mut { fill: #849692; }
+    .acc { fill: #6fdcc6; }
+    .ln  { stroke: #849692; }
+    .dl  { stroke: #46564f; }
+  }
+  text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
+  .t { font-size: 14.5px; font-weight: 700; }
+  .s { font-size: 12px; }
+  .k { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; }
+  rect { stroke-width: 1.2; }
+  .hot { stroke-width: 1.7; }
+  .ln, .dl { fill: none; stroke-width: 1.4; }
+  .dl { stroke-dasharray: 4 4; }
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#6b7c79"/></marker><marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db0ab"/></marker></defs>
+<rect class="bg" x="0" y="0" width="760" height="396"/>
+<rect class="box" x="16" y="14" width="200" height="42" rx="9"/>
+<text class="t sub" x="30" y="40">한국어 원본</text>
+<path class="ln" d="M116 56 L116 76" marker-end="url(#a)"/>
+<rect class="pan" x="16" y="80" width="728" height="96" rx="9"/>
+<text class="t sub" x="30" y="133">LLM 3단계</text>
+<rect class="box" x="30" y="110" width="226" height="52" rx="9"/>
+<text class="t ink" x="44" y="134">① 탐지</text>
+<text class="s mut" x="44" y="153">의심되면 일단 표시</text>
+<rect class="box" x="272" y="110" width="226" height="52" rx="9"/>
+<text class="t ink" x="286" y="134">② 교정</text>
+<text class="s mut" x="286" y="153">최소 변경 원칙</text>
+<rect class="box" x="514" y="110" width="216" height="52" rx="9"/>
+<text class="t ink" x="528" y="134">③ 리뷰</text>
+<text class="s mut" x="528" y="153">과교정 되돌리기</text>
+<path class="ln" d="M116 176 L116 196" marker-end="url(#a)"/>
+<rect class="box hot" x="16" y="200" width="728" height="46" rx="9"/>
+<text class="t ink" x="30" y="228">안전 필터</text>
+<text class="s mut" x="120" y="229">숫자가 든 변경은 통째로 거부 — 게임 데이터 보호가 교정률보다 우선</text>
+<path class="ln" d="M116 246 L116 266" marker-end="url(#a)"/>
+<rect class="box" x="16" y="270" width="728" height="46" rx="9"/>
+<text class="t sub" x="30" y="298">사람이 문장별 확정</text>
+<text class="s mut" x="160" y="299">채택 · 원문 유지 · 직접 수정</text>
+<path class="ln" d="M116 316 L116 336" marker-end="url(#a)"/>
+<rect class="box" x="16" y="340" width="200" height="42" rx="9"/>
+<text class="t sub" x="30" y="366">교정 완료본</text>
+<text class="s mut" x="236" y="366">문장이 많으면 여러 묶음으로 나눠 병렬 처리 — 같은 묶음이 두 번 와도 안전한 설계</text>
+</svg>

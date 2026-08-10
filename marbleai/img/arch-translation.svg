@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 398" width="760" height="398" role="img" aria-label="기계번역 구성">
+<style>
+  .bg  { fill: #ffffff; }
+  .pan { fill: #f4f8f7; stroke: #dce5e2; }
+  .box { fill: #ffffff; stroke: #dce5e2; }
+  .hot { stroke: #0b6b5c; }
+  .ink { fill: #16211f; }
+  .sub { fill: #33403e; }
+  .mut { fill: #6b7c79; }
+  .acc { fill: #0b6b5c; }
+  .ln  { stroke: #6b7c79; }
+  .dl  { stroke: #9db0ab; }
+  @media (prefers-color-scheme: dark) {
+    .bg  { fill: #0d1413; }
+    .pan { fill: #101817; stroke: #26332f; }
+    .box { fill: #0d1413; stroke: #26332f; }
+    .hot { stroke: #6fdcc6; }
+    .ink { fill: #e6edea; }
+    .sub { fill: #bcc9c6; }
+    .mut { fill: #849692; }
+    .acc { fill: #6fdcc6; }
+    .ln  { stroke: #849692; }
+    .dl  { stroke: #46564f; }
+  }
+  text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
+  .t { font-size: 14.5px; font-weight: 700; }
+  .s { font-size: 12px; }
+  .k { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; }
+  rect { stroke-width: 1.2; }
+  .hot { stroke-width: 1.7; }
+  .ln, .dl { fill: none; stroke-width: 1.4; }
+  .dl { stroke-dasharray: 4 4; }
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#6b7c79"/></marker><marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db0ab"/></marker></defs>
+<rect class="bg" x="0" y="0" width="760" height="398"/>
+<rect class="box" x="16" y="14" width="236" height="42" rx="9"/>
+<text class="t sub" x="30" y="40">번역 요청</text>
+<path class="ln" d="M252 35 L286 35" marker-end="url(#a)"/>
+<rect class="box" x="290" y="8" width="236" height="54" rx="9"/>
+<text class="t ink" x="304" y="32">접수 서버</text>
+<text class="s mut" x="304" y="51">요청 크기를 보고 경로 판정</text>
+<path class="ln" d="M526 35 L560 35" marker-end="url(#a)"/>
+<rect class="box" x="564" y="14" width="120" height="42" rx="9"/>
+<text class="t sub" x="578" y="40">큐</text>
+<path class="ln" d="M624 56 L624 78 L140 78"/>
+<path class="ln" d="M140 78 L140 100" marker-end="url(#a)"/>
+<text class="k mut" x="150" y="74">작으면</text>
+<path class="ln" d="M624 78 L624 100" marker-end="url(#a)"/>
+<text class="k mut" x="634" y="74">크면</text>
+<rect class="box" x="16" y="104" width="340" height="54" rx="9"/>
+<text class="t ink" x="30" y="128">즉시 처리 워커</text>
+<text class="s mut" x="30" y="147">작은 작업 — 바로 응답</text>
+<rect class="box" x="404" y="104" width="340" height="54" rx="9"/>
+<text class="t ink" x="418" y="128">대형 배치 잡</text>
+<text class="s mut" x="418" y="147">큰 작업 — 쪼개서 병렬 처리</text>
+<text class="k acc" x="16" y="172">그 밖의 실행 리소스</text>
+<rect class="box" x="16" y="182" width="340" height="54" rx="9"/>
+<text class="t ink" x="30" y="206">참조 데이터 잡</text>
+<text class="s mut" x="30" y="225">게임 데이터 사전 가공(캐시)</text>
+<rect class="box" x="404" y="182" width="340" height="54" rx="9"/>
+<text class="t ink" x="418" y="206">실시간 경량 경로</text>
+<text class="s mut" x="418" y="225">짧은 텍스트 전용 · 큐 없이 동기</text>
+<rect class="box hot" x="16" y="256" width="728" height="46" rx="9"/>
+<text class="t ink" x="30" y="284">LLM 백엔드 3종</text>
+<text class="s mut" x="180" y="285">Gemini · Claude · Bedrock — 한 벤더에 묶이지 않게</text>
+<rect class="pan" x="16" y="322" width="728" height="60" rx="9"/>
+<text class="t sub" x="30" y="357"></text>
+<text class="k acc" x="32" y="344">함께 쓰는 것</text>
+<text class="t sub" x="32" y="368">용어집 API</text>
+<text class="t sub" x="264" y="368">작업 원장</text>
+<text class="s mut" x="348" y="368">상태 · 이력</text>
+<text class="t sub" x="504" y="368">스토리지</text>
+<text class="s mut" x="576" y="368">입력 · 결과물 · 캐시</text>
+</svg>

@@ -196,9 +196,9 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">한국어 원본의 오탈자·잘못된 용어는 번역을 거치면 <b>모든 언어로 증폭</b>됩니다. 이를 앞단에서 잡되, LLM 3단계(탐지→교정→리뷰)가 고친 것도 그대로 믿지 않습니다 — <b>숫자가 든 변경은 통째로 거부</b>하고(게임 데이터 보호가 교정률보다 우선), 최종 채택은 <b>사람이 문장별로 확정</b>합니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
-            <a href="img/flow-correction.png" target="_blank"><img src="img/flow-correction.png" alt="원본 교정 처리 흐름" onerror="this.style.display='none'"></a>
+            <img src="img/flow-correction.svg" alt="원본 교정 처리 흐름" style="width:100%;margin-top:6px;">
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">구성</p>
-            <a href="img/arch-correction.png" target="_blank"><img src="img/arch-correction.png" alt="원본 교정 구성" onerror="this.style.display='none'"></a>
+            <img src="img/arch-correction.svg" alt="원본 교정 구성" style="width:100%;margin-top:6px;">
         </div>
     </details>
 
@@ -207,9 +207,9 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">핵심은 <b>번역 전후의 보호 장치</b>입니다. 번역 전엔 게임이 깨질 수 있는 코드 조각을 가리고 용어집·유사 문장·캐릭터 말투를 모아 프롬프트를 조립하며, 번역 후엔 태그·변수·용어가 온전한지 <b>LLM이 아니라 코드가 검사</b>해 문제 문장만 다시 번역합니다. 모델은 87개 언어 조합별로 관리하고, 백엔드 3종(Gemini·Claude·AWS Bedrock)을 운영해 한 벤더에 묶이지 않습니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
-            <a href="img/flow-translation.png" target="_blank"><img src="img/flow-translation.png" alt="기계번역 처리 흐름" onerror="this.style.display='none'"></a>
+            <img src="img/flow-translation.svg" alt="기계번역 처리 흐름" style="width:100%;margin-top:6px;">
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">구성</p>
-            <a href="img/arch-translation.png" target="_blank"><img src="img/arch-translation.png" alt="기계번역 구성" onerror="this.style.display='none'"></a>
+            <img src="img/arch-translation.svg" alt="기계번역 구성" style="width:100%;margin-top:6px;">
         </div>
     </details>
 
@@ -218,9 +218,9 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">등록할 때 언어별 정규화형을 미리 계산해 저장하고, 매칭할 때 <b>같은 규칙으로 비교</b>합니다 — 이 대칭이 시스템의 심장입니다. 매칭은 언어 특성에 따라 두 경로(한·일·중은 표면 스캔, 영어·유럽어는 단어 원형)로 갈리고, 단어 경계·명사 검증으로 오탐을 거릅니다. 결과는 <b>기계번역·교정·평가가 같은 API로 공유</b>합니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
-            <a href="img/flow-glossary.png" target="_blank"><img src="img/flow-glossary.png" alt="용어집 처리 흐름" onerror="this.style.display='none'"></a>
+            <img src="img/flow-glossary.svg" alt="용어집 처리 흐름" style="width:100%;margin-top:6px;">
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">구성</p>
-            <a href="img/arch-glossary.png" target="_blank"><img src="img/arch-glossary.png" alt="용어집 구성" onerror="this.style.display='none'"></a>
+            <img src="img/arch-glossary.svg" alt="용어집 구성" style="width:100%;margin-top:6px;">
         </div>
     </details>
 
@@ -229,9 +229,9 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">확실한 오류는 규칙이 LLM 없이 판정하고, 애매한 것만 <b>LLM 심판</b>이 원문과 대조해 탐지하며, 심판의 주장도 <b>근거를 검증해 틀린 지적은 기각</b>합니다(용어집이 권위). 감점은 번역 품질 국제 표준(MQM) 기반 13개 항목이고, 합격선 근처 점수는 재채점해 요동을 막습니다. 채점 모델은 번역 모델과 <b>다른 계열</b> — 자기 채점 편향의 구조적 차단입니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
-            <a href="img/flow-eval.png" target="_blank"><img src="img/flow-eval.png" alt="평가 처리 흐름" onerror="this.style.display='none'"></a>
+            <img src="img/flow-eval.svg" alt="평가 처리 흐름" style="width:100%;margin-top:6px;">
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">구성</p>
-            <a href="img/arch-eval.png" target="_blank"><img src="img/arch-eval.png" alt="평가 구성" onerror="this.style.display='none'"></a>
+            <img src="img/arch-eval.svg" alt="평가 구성" style="width:100%;margin-top:6px;">
         </div>
     </details>
 

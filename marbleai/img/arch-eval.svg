@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 346" width="760" height="346" role="img" aria-label="평가 구성">
+<style>
+  .bg  { fill: #ffffff; }
+  .pan { fill: #f4f8f7; stroke: #dce5e2; }
+  .box { fill: #ffffff; stroke: #dce5e2; }
+  .hot { stroke: #0b6b5c; }
+  .ink { fill: #16211f; }
+  .sub { fill: #33403e; }
+  .mut { fill: #6b7c79; }
+  .acc { fill: #0b6b5c; }
+  .ln  { stroke: #6b7c79; }
+  .dl  { stroke: #9db0ab; }
+  @media (prefers-color-scheme: dark) {
+    .bg  { fill: #0d1413; }
+    .pan { fill: #101817; stroke: #26332f; }
+    .box { fill: #0d1413; stroke: #26332f; }
+    .hot { stroke: #6fdcc6; }
+    .ink { fill: #e6edea; }
+    .sub { fill: #bcc9c6; }
+    .mut { fill: #849692; }
+    .acc { fill: #6fdcc6; }
+    .ln  { stroke: #849692; }
+    .dl  { stroke: #46564f; }
+  }
+  text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
+  .t { font-size: 14.5px; font-weight: 700; }
+  .s { font-size: 12px; }
+  .k { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; }
+  rect { stroke-width: 1.2; }
+  .hot { stroke-width: 1.7; }
+  .ln, .dl { fill: none; stroke-width: 1.4; }
+  .dl { stroke-dasharray: 4 4; }
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#6b7c79"/></marker><marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9db0ab"/></marker></defs>
+<rect class="bg" x="0" y="0" width="760" height="346"/>
+<rect class="box" x="16" y="14" width="260" height="54" rx="9"/>
+<text class="t ink" x="30" y="38">번역 산출물</text>
+<text class="s mut" x="30" y="57">완료된 번역 건</text>
+<path class="ln" d="M276 41 L310 41" marker-end="url(#a)"/>
+<rect class="box" x="314" y="8" width="260" height="54" rx="9"/>
+<text class="t ink" x="328" y="32">접수 서버</text>
+<text class="s mut" x="328" y="51">요청 접수 · 진행 조회</text>
+<path class="ln" d="M574 41 L608 41" marker-end="url(#a)"/>
+<rect class="box" x="612" y="20" width="132" height="42" rx="9"/>
+<text class="t sub" x="626" y="46">큐</text>
+<path class="ln" d="M678 62 L678 88 L380 88"/>
+<path class="ln" d="M380 88 L380 112" marker-end="url(#a)"/>
+<rect class="box hot" x="16" y="116" width="728" height="54" rx="9"/>
+<text class="t ink" x="30" y="140">채점 워커</text>
+<text class="s mut" x="30" y="159">한 건씩 차분히 — 채점 일관성 우선</text>
+<path class="ln" d="M200 170 L200 194" marker-end="url(#a)"/>
+<path class="ln" d="M560 170 L560 194" marker-end="url(#a)"/>
+<rect class="box" x="16" y="198" width="344" height="54" rx="9"/>
+<text class="t ink" x="30" y="222">채점 LLM</text>
+<text class="s mut" x="30" y="241">번역과 다른 계열 모델</text>
+<rect class="box" x="400" y="198" width="344" height="54" rx="9"/>
+<text class="t ink" x="414" y="222">용어집 API</text>
+<text class="s mut" x="414" y="241">지정 용어 사용 대조</text>
+<path class="ln" d="M380 252 L380 276" marker-end="url(#a)"/>
+<rect class="box" x="16" y="280" width="728" height="46" rx="9"/>
+<text class="t sub" x="30" y="308">채점 리포트 — 점수 · 오류 목록 저장</text>
+</svg>
