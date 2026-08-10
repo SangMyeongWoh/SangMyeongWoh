@@ -75,7 +75,7 @@
 <text class="t sub" x="32" y="408">용어집 API</text>
 <text class="s mut" x="132" y="408">용어 매칭 조회</text>
 <text class="t sub" x="288" y="408">Cloud SQL</text>
-<text class="s mut" x="388" y="408">작업 원장 · 벡터 저장</text>
+<text class="s mut" x="388" y="408">작업 상태 · 벡터 저장</text>
 <text class="t sub" x="568" y="408">GCS</text>
 <text class="s mut" x="632" y="408">입력 · 결과물</text>
 </svg>

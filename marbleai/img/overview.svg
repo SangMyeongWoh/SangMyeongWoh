@@ -81,7 +81,5 @@
 <rect class="pan" x="16" y="282" width="728" height="54" rx="12"/>
 <text class="k acc" x="32" y="303">세 단계가 함께 쓰는 것</text>
 <text class="t sub" x="32" y="325">용어집</text>
-<text class="s mut" x="90" y="325">게임마다 정해진 표기를 한곳에서 관리</text>
-<text class="t sub" x="400" y="325">작업 원장</text>
-<text class="s mut" x="478" y="325">모든 작업의 상태·이력이 한 기록으로</text>
+<text class="s mut" x="90" y="325">게임마다 정해진 표기를 한곳에서 관리 — 교정 · 기계번역 · 평가가 같은 용어를 씁니다</text>
 </svg>
