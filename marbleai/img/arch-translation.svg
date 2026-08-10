@@ -50,6 +50,7 @@
 <path class="ln" d="M618 62 L618 84 L140 84"/>
 <path class="ln" d="M140 84 L140 106" marker-end="url(#a)"/>
 <text class="k mut" x="150" y="80">작으면</text>
+<text class="k mut" x="320" y="80">Cloud Tasks 경유</text>
 <path class="ln" d="M618 84 L618 106" marker-end="url(#a)"/>
 <text class="k mut" x="628" y="80">크면</text>
 <rect class="box" x="16" y="110" width="340" height="58" rx="9"/>
@@ -58,7 +59,6 @@
 <rect class="box" x="404" y="110" width="340" height="58" rx="9"/>
 <text class="t ink" x="418" y="134">대형 작업 · Cloud Run Job</text>
 <text class="s mut" x="418" y="153">최대 24시간 · 샤드 병렬</text>
-<text class="s mut" x="178" y="100">요청은 전 구간 Cloud Tasks 큐를 경유합니다 — 재시도 0회</text>
 <text class="k acc" x="16" y="194">그 밖의 실행 리소스</text>
 <rect class="box" x="16" y="204" width="340" height="58" rx="9"/>
 <text class="t ink" x="30" y="228">임베딩 전담 · Cloud Run Job</text>
