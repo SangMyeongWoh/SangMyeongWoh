@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 576" width="760" height="576" role="img" aria-label="2세대 MaMT 시스템 아키텍처 — 교정·기계번역·평가가 같은 접수 서버, 큐, 워커 구조로 반복되고 용어집과 저장소를 공유">
+<style>
+  .bg  { fill: #ffffff; }
+  .pan { fill: #f4f8f7; stroke: #dce5e2; }
+  .box { fill: #ffffff; stroke: #dce5e2; }
+  .hot { stroke: #0b6b5c; }
+  .ink { fill: #16211f; }
+  .sub { fill: #33403e; }
+  .mut { fill: #6b7c79; }
+  .acc { fill: #0b6b5c; }
+  .ln  { stroke: #33403e; }
+  .mk  { fill: #33403e; }
+  @media (prefers-color-scheme: dark) {
+    .bg  { fill: #0d1413; }
+    .pan { fill: #101817; stroke: #26332f; }
+    .box { fill: #0d1413; stroke: #26332f; }
+    .hot { stroke: #6fdcc6; }
+    .ink { fill: #e6edea; }
+    .sub { fill: #bcc9c6; }
+    .mut { fill: #849692; }
+    .acc { fill: #6fdcc6; }
+    .ln  { stroke: #bcc9c6; }
+    .mk  { fill: #bcc9c6; }
+  }
+  text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
+  .t { font-size: 15px; font-weight: 700; }
+  .s { font-size: 12.5px; }
+  .k { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; }
+  rect { stroke-width: 1.2; }
+  .hot { stroke-width: 1.7; }
+  .ln  { fill: none; stroke-width: 1.5; }
+  .dsh { stroke-dasharray: 4 3; }
+</style>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" class="mk"/>
+  </marker>
+  <symbol id="i-run" viewBox="0 0 24 24">
+    <polygon fill="#aecbfa" points="8.9 2.63 12.02 12 21.38 12 8.9 2.63"/>
+    <polygon fill="#4285f4" points="21.38 12 12.02 12 8.9 21.38 21.38 12"/>
+    <polygon fill="#4285f4" points="3.44 21.38 6.57 19.81 8.9 12 5.78 12 3.44 21.38"/>
+    <polygon fill="#aecbfa" points="3.44 2.63 5.78 12 8.9 12 6.57 4.19 3.44 2.63"/>
+  </symbol>
+  <symbol id="i-tasks" viewBox="0 0 24 24">
+    <rect fill="#669df6" x="3" y="5" width="2" height="7"/><rect fill="#4285f4" x="3" y="12" width="2" height="7"/>
+    <rect fill="#669df6" x="7" y="5" width="2" height="7"/><rect fill="#4285f4" x="7" y="12" width="2" height="7"/>
+    <rect fill="#669df6" x="11" y="5" width="2" height="7"/><rect fill="#4285f4" x="11" y="12" width="2" height="7"/>
+    <rect fill="#669df6" x="15" y="5" width="2" height="7"/><rect fill="#4285f4" x="15" y="12" width="2" height="7"/>
+    <rect fill="#669df6" x="19" y="5" width="2" height="7"/><rect fill="#4285f4" x="19" y="12" width="2" height="7"/>
+  </symbol>
+  <symbol id="i-sql" viewBox="0 0 24 24">
+    <polygon fill="#aecbfa" points="4.67 10.44 4.67 13.45 12 17.35 12 14.34 4.67 10.44"/>
+    <polygon fill="#aecbfa" points="4.67 15.09 4.67 18.1 12 22 12 18.99 4.67 15.09"/>
+    <polygon fill="#669df6" points="12 17.35 19.33 13.45 19.33 10.44 12 14.34 12 17.35"/>
+    <polygon fill="#669df6" points="12 22 19.33 18.1 19.33 15.09 12 18.99 12 22"/>
+    <polygon fill="#4285f4" points="19.33 8.91 19.33 5.9 12 2 12 5.01 19.33 8.91"/>
+    <polygon fill="#669df6" points="12 2 4.67 5.9 4.67 8.91 12 5.01 12 2"/>
+    <polygon fill="#aecbfa" points="4.67 5.87 4.67 8.89 12 12.79 12 9.77 4.67 5.87"/>
+    <polygon fill="#669df6" points="12 12.79 19.33 8.89 19.33 5.87 12 9.77 12 12.79"/>
+  </symbol>
+  <symbol id="i-gcs" viewBox="0 0 24 24">
+    <rect fill="#aecbfa" x="2" y="4" width="20" height="7"/><rect fill="#669df6" x="20" y="4" width="2" height="7"/>
+    <polygon fill="#4285f4" points="22 4 20 4 20 11 22 4"/><rect fill="#669df6" x="2" y="4" width="2" height="7"/>
+    <rect fill="#ffffff" x="6" y="7" width="6" height="1"/><rect fill="#ffffff" x="15" y="6" width="3" height="3" rx="1.5"/>
+    <rect fill="#aecbfa" x="2" y="13" width="20" height="7"/><rect fill="#669df6" x="20" y="13" width="2" height="7"/>
+    <polygon fill="#4285f4" points="22 13 20 13 20 20 22 13"/><rect fill="#669df6" x="2" y="13" width="2" height="7"/>
+    <rect fill="#ffffff" x="6" y="16" width="6" height="1"/><rect fill="#ffffff" x="15" y="15" width="3" height="3" rx="1.5"/>
+  </symbol>
+  <symbol id="i-gke" viewBox="0 0 24 24">
+    <polygon fill="#4285f4" points="14.68 13.06 19.23 15.69 19.23 16.68 14.29 13.83 14.68 13.06"/>
+    <polygon fill="#669df6" points="9.98 13.65 4.77 16.66 4.45 15.86 9.53 12.92 9.98 13.65"/>
+    <rect fill="#aecbfa" x="11.55" y="3.29" width="0.86" height="5.78"/>
+    <path fill="#aecbfa" d="M3.25,7V17L12,22l8.74-5V7L12,2Zm15.63,8.89L12,19.78,5.12,15.89V8.11L12,4.22l6.87,3.89v7.78Z"/>
+    <polygon fill="#aecbfa" points="11.98 11.5 15.96 9.21 11.98 6.91 8.01 9.21 11.98 11.5"/>
+    <polygon fill="#669df6" points="11.52 12.3 7.66 10.01 7.66 14.6 11.52 16.89 11.52 12.3"/>
+    <polygon fill="#4285f4" points="12.48 12.3 12.48 16.89 16.34 14.6 16.34 10.01 12.48 12.3"/>
+  </symbol>
+</defs>
+
+<!-- 진입 -->
+<rect class="box" x="270" y="10" width="220" height="40" rx="9"/>
+<text class="t ink" x="380" y="35" text-anchor="middle">AI 스튜디오 — 플랫폼 웹</text>
+<path class="ln" d="M380 50 L380 70" marker-end="url(#a)"/>
+
+<rect class="box" x="270" y="74" width="220" height="44" rx="9"/>
+<use href="#i-gke" x="312" y="78" width="16" height="16"/>
+<text class="t ink" x="380" y="92" text-anchor="middle">Bridge (GKE)</text>
+<text class="s mut" x="380" y="109" text-anchor="middle">프론트 ↔ AI 서비스 중계</text>
+
+<path class="ln" d="M380 118 L380 138 L132 138 L132 156" marker-end="url(#a)"/>
+<path class="ln" d="M380 118 L380 156" marker-end="url(#a)"/>
+<path class="ln" d="M380 118 L380 138 L628 138 L628 156" marker-end="url(#a)"/>
+
+<!-- 교정 -->
+<rect class="pan" x="16" y="160" width="232" height="280" rx="12"/>
+<text class="k acc" x="32" y="182">원본 교정</text>
+<rect class="box" x="32" y="190" width="200" height="32" rx="8"/>
+<use href="#i-run" x="40" y="197" width="18" height="18"/>
+<text class="s ink" x="64" y="210">접수 서버 · Cloud Run</text>
+<path class="ln" d="M132 222 L132 238" marker-end="url(#a)"/>
+<rect class="box" x="32" y="242" width="200" height="32" rx="8"/>
+<use href="#i-tasks" x="40" y="249" width="18" height="18"/>
+<text class="s ink" x="64" y="262">큐 · Cloud Tasks</text>
+<path class="ln" d="M132 274 L132 284 L80 284 L80 296" marker-end="url(#a)"/>
+<path class="ln" d="M132 274 L132 284 L184 284 L184 296" marker-end="url(#a)"/>
+<rect class="box" x="32" y="300" width="96" height="52" rx="8"/>
+<use href="#i-run" x="108" y="336" width="13" height="13"/>
+<text class="s ink" x="40" y="320">워커 서비스</text>
+<text class="s mut" x="40" y="338">소형 · 즉시</text>
+<rect class="box" x="136" y="300" width="96" height="52" rx="8"/>
+<use href="#i-run" x="212" y="336" width="13" height="13"/>
+<text class="s ink" x="144" y="320">워커 잡</text>
+<text class="s mut" x="144" y="338">대형 · 배치</text>
+<text class="s mut" x="32" y="382">교정안은 사람이 확정</text>
+
+<!-- 기계번역 -->
+<rect class="pan" x="264" y="160" width="232" height="280" rx="12"/>
+<text class="k acc" x="280" y="182">기계번역</text>
+<rect class="box" x="280" y="190" width="200" height="32" rx="8"/>
+<use href="#i-run" x="288" y="197" width="18" height="18"/>
+<text class="s ink" x="312" y="210">접수 서버 · Cloud Run</text>
+<path class="ln" d="M380 222 L380 238" marker-end="url(#a)"/>
+<rect class="box" x="280" y="242" width="200" height="32" rx="8"/>
+<use href="#i-tasks" x="288" y="249" width="18" height="18"/>
+<text class="s ink" x="312" y="262">큐 · Cloud Tasks</text>
+<path class="ln" d="M380 274 L380 284 L328 284 L328 296" marker-end="url(#a)"/>
+<path class="ln" d="M380 274 L380 284 L432 284 L432 296" marker-end="url(#a)"/>
+<rect class="box" x="280" y="300" width="96" height="52" rx="8"/>
+<use href="#i-run" x="356" y="336" width="13" height="13"/>
+<text class="s ink" x="288" y="320">워커 서비스</text>
+<text class="s mut" x="288" y="338">소형 · 즉시</text>
+<rect class="box" x="384" y="300" width="96" height="52" rx="8"/>
+<use href="#i-run" x="460" y="336" width="13" height="13"/>
+<text class="s ink" x="392" y="320">워커 잡</text>
+<text class="s mut" x="392" y="338">대형 · 배치</text>
+<rect class="box dsh" x="280" y="364" width="200" height="48" rx="8"/>
+<use href="#i-run" x="458" y="370" width="15" height="15"/>
+<text class="s ink" x="292" y="384">실시간 경량 서비스</text>
+<text class="s mut" x="292" y="401">큐 없이 바로 응답</text>
+
+<!-- 평가 -->
+<rect class="pan" x="512" y="160" width="232" height="280" rx="12"/>
+<text class="k acc" x="528" y="182">평가</text>
+<rect class="box" x="528" y="190" width="200" height="32" rx="8"/>
+<use href="#i-run" x="536" y="197" width="18" height="18"/>
+<text class="s ink" x="560" y="210">접수 서버 · Cloud Run</text>
+<path class="ln" d="M628 222 L628 238" marker-end="url(#a)"/>
+<rect class="box" x="528" y="242" width="200" height="52" rx="8"/>
+<use href="#i-run" x="536" y="250" width="18" height="18"/>
+<text class="s ink" x="560" y="262">채점 워커 · Cloud Run 잡</text>
+<text class="s mut" x="560" y="280">MQM 기준 자동 채점</text>
+<path class="ln" d="M628 294 L628 312" marker-end="url(#a)"/>
+<rect class="box" x="528" y="316" width="200" height="36" rx="8"/>
+<text class="s ink" x="540" y="338">채점 리포트 — 점수 · 오류 목록</text>
+
+<!-- 공용 층으로 내려가는 버스 -->
+<path class="ln" d="M132 440 L132 450"/>
+<path class="ln" d="M380 440 L380 450"/>
+<path class="ln" d="M628 440 L628 450"/>
+<path class="ln" d="M132 450 L628 450"/>
+<path class="ln" d="M192 450 L192 470" marker-end="url(#a)"/>
+<path class="ln" d="M568 450 L568 470" marker-end="url(#a)"/>
+
+<!-- 공용 서비스 · 저장소 -->
+<rect class="box" x="16" y="474" width="352" height="64" rx="12"/>
+<use href="#i-run" x="32" y="484" width="15" height="15"/>
+<text class="t sub" x="52" y="497">용어집 API · Cloud Run</text>
+<text class="s mut" x="32" y="516">세 시스템이 같은 용어를 조회</text>
+<text class="s mut" x="32" y="532">등록 · 관리는 플랫폼 웹에서</text>
+
+<rect class="box" x="392" y="474" width="352" height="64" rx="12"/>
+<text class="t sub" x="408" y="497">공유 저장소</text>
+<use href="#i-sql" x="408" y="504" width="13" height="13"/>
+<text class="s mut" x="426" y="516">Cloud SQL — 작업 상태 · 용어</text>
+<use href="#i-gcs" x="408" y="520" width="13" height="13"/>
+<text class="s mut" x="426" y="532">GCS — 파일 · 캐시 · 결과물</text>
+
+<text class="s mut" x="16" y="566">세 시스템이 같은 구조(접수 서버 → 큐 → 워커)를 반복합니다 — 워커는 작업 크기만큼 늘어나는 서버리스.</text>
+</svg>

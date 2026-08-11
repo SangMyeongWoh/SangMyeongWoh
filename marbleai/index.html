@@ -153,8 +153,8 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 <!-- ============ A1 ============ -->
 <section class="narr">
     <h2><span class="mono">Analyze &amp; Apply</span>분석 및 적용</h2>
-    <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer, GKE, Cloud Run</b> 세 가지를 고려했고, <b>Cloud Run</b>을 택했습니다. Composer는 <b>필요한 기능에 비해 과하고 비쌌습니다.</b> GKE는 <b>상대적으로 유지보수에 사람 인력이 더 들어간다</b>고 판단했습니다.</p>
-    <p style="margin-top:10px;">전체 번역 작업 중 <b>60%가 100문장 미만</b>이었습니다. 요청 빈도보다 <b>한 건의 크기</b>가 중요했으므로, 작은 작업은 <b>Cloud Run Service</b>로, 큰 작업은 <b>Cloud Run Job</b>으로 처리되는 분기를 만들었습니다.</p>
+    <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer, GKE, Cloud Run</b> 세 가지를 고려했고, <b>Cloud Run</b>을 택했습니다. Composer는 <b>필요한 기능에 비해 과하고 비쌌습니다.</b> GKE는 <b>상대적으로 유지보수에 사람 인력이 더 들어간다</b>고 판단했습니다. 번역 작업은 간헐적으로 들어오는 배치성 일감이라, <b>쓰지 않는 시간에 비용이 0이 되는 서버리스</b>가 워크로드 성격에 맞다고 봤습니다.</p>
+    <p style="margin-top:10px;">전체 번역 작업 중 <b>60%가 100문장 미만</b>이었습니다. 작은 작업은 <b>Cloud Run Service</b>로, 큰 작업은 <b>Cloud Run Job</b>으로 처리되는 분기를 만들었습니다.</p>
     <p style="margin-top:10px;">배포는 <b>GitHub Actions</b>로 CI/CD를 간단히 할 수 있게 했습니다.</p>
     
     <p style="margin-top:14px;"><span class="ref"><b>03</b>운영비용</span><b>모든 수정에 사람이 직접 관여할 필요는 없다</b>고 판단했습니다. 흩어져 있던 로그를 <b>작업 ID별로 한곳에</b> 모으고, ID만 넣으면 로그를 읽어 <b>문제를 진단해 주는 Claude Code 스킬</b>을 만들었습니다.</p>
@@ -179,9 +179,9 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
         <div class="num"><b>4개 시스템 체제</b><span>교정 · 기계번역 · 용어집 · 평가</span></div>
     </div>
 
-    <p style="font-size:13px;color:var(--muted);margin:30px 0 8px;">2세대 MaMT — 전체 흐름</p>
+    <p style="font-size:13px;color:var(--muted);margin:30px 0 8px;">2세대 MaMT — 시스템 아키텍처</p>
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
-        <img src="img/overview.svg" alt="2세대 MaMT 개요 — 원본 교정 → 기계번역 → 품질 평가, 작업 크기에 따라 즉시 처리와 배치 처리로 갈리며 용어집을 공유" style="width:100%;">
+        <img src="img/arch-overview.svg" alt="2세대 MaMT 시스템 아키텍처 — 교정·기계번역·평가가 같은 접수 서버, 큐, 워커 구조로 반복되고 용어집과 저장소를 공유" style="width:100%;">
     </div>
 </section>
 
@@ -198,8 +198,6 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">한국어 원본의 오탈자·잘못된 용어는 번역을 거치면 <b>모든 언어로 증폭</b>됩니다. 이를 앞단에서 잡되, LLM 3단계(탐지→교정→리뷰)가 고친 것도 그대로 믿지 않습니다 — <b>숫자가 든 변경은 통째로 거부</b>하고(게임 데이터 보호가 교정률보다 우선), 최종 채택은 <b>사람이 문장별로 확정</b>합니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
             <img src="img/flow-correction.svg" alt="원본 교정 처리 흐름" style="width:100%;margin-top:6px;">
-            <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">시스템 아키텍처</p>
-            <img src="img/arch-correction.svg" alt="원본 교정 구성" style="width:100%;margin-top:6px;">
         </div>
     </details>
 
@@ -209,8 +207,6 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">번역 전, 깨질 수 있는 민감한 태그를 마스킹하고 <b>용어집·유사 문장·캐릭터 말투</b>를 모아 프롬프트를 조립합니다. 번역 후엔 태그·변수·용어가 온전한지 <b>룰베이스 기반으로 검증</b>합니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
             <img src="img/flow-translation.svg" alt="기계번역 처리 흐름" style="width:100%;margin-top:6px;">
-            <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">시스템 아키텍처</p>
-            <img src="img/arch-translation.svg" alt="기계번역 구성" style="width:100%;margin-top:6px;">
         </div>
     </details>
 
@@ -235,12 +231,12 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
     <details>
         <summary>사용성 — 쓰는 사람 쪽의 마찰 제거<span class="role">직접 구현</span></summary>
         <div>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">사용자 편의성을 위한 개선사항.</p>
             <ul>
-                <li><b>파일 형식 자동 인식</b>: 엑셀 열 구조를 사람이 지정하던 절차를 규칙 + LLM 판정으로 대체.</li>
-                <li><b>문서 번역 지원</b>: 엑셀 외에 워드·마크다운 파서를 갖추고, 이미 번역된 부분은 건드리지 않고 서식을 보존.</li>
-                <li><b>실시간 경량 번역</b>: 짧은 텍스트는 대기 없이 즉시 응답하는 별도 경로로.</li>
-                <li><b>배포처 확대</b>: 플랫폼 사이트에 접속하지 않아도 대화창에서 바로 호출할 수 있게 스킬 형태로 배포.</li>
-                <li>다수 파일 일괄 번역, 문서 톤 옵션, 언어 자동 감지.</li>
+                <li><b>파일 입력</b> — 엑셀의 어느 열이 어떤 언어인지 사람이 직접 지정하던 절차를 자동화. 언어 자동 감지, 여러 파일 일괄 업로드.</li>
+                <li><b>문서 번역</b> — 게임 텍스트 외 사업부 문서까지 번역 대상 확장 — 워드·파워포인트·마크다운, 변경추적이 걸린 문서까지 그대로.</li>
+                <li><b>용어집 등록</b> — 텍스트만 받던 1세대와 달리, 개발사가 실제 쓰는 이미지 섞인 용어집도 가공 없이 그대로 등록.</li>
+                <li><b>스킬 배포</b> — 플랫폼 웹에 직접 접속하지 않아도 번역 사용이 가능하도록 스킬 배포.</li>
             </ul>
         </div>
     </details>
