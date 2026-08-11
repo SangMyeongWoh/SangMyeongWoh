@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 112" width="380" height="112" role="img" aria-label="nDIS — 사내 문서 관리 및 RAG 챗봇">
-  <title>nDIS</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 112" width="380" height="112" role="img" aria-label="MARGE — 기업 문서 지식 Q&amp;A 엔진 · 공동 개발">
+  <title>MARGE</title>
   <style>
     text { font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif }
     .panel { fill:#F4F8F7 }
@@ -19,6 +19,7 @@
   </style>
   <rect class="panel" x="12" y="0" width="368" height="112" rx="14"/>
   <text x="38" y="32" class="ey">PROJECT 02</text>
-  <text x="38" y="64" class="nm">nDIS</text>
-  <text x="38" y="86" class="ds">사내 문서 관리 + RAG 챗봇</text>
+  <text x="354" y="32" class="go" text-anchor="end">포트폴리오 →</text>
+  <text x="38" y="64" class="nm">MARGE</text>
+  <text x="38" y="86" class="ds">기업 문서 지식 Q&amp;A 엔진 · 공동 개발</text>
 </svg>

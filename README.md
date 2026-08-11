@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/main7.svg" alt="기술 스택과 경력·학력 — Python, PyTorch, HuggingFace, Gemini, MCP, Claude Code, FastAPI, PostgreSQL, MongoDB, Redis, GCP, GKE, Docker, Airflow, Jenkins, GitHub, Actions, Unity, Flutter / 넷마블(2023.05~), 데이터헌트, 테스트웍스, 아크릴, 성균관대 석사·학사" width="100%" />
 
-<a href="https://sangmyeongwoh.github.io/SangMyeongWoh/marbleai/"><img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/pj3-marbleai.svg" width="50%" alt="MarbleAI 언어파트 — 게임 현지화 LLM 파이프라인 · 프로젝트 리딩. 클릭하면 포트폴리오로 이동합니다." /></a><a href="https://sangmyeongwoh.github.io/SangMyeongWoh/marge/"><img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/pj3-ndis.svg" width="50%" alt="MARGE — 기업 문서 지식 Q&A 엔진. 클릭하면 포트폴리오로 이동합니다." /></a>
+<a href="https://sangmyeongwoh.github.io/SangMyeongWoh/marbleai/"><img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/pj3-marbleai.svg" width="50%" alt="MarbleAI 언어파트 — 게임 현지화 LLM 파이프라인 · 프로젝트 리딩. 클릭하면 포트폴리오로 이동합니다." /></a><a href="https://sangmyeongwoh.github.io/SangMyeongWoh/marge/"><img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/pj4-marge.svg" width="50%" alt="MARGE — 기업 문서 지식 Q&A 엔진. 클릭하면 포트폴리오로 이동합니다." /></a>
 
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/awards.svg" width="100%" alt="활동·수상 — 특허 등록 제102456513호(텍스트 데이터 증강), IEEE CIG runner-up, 넷마블 Game Development Forum 발표 2023·2024" />
 
