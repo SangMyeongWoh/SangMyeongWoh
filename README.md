@@ -2,43 +2,14 @@
 
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/main7.svg" alt="기술 스택과 경력·학력 — Python, PyTorch, HuggingFace, Gemini, MCP, Claude Code, FastAPI, PostgreSQL, MongoDB, Redis, GCP, GKE, Docker, Airflow, Jenkins, GitHub, Actions, Unity, Flutter / 넷마블(2023.05~), 데이터헌트, 테스트웍스, 아크릴, 성균관대 석사·학사" width="100%" />
 
-<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/lbl-projects.svg" width="100%" alt="PROJECTS" />
+<a href="https://sangmyeongwoh.github.io/SangMyeongWoh/marbleai/"><img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/pj3-marbleai.svg" width="50%" alt="MarbleAI 언어파트 — 게임 현지화 LLM 파이프라인 · 프로젝트 리딩. 클릭하면 포트폴리오로 이동합니다." /></a><a href="https://sangmyeongwoh.github.io/SangMyeongWoh/marge/"><img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/pj4-marge.svg" width="50%" alt="MARGE — 기업 문서 지식 Q&A 엔진. 클릭하면 포트폴리오로 이동합니다." /></a>
 
-<table>
-<tr><td>
+<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/awards.svg" width="100%" alt="활동·수상 — 특허 등록 제102456513호(텍스트 데이터 증강), IEEE CIG runner-up, 넷마블 Game Development Forum 발표 2023·2024" />
 
-**<a href="https://sangmyeongwoh.github.io/SangMyeongWoh/marbleai/">MarbleAI 언어파트 &nbsp;→</a>** &nbsp;<sub>2023.05 –</sub><br>
-게임 로컬라이제이션 LLM 파이프라인 · <b>프로젝트 리딩</b><br>
-<sub>교정 · 기계번역 · 용어집 · 평가 4개 시스템 · Cloud Run · 사내 248개 워크스페이스가 사용</sub>
+**사이드 프로젝트** &nbsp; [TheFlower (2023)](https://youtube.com/shorts/KI9Z2TUjRLg) · [TheRoom (2020)](https://youtu.be/OV0ysmhSOIE)
 
-**<a href="https://sangmyeongwoh.github.io/SangMyeongWoh/marge/">MARGE &nbsp;→</a>** &nbsp;<sub>2024.06 – 2026.04</sub><br>
-기업 문서 지식 Q&amp;A 엔진 · <b>공동 개발</b><br>
-<sub>질문 이해 → 문서 검색 → 답변 생성 런타임 파이프라인 직접 구현 · 에이전틱 구조 리뉴얼</sub>
+---
 
-</td></tr>
-</table>
-
-<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/lbl-side.svg" width="100%" alt="SIDE PROJECTS" />
-
-<table>
-<tr><td>
-
-**<a href="https://youtube.com/shorts/KI9Z2TUjRLg">TheFlower &nbsp;→</a>** &nbsp;<sub>2023</sub> &nbsp;·&nbsp; **<a href="https://youtu.be/OV0ysmhSOIE">TheRoom &nbsp;→</a>** &nbsp;<sub>2020</sub><br>
-<sub>개인 개발 게임 · Unity</sub>
-
-</td></tr>
-</table>
-
-<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/lbl-awards.svg" width="100%" alt="ACTIVITY &amp; AWARDS" />
-
-<ul>
-<li>특허 등록 <b>제10-2456513호</b> — 텍스트 데이터 증강</li>
-<li><b>IEEE CIG</b> Runner-up</li>
-<li>넷마블 <b>Game Development Forum</b> 발표 (2023 · 2024)</li>
-</ul>
-
-<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/lbl-contact.svg" width="100%" alt="CONTACT" />
-
-<a href="mailto:woodullee@naver.com"><img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/ic-mail.svg" alt="이메일" height="17" align="absmiddle" /></a>&nbsp;&nbsp;<a href="mailto:woodullee@naver.com">woodullee@naver.com</a>
+<a href="mailto:woodullee@naver.com"><img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/ic-mail.svg" alt="이메일" height="17" align="absmiddle" /></a>&nbsp;&nbsp;[woodullee@naver.com](mailto:woodullee@naver.com)
 
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/ic-phone.svg" alt="휴대폰" height="17" align="absmiddle" />&nbsp;&nbsp;010-8988-1684

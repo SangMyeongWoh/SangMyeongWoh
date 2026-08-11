@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 112" width="380" height="112" role="img" aria-label="MarbleAI 언어파트 — 게임 현지화 LLM 파이프라인 프로젝트 리딩. 클릭하면 포트폴리오로 이동합니다.">
+  <title>MarbleAI 언어파트</title>
+  <style>
+    text { font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif }
+    .panel { fill:#F4F8F7 }
+    .h  { fill:#16211F; font-size:19px; font-weight:800; letter-spacing:-.2px }
+    .nm { fill:#16211F; font-size:16px; font-weight:800; letter-spacing:-.2px }
+    .it { fill:#16211F; font-size:14.5px; font-weight:700 }
+    .ds { fill:#4A5C59; font-size:12.5px; font-weight:500 }
+    .mk { fill:#0B6B5C }
+    .go { fill:#0B6B5C; font-size:12px; font-weight:700 }
+    .ey { fill:#7E908C; font-size:10.5px; font-weight:700; letter-spacing:.18em;
+          font-family:ui-monospace,'SF Mono',Consolas,monospace }
+    .thin { stroke:#DCE5E2; stroke-width:1 }
+    @media (prefers-color-scheme: dark) {
+      .panel{fill:#101817} .h{fill:#E6EDEA} .nm{fill:#E6EDEA} .it{fill:#E6EDEA}
+      .ds{fill:#A9B8B5} .mk{fill:#6FDCC6} .go{fill:#6FDCC6} .ey{fill:#7F918D} .thin{stroke:#26332F}
+    }
+  </style>
+  <rect class="panel" x="0" y="0" width="368" height="112" rx="14"/>
+  <text x="26" y="32" class="ey">PROJECT 01</text>
+  <text x="342" y="32" class="go" text-anchor="end">포트폴리오 →</text>
+  <text x="26" y="64" class="nm">MarbleAI 언어파트</text>
+  <text x="26" y="86" class="ds">게임 현지화 LLM 파이프라인 · 프로젝트 리딩</text>
+</svg>
