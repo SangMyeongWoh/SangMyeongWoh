@@ -86,6 +86,8 @@ a.row:hover .ar{transform:translate(3px,-3px)}
   .two.uneven{grid-template-columns:1.55fr 1fr} }
 .two .row{grid-template-columns:1fr;gap:1px;padding:7px 12px;margin:0 -12px;line-height:1.55}
 .two .per{padding-top:0;margin-bottom:1px}
+.pin{font-family:ui-monospace,'SF Mono',Consolas,monospace;font-size:11px;font-weight:600;
+     color:var(--muted);margin-left:9px;letter-spacing:.02em}
 .tl{position:relative}
 .tl .rows{position:relative;padding-left:22px}
 .tl .rows::before{content:'';position:absolute;left:4px;top:14px;bottom:16px;width:1px;background:var(--line)}
@@ -143,16 +145,16 @@ footer{border-top:1px solid var(--line);padding-top:22px;font-size:13.5px;color:
     <div class="two">
       <div class="tl">
         <div class="slab">Career</div>
-        <div class="rows">        <div class="row now"><div class="per">2023.05 –</div><div><div class="tt">넷마블</div><div class="ds">AI플랫폼 개발팀 · AI 서비스 개발</div></div></div>
-        <div class="row"><div class="per">2022.10 – 2023.04</div><div><div class="tt">데이터헌트</div><div class="ds">NLP 엔지니어</div></div></div>
-        <div class="row"><div class="per">2021.06 – 2022.09</div><div><div class="tt">테스트웍스</div><div class="ds">NLP 엔지니어</div></div></div>
-        <div class="row"><div class="per">2019.07 – 2021.06</div><div><div class="tt">아크릴</div><div class="ds">NLP 엔지니어</div></div></div>
+        <div class="rows">        <div class="row now"><div><div class="tt">넷마블<span class="pin">2023.05 –</span></div><div class="ds">AI플랫폼 개발팀 · AI 서비스 개발</div></div></div>
+        <div class="rowNone"><div><div class="tt">데이터헌트<span class="pin">2022.10 – 2023.04</span></div><div class="ds">NLP 엔지니어</div></div></div>
+        <div class="rowNone"><div><div class="tt">테스트웍스<span class="pin">2021.06 – 2022.09</span></div><div class="ds">NLP 엔지니어</div></div></div>
+        <div class="rowNone"><div><div class="tt">아크릴<span class="pin">2019.07 – 2021.06</span></div><div class="ds">NLP 엔지니어</div></div></div>
         </div>
       </div>
       <div class="tl">
         <div class="slab">Education</div>
-        <div class="rows">        <div class="row edu"><div class="per">2017.03 – 2019.08</div><div><div class="tt">성균관대학교</div><div class="ds">컴퓨터공학 석사</div></div></div>
-        <div class="row edu"><div class="per">2010.03 – 2017.03</div><div><div class="tt">성균관대학교</div><div class="ds">전기전자공학 · 컴퓨터공학 복수전공</div></div></div>
+        <div class="rows">        <div class="row edu"><div><div class="tt">성균관대학교<span class="pin">2017.03 – 2019.08</span></div><div class="ds">컴퓨터공학 석사</div></div></div>
+        <div class="row edu"><div><div class="tt">성균관대학교<span class="pin">2010.03 – 2017.03</span></div><div class="ds">전기전자공학 · 컴퓨터공학 복수전공</div></div></div>
         </div>
       </div>
     </div>
