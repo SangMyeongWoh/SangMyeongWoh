@@ -56,12 +56,16 @@ nav a:hover::before{width:40px;background:var(--accent)}
 .links a:hover{color:var(--accent);border-bottom-color:var(--accent)}
 
 /* 오른쪽 본문 */
-section{margin-bottom:42px;scroll-margin-top:24px}
+section{margin-bottom:14px;scroll-margin-top:24px;background:var(--panel);
+        border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.row:hover{background:var(--bg)}
+.tech{background:var(--bg)}
+.kpi div{background:var(--bg)}
 .slab{font-family:ui-monospace,'SF Mono',Consolas,monospace;font-size:15px;font-weight:700;
       letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:13px}
 .row{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:12px 14px;margin:0 -14px;
      border-radius:12px;transition:background .15s}
-.row:hover{background:var(--panel)}
+
 .per{font-family:ui-monospace,'SF Mono',Consolas,monospace;font-size:11.5px;color:var(--muted);
      font-weight:600;padding-top:4px;letter-spacing:.02em}
 .tt{color:var(--ink);font-weight:800;font-size:16.5px}
@@ -203,6 +207,8 @@ footer{border-top:1px solid var(--line);padding-top:22px;font-size:13.5px;color:
   </section>
 
   <section id="side">
+    <div class="two">
+      <div>
     <div class="slab">Side Projects</div>
     <a class="row" href="https://youtube.com/shorts/KI9Z2TUjRLg">
       <div class="per">2023</div>
@@ -219,9 +225,8 @@ footer{border-top:1px solid var(--line);padding-top:22px;font-size:13.5px;color:
         <div class="ds">개인 개발 게임 · Unity</div>
       </div>
     </a>
-  </section>
-
-  <section id="awards">
+      </div>
+      <div id="awards">
     <div class="slab">Activity &amp; Awards</div>
     <div class="row">
       <div class="per">특허</div>
@@ -235,7 +240,10 @@ footer{border-top:1px solid var(--line);padding-top:22px;font-size:13.5px;color:
       <div class="per">발표</div>
       <div><div class="tt">넷마블 Game Development Forum</div><div class="ds">2023 · 2024</div></div>
     </div>
+      </div>
+    </div>
   </section>
+
 
 
 
