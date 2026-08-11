@@ -1,7 +1,5 @@
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/intro14.svg" alt="우상명 Sangmyeong Woh — 7년차 NLP·AI 엔지니어. 문제 정의부터 개발·기획·운영 등 풀스택 영역에서 AI를 활용해 빠르게 구현합니다. 넷마블 AI플랫폼 개발팀." width="100%" />
 
-**[전체 프로필 보기 →](https://sangmyeongwoh.github.io/SangMyeongWoh/)** &nbsp;·&nbsp; 프로젝트·경력 항목마다 링크가 걸려 있습니다
-
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/main7.svg" alt="기술 스택과 경력·학력 — Python, PyTorch, HuggingFace, Gemini, MCP, Claude Code, FastAPI, PostgreSQL, MongoDB, Redis, GCP, GKE, Docker, Airflow, Jenkins, GitHub, Actions, Unity, Flutter / 넷마블(2023.05~), 데이터헌트, 테스트웍스, 아크릴, 성균관대 석사·학사" width="100%" />
 
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/work2.svg" width="100%" alt="프로젝트 — MarbleAI 언어파트(게임 로컬라이제이션 LLM 파이프라인 · 프로젝트 리딩, 2023.05~), MARGE(기업 문서 지식 Q&A 엔진 · 공동 개발, 2024.06~) / 활동·수상 — 특허 등록 제10-2456513호, IEEE CIG Runner-up, 넷마블 GDF 발표 2023·2024" />
