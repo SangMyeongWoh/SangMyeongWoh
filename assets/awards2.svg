@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 236" width="380" height="236" role="img" aria-label="활동·수상 — 특허 등록 제10-2456513호 텍스트 데이터 증강, IEEE CIG runner-up, 넷마블 Game Development Forum 발표 2023 2024">
+  <title>활동 · 수상</title>
+  <style>
+    text { font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif }
+    .panel { fill:#F4F8F7 }
+    .h  { fill:#16211F; font-size:19px; font-weight:800; letter-spacing:-.2px }
+    .it { fill:#16211F; font-size:14.5px; font-weight:700 }
+    .ds { fill:#4A5C59; font-size:12.5px; font-weight:500 }
+    .mk { fill:#0B6B5C }
+    .thin { stroke:#DCE5E2; stroke-width:1 }
+    @media (prefers-color-scheme: dark) {
+      .panel{fill:#101817} .h{fill:#E6EDEA} .it{fill:#E6EDEA}
+      .ds{fill:#A9B8B5} .mk{fill:#6FDCC6} .thin{stroke:#26332F}
+    }
+  </style>
+  <rect class="panel" x="0" y="0" width="368" height="236" rx="14"/>
+  <text x="26" y="36" class="h">활동 · 수상</text>
+  <line class="thin" x1="26" y1="50" x2="342" y2="50"/>
+
+  <rect class="mk" x="26" y="79" width="5" height="5" rx="1.4"/>
+  <text x="42" y="84" class="it">특허 등록 제10-2456513호</text>
+  <text x="42" y="104" class="ds">텍스트 데이터 증강</text>
+
+  <rect class="mk" x="26" y="135" width="5" height="5" rx="1.4"/>
+  <text x="42" y="140" class="it">IEEE CIG Runner-up</text>
+  <text x="42" y="160" class="ds">Computational Intelligence in Games</text>
+
+  <rect class="mk" x="26" y="191" width="5" height="5" rx="1.4"/>
+  <text x="42" y="196" class="it">넷마블 GDF 발표</text>
+  <text x="42" y="216" class="ds">Game Development Forum · 2023 · 2024</text>
+</svg>
