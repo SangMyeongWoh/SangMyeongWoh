@@ -15,7 +15,15 @@
 기업 문서 지식 Q&amp;A 엔진 · <b>공동 개발</b><br>
 <sub>질문 이해 → 문서 검색 → 답변 생성 런타임 파이프라인 직접 구현 · 에이전틱 구조 리뉴얼</sub>
 
-**<a href="https://youtube.com/shorts/KI9Z2TUjRLg">TheFlower &nbsp;→</a>** &nbsp;·&nbsp; **<a href="https://youtu.be/OV0ysmhSOIE">TheRoom &nbsp;→</a>** &nbsp;<sub>사이드 프로젝트</sub><br>
+</td></tr>
+</table>
+
+<img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/lbl-side.svg" width="100%" alt="SIDE PROJECTS" />
+
+<table>
+<tr><td>
+
+**<a href="https://youtube.com/shorts/KI9Z2TUjRLg">TheFlower &nbsp;→</a>** &nbsp;<sub>2023</sub> &nbsp;·&nbsp; **<a href="https://youtu.be/OV0ysmhSOIE">TheRoom &nbsp;→</a>** &nbsp;<sub>2020</sub><br>
 <sub>개인 개발 게임 · Unity</sub>
 
 </td></tr>
