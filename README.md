@@ -4,8 +4,28 @@
 
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/lbl-projects.svg" width="100%" alt="" />
 
-- **[MarbleAI 언어파트](https://sangmyeongwoh.github.io/SangMyeongWoh/marbleai/)** — 게임 로컬라이제이션 LLM 파이프라인 · 프로젝트 리딩
-- **[MARGE](https://sangmyeongwoh.github.io/SangMyeongWoh/marge/)** — 기업 문서 지식 Q&A 엔진 · 공동 개발
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**[MarbleAI 언어파트 →](https://sangmyeongwoh.github.io/SangMyeongWoh/marbleai/)**
+
+게임 로컬라이제이션 LLM 파이프라인 · **프로젝트 리딩**
+
+<sub>교정 · 기계번역 · 용어집 · 평가 4개 시스템 · Cloud Run · 사내 248개 워크스페이스</sub>
+
+</td>
+<td width="50%" valign="top">
+
+**[MARGE →](https://sangmyeongwoh.github.io/SangMyeongWoh/marge/)**
+
+기업 문서 지식 Q&A 엔진 · **공동 개발**
+
+<sub>RAG 런타임 파이프라인 직접 구현 · 에이전틱 구조 리뉴얼</sub>
+
+</td>
+</tr>
+</table>
 
 <img src="https://raw.githubusercontent.com/SangMyeongWoh/SangMyeongWoh/main/assets/lbl-awards.svg" width="100%" alt="" />
 
