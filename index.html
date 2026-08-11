@@ -72,6 +72,11 @@ a.row:hover .ar{transform:translate(3px,-3px)}
 .chips{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:11.5px;font-weight:700;color:var(--accent);background:var(--panel);
       border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:34px}
+.kpi div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.kpi b{display:block;font-size:19px;color:var(--accent);letter-spacing:-.3px;line-height:1.25}
+.kpi span{display:block;font-size:12px;color:var(--muted);margin-top:5px;line-height:1.45}
+@media (max-width:560px){ .kpi{grid-template-columns:1fr 1fr} }
 .two{display:grid;grid-template-columns:1fr;gap:8px}
 @media (min-width:700px){ .two{grid-template-columns:1fr 1fr;gap:30px}
   .two.uneven{grid-template-columns:1.55fr 1fr} }
@@ -123,6 +128,12 @@ footer{border-top:1px solid var(--line);padding-top:22px;font-size:13.5px;color:
 
 <!-- ============ 오른쪽 본문 ============ -->
 <main class="main">
+
+  <div class="kpi">
+    <div><b>7년차</b><span>NLP · AI 엔지니어</span></div>
+    <div><b>4개 시스템</b><span>교정 · 기계번역 · 용어집 · 평가 리딩</span></div>
+    <div><b>248개</b><span>사내 게임 워크스페이스가 사용</span></div>
+  </div>
 
   <section id="career">
     <div class="two">
