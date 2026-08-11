@@ -21,6 +21,9 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 .wrap{max-width:860px;margin:0 auto;padding:56px 24px 72px}
+.avatar{width:132px;height:132px;border-radius:50%;object-fit:cover;display:block;
+        margin:0 auto 26px;border:1px solid var(--line);background:var(--panel)}
+@media (max-width:560px){ .avatar{width:104px;height:104px;margin-bottom:20px} }
 .sheet{display:flex;flex-direction:column;gap:16px}
 .sheet img{display:block;width:100%}
 
@@ -46,6 +49,8 @@ body{
 </head>
 <body>
 <div class="wrap">
+  <img class="avatar" src="https://github.com/SangMyeongWoh.png?size=400" alt="우상명 프로필 사진" />
+
   <div class="sheet">
 
     <img src="../assets/intro14.svg" alt="우상명 Sangmyeong Woh — 7년차 NLP·AI 엔지니어. 문제 정의부터 개발·기획·운영 등 풀스택 영역에서 AI를 활용해 빠르게 구현합니다. 넷마블 AI플랫폼 개발팀." />
