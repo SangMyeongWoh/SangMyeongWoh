@@ -44,6 +44,12 @@ body{
 .foot{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 .foot a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
 .foot a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.side{margin-top:18px;padding:14px 18px;background:var(--panel);border:1px solid var(--line);
+      border-radius:14px;font-size:14px;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.side b{color:var(--ink);font-size:13px;letter-spacing:.02em}
+.side a{color:var(--sub);text-decoration:none;border-bottom:1px solid var(--line)}
+.side a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.side small{color:var(--muted);font-size:12px;margin-left:4px}
 .note{margin-top:10px;font-size:12.5px;color:var(--muted)}
 </style>
 </head>
@@ -63,6 +69,12 @@ body{
       <a class="a-marge"    href="../marge/"    data-go="포트폴리오 →" aria-label="MARGE 포트폴리오"></a>
     </div>
 
+  </div>
+
+  <div class="side">
+    <b>사이드 프로젝트</b>
+    <span><a href="https://youtube.com/shorts/KI9Z2TUjRLg">TheFlower</a><small>2023 · Unity</small></span>
+    <span><a href="https://youtu.be/OV0ysmhSOIE">TheRoom</a><small>2020 · Unity</small></span>
   </div>
 
   <div class="note">프로젝트 이름 위에 마우스를 올리면 포트폴리오로 이동합니다.</div>
