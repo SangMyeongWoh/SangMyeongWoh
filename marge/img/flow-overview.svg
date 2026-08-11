@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 352" width="760" height="352" role="img" aria-label="2세대 MARGE 답변 흐름 — 계획, 검색, 생성, 검증 그래프와 재시도 루프, 채택·차단 두 갈래, 시도 간 문맥 격리">
+<style>
+  .bg  { fill: #ffffff; }
+  .pan { fill: #f4f8f7; stroke: #dce5e2; }
+  .box { fill: #ffffff; stroke: #dce5e2; }
+  .hot { stroke: #0b6b5c; }
+  .ink { fill: #16211f; }
+  .sub { fill: #33403e; }
+  .mut { fill: #6b7c79; }
+  .acc { fill: #0b6b5c; }
+  .ln  { stroke: #33403e; }
+  .mk  { fill: #33403e; }
+  @media (prefers-color-scheme: dark) {
+    .bg  { fill: #0d1413; }
+    .pan { fill: #101817; stroke: #26332f; }
+    .box { fill: #0d1413; stroke: #26332f; }
+    .hot { stroke: #6fdcc6; }
+    .ink { fill: #e6edea; }
+    .sub { fill: #bcc9c6; }
+    .mut { fill: #849692; }
+    .acc { fill: #6fdcc6; }
+    .ln  { stroke: #bcc9c6; }
+    .mk  { fill: #bcc9c6; }
+  }
+  text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
+  .t { font-size: 15px; font-weight: 700; }
+  .s { font-size: 12.5px; }
+  .k { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; }
+  rect { stroke-width: 1.2; }
+  .hot { stroke-width: 1.7; }
+  .ln  { fill: none; stroke-width: 1.5; }
+  .dsh { stroke-dasharray: 4 3; }
+</style>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" class="mk"/>
+  </marker>
+</defs>
+
+<!-- 재시도 루프 (위쪽) -->
+<path class="ln dsh" d="M666 84 L666 60 L150 60 L150 80" marker-end="url(#a)"/>
+<text class="k mut" x="284" y="52">부족하면 — 원인을 진단하고 다시 계획 (최대 3회)</text>
+
+<!-- 입력 -->
+<rect class="box" x="16" y="12" width="172" height="40" rx="9"/>
+<text class="t sub" x="30" y="37">질문</text>
+<path class="ln" d="M102 52 L102 80" marker-end="url(#a)"/>
+
+<!-- 4단 그래프 -->
+<rect class="box" x="16" y="84" width="172" height="68" rx="10"/>
+<text class="t ink" x="30" y="108">① 계획</text>
+<text class="s mut" x="30" y="128">질문 의도를 분석하고</text>
+<text class="s mut" x="30" y="143">검색 전략을 세움</text>
+
+<rect class="box" x="204" y="84" width="172" height="68" rx="10"/>
+<text class="t ink" x="218" y="108">② 검색</text>
+<text class="s mut" x="218" y="128">계획이 고른 소스를</text>
+<text class="s mut" x="218" y="143">병렬로 실행</text>
+
+<rect class="box" x="392" y="84" width="172" height="68" rx="10"/>
+<text class="t ink" x="406" y="108">③ 생성</text>
+<text class="s mut" x="406" y="128">유형별 전략으로</text>
+<text class="s mut" x="406" y="143">근거를 달아 답 작성</text>
+
+<rect class="box hot" x="580" y="84" width="172" height="68" rx="10"/>
+<text class="t ink" x="594" y="108">④ 검증</text>
+<text class="s mut" x="594" y="128">채택 · 재시도 · 차단</text>
+<text class="s mut" x="594" y="143">최종 관문 판정</text>
+
+<path class="ln" d="M188 118 L200 118" marker-end="url(#a)"/>
+<path class="ln" d="M376 118 L388 118" marker-end="url(#a)"/>
+<path class="ln" d="M564 118 L576 118" marker-end="url(#a)"/>
+
+<!-- 판정에 따른 두 갈래 -->
+<path class="ln" d="M666 152 L666 178"/>
+<path class="ln" d="M468 178 L666 178"/>
+<path class="ln" d="M468 178 L468 200" marker-end="url(#a)"/>
+<path class="ln" d="M666 178 L666 200" marker-end="url(#a)"/>
+<text class="k mut" x="420" y="174">채택</text>
+<text class="k mut" x="680" y="174">차단</text>
+
+<rect class="box" x="380" y="204" width="176" height="54" rx="9"/>
+<text class="t sub" x="394" y="226">근거 답변</text>
+<text class="s mut" x="394" y="245">출처·담당자 함께 제공</text>
+
+<rect class="box" x="576" y="204" width="176" height="54" rx="9"/>
+<text class="t sub" x="590" y="226">정중한 거절</text>
+<text class="s mut" x="590" y="245">지어내지 않고 안내</text>
+
+<!-- 공용 -->
+<rect class="pan" x="16" y="286" width="728" height="54" rx="12"/>
+<text class="k acc" x="32" y="307">재시도의 함정 방지</text>
+<text class="t sub" x="32" y="329">시도 간 문맥 격리</text>
+<text class="s mut" x="176" y="329">이전 시도의 답을 보지 못하게 끊어 — 같은 실수에 끌려가는 것(앵커링)을 차단</text>
+</svg>
