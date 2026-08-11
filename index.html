@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>우상명 — NLP · AI 엔지니어</title>
+<meta name="description" content="7년차 NLP·AI 엔지니어. 문제 정의부터 개발·기획·운영까지 AI로 빠르게 구현합니다. 넷마블 AI플랫폼 개발팀.">
+<style>
+/* 포트폴리오 페이지(/marbleai/, /marge/)와 같은 팔레트 — 라이트/다크 자동 */
+:root{
+  --bg:#ffffff; --panel:#f4f8f7; --line:#dce5e2;
+  --ink:#16211f; --sub:#33403e; --muted:#6b7c79; --accent:#0b6b5c;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0d1413; --panel:#101817; --line:#26332f;
+         --ink:#e6edea; --sub:#bcc9c6; --muted:#849692; --accent:#6fdcc6; }
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--sub); line-height:1.7; font-size:16px;
+  font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr;gap:0}
+@media (min-width:940px){
+  .wrap{grid-template-columns:44% 56%;gap:56px;padding:0 40px}
+  .side{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 0}
+  .main{padding:100px 0 120px}
+}
+@media (max-width:939px){ .side{padding:72px 0 8px} .main{padding:8px 0 80px} }
+
+/* 왼쪽 고정 영역 */
+.mono{font-family:ui-monospace,'SF Mono',Consolas,'D2Coding',monospace;
+      font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-size:42px;line-height:1.2;letter-spacing:-1px;color:var(--ink);font-weight:800;margin:12px 0 6px}
+h1 small{display:block;font-size:15px;letter-spacing:.14em;color:var(--muted);font-weight:700;margin-top:10px;
+         font-family:ui-monospace,'SF Mono',Consolas,monospace;text-transform:uppercase}
+.tag{font-size:19px;color:var(--ink);font-weight:700;margin-top:18px}
+.bio{font-size:15.5px;margin-top:14px;max-width:34ch}
+nav{margin-top:38px;display:none}
+@media (min-width:940px){ nav{display:block} }
+nav a{display:block;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--muted);padding:7px 0;font-family:ui-monospace,'SF Mono',Consolas,monospace;
+      transition:color .15s,padding-left .15s}
+nav a::before{content:'';display:inline-block;width:22px;height:1px;background:var(--line);
+      vertical-align:middle;margin-right:12px;transition:width .15s,background .15s}
+nav a:hover{color:var(--ink)}
+nav a:hover::before{width:40px;background:var(--accent)}
+.links{margin-top:34px;display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+.links a{color:var(--muted);border-bottom:1px solid transparent}
+.links a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* 오른쪽 본문 */
+section{margin-bottom:64px;scroll-margin-top:24px}
+.slab{font-family:ui-monospace,'SF Mono',Consolas,monospace;font-size:12px;font-weight:700;
+      letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.row{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:16px 14px;margin:0 -14px;
+     border-radius:12px;transition:background .15s}
+.row:hover{background:var(--panel)}
+.per{font-family:ui-monospace,'SF Mono',Consolas,monospace;font-size:11.5px;color:var(--muted);
+     font-weight:600;padding-top:4px;letter-spacing:.02em}
+.tt{color:var(--ink);font-weight:800;font-size:16.5px}
+.tt .ar{display:inline-block;transition:transform .15s}
+a.row:hover .tt{color:var(--accent)}
+a.row:hover .ar{transform:translate(3px,-3px)}
+.ds{font-size:14.5px;margin-top:3px}
+.chips{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:11.5px;font-weight:700;color:var(--accent);background:var(--panel);
+      border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+.stack{display:flex;flex-wrap:wrap;gap:7px}
+.stack span{font-size:13px;font-weight:600;color:var(--sub);background:var(--panel);
+      border:1px solid var(--line);border-radius:8px;padding:5px 11px}
+footer{border-top:1px solid var(--line);padding-top:22px;font-size:13.5px;color:var(--muted)}
+@media (max-width:520px){ h1{font-size:34px} .row{grid-template-columns:1fr;gap:6px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ============ 왼쪽 고정 ============ -->
+<header class="side">
+  <div class="mono">NLP · AI Engineer</div>
+  <h1>우상명<small>Sangmyeong Woh</small></h1>
+  <p class="tag">7년차 NLP · AI 엔지니어</p>
+  <p class="bio">문제 정의부터 개발 · 기획 · 운영까지, AI를 활용해 빠르게 구현합니다. 지금은 넷마블 AI플랫폼 개발팀에서 게임 로컬라이제이션 AI 플랫폼을 리딩하고 있습니다.</p>
+
+  <nav>
+    <a href="#projects">프로젝트</a>
+    <a href="#career">경력 · 학력</a>
+    <a href="#stack">기술 스택</a>
+    <a href="#awards">활동 · 수상</a>
+  </nav>
+
+  <div class="links">
+    <a href="mailto:woodullee@naver.com">woodullee@naver.com</a>
+    <a href="https://github.com/SangMyeongWoh">GitHub</a>
+  </div>
+</header>
+
+<!-- ============ 오른쪽 본문 ============ -->
+<main class="main">
+
+  <section id="projects">
+    <div class="slab">Projects</div>
+
+    <a class="row" href="marbleai/">
+      <div class="per">2023.05 –</div>
+      <div>
+        <div class="tt">MarbleAI 언어파트 <span class="ar">↗</span></div>
+        <div class="ds">게임 로컬라이제이션 LLM 파이프라인 · <b>프로젝트 리딩</b>. 기계번역 한 단계에 머물던 1세대를 교정 · 기계번역 · 용어집 · 평가 4개 시스템으로 전면 재설계했습니다.</div>
+        <div class="chips"><span class="chip">Cloud Run</span><span class="chip">LLM 파이프라인</span><span class="chip">31개 언어</span><span class="chip">사내 248개 워크스페이스</span></div>
+      </div>
+    </a>
+
+    <a class="row" href="marge/">
+      <div class="per">2024.06 – 2026.04</div>
+      <div>
+        <div class="tt">MARGE <span class="ar">↗</span></div>
+        <div class="ds">기업 문서 지식 Q&amp;A 엔진 · <b>공동 개발</b>. 질문 이해 → 문서 검색 → 답변 생성 런타임 파이프라인을 직접 구현하고, 에이전틱 구조 리뉴얼을 설계했습니다.</div>
+        <div class="chips"><span class="chip">RAG</span><span class="chip">에이전틱 설계</span><span class="chip">사내 · 고객사 서비스</span></div>
+      </div>
+    </a>
+
+    <a class="row" href="https://youtube.com/shorts/KI9Z2TUjRLg">
+      <div class="per">2023</div>
+      <div>
+        <div class="tt">TheFlower <span class="ar">↗</span></div>
+        <div class="ds">개인 개발 게임 · Unity</div>
+      </div>
+    </a>
+
+    <a class="row" href="https://youtu.be/OV0ysmhSOIE">
+      <div class="per">2020</div>
+      <div>
+        <div class="tt">TheRoom <span class="ar">↗</span></div>
+        <div class="ds">개인 개발 게임 · Unity</div>
+      </div>
+    </a>
+  </section>
+
+  <section id="career">
+    <div class="slab">Career</div>
+
+    <div class="row">
+      <div class="per">2023.05 –</div>
+      <div><div class="tt">넷마블</div><div class="ds">AI플랫폼 개발팀 · AI 서비스 개발</div></div>
+    </div>
+    <div class="row">
+      <div class="per">2022.10 – 2023.04</div>
+      <div><div class="tt">데이터헌트</div><div class="ds">NLP 엔지니어</div></div>
+    </div>
+    <div class="row">
+      <div class="per">2021.06 – 2022.09</div>
+      <div><div class="tt">테스트웍스</div><div class="ds">NLP 엔지니어</div></div>
+    </div>
+    <div class="row">
+      <div class="per">2019.07 – 2021.06</div>
+      <div><div class="tt">아크릴</div><div class="ds">NLP 엔지니어</div></div>
+    </div>
+
+    <div class="slab" style="margin-top:34px">Education</div>
+    <div class="row">
+      <div class="per">2017.03 – 2019.08</div>
+      <div><div class="tt">성균관대학교</div><div class="ds">컴퓨터공학 석사</div></div>
+    </div>
+    <div class="row">
+      <div class="per">2010.03 – 2017.03</div>
+      <div><div class="tt">성균관대학교</div><div class="ds">전기전자공학 · 컴퓨터공학 복수전공</div></div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="slab">Stack</div>
+    <div class="stack">
+      <span>Python</span><span>PyTorch</span><span>HuggingFace</span><span>Gemini</span>
+      <span>Claude Code</span><span>MCP</span><span>FastAPI</span><span>PostgreSQL</span>
+      <span>MongoDB</span><span>Redis</span><span>GCP</span><span>GKE</span>
+      <span>Docker</span><span>Airflow</span><span>Jenkins</span><span>GitHub Actions</span>
+      <span>Unity</span><span>Flutter</span>
+    </div>
+  </section>
+
+  <section id="awards">
+    <div class="slab">Activity &amp; Awards</div>
+    <div class="row">
+      <div class="per">특허</div>
+      <div><div class="tt">등록 제10-2456513호</div><div class="ds">텍스트 데이터 증강</div></div>
+    </div>
+    <div class="row">
+      <div class="per">수상</div>
+      <div><div class="tt">IEEE CIG Runner-up</div><div class="ds">Computational Intelligence in Games</div></div>
+    </div>
+    <div class="row">
+      <div class="per">발표</div>
+      <div><div class="tt">넷마블 Game Development Forum</div><div class="ds">2023 · 2024</div></div>
+    </div>
+  </section>
+
+  <footer>
+    이 페이지는 HTML · CSS로 직접 작성했습니다. · <a href="mailto:woodullee@naver.com" style="color:var(--accent)">woodullee@naver.com</a>
+  </footer>
+
+</main>
+</div>
+</body>
+</html>
