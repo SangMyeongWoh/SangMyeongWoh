@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>우상명 — NLP · AI 엔지니어</title>
 <meta name="description" content="7년차 NLP·AI 엔지니어. 게임 로컬라이제이션 AI 플랫폼 MaMT 언어 파트 리딩. 넷마블 AI플랫폼 개발팀.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b6b5c'/%3E%3Cpath d='M7.5 11l3.1 10L15.5 12.5 20.4 21l3.1-10' fill='none' stroke='%23eaf5f2' stroke-width='2.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="우상명 — NLP · AI 엔지니어">
+<meta property="og:description" content="7년차 NLP·AI 엔지니어. 게임 로컬라이제이션 AI 플랫폼 언어 파트 리딩.">
+<meta property="og:url" content="https://sangmyeongwoh.github.io/SangMyeongWoh/v2/">
+<meta name="twitter:card" content="summary">
 <style>
 :root{
   --bg:#0b1211; --bg2:#0f1817; --line:#22302c; --line2:#2c3d38;
@@ -17,7 +25,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--sub);font-size:16px;line-height:1.7;
-  font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif;
+  font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif;
   -webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:980px;margin:0 auto;padding:0 26px}
@@ -49,6 +57,8 @@ section{margin-bottom:74px}
 .card{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:18px;
       padding:24px 24px 20px;transition:border-color .18s,transform .18s}
 .card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.card:active{transform:translateY(-1px) scale(.995)}
+.mini a:active,.tech:active{transform:translateY(1px)}
 .card .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .card h3{font-size:20px;color:var(--ink);font-weight:800;letter-spacing:-.4px}
 .card .when{font-size:11.5px;color:var(--muted);font-weight:600;white-space:nowrap}
@@ -100,9 +110,25 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;display:flex;gap:20p
        align-items:center;font-size:14px;color:var(--muted)}
 footer a{border-bottom:1px solid transparent}
 footer a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* ── 리디자인 감사 반영 ─────────────────────────── */
+::selection{background:var(--accent);color:#06100e}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+.mono,.per,.when,.pin,.k{font-variant-numeric:tabular-nums}
+a,button,summary{-webkit-tap-highlight-color:transparent}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;
+                       scroll-behavior:auto !important}
+}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#06100e;
+      padding:10px 16px;border-radius:0 0 10px 0;font-weight:700;z-index:50}
+.skip:focus{left:0}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
 <div class="wrap">
 
   <div class="hero">
@@ -115,6 +141,7 @@ footer a:hover{color:var(--accent);border-bottom-color:var(--accent)}
     <img class="face" src="https://github.com/SangMyeongWoh.png?size=600" alt="우상명 프로필 사진" />
   </div>
 
+  <main id="main">
   <section>
     <div class="slab"><h2 class="mono">Projects</h2><i></i></div>
     <div class="cards">
@@ -193,6 +220,8 @@ footer a:hover{color:var(--accent);border-bottom-color:var(--accent)}
       <div class="aw"><div class="k mono">발표</div><div><div class="t">넷마블 Game Development Forum</div><div class="d">2023 · 2024</div></div></div>
     </div>
   </section>
+
+  </main>
 
   <footer>
     <a href="mailto:woodullee@naver.com">woodullee@naver.com</a>

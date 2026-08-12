@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MARGE — 우상명</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b6b5c'/%3E%3Cpath d='M7.5 11l3.1 10L15.5 12.5 20.4 21l3.1-10' fill='none' stroke='%23eaf5f2' stroke-width='2.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MARGE — 우상명">
+<meta property="og:description" content="기업 문서 지식 Q&A 엔진 MARGE — 에이전틱 RAG 재설계와 실측 검증.">
+<meta property="og:url" content="https://sangmyeongwoh.github.io/SangMyeongWoh/marge/">
+<meta name="twitter:card" content="summary">
 <style>
 /* ============================================================
    MarbleAI 포트폴리오와 동일한 디자인 체계.
@@ -33,7 +41,7 @@
 body {
     background: var(--bg);
     color: var(--sub);
-    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-family: 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
     line-height: 1.7;
     font-size: 17px;
 }
@@ -75,6 +83,9 @@ details { border: 1px solid var(--line); border-radius: 12px; margin-top: 12px; 
 summary { cursor: pointer; padding: 14px 18px; font-weight: 700; color: var(--ink); font-size: 16px; list-style: none; }
 summary::before { content: '+'; color: var(--accent); font-weight: 800; margin-right: 10px; }
 .role { float: right; font-size: 12px; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 20px; padding: 2px 10px; margin-left: 10px; }
+summary:hover { color: var(--accent); }
+details { transition: border-color .18s; }
+details:hover { border-color: var(--line); }
 details[open] summary::before { content: '−'; }
 details > div { padding: 2px 18px 18px; font-size: 16px; }
 details img { max-width: 100%; border-radius: 8px; background: #fff; border: 1px solid var(--line); margin-top: 10px; }
@@ -93,6 +104,21 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
              margin-right: 10px; vertical-align: 2px; white-space: nowrap; }
 .lbl b, .ref b { font-family: ui-monospace,'SF Mono',Consolas,monospace; font-weight: 800;
                  margin-right: 6px; letter-spacing: .04em; }
+
+/* ── 리디자인 감사 반영 ─────────────────────────── */
+::selection{background:var(--accent);color:#06100e}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+.mono,.per,.when,.pin,.k{font-variant-numeric:tabular-nums}
+a,button,summary{-webkit-tap-highlight-color:transparent}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;
+                       scroll-behavior:auto !important}
+}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#06100e;
+      padding:10px 16px;border-radius:0 0 10px 0;font-weight:700;z-index:50}
+.skip:focus{left:0}
 </style>
 </head>
 <body>
@@ -152,12 +178,12 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 
     <p style="font-size:13px;color:var(--muted);margin:30px 0 8px;">MARGE — 전체 흐름</p>
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
-        <img src="img/flow-overview.svg" alt="MARGE 전체 흐름 — 질문 이해 → 문서 검색 → 답변 생성, 근거 유무에 따라 근거 답변과 정중한 거절로 갈리며 별도의 품질 평가가 뒤따름" style="width:100%;">
+        <img loading="lazy" decoding="async" src="img/flow-overview.svg" alt="MARGE 전체 흐름 — 질문 이해 → 문서 검색 → 답변 생성, 근거 유무에 따라 근거 답변과 정중한 거절로 갈리며 별도의 품질 평가가 뒤따름" style="width:100%;">
     </div>
 
     <p style="font-size:13px;color:var(--muted);margin:22px 0 8px;">MARGE — 시스템 아키텍처</p>
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
-        <img src="img/arch-overview.svg" alt="MARGE 시스템 아키텍처 — GKE 클러스터 위의 채팅 API·평가기 API·문서 관리 API·인덱싱 파이프라인과 MongoDB·GCS·Vertex AI, 진한 테두리는 직접 구현 영역" style="width:100%;">
+        <img loading="lazy" decoding="async" src="img/arch-overview.svg" alt="MARGE 시스템 아키텍처 — GKE 클러스터 위의 채팅 API·평가기 API·문서 관리 API·인덱싱 파이프라인과 MongoDB·GCS·Vertex AI, 진한 테두리는 직접 구현 영역" style="width:100%;">
     </div>
 </section>
 
