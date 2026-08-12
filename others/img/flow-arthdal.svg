@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 302" width="760" height="302" role="img" aria-label="아스달 연대기 지식의 서 전체 흐름">
+<style>
+  .bg  { fill: #ffffff; }
+  .pan { fill: #f4f8f7; stroke: #dce5e2; }
+  .box { fill: #ffffff; stroke: #dce5e2; }
+  .hot { stroke: #0b6b5c; }
+  .ink { fill: #16211f; }
+  .sub { fill: #33403e; }
+  .mut { fill: #6b7c79; }
+  .acc { fill: #0b6b5c; }
+  .ln  { stroke: #6b7c79; }
+  .ah  { fill: #6b7c79; }
+  .dl  { stroke: #9db0ab; }
+  .ahd { fill: #9db0ab; }
+  @media (prefers-color-scheme: dark) {
+    .bg  { fill: #0d1413; }
+    .pan { fill: #101817; stroke: #26332f; }
+    .box { fill: #0d1413; stroke: #26332f; }
+    .hot { stroke: #6fdcc6; }
+    .ink { fill: #e6edea; }
+    .sub { fill: #bcc9c6; }
+    .mut { fill: #849692; }
+    .acc { fill: #6fdcc6; }
+    .ln  { stroke: #849692; }
+    .ah  { fill: #849692; }
+    .dl  { stroke: #46564f; }
+    .ahd { fill: #5d716a; }
+  }
+  text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
+  .t { font-size: 14.5px; font-weight: 700; }
+  .s { font-size: 12px; }
+  .k { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; }
+  rect { stroke-width: 1.2; }
+  .hot { stroke-width: 1.7; }
+  .ln, .dl { fill: none; stroke-width: 1.4; }
+  .dl { stroke-dasharray: 4 4; }
+</style>
+<defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4.5" orient="auto"><path class="ah" d="M0.5 0.6 L9 4.5 L0.5 8.4 z"/></marker><marker id="d" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4.5" orient="auto"><path class="ahd" d="M0.5 0.6 L9 4.5 L0.5 8.4 z"/></marker></defs>
+<rect class="bg" x="0" y="0" width="760" height="302"/>
+<text class="k acc" x="16" y="26">질문 처리</text>
+<rect class="box" x="16" y="36" width="158" height="58" rx="9"/>
+<text class="t ink" x="30" y="60">질문</text>
+<text class="s mut" x="30" y="79">게임 공략 문의</text>
+<rect class="box" x="206" y="36" width="158" height="58" rx="9"/>
+<text class="t ink" x="220" y="60">BM25 · 벡터 검색</text>
+<text class="s mut" x="220" y="79">MongoDB Atlas</text>
+<rect class="box" x="396" y="36" width="158" height="58" rx="9"/>
+<text class="t ink" x="410" y="60">RRF 결합</text>
+<text class="s mut" x="410" y="79">두 점수를 하나로</text>
+<rect class="box hot" x="586" y="36" width="158" height="58" rx="9"/>
+<text class="t ink" x="600" y="60">캐시 판별</text>
+<text class="s mut" x="600" y="79">RRF 임계치 + LLM</text>
+<path class="ln" d="M174 65 L202 65" marker-end="url(#a)"/>
+<path class="ln" d="M364 65 L392 65" marker-end="url(#a)"/>
+<path class="ln" d="M554 65 L582 65" marker-end="url(#a)"/>
+<path class="ln" d="M665 94 V124 H127 V150" marker-end="url(#a)"/>
+<path class="ln" d="M665 94 V124 H380 V150" marker-end="url(#a)"/>
+<text class="k mut" x="140" y="118">적중</text>
+<text class="k mut" x="393" y="118">미적중</text>
+<rect class="box" x="16" y="158" width="222" height="58" rx="9"/>
+<text class="t ink" x="30" y="182">저장된 답변 반환</text>
+<text class="s mut" x="30" y="201">검색·생성 없이 즉시</text>
+<rect class="box" x="269" y="158" width="222" height="58" rx="9"/>
+<text class="t ink" x="283" y="182">답변 가능 판별</text>
+<text class="s mut" x="283" y="201">근거가 있는지 확인</text>
+<rect class="box" x="522" y="158" width="222" height="58" rx="9"/>
+<text class="t ink" x="536" y="182">RAG 답변 생성</text>
+<text class="s mut" x="536" y="201">검색된 문서로 작성</text>
+<path class="ln" d="M491 187 L518 187" marker-end="url(#a)"/>
+<rect class="pan" x="16" y="240" width="728" height="48" rx="9"/>
+<text class="k acc" x="30" y="261">사전 캐싱</text>
+<text class="s sub" x="30" y="280">자주 나올 질문의 답변을 미리 만들어 두어 응답 지연과 LLM 비용을 줄임</text>
+</svg>
