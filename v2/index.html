@@ -60,24 +60,27 @@ section{margin-bottom:74px}
   .slab h2{white-space:normal;line-height:1.5}
 }
 
-/* ── 프로젝트 카드 ──────────────────────── */
-.cards{display:grid;grid-template-columns:1fr;gap:14px}
-@media (min-width:760px){ .cards{grid-template-columns:1fr 1fr} }
-.card{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:18px;
-      padding:24px 24px 20px;transition:border-color .18s,transform .18s}
-.card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.card:active{transform:translateY(-1px) scale(.995)}
-.mini a:active,.tech:active{transform:translateY(1px)}
-.card .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.card h3{font-size:20px;color:var(--ink);font-weight:800;letter-spacing:-.4px}
-.card .when{font-size:11.5px;color:var(--muted);font-weight:600;white-space:nowrap}
-.card p{font-size:14.5px;margin-top:10px;color:var(--sub)}
-.card .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
-.card .tags span{font-size:11.5px;font-weight:700;color:var(--accent);
+/* ── 프로젝트 — 전폭 목록 ──────────────── */
+.plist{display:grid;gap:0}
+.prow{display:block;position:relative;padding:20px 0 22px 16px;border-top:1px solid var(--line);
+      border-radius:10px;transition:background .16s}
+.prow:first-child{border-top:0}
+.prow::before{content:'';position:absolute;left:0;top:18px;bottom:18px;width:2px;border-radius:2px;
+      background:transparent;transition:background .16s}
+.prow:hover{background:color-mix(in srgb, var(--bg2) 70%, transparent)}
+.prow:hover::before{background:var(--accent)}
+.prow .top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.prow h3{font-size:23px;color:var(--ink);font-weight:800;letter-spacing:-.5px;transition:color .16s}
+.prow:hover h3{color:var(--accent)}
+.prow .when{font-size:11.5px;color:var(--muted);font-weight:600;white-space:nowrap}
+.prow p{font-size:15.5px;margin-top:9px;color:var(--sub);max-width:64ch}
+.prow .tags{margin-top:13px;display:flex;flex-wrap:wrap;gap:6px}
+.prow .tags span{font-size:11.5px;font-weight:700;color:var(--accent);
       border:1px solid var(--accent-dim);border-radius:999px;padding:3px 10px}
-.card .go{margin-top:16px;font-size:12.5px;font-weight:700;color:var(--accent);display:inline-block}
-.card:hover .go{text-decoration:underline}
-.mini{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.prow .go{margin-top:14px;font-size:12.5px;font-weight:700;color:var(--accent);display:inline-block;
+      opacity:.75;transition:opacity .16s,transform .16s}
+.prow:hover .go{opacity:1;transform:translateX(3px)}
+.mini{display:flex;flex-wrap:wrap;gap:10px}
 .mini a{font-size:13.5px;color:var(--sub);background:var(--bg2);border:1px solid var(--line);
         border-radius:10px;padding:8px 14px;transition:border-color .15s,color .15s}
 .mini a:hover{border-color:var(--accent);color:var(--accent)}
@@ -146,8 +149,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opa
   filter:blur(18px)}
 .face{box-shadow:var(--shadow)}
 
-/* 카드 — 그림자로 층을 만들고, 위쪽에 강조선 */
-.card{position:relative;overflow:hidden;background:var(--surface);box-shadow:var(--shadow);
       transition:border-color .18s, transform .18s, box-shadow .22s}
 .card::before{content:'';position:absolute;left:0;right:0;top:0;height:2px;
       background:linear-gradient(90deg,var(--accent),transparent 72%);opacity:0;transition:opacity .22s}
@@ -220,16 +221,16 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
   <main id="main">
   <section id="projects" data-rise>
     <div class="slab"><h2 class="mono">Projects</h2><i></i></div>
-    <div class="cards">
+    <div class="plist">
 
-      <a class="card" data-rise href="../marbleai/">
+      <a class="prow" data-rise href="../marbleai/">
         <div class="top"><h3>MarbleAI 언어파트</h3><span class="when mono">2023.05 –</span></div>
         <p>게임 로컬라이제이션 LLM 파이프라인. 기계번역 한 단계에 머물던 1세대를 <b>4개 시스템 체제로 전면 재설계</b>하고 전환했습니다.</p>
         <div class="tags"><span>설계 · 개발</span><span>Cloud Run</span><span>LLM 파이프라인</span></div>
         <div class="go">포트폴리오 →</div>
       </a>
 
-      <a class="card" data-rise href="../marge/">
+      <a class="prow" data-rise href="../marge/">
         <div class="top"><h3>MARGE</h3><span class="when mono">2024.06 –</span></div>
         <p>기업 문서 지식 Q&amp;A 엔진. 질문 이해 → 문서 검색 → 답변 생성 <b>런타임 파이프라인을 직접 구현</b>하고 에이전틱 구조 리뉴얼을 설계했습니다.</p>
         <div class="tags"><span>공동 개발</span><span>RAG</span><span>에이전틱 설계</span></div>
