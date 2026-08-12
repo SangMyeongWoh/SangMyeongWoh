@@ -53,9 +53,9 @@
 <rect class="box" x="16" y="136" width="356" height="58" rx="9"/>
 <text class="t ink" x="30" y="160">지식 에이전트</text>
 <text class="s mut" x="30" y="179">저장소 데이터를 그래프화 · GraphRAG</text>
-<rect class="box" x="388" y="136" width="356" height="58" rx="9"/>
-<text class="t ink" x="402" y="160">사내 API</text>
-<text class="s mut" x="402" y="179">각 부서 시스템 조회</text>
+<rect class="box hot" x="388" y="136" width="356" height="58" rx="9"/>
+<text class="t ink" x="402" y="160">데이터 에이전트</text>
+<text class="s mut" x="402" y="179">사내 시스템 실시간 조회</text>
 <path class="ln" d="M194 136 V114 H380 V98" marker-end="url(#a)"/>
 <path class="ln" d="M566 136 V114 H380 V98" marker-end="url(#a)"/>
 <rect class="pan" x="16" y="212" width="728" height="44" rx="9"/>
