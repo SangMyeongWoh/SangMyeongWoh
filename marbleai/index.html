@@ -5,9 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MarbleAI 언어 파트 — 우상명</title>
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b6b5c'/%3E%3Cpath d='M7.5 11l3.1 10L15.5 12.5 20.4 21l3.1-10' fill='none' stroke='%23eaf5f2' stroke-width='2.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<li data-risenk rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<li data-risenk rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<li data-risenk rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b6b5c'/%3E%3Cpath d='M7.5 11l3.1 10L15.5 12.5 20.4 21l3.1-10' fill='none' stroke='%23eaf5f2' stroke-width='2.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MarbleAI 언어 파트 — 우상명">
 <meta property="og:description" content="게임 로컬라이제이션 AI 플랫폼 MaMT의 전면 재설계 — 교정·기계번역·용어집·평가 4개 시스템.">
@@ -163,7 +163,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 </header>
 
 <!-- ============ 30초 요약 ============ -->
-<section data-rise>
+<section>
     <p class="lead">MarbleAI는 게임 로컬라이제이션을 위한 사내 AI 플랫폼으로, <b>음성</b>과 <b>언어</b> 두 파트로 이뤄져 있습니다. 저는 <b>언어 파트(MaMT)를 리딩</b>합니다.</p>
     <p class="lead">게임을 전 세계로 퍼블리싱하려면 수만 문장을 <b>최대 31개 언어</b>로 옮겨야 합니다. 사람 번역으로 전부 감당하기에는 비용과 시간이 촉박해, 일부 메이저 언어를 제외한 대부분을 <b>LLM 기반 기계번역</b>이 맡고 있습니다 — 최근에는 <b>메이저 언어까지 기계번역을 도입하는 추세</b>입니다.</p>
     <p class="lead">1세대 MaMT는 <b>이름 그대로 기계번역 한 단계</b>뿐이었고, 앞뒤 공정은 사람과 외주에 남아 있었습니다. 저는 <b>MaMT의 전면 재설계를 결정</b>하고, <b>2세대 MaMT</b>(교정·기계번역·용어집·평가)로의 전환 및 개발을 이끌었습니다. 이중 <b>기계번역·용어집·평가는 직접 구현</b>해 지금까지 운영·개선하고 있습니다.</p>
@@ -172,20 +172,20 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 <hr style="margin-top:64px;">
 
 <!-- ============ P ============ -->
-<section data-rise class="narr">
+<section class="narr">
     <h2><span class="mono">Problem</span>1세대 MaMT의 문제점</h2>
     <ul class="idxlist">
-        <li><span class="lbl"><b>01</b>확장성</span><b>서버 한 대에 큐 하나.</b> 몇 문장짜리도 대량 작업 뒤에서 기다렸습니다.</li>
-        <li><span class="lbl"><b>02</b>배포</span>배포가 수동이라, 컨테이너를 통째로 내렸다 올리며 <b>진행 중인 번역이 없는 때를 골라야</b> 했습니다.</li>
-        <li><span class="lbl"><b>03</b>운영비용</span>모니터링이 없어 문제가 생기면 <b>사람이 직접 찾아야</b> 했고, 이 유지보수가 <b>한 달에 몇 번씩</b> 반복됐습니다.</li>
-        <li><span class="lbl"><b>04</b>용어집</span>용어는 엑셀, <b>매칭 엔진은 기계번역 안에</b> 박혀 있어 — 매칭 하나 고치려면 <b>기계번역을 통째로 재배포</b>해야 했습니다.</li>
-        <li><span class="lbl"><b>05</b>품질 검증</span>품질 확인이 <b>외주 검수(2주~한 달, 분기 1회)</b>라, 모델을 바꿔도 다음 분기에야 결과를 알 수 있었습니다 — <b>빨라지는 LLM 흐름을 따라갈 수 없는 속도.</b></li>
+        <li data-rise><span class="lbl"><b>01</b>확장성</span><b>서버 한 대에 큐 하나.</b> 몇 문장짜리도 대량 작업 뒤에서 기다렸습니다.</li>
+        <li data-rise><span class="lbl"><b>02</b>배포</span>배포가 수동이라, 컨테이너를 통째로 내렸다 올리며 <b>진행 중인 번역이 없는 때를 골라야</b> 했습니다.</li>
+        <li data-rise><span class="lbl"><b>03</b>운영비용</span>모니터링이 없어 문제가 생기면 <b>사람이 직접 찾아야</b> 했고, 이 유지보수가 <b>한 달에 몇 번씩</b> 반복됐습니다.</li>
+        <li data-rise><span class="lbl"><b>04</b>용어집</span>용어는 엑셀, <b>매칭 엔진은 기계번역 안에</b> 박혀 있어 — 매칭 하나 고치려면 <b>기계번역을 통째로 재배포</b>해야 했습니다.</li>
+        <li data-rise><span class="lbl"><b>05</b>품질 검증</span>품질 확인이 <b>외주 검수(2주~한 달, 분기 1회)</b>라, 모델을 바꿔도 다음 분기에야 결과를 알 수 있었습니다 — <b>빨라지는 LLM 흐름을 따라갈 수 없는 속도.</b></li>
     </ul>
-    <p class="pull">고쳐야 하는 규모가 너무 방대하다고 판단하여 전면 재설계를 결정했습니다.</p>
+    <p class="pull" data-rise>고쳐야 하는 규모가 너무 방대하다고 판단하여 전면 재설계를 결정했습니다.</p>
 </section>
 
 <!-- ============ A1 ============ -->
-<section data-rise class="narr">
+<section class="narr">
     <h2><span class="mono">Analyze &amp; Apply</span>분석 및 적용</h2>
     <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer, GKE, Cloud Run</b> 세 가지를 고려했고, <b>Cloud Run</b>을 택했습니다. Composer는 <b>필요한 기능에 비해 과하고 비쌌습니다.</b> GKE는 <b>상대적으로 유지보수에 사람 인력이 더 들어간다</b>고 판단했습니다. 번역 작업은 간헐적으로 들어오는 배치성 일감이라, <b>쓰지 않는 시간에 비용이 0이 되는 서버리스</b>가 워크로드 성격에 맞다고 봤습니다.</p>
     <p style="margin-top:10px;">전체 번역 작업 중 <b>60%가 100문장 미만</b>이었습니다. 작은 작업은 <b>Cloud Run Service</b>로, 큰 작업은 <b>Cloud Run Job</b>으로 처리되는 분기를 만들었습니다.</p>
@@ -195,27 +195,27 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <p style="margin-top:14px;"><span class="ref"><b>04</b>용어집</span>용어집도 <b>원활한 패치와 관리를 위해 별도 서비스로 분리</b>하고, <b>DB를 만들어 관리</b>하도록 했습니다. 덕분에 <b>교정, 평가도 같은 용어집을 쓸 수 있게</b> 됐습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>05</b>품질 검증</span><b>기계번역에까지 사람 평가를 할 필요는 없다</b>고 판단했습니다. 평가 기준은 이미 사내에 있었으므로, <b>그 기준대로 채점하는 LLM 기반 평가기</b>를 만들었습니다.</p>
     <p style="margin-top:14px;">여기에 하나를 더했습니다 — <b>원본 교정</b>. 한국어 원본의 오탈자와 잘못된 용어는 번역을 거치면 <b>모든 언어로 증폭</b>됩니다. 번역 앞단에서 먼저 걸러야 한다고 봤습니다.</p>
-    <p class="pull">모든 판단의 기준은 같았습니다 — 로컬라이제이션의 자동화, 그리고 운영 비용 최소화.</p>
+    <p class="pull" data-rise>모든 판단의 기준은 같았습니다 — 로컬라이제이션의 자동화, 그리고 운영 비용 최소화.</p>
 </section>
 
 
 <!-- ============ R ============ -->
-<section data-rise class="narr">
+<section class="narr">
     <h2><span class="mono">Result</span>지금의 MaMT</h2>
     <div class="nums n3">
-        <div class="num"><b>248개 워크스페이스</b><span>사내 게임 프로젝트가 사용 중</span></div>
-        <div class="num"><b>라이브 게임 10개</b><span>실제 서비스 중인 게임이 활용</span></div>
-        <div class="num"><b>누적 7,000+ 건 처리</b><span>기계번역 작업 (1·2세대 합산)</span></div>
-        <div class="num"><b>2026 상반기 50억+ 절감</b><span>사람이 번역했을 때의 비용으로 환산 — 사내 집계 기준</span></div>
-        <div class="num"><b>줄 서지 않는 번역</b><span>작은 요청이 대형 작업에 막히지 않는 구조 — 대부분 1분 안에 처리</span></div>
-        <div class="num"><b>운영 공수 0.3MM 이하</b><span>한 달에 몇 번씩 사람이 붙던 유지보수를 진단 자동화로 대체</span></div>
-        <div class="num"><b>출발 6종 · 대상 31개 언어</b><span>한국어 1종에서 영어·일본어·중국어(간·번체)·태국어까지 확장</span></div>
-        <div class="num"><b>4개 시스템 체제</b><span>교정 · 기계번역 · 용어집 · 평가</span></div>
+        <div class="num" data-rise><b>248개 워크스페이스</b><span>사내 게임 프로젝트가 사용 중</span></div>
+        <div class="num" data-rise><b>라이브 게임 10개</b><span>실제 서비스 중인 게임이 활용</span></div>
+        <div class="num" data-rise><b>누적 7,000+ 건 처리</b><span>기계번역 작업 (1·2세대 합산)</span></div>
+        <div class="num" data-rise><b>2026 상반기 50억+ 절감</b><span>사람이 번역했을 때의 비용으로 환산 — 사내 집계 기준</span></div>
+        <div class="num" data-rise><b>줄 서지 않는 번역</b><span>작은 요청이 대형 작업에 막히지 않는 구조 — 대부분 1분 안에 처리</span></div>
+        <div class="num" data-rise><b>운영 공수 0.3MM 이하</b><span>한 달에 몇 번씩 사람이 붙던 유지보수를 진단 자동화로 대체</span></div>
+        <div class="num" data-rise><b>출발 6종 · 대상 31개 언어</b><span>한국어 1종에서 영어·일본어·중국어(간·번체)·태국어까지 확장</span></div>
+        <div class="num" data-rise><b>4개 시스템 체제</b><span>교정 · 기계번역 · 용어집 · 평가</span></div>
     </div>
 
     <p style="font-size:13px;color:var(--muted);margin:30px 0 8px;">2세대 MaMT — 시스템 아키텍처</p>
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
-        <img loading="lazy" decoding="async" src="img/arch-overview.svg" alt="2세대 MaMT 시스템 아키텍처 — 교정·기계번역·평가가 같은 접수 서버, 큐, 워커 구조로 반복되고 용어집과 저장소를 공유" style="width:100%;">
+        <img data-rise loading="lazy" decoding="async" src="img/arch-overview.svg" alt="2세대 MaMT 시스템 아키텍처 — 교정·기계번역·평가가 같은 접수 서버, 큐, 워커 구조로 반복되고 용어집과 저장소를 공유" style="width:100%;">
     </div>
 </section>
 
@@ -223,7 +223,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 
 <!-- ============ 깊이 층 — 면접관용. 한 일 전량 목록 ============ -->
 <!-- ============ Deep Dive ============ -->
-<section data-rise>
+<section>
     <h2><span class="mono">Deep Dive</span>시스템별로 더 깊이</h2>
 
     <details data-rise>
@@ -231,7 +231,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">한국어 원본의 오탈자·잘못된 용어는 번역을 거치면 <b>모든 언어로 증폭</b>됩니다. 이를 앞단에서 잡되, LLM 3단계(탐지→교정→리뷰)가 고친 것도 그대로 믿지 않습니다 — <b>숫자가 든 변경은 통째로 거부</b>하고(게임 데이터 보호가 교정률보다 우선), 최종 채택은 <b>사람이 문장별로 확정</b>합니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
-            <img loading="lazy" decoding="async" src="img/flow-correction.svg" alt="원본 교정 처리 흐름" style="width:100%;margin-top:6px;">
+            <img data-rise loading="lazy" decoding="async" src="img/flow-correction.svg" alt="원본 교정 처리 흐름" style="width:100%;margin-top:6px;">
         </div>
     </details>
 
@@ -240,7 +240,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">번역 전, 깨질 수 있는 민감한 태그를 마스킹하고 <b>용어집·유사 문장·캐릭터 말투</b>를 모아 프롬프트를 조립합니다. 번역 후엔 태그·변수·용어가 온전한지 <b>룰베이스 기반으로 검증</b>합니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
-            <img loading="lazy" decoding="async" src="img/flow-translation.svg" alt="기계번역 처리 흐름" style="width:100%;margin-top:6px;">
+            <img data-rise loading="lazy" decoding="async" src="img/flow-translation.svg" alt="기계번역 처리 흐름" style="width:100%;margin-top:6px;">
         </div>
     </details>
 
@@ -249,7 +249,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">등록할 때 언어별 <b>정규화형을 미리 계산해 저장</b>하고, 매칭할 때 <b>같은 규칙으로 비교</b>합니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">시스템 아키텍처</p>
-            <img loading="lazy" decoding="async" src="img/arch-glossary.svg" alt="용어집 구성" style="width:100%;margin-top:6px;">
+            <img data-rise loading="lazy" decoding="async" src="img/arch-glossary.svg" alt="용어집 구성" style="width:100%;margin-top:6px;">
         </div>
     </details>
 
@@ -258,7 +258,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">확실한 오류는 규칙이 LLM 없이 판정하고, 애매한 것만 <b>LLM 심판</b>이 원문과 대조해 탐지하며, 심판의 주장도 <b>근거를 검증해 틀린 지적은 기각</b>합니다(용어집이 권위).</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
-            <img loading="lazy" decoding="async" src="img/flow-eval.svg" alt="평가 처리 흐름" style="width:100%;margin-top:6px;">
+            <img data-rise loading="lazy" decoding="async" src="img/flow-eval.svg" alt="평가 처리 흐름" style="width:100%;margin-top:6px;">
         </div>
     </details>
 
@@ -267,10 +267,10 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">사용자 편의성을 위한 개선사항.</p>
             <ul>
-                <li><b>파일 입력</b> — 엑셀의 어느 열이 어떤 언어인지 사람이 직접 지정하던 절차를 자동화. 언어 자동 감지, 여러 파일 일괄 업로드.</li>
-                <li><b>문서 번역</b> — 게임 텍스트 외 사업부 문서까지 번역 대상 확장 — 워드·파워포인트·마크다운, 변경추적이 걸린 문서까지 그대로.</li>
-                <li><b>용어집 등록</b> — 텍스트만 받던 1세대와 달리, 개발사가 실제 쓰는 이미지 섞인 용어집도 가공 없이 그대로 등록.</li>
-                <li><b>스킬 배포</b> — 플랫폼 웹에 직접 접속하지 않아도 번역 사용이 가능하도록 스킬 배포.</li>
+                <li data-rise><b>파일 입력</b> — 엑셀의 어느 열이 어떤 언어인지 사람이 직접 지정하던 절차를 자동화. 언어 자동 감지, 여러 파일 일괄 업로드.</li>
+                <li data-rise><b>문서 번역</b> — 게임 텍스트 외 사업부 문서까지 번역 대상 확장 — 워드·파워포인트·마크다운, 변경추적이 걸린 문서까지 그대로.</li>
+                <li data-rise><b>용어집 등록</b> — 텍스트만 받던 1세대와 달리, 개발사가 실제 쓰는 이미지 섞인 용어집도 가공 없이 그대로 등록.</li>
+                <li data-rise><b>스킬 배포</b> — 플랫폼 웹에 직접 접속하지 않아도 번역 사용이 가능하도록 스킬 배포.</li>
             </ul>
         </div>
     </details>
@@ -291,7 +291,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e,i){
       if(e.isIntersecting){var el=e.target;
-        setTimeout(function(){el.classList.add('in')}, Math.min(i,4)*70); io.unobserve(el);}
+        setTimeout(function(){el.classList.add('in')}, Math.min(i,6)*55); io.unobserve(el);}
     });
   },{rootMargin:'0px 0px -8% 0px',threshold:.06});
   t.forEach(function(e){io.observe(e)});
