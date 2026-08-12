@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+<script>document.documentElement.className+=" js"</script>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -111,6 +112,13 @@ footer{border-top:1px solid var(--line);padding:26px 0 60px;display:flex;gap:20p
 footer a{border-bottom:1px solid transparent}
 footer a:hover{color:var(--accent);border-bottom-color:var(--accent)}
 
+
+/* ── 스크롤 등장 ─────────────────────────────── */
+.js [data-rise]{opacity:0;transform:translateY(14px);
+  transition:opacity .5s cubic-bezier(.22,.61,.36,1),transform .5s cubic-bezier(.22,.61,.36,1)}
+.js [data-rise].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){ .js [data-rise]{opacity:1;transform:none;transition:none} }
+
 /* ── 리디자인 감사 반영 ─────────────────────────── */
 ::selection{background:var(--accent);color:#06100e}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
@@ -131,7 +139,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <div class="wrap">
 
-  <div class="hero">
+  <div class="hero" data-rise>
     <div>
       <div class="eyebrow mono">NLP · AI Engineer</div>
       <h1>NLP · AI 엔지니어<br>우상명 <em>Sangmyeong Woh</em></h1>
@@ -142,18 +150,18 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
   </div>
 
   <main id="main">
-  <section>
+  <section data-rise>
     <div class="slab"><h2 class="mono">Projects</h2><i></i></div>
     <div class="cards">
 
-      <a class="card" href="../marbleai/">
+      <a class="card" data-rise href="../marbleai/">
         <div class="top"><h3>MarbleAI 언어파트</h3><span class="when mono">2023.05 –</span></div>
         <p>게임 로컬라이제이션 LLM 파이프라인. 기계번역 한 단계에 머물던 1세대를 <b>4개 시스템 체제로 전면 재설계</b>하고 전환을 이끌었습니다.</p>
         <div class="tags"><span>프로젝트 리딩</span><span>Cloud Run</span><span>LLM 파이프라인</span></div>
         <div class="go">포트폴리오 →</div>
       </a>
 
-      <a class="card" href="../marge/">
+      <a class="card" data-rise href="../marge/">
         <div class="top"><h3>MARGE</h3><span class="when mono">2024.06 –</span></div>
         <p>기업 문서 지식 Q&amp;A 엔진. 질문 이해 → 문서 검색 → 답변 생성 <b>런타임 파이프라인을 직접 구현</b>하고 에이전틱 구조 리뉴얼을 설계했습니다.</p>
         <div class="tags"><span>공동 개발</span><span>RAG</span><span>에이전틱 설계</span></div>
@@ -168,7 +176,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     </div>
   </section>
 
-  <section>
+  <section data-rise>
     <div class="slab"><h2 class="mono">Career &amp; Education</h2><i></i></div>
     <div class="tl">
       <div class="item now"><div class="when mono">2023.05 –</div><div><div class="co">넷마블</div><div class="ro">AI플랫폼 개발팀 · AI 서비스 개발</div></div></div>
@@ -180,7 +188,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     </div>
   </section>
 
-  <section>
+  <section data-rise>
     <div class="slab"><h2 class="mono">Stack</h2><i></i></div>
     <div class="stack">
       <span class="tech"><svg class="ic" viewBox="0 0 24 24" width="16" height="16" fill="#3776AB" aria-hidden="true"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>Python</span>
@@ -212,7 +220,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     </div>
   </section>
 
-  <section>
+  <section data-rise>
     <div class="slab"><h2 class="mono">Activity &amp; Awards</h2><i></i></div>
     <div class="awards">
       <div class="aw"><div class="k mono">특허</div><div><div class="t">등록 제10-2456513호</div><div class="d">텍스트 데이터 증강</div></div></div>
@@ -223,11 +231,28 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 
   </main>
 
-  <footer>
+  <footer data-rise>
     <a href="mailto:woodullee@naver.com">woodullee@naver.com</a>
     <a href="https://github.com/SangMyeongWoh">github.com/SangMyeongWoh</a>
   </footer>
 
 </div>
+
+<script>
+(function(){
+  var t=document.querySelectorAll('[data-rise]');
+  if(!('IntersectionObserver' in window)){t.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e,i){
+      if(e.isIntersecting){
+        var el=e.target;
+        setTimeout(function(){el.classList.add('in')}, Math.min(i,4)*70);
+        io.unobserve(el);
+      }
+    });
+  },{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  t.forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>
