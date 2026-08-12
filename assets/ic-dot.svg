@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" width="12" height="12" role="img" aria-label="">
-  <style>
-    .m { fill:#0B6B5C }
-    @media (prefers-color-scheme: dark) { .m { fill:#6FDCC6 } }
-  </style>
-  <rect class="m" x="1.5" y="1.5" width="9" height="9" rx="2.4"/>
-</svg>
