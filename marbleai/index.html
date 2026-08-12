@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary">
 <style>
 /* ============================================================
-   단일 축: "리딩해서 끝까지 만든 사람"
+   단일 축: "판단하고 끝까지 만든 사람"
    디자인 원칙: 타이포그래피만으로 전달. 장식·애니메이션 없음.
    GitHub 프로필 SVG와 같은 팔레트 — 라이트/다크 자동.
    ============================================================ */
@@ -159,14 +159,14 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 <!-- ============ 헤더 — 한 문장이 전부를 말한다 ============ -->
 <header>
     <div class="mono">Sangmyeong Woh · NLP/AI Engineer · Netmarble · 2023.05 –</div>
-    <h1>게임 로컬라이제이션 AI 플랫폼<br>MarbleAI 언어 파트 리딩</h1>
+    <h1>게임 로컬라이제이션 AI 플랫폼<br>MarbleAI 언어 파트</h1>
 </header>
 
 <!-- ============ 30초 요약 ============ -->
 <section>
-    <p class="lead">MarbleAI는 게임 로컬라이제이션을 위한 사내 AI 플랫폼으로, <b>음성</b>과 <b>언어</b> 두 파트로 이뤄져 있습니다. 저는 <b>언어 파트(MaMT)를 리딩</b>합니다.</p>
+    <p class="lead">MarbleAI는 게임 로컬라이제이션을 위한 사내 AI 플랫폼으로, <b>음성</b>과 <b>언어</b> 두 파트로 이뤄져 있습니다. 저는 언어 파트(MaMT)의 <b>AI 백엔드를 담당</b>합니다.</p>
     <p class="lead">게임을 전 세계로 퍼블리싱하려면 수만 문장을 <b>최대 31개 언어</b>로 옮겨야 합니다. 사람 번역으로 전부 감당하기에는 비용과 시간이 촉박해, 일부 메이저 언어를 제외한 대부분을 <b>LLM 기반 기계번역</b>이 맡고 있습니다 — 최근에는 <b>메이저 언어까지 기계번역을 도입하는 추세</b>입니다.</p>
-    <p class="lead">1세대 MaMT는 <b>이름 그대로 기계번역 한 단계</b>뿐이었고, 앞뒤 공정은 사람과 외주에 남아 있었습니다. 저는 <b>MaMT의 전면 재설계를 결정</b>하고, <b>2세대 MaMT</b>(교정·기계번역·용어집·평가)로의 전환 및 개발을 이끌었습니다. 이중 <b>기계번역·용어집·평가는 직접 구현</b>해 지금까지 운영·개선하고 있습니다.</p>
+    <p class="lead">1세대 MaMT는 <b>이름 그대로 기계번역 한 단계</b>뿐이었고, 앞뒤 공정은 사람과 외주에 남아 있었습니다. 저는 <b>MaMT의 전면 재설계를 결정</b>하고 <b>2세대 MaMT</b>(교정·기계번역·용어집·평가)로 전환했습니다. 이중 <b>기계번역·용어집·평가는 직접 구현</b>해 지금까지 운영·개선하고 있습니다.</p>
 </section>
 
 <hr style="margin-top:64px;">
@@ -227,7 +227,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <h2><span class="mono">Deep Dive</span>시스템별로 더 깊이</h2>
 
     <details data-rise>
-        <summary>원본 교정 — 번역 전에 소스를 고친다<span class="role">리딩 · 구현은 팀원</span></summary>
+        <summary>원본 교정 — 번역 전에 소스를 고친다<span class="role">설계 · 구현은 팀원</span></summary>
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">한국어 원본의 오탈자·잘못된 용어는 번역을 거치면 <b>모든 언어로 증폭</b>됩니다. 이를 앞단에서 잡되, LLM 3단계(탐지→교정→리뷰)가 고친 것도 그대로 믿지 않습니다 — <b>숫자가 든 변경은 통째로 거부</b>하고(게임 데이터 보호가 교정률보다 우선), 최종 채택은 <b>사람이 문장별로 확정</b>합니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
