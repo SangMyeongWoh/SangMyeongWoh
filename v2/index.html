@@ -115,16 +115,6 @@ footer a:hover{color:var(--accent);border-bottom-color:var(--accent)}
 
 
 
-/* ── 왼쪽 고정 목차 ─────────────────────────── */
-.rail{position:fixed;left:max(20px,calc(50vw - 610px));top:50%;transform:translateY(-50%);
-      display:none;flex-direction:column;gap:2px;z-index:20}
-@media (min-width:1180px){ .rail{display:flex} }
-.rail a{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:11.5px;font-weight:700;
-        letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
-        font-family:ui-monospace,'SF Mono',Consolas,monospace;transition:color .18s}
-.rail a i{display:block;width:18px;height:1px;background:var(--line);transition:width .18s,background .18s}
-.rail a:hover{color:var(--ink)} .rail a:hover i{width:30px;background:var(--accent)}
-.rail a.on{color:var(--accent)} .rail a.on i{width:34px;background:var(--accent)}
 
 /* ── 스크롤 등장 ─────────────────────────────── */
 .js [data-rise]{opacity:0;transform:translateY(14px);
@@ -150,12 +140,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
-<nav class="rail" aria-label="섹션 목차">
-  <a href="#projects"><i></i>프로젝트</a>
-  <a href="#career"><i></i>경력 · 학력</a>
-  <a href="#stack"><i></i>기술 스택</a>
-  <a href="#awards"><i></i>활동 · 수상</a>
-</nav>
 <div class="wrap">
 
   <div class="hero" data-rise>
@@ -271,20 +255,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     });
   },{rootMargin:'0px 0px -8% 0px',threshold:.06});
   t.forEach(function(e){io.observe(e)});
-})();
-</script>
-<script>
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.rail a'));
-  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
-  if(!secs.length||!('IntersectionObserver' in window))return;
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(!e.isIntersecting)return;
-      links.forEach(function(a){a.classList.toggle('on', a.getAttribute('href')==='#'+e.target.id)});
-    });
-  },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-  secs.forEach(function(x){io.observe(x)});
 })();
 </script>
 </body>
