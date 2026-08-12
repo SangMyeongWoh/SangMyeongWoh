@@ -150,13 +150,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opa
 .face{box-shadow:var(--shadow)}
 
       transition:border-color .18s, transform .18s, box-shadow .22s}
-.card::before{content:'';position:absolute;left:0;right:0;top:0;height:2px;
-      background:linear-gradient(90deg,var(--accent),transparent 72%);opacity:0;transition:opacity .22s}
-.card:hover{box-shadow:var(--shadow-lift)}
-.card:hover::before{opacity:1}
-.card .go::after{content:'';display:inline-block;width:0;transition:width .18s}
-.card:hover .go{text-decoration:none}
-.card:hover .go::after{width:5px}
 
 /* 경력 — 현재 위치를 왼쪽 선으로 */
 .item{position:relative;padding-left:14px;border-radius:8px;transition:background .16s}
@@ -179,7 +172,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opa
 
 /* 타이포 미세 조정 */
 .sub{font-size:18.5px;line-height:1.72;max-width:44ch}
-.card h3{font-size:21px}
 .aw .t,.item .co{letter-spacing:-.2px}
 
 /* ── 스크롤 등장 ─────────────────────────────── */
