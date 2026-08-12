@@ -177,7 +177,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opa
 
 /* ── 리디자인 감사 반영 ─────────────────────────── */
 ::selection{background:var(--accent);color:#06100e}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible,
+input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+main:focus,section:focus,div:focus,body:focus{outline:none}
 h1,h2,h3{text-wrap:balance}
 p,li{text-wrap:pretty}
 .mono,.per,.when,.pin,.k{font-variant-numeric:tabular-nums}
