@@ -50,8 +50,15 @@ h1 em{font-style:normal;color:var(--muted);font-size:.42em;font-weight:700;lette
 /* ── 섹션 ──────────────────────────────── */
 section{margin-bottom:74px}
 .slab{display:flex;align-items:center;gap:14px;margin-bottom:22px}
-.slab h2{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.slab h2{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;white-space:nowrap}
 .slab i{flex:1;height:1px;background:var(--line);display:block}
+/* 넓은 화면 — 제목을 본문 왼쪽 열로 (B-2) */
+@media (min-width:900px){
+  section{display:grid;grid-template-columns:132px 1fr;gap:40px;align-items:start}
+  .slab{margin-bottom:0;padding-top:6px;display:block}
+  .slab i{display:none}
+  .slab h2{white-space:normal;line-height:1.5}
+}
 
 /* ── 프로젝트 카드 ──────────────────────── */
 .cards{display:grid;grid-template-columns:1fr;gap:14px}
