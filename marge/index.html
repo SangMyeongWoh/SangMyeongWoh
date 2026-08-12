@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+<script>document.documentElement.className+=" js"</script>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,6 +106,13 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 .lbl b, .ref b { font-family: ui-monospace,'SF Mono',Consolas,monospace; font-weight: 800;
                  margin-right: 6px; letter-spacing: .04em; }
 
+
+/* ── 스크롤 등장 ─────────────────────────────── */
+.js [data-rise] { opacity:0; transform:translateY(14px);
+  transition:opacity .5s cubic-bezier(.22,.61,.36,1), transform .5s cubic-bezier(.22,.61,.36,1); }
+.js [data-rise].in { opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){ .js [data-rise]{opacity:1;transform:none;transition:none} }
+
 /* ── 리디자인 감사 반영 ─────────────────────────── */
 ::selection{background:var(--accent);color:#06100e}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
@@ -131,7 +139,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 </header>
 
 <!-- ============ 30초 요약 ============ -->
-<section>
+<section data-rise>
     <p class="lead">MARGE는 회사 안에 흩어진 <b>규정·정책·업무 문서를 읽고, 직원의 질문에 근거를 달아 답하는</b> RAG 기반 지식 Q&amp;A 엔진입니다. 넷마블 사내 챗봇들과 외부 고객사 서비스(nDIS)가 이 엔진 위에서 돌아갑니다.</p>
     <p class="lead">엔진 전체를 <b>개발자 2인이 처음부터 만들었습니다.</b> 저는 그중 <b>질문을 이해하고 → 문서를 찾고 → 답을 만드는 런타임 파이프라인</b>을 담당했고, 2026년에는 <b>에이전틱 구조 리뉴얼을 공동 설계하고 직접 구현</b>했습니다. 문서 수집·인덱싱 파이프라인과 인프라는 동료가 담당했습니다.</p>
     <p class="lead">2024년 6월 시작부터 공동 개발했고, 리뉴얼 구현과 실측 검증까지 마친 뒤 <b>MarbleAI 언어 파트 리딩</b>으로 옮겨가면서, 지금은 동료가 주도해 고도화하고 있습니다.</p>
@@ -140,7 +148,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 <hr style="margin-top:64px;">
 
 <!-- ============ P ============ -->
-<section class="narr">
+<section data-rise class="narr">
     <h2><span class="mono">Problem</span>1세대 MARGE의 한계 — 운영하며 발견한 것들</h2>
     <p style="font-size:17px;color:var(--muted);margin-bottom:18px;">1세대 엔진(하이브리드 검색 + 유형별 답변 생성)으로 사내 챗봇들을 2년 가까이 운영하면서, 고칠 수 없는 것이 아니라 <b>구조를 바꿔야 풀리는 문제</b>들이 쌓였습니다.</p>
     <ul class="idxlist">
@@ -154,7 +162,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 </section>
 
 <!-- ============ A ============ -->
-<section class="narr">
+<section data-rise class="narr">
     <h2><span class="mono">Analyze &amp; Apply</span>분석 및 적용 — 에이전틱 재설계</h2>
     <p><span class="ref"><b>01</b>일방통행</span><b>계획 → 검색 → 생성 → 검증의 그래프 구조</b>로 다시 설계했습니다. 검증이 "부족하다"고 판정하면 <b>실패 원인을 진단해 계획부터 다시</b> 시도합니다(최대 3회). 재시도가 이전 시도의 답에 끌려가지 않도록 <b>시도마다 문맥을 격리</b>했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>02</b>검증 부재</span>답이 나가기 전 <b>검증자(Evaluator)를 최종 관문으로</b> 세웠습니다 — 채택·재시도·차단을 판정하고, 차단이면 지어내는 대신 정형 거절문을 내보냅니다.</p>
@@ -165,7 +173,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 </section>
 
 <!-- ============ R ============ -->
-<section class="narr">
+<section data-rise class="narr">
     <h2><span class="mono">Result</span>지금의 MARGE</h2>
     <div class="nums n3">
         <div class="num"><b>2인 개발</b><span>엔진 전체를 개발자 둘이 설계부터 운영까지</span></div>
@@ -190,10 +198,10 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 <hr style="margin-top:64px;">
 
 <!-- ============ Deep Dive ============ -->
-<section>
+<section data-rise>
     <h2><span class="mono">Deep Dive</span>내가 만든 것들</h2>
 
-    <details>
+    <details data-rise>
         <summary>1세대 엔진 — 질문 분석기·답변 생성기<span class="role">직접 구현</span></summary>
         <div>
             <ul>
@@ -206,7 +214,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         </div>
     </details>
 
-    <details>
+    <details data-rise>
         <summary>에이전틱 리뉴얼 — 스스로 판단하고 다시 시도<span class="role">공동 설계 · 직접 구현</span></summary>
         <div>
             <ul>
@@ -219,7 +227,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         </div>
     </details>
 
-    <details>
+    <details data-rise>
         <summary>실측 검증 — 갈아엎은 근거 만들기<span class="role">직접 수행</span></summary>
         <div>
             <ul>
@@ -230,7 +238,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         </div>
     </details>
 
-    <details>
+    <details data-rise>
         <summary>운영 개선 — 쓰이면서 생긴 요구들<span class="role">직접 구현</span></summary>
         <div>
             <ul>
@@ -242,7 +250,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         </div>
     </details>
 
-    <details>
+    <details data-rise>
         <summary>함께 만든 것과 경계<span class="role">역할 구분</span></summary>
         <div>
             <ul>
@@ -260,5 +268,19 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 </footer>
 
 </div>
+
+<script>
+(function(){
+  var t=document.querySelectorAll('[data-rise]');
+  if(!('IntersectionObserver' in window)){t.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e,i){
+      if(e.isIntersecting){var el=e.target;
+        setTimeout(function(){el.classList.add('in')}, Math.min(i,4)*70); io.unobserve(el);}
+    });
+  },{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  t.forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>
