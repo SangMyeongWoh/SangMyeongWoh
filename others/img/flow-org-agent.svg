@@ -60,5 +60,5 @@
 <path class="ln" d="M566 136 V114 H380 V98" marker-end="url(#a)"/>
 <rect class="pan" x="16" y="212" width="728" height="44" rx="9"/>
 <text class="k acc" x="30" y="233">운영</text>
-<text class="s sub" x="30" y="252">모든 데이터에 접근 가능한 C레벨 대상으로 파일럿 운영 중</text>
+<text class="s sub" x="30" y="252">모든 데이터에 접근 가능한 C레벨 대상 파일럿</text>
 </svg>
