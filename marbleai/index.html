@@ -169,7 +169,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 <section>
     <p class="lead">MarbleAI는 게임 로컬라이제이션을 위한 사내 AI 플랫폼으로, <b>음성</b>과 <b>언어</b> 두 파트로 이뤄져 있습니다. 저는 언어 파트(MaMT)의 <b>AI 백엔드를 담당</b>합니다.</p>
     <p class="lead">게임을 전 세계로 퍼블리싱하려면 수만 문장을 <b>최대 31개 언어</b>로 옮겨야 합니다. 사람 번역으로 전부 감당하기에는 비용과 시간이 촉박해, 일부 메이저 언어를 제외한 대부분을 <b>LLM 기반 기계번역</b>이 맡고 있습니다 — 최근에는 <b>메이저 언어까지 기계번역을 도입하는 추세</b>입니다.</p>
-    <p class="lead">1세대 MaMT는 <b>이름 그대로 기계번역 한 단계</b>뿐이었고, 앞뒤 공정은 사람과 외주에 남아 있었습니다. 저는 <b>MaMT의 전면 재설계를 결정</b>하고 <b>2세대 MaMT</b>(교정·기계번역·용어집·평가)로 전환했습니다. 이중 <b>기계번역·용어집·평가는 직접 구현</b>해 지금까지 운영·개선하고 있습니다.</p>
+    <p class="lead">1세대 MaMT는 <b>이름 그대로 기계번역 한 단계</b>뿐이었고, 앞뒤 공정은 사람과 외주에 남아 있었습니다. 저는 <b>MaMT의 전면 재설계를 결정</b>하고 <b>2세대 MaMT</b>(교정·기계번역·용어집·평가)로 전환했습니다. 이중 <b>기계번역·용어집은 직접 구현</b>하고 <b>평가는 공동 개발</b>해 지금까지 운영·개선하고 있습니다.</p>
 </section>
 
 <hr style="margin-top:64px;">
@@ -183,6 +183,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <li data-rise><span class="lbl"><b>03</b>운영비용</span>모니터링이 없어 문제가 생기면 <b>사람이 직접 찾아야</b> 했고, 이 유지보수가 <b>한 달에 몇 번씩</b> 반복됐습니다.</li>
         <li data-rise><span class="lbl"><b>04</b>용어집</span>용어는 엑셀, <b>매칭 엔진은 기계번역 안에</b> 박혀 있어 — 매칭 하나 고치려면 <b>기계번역을 통째로 재배포</b>해야 했습니다.</li>
         <li data-rise><span class="lbl"><b>05</b>품질 검증</span>품질 확인이 <b>외주 검수(2주~한 달, 분기 1회)</b>라, 모델을 바꿔도 다음 분기에야 결과를 알 수 있었습니다 — <b>빨라지는 LLM 흐름을 따라갈 수 없는 속도.</b></li>
+        <li data-rise><span class="lbl"><b>06</b>게임 특화</span>게임마다 문체·말투·<b>태그 체계</b>가 전부 다른데, 1세대의 참고 예시(few-shot)와 태그 패턴은 <b>게임별로 사람이 골라 코드에 넣는 방식</b>이었습니다 — 게임이 늘수록 준비와 관리가 사람 몫으로 쌓였습니다.</li>
     </ul>
     <p class="pull" data-rise>고쳐야 하는 규모가 너무 방대하다고 판단하여 전면 재설계를 결정했습니다.</p>
 </section>
@@ -197,6 +198,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <p style="margin-top:14px;"><span class="ref"><b>03</b>운영비용</span><b>모든 수정에 사람이 직접 관여할 필요는 없다</b>고 판단했습니다. 흩어져 있던 로그를 <b>작업 ID별로 한곳에</b> 모으고, ID만 넣으면 로그를 읽어 <b>문제를 진단해 주는 Claude Code 스킬</b>을 만들었습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>용어집</span>용어집도 <b>원활한 패치와 관리를 위해 별도 서비스로 분리</b>하고, <b>DB를 만들어 관리</b>하도록 했습니다. 덕분에 <b>교정, 평가도 같은 용어집을 쓸 수 있게</b> 됐습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>05</b>품질 검증</span><b>기계번역에까지 사람 평가를 할 필요는 없다</b>고 판단했습니다. 평가 기준은 이미 사내에 있었으므로, <b>그 기준대로 채점하는 LLM 기반 평가기</b>를 만들었습니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>06</b>게임 특화</span>게임의 <b>기존 번역 자산 전체를 자동으로 전처리</b>하는 파이프라인을 만들었습니다. 사람이 고른 고정 예시 대신 <b>문장마다 가장 비슷한 기존 번역을 그때그때 찾아</b> 넣고, <b>캐릭터 말투와 태그 보호 규칙까지 자동으로 추출</b>합니다 — 게임이 늘어도 사람이 준비할 것이 없고, <b>범용 번역기가 따라올 수 없는 지점</b>입니다.</p>
     <p style="margin-top:14px;">여기에 하나를 더했습니다 — <b>원본 교정</b>. 한국어 원본의 오탈자와 잘못된 용어는 번역을 거치면 <b>모든 언어로 증폭</b>됩니다. 번역 앞단에서 먼저 걸러야 한다고 봤습니다.</p>
     <p class="pull" data-rise>모든 판단의 기준은 같았습니다 — 로컬라이제이션의 자동화, 그리고 운영 비용 최소화.</p>
 </section>
@@ -248,6 +250,21 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     </details>
 
     <details data-rise>
+        <summary>번역 기억 — 기존 번역 자산 전처리<span class="role">직접 구현</span></summary>
+        <div>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">기계번역이 프롬프트에 넣는 <b>유사 문장·캐릭터 말투·태그 규칙</b>이 만들어지는 곳입니다 — 기존 번역 파일을 올리면 자동으로 처리됩니다.</p>
+            <ul>
+                <li data-rise><b>자동 분해</b>: 기존 번역 파일의 열 구조를 자동 인식해 문장 단위로 나누고 언어쌍으로 정렬.</li>
+                <li data-rise><b>검색 구조로 굽기</b>: 문장을 임베딩해 두고, 번역할 때 비슷한 문장을 찾아 참고 예시로 주입. 대화는 화자별로 묶어 말투 참고에 사용.</li>
+                <li data-rise><b>태그 자동 학습</b>: 기존 번역에 쓰인 태그 패턴을 추출·분류해 보호 규칙을 자동 생성 — 게임별 태그 규칙 수작업 제거.</li>
+                <li data-rise><b>운영 설계</b>: 내용 기반 캐시로 같은 자산은 한 번만 처리하고, 무거운 임베딩은 별도 작업으로 분리. 전처리가 실패해도 <b>번역은 멈추지 않고</b> 사유만 알립니다.</li>
+            </ul>
+            <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
+            <img data-rise loading="lazy" decoding="async" src="img/flow-memory.svg" alt="번역 기억 전처리 흐름 — 기존 번역 파일을 자동 분해해 검색 구조로 굽고, 유사 문장·캐릭터 말투·태그 보호 규칙을 만들어 기계번역 프롬프트에 자동 주입" style="width:100%;margin-top:6px;">
+        </div>
+    </details>
+
+    <details data-rise>
         <summary>용어집 — 수만 개 용어를 전 언어에서 일관되게<span class="role">직접 구현</span></summary>
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">등록할 때 언어별 <b>정규화형을 미리 계산해 저장</b>하고, 매칭할 때 <b>같은 규칙으로 비교</b>합니다.</p>
@@ -257,7 +274,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     </details>
 
     <details data-rise>
-        <summary>평가 — 외주 검수를 대체한 자동 채점<span class="role">직접 구현</span></summary>
+        <summary>평가 — 외주 검수를 대체한 자동 채점<span class="role">공동 개발</span></summary>
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">확실한 오류는 규칙이 LLM 없이 판정하고, 애매한 것만 <b>LLM 심판</b>이 원문과 대조해 탐지하며, 심판의 주장도 <b>근거를 검증해 틀린 지적은 기각</b>합니다(용어집이 권위).</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
@@ -280,9 +297,10 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 </section>
 
 <footer>
-    <span><a href="https://github.com/sangmyeongwoh">github.com/sangmyeongwoh</a></span>
-    <span><a href="mailto:woodullee@naver.com">woodullee@naver.com</a></span>
-    <span>MarbleAI 언어파트 리드 · Netmarble</span>
+    <a href="../">← 프로필로</a>
+    <a href="../marge/">MARGE</a>
+    <a href="../others/">기타 프로젝트</a>
+    <a href="mailto:woodullee@naver.com">woodullee@naver.com</a>
 </footer>
 
 </div>

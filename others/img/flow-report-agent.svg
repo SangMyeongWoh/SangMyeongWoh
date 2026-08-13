@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" width="760" height="332" role="img" aria-label="데이터 리포트 에이전트 전체 흐름 — 매니저 에이전트가 지표 추출, 데이터 분석, 웹 검색, 요약 작성 에이전트를 조율해 게임 데이터를 PDF와 PPT 보고서로 만듭니다.">
+<style>
+  .bg  { fill: #ffffff; }
+  .pan { fill: #f4f8f7; stroke: #dce5e2; }
+  .box { fill: #ffffff; stroke: #dce5e2; }
+  .hot { stroke: #0b6b5c; }
+  .ink { fill: #16211f; }
+  .sub { fill: #33403e; }
+  .mut { fill: #6b7c79; }
+  .acc { fill: #0b6b5c; }
+  .ln  { stroke: #6b7c79; }
+  .ah  { fill: #6b7c79; }
+  .dl  { stroke: #9db0ab; }
+  .ahd { fill: #9db0ab; }
+  @media (prefers-color-scheme: dark) {
+    .bg  { fill: #0d1413; }
+    .pan { fill: #101817; stroke: #26332f; }
+    .box { fill: #0d1413; stroke: #26332f; }
+    .hot { stroke: #6fdcc6; }
+    .ink { fill: #e6edea; }
+    .sub { fill: #bcc9c6; }
+    .mut { fill: #849692; }
+    .acc { fill: #6fdcc6; }
+    .ln  { stroke: #849692; }
+    .ah  { fill: #849692; }
+    .dl  { stroke: #46564f; }
+    .ahd { fill: #5d716a; }
+  }
+  text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
+  .t { font-size: 14.5px; font-weight: 700; }
+  .s { font-size: 12px; }
+  .k { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; }
+  rect { stroke-width: 1.2; }
+  .hot { stroke-width: 1.7; }
+  .ln, .dl { fill: none; stroke-width: 1.4; }
+  .dl { stroke-dasharray: 4 4; }
+</style>
+<defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4.5" orient="auto"><path class="ah" d="M0.5 0.6 L9 4.5 L0.5 8.4 z"/></marker></defs>
+<rect class="bg" x="0" y="0" width="760" height="332"/>
+
+<text class="k acc" x="16" y="26">입력</text>
+<rect class="box" x="16" y="36" width="190" height="58" rx="9"/>
+<text class="t ink" x="30" y="60">게임 데이터</text>
+<text class="s mut" x="30" y="79">엑셀 · CSV · 차트 이미지</text>
+
+<path class="ln" d="M206 65 L234 65" marker-end="url(#a)"/>
+
+<rect class="box hot" x="238" y="36" width="230" height="58" rx="9"/>
+<text class="t ink" x="252" y="60">매니저 에이전트</text>
+<text class="s mut" x="252" y="79">분석 → 작성 워크플로우 조율</text>
+
+<path class="ln" d="M353 94 L353 114 L100 114 L100 132" marker-end="url(#a)"/>
+<path class="ln" d="M353 94 L353 114 L284 114 L284 132" marker-end="url(#a)"/>
+<path class="ln" d="M353 94 L353 114 L468 114 L468 132" marker-end="url(#a)"/>
+<path class="ln" d="M353 94 L353 114 L652 114 L652 132" marker-end="url(#a)"/>
+
+<rect class="box" x="16" y="136" width="168" height="64" rx="9"/>
+<text class="t ink" x="30" y="160">지표 추출</text>
+<text class="s mut" x="30" y="179">데이터에서 핵심 지표</text>
+
+<rect class="box" x="200" y="136" width="168" height="64" rx="9"/>
+<text class="t ink" x="214" y="160">데이터 분석</text>
+<text class="s mut" x="214" y="179">지표 해석 · 비교</text>
+
+<rect class="box" x="384" y="136" width="168" height="64" rx="9"/>
+<text class="t ink" x="398" y="160">웹 검색</text>
+<text class="s mut" x="398" y="179">시장 · 외부 맥락 보강</text>
+
+<rect class="box" x="568" y="136" width="168" height="64" rx="9"/>
+<text class="t ink" x="582" y="160">요약 작성</text>
+<text class="s mut" x="582" y="179">성과 평가 · 총평</text>
+
+<path class="ln" d="M100 200 L100 220"/>
+<path class="ln" d="M284 200 L284 220"/>
+<path class="ln" d="M468 200 L468 220"/>
+<path class="ln" d="M652 200 L652 220"/>
+<path class="ln" d="M100 220 L652 220"/>
+<path class="ln" d="M380 220 L380 236" marker-end="url(#a)"/>
+
+<rect class="box" x="270" y="240" width="220" height="58" rx="9"/>
+<text class="t ink" x="284" y="264">보고서 생성</text>
+<text class="s mut" x="284" y="283">PDF · PPT 슬라이드로 출력</text>
+
+<text class="s mut" x="16" y="324">주간 스케줄러로 정기 리포트 자동 발행 — 이 데이터 분석 축이 조직 에이전트의 데이터 에이전트로 이어졌습니다.</text>
+</svg>

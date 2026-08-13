@@ -97,7 +97,7 @@ p { text-wrap: pretty; }
     <div class="phead"><h2>조직 에이전트</h2><span class="when">2025.11 –</span></div>
     <div class="tags"><span>개발 · 기획 · 설계</span><span>총 3명</span><span>Google ADK</span><span>GraphRAG</span></div>
     <p>임원이 조직 현황을 물으려면 부서마다 흩어진 데이터와 시스템을 사람이 모아야 했습니다. <b>조직 에이전트</b>는 그 경계를 넘어, 조직 전체의 데이터를 가로질러 한 번에 답하는 것을 목표로 합니다.</p>
-    <p>각 부서가 저장소에 올린 핵심 데이터는 <b>지식 에이전트</b>가 그래프로 만들어 GraphRAG로 답하고, 실시간 조회가 필요한 부분은 <b>데이터 에이전트</b>로부터 불러옵니다. 두 경로를 함께 써서 <b>저장된 지식과 현재 상태를 같이 근거로 삼는 답변</b>을 만듭니다. 저는 조직 에이전트에 활용되는 <b>데이터 에이전트</b>를 담당했습니다.</p>
+    <p>각 부서가 저장소에 올린 핵심 데이터는 <b>지식 에이전트</b>가 그래프로 만들어 GraphRAG로 답하고, 실시간 조회가 필요한 부분은 <b>데이터 에이전트</b>로부터 불러옵니다. 두 경로를 함께 써서 <b>저장된 지식과 현재 상태를 같이 근거로 삼는 답변</b>을 만듭니다. 저는 여기서 <b>데이터 에이전트</b>를 담당했습니다 — 게임 지표·KPI 질문을 받아 <b>KPI 계산 · 심층 분석 · 코드 실행 서브에이전트</b>를 도구처럼 부려 답을 만들고, <b>A2A 표준 창구</b>로 노출해 조직 에이전트가 그대로 불러 쓰게 했습니다.</p>
     <figure><img src="img/flow-org-agent.svg" alt="C레벨용 조직 에이전트 구성 — 질의를 받은 조직 에이전트가 GraphRAG 기반 지식 에이전트와 데이터 에이전트를 함께 참조해 근거와 함께 답변합니다." loading="lazy" decoding="async"><figcaption>전체 흐름 — 그래프로 만든 지식과 실시간 조회 결과를 함께 근거로 씁니다.</figcaption></figure>
 </section>
 
@@ -111,8 +111,13 @@ p { text-wrap: pretty; }
 
 <section class="proj" data-rise>
     <div class="phead"><h2>사업부를 위한 데이터 리포트 에이전트</h2><span class="when">2025.10 – 2025.12</span></div>
-    <div class="tags"><span>개발 · 기획</span></div>
-    <p>사업부 실무를 지원하는 데이터 리포트 에이전트 프로젝트입니다.</p>
+    <div class="tags"><span>개발 · 기획</span><span>Google ADK</span><span>멀티 에이전트</span></div>
+    <p>사업부가 게임 성과를 보고하려면 데이터를 뽑고, 지표를 해석하고, 보고서로 옮겨 적는 일을 매번 손으로 반복해야 했습니다.</p>
+    <p><b>매니저 에이전트</b>가 워크플로우를 조율하고, <b>지표 추출 · 데이터 분석 · 웹 검색 · 요약 작성</b> 전문 에이전트들이 협업해 엑셀·CSV·차트 이미지를 읽고 <b>PDF·PPT 보고서까지 자동 생성</b>합니다. 주간 스케줄러로 정기 리포트도 자동 발행됩니다. 여기서 만든 데이터 분석 축이 <b>조직 에이전트의 데이터 에이전트</b>로 이어졌습니다.</p>
+    <figure>
+<img src="img/flow-report-agent.svg" alt="데이터 리포트 에이전트 전체 흐름 — 매니저 에이전트가 지표 추출·데이터 분석·웹 검색·요약 작성 에이전트를 조율해 게임 데이터를 PDF·PPT 보고서로 만듭니다." loading="lazy" decoding="async">
+<figcaption>전체 흐름 — 매니저가 전문 에이전트들을 부려 데이터에서 보고서까지 한 번에 만듭니다.</figcaption>
+</figure>
 </section>
 
 <section class="proj" data-rise>
