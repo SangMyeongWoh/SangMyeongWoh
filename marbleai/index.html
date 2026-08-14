@@ -210,7 +210,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <p style="margin-top:10px;">Cloud Run 안에서도 작업 분기를 만들었습니다. 전체 번역 작업 중 <b>60%가 100문장 미만</b>이었고, 작은 작업에까지 <b>Cloud Run Job의 콜드스타트를 사용자가 부담할 필요는 없었습니다.</b> 작은 작업은 <b>Cloud Run Service</b>로, 큰 작업은 <b>Cloud Run Job</b>으로 처리되도록 나눴습니다.</p>
     <p style="margin-top:10px;">배포는 <b>GitHub Actions</b>로 CI/CD를 간단히 할 수 있게 했습니다.</p>
     
-    <p style="margin-top:14px;"><span class="ref"><b>03</b>운영 공수</span>둘 다 <b>사람이 개입하는 부분을 최소화</b>하고자 했습니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>03</b>운영 공수</span><b>사람이 개입하는 부분을 최소화</b>하고자 했습니다.</p>
     <div class="sublist" style="margin-top:12px;">
         <div><b class="sk">장애 대응</b>번역 한 건은 <b>여러 서비스와 실행 단위를 거치며</b> 만들어집니다. 그런데 플랫폼이 붙여주는 식별자는 실행 단위(Job execution·리비전)를 가리킬 뿐, <b>번역 한 건을 가리키지 않습니다</b> — "이 건에서 무슨 일이 있었나"를 한 번에 볼 수가 없었습니다. 작업마다 <b>자체 ID를 부여해 모든 로그에 반드시 들어가게</b> 하고, 그 <b>ID 단위로 로그를 묶어 버킷에 쌓았습니다.</b> 검색할 필요 없이 <b>ID 하나면 그 작업의 전 구간이 한 묶음으로</b> 나옵니다. 그 위에 <b>ID만 넣으면 묶음을 읽어 원인을 진단해 주는 Claude Code 스킬</b>을 올렸습니다. <b>모으는 일은 코드가 확정적으로 하고, LLM은 이미 묶인 것을 읽고 판단만 합니다.</b></div>
         <div style="margin-top:14px;"><b class="sk">서비스 운영</b>게임의 <b>기존 사람 번역 자산 전체를 자동으로 전처리</b>하는 파이프라인을 만들었습니다. 사람이 정규식을 짜는 대신 <b>게임별 태그 보호 규칙과 캐릭터 페르소나를 자동으로 추출</b>하고, <b>벡터 검색으로 적절한 few-shot을 찾아</b> 번역에 활용합니다 — 게임이 늘어도 사람이 준비할 것이 없고, <b>범용 번역기가 따라올 수 없는 지점</b>입니다.</div>
