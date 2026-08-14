@@ -282,10 +282,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <summary>용어집<span class="role">직접 구현</span></summary>
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">특정 언어는 같은 단어라도 <b>위치에 따라 어미가 달라지는 격변화</b>가 존재합니다. 때문에 <b>언어별 정규화형을 미리 계산해 저장</b>하고, 매칭할 때 <b>같은 규칙으로 비교</b>합니다.</p>
-            <ul>
-                <li data-rise><b>짧은 용어 과매칭 차단</b>: 두 글자 이하 한국어 용어는 그 자리가 <b>실제로 명사인지</b> 한 번 더 확인합니다 — 캐릭터 이름 <b>"두"</b>가 <b>"두둑한"</b> 안에서 잡히던 문제를 막기 위해서입니다.</li>
-                <li data-rise><b>누락 검증의 폴백 사다리</b>: 번역문에 용어를 안 썼다고 판정하기 전에 <b>격변화 · 접어 결합 · 악센트 표기 차이</b>까지 훑습니다. 읽는 쪽만 고치고 <b>저장형은 건드리지 않습니다.</b></li>
-            </ul>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">시스템 아키텍처</p>
             <img data-rise loading="lazy" decoding="async" src="img/arch-glossary.svg" alt="용어집 아키텍처" style="width:100%;margin-top:6px;">
         </div>
