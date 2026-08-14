@@ -47,7 +47,7 @@
 <text class="s sub" x="30" y="162">같은 자산이면 다시 굽지 않습니다</text>
 <rect class="box" x="30" y="172" width="166" height="52" rx="9"/>
 <text class="t ink" x="44" y="196">태그 규칙</text>
-<text class="s mut" x="44" y="215">소스에서 후보 → LLM이 판별</text>
+<text class="s mut" x="44" y="215">정규식 + 예외 목록</text>
 <rect class="box" x="208" y="172" width="166" height="52" rx="9"/>
 <text class="t ink" x="222" y="196">캐릭터 페르소나</text>
 <text class="s mut" x="222" y="215">화자별 대화 → LLM이 정리</text>
