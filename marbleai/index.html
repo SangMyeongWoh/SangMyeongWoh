@@ -71,9 +71,13 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 /* 숫자 4개 — 유일한 시각 장치 */
 .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 28px; }
 .num { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
-.num b { display: block; font-size: 21px; color: var(--accent); letter-spacing: -.3px; }
+.num b { display: block; font-size: 21px; color: var(--accent); letter-spacing: -.3px; text-wrap: balance; }
 .num span { font-size: 13px; color: var(--muted); line-height: 1.45; display: block; margin-top: 4px; }
 .nums.n3 { grid-template-columns: repeat(3, 1fr); }
+.num.big { grid-column: span 2; display: flex; flex-direction: column; justify-content: center; }
+.num.big b { font-size: 34px; letter-spacing: -.6px; }
+.num.big span { font-size: 14px; margin-top: 6px; }
+@media (max-width: 620px) { .num.big { grid-column: span 2; } .num.big b { font-size: 27px; } }
 .nums.n2 { grid-template-columns: repeat(2, 1fr); }
 .glab { font-size: 15px; font-weight: 800; color: var(--muted); letter-spacing: .02em; margin-bottom: 10px; }
 .narr .glab { font-size: 15px; }
@@ -225,10 +229,10 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 <section class="narr">
     <h2><span class="mono">Result</span>지금의 MaMT</h2>
     <div class="nums n3">
+        <div class="num big" data-rise><b>2026 상반기 50억+ 절감</b><span>사람이 번역했을 때의 비용으로 환산 — 사내 집계 기준</span></div>
         <div class="num" data-rise><b>248개 워크스페이스</b><span>사내 게임 프로젝트가 사용 중</span></div>
         <div class="num" data-rise><b>라이브 게임 10개</b><span>실제 서비스 중인 게임이 활용</span></div>
         <div class="num" data-rise><b>누적 7,000+ 건 처리</b><span>기계번역 작업 (1·2세대 합산)</span></div>
-        <div class="num" data-rise><b>2026 상반기 50억+ 절감</b><span>사람이 번역했을 때의 비용으로 환산 — 사내 집계 기준</span></div>
         <div class="num" data-rise><b>줄 서지 않는 번역</b><span>작은 요청이 대형 작업에 막히지 않는 구조 — 대부분 1분 안에 처리</span></div>
         <div class="num" data-rise><b>운영 공수 0.3MM 이하</b><span>한 달에 몇 번씩 사람이 붙던 유지보수를 진단 자동화로 대체</span></div>
         <div class="num" data-rise><b>출발 6종 · 대상 31개 언어</b><span>한국어 1종에서 영어·일본어·중국어(간·번체)·태국어까지 확장</span></div>
