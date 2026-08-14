@@ -62,12 +62,10 @@ a:hover { text-decoration: underline; }
 section { margin-top: 64px; }
 header + section { margin-top: 34px; }   /* 부제 삭제 후 여백 보정 */
 hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
-
 /* 헤더 */
 .meta { font-size: 15px; color: var(--muted); }
 .lead { font-size: 18px; margin-top: 14px; }
 .lead + .lead { margin-top: 13px; }
-
 /* 숫자 4개 — 유일한 시각 장치 */
 .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 28px; }
 .num { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
@@ -82,15 +80,12 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .glab { font-size: 15px; font-weight: 800; color: var(--muted); letter-spacing: .02em; margin-bottom: 10px; }
 .narr .glab { font-size: 15px; }
 @media (max-width: 620px) { .nums, .nums.n3, .nums.n2 { grid-template-columns: repeat(2, 1fr); } }
-
 /* 본문 리스트 */
 ul { list-style: none; margin-top: 4px; }
 li { position: relative; padding-left: 20px; margin-top: 10px; }
 li::before { content: ''; position: absolute; left: 4px; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-
 /* 인용(한 줄 강조) */
 .pull { border-left: 3px solid var(--accent); padding: 6px 0 6px 18px; margin-top: 18px; color: var(--ink); font-weight: 600; }
-
 /* 접기(깊이 층) */
 details { border: 1px solid var(--line); border-radius: 12px; margin-top: 12px; background: var(--panel); }
 summary { cursor: pointer; padding: 14px 18px; font-weight: 700; color: var(--ink); font-size: 16px; list-style: none; }
@@ -107,15 +102,12 @@ details table { width: 100%; border-collapse: collapse; margin-top: 8px; font-si
 details td, details th { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
 details th { color: var(--muted); font-weight: 600; font-size: 13px; }
 details tr:last-child td { border-bottom: 0; }
-
 footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); display: flex; gap: 24px; flex-wrap: wrap; }
-
 /* PAAR 서사 섹션 — 본문 확대 */
 .narr li, .narr p { font-size: 19px; line-height: 1.75; }
 .narr .pull { font-size: 20.5px; }
 .narr li { padding-left: 24px; margin-top: 14px; }
 .narr li::before { left: 5px; top: 14px; width: 7px; height: 7px; }
-
 /* 번호 매긴 항목 (Problem ↔ 이후 섹션 대응) */
 .idxlist li { padding-left: 0; }
 .idxlist li::before { display: none; }
@@ -124,7 +116,6 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
              margin-right: 10px; vertical-align: 2px; white-space: nowrap; }
 .lbl b, .ref b { font-family: ui-monospace,'SF Mono',Consolas,monospace; font-weight: 800;
                  margin-right: 6px; letter-spacing: .04em; }
-
 /* Problem 하위 갈래 */
 .sublist { margin-top: 12px; padding-left: 16px; border-left: 2px solid var(--line); }
 .sublist li { margin-top: 10px; padding-left: 0; }
@@ -135,7 +126,6 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
                letter-spacing: -.1px; margin-bottom: 4px; }
 .sublist .sk::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 2px;
                        background: var(--accent); margin-right: 9px; vertical-align: 2px; }
-
 /* 시스템 흐름 스트립 (Deep Dive) */
 .flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 6px; margin: 12px 0 16px; }
 .flow .st { background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
@@ -144,15 +134,11 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 .flow .st small { color: var(--muted); font-size: 11.5px; }
 .flow .st.hot { border-color: var(--accent); }
 .flow .ar { align-self: center; color: var(--muted); font-size: 13px; padding: 0 1px; }
-
-
-
 /* ── 스크롤 등장 ─────────────────────────────── */
 .js [data-rise] { opacity:0; transform:translateY(14px);
   transition:opacity .5s cubic-bezier(.22,.61,.36,1), transform .5s cubic-bezier(.22,.61,.36,1); }
 .js [data-rise].in { opacity:1; transform:none; }
 @media (prefers-reduced-motion:reduce){ .js [data-rise]{opacity:1;transform:none;transition:none} }
-
 /* ── 리디자인 감사 반영 ─────────────────────────── */
 ::selection{background:var(--accent);color:#06100e}
 a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible,
@@ -174,21 +160,17 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 </head>
 <body>
 <div class="wrap">
-
 <!-- ============ 헤더 — 한 문장이 전부를 말한다 ============ -->
 <header>
     <div class="mono">Sangmyeong Woh · NLP/AI Engineer · Netmarble · 2023.05 –</div>
     <h1>게임 로컬라이제이션 AI 플랫폼<br>MarbleAI 언어 파트</h1>
 </header>
-
 <!-- ============ 30초 요약 ============ -->
 <section>
     <p class="lead">게임 한 편을 전 세계에 내보내려면 수만 문장을 <b>최대 31개 언어</b>로 옮겨야 합니다. 사람 번역만으로는 비용도 시간도 감당이 안 돼, 일부 메이저 언어를 제외한 대부분을 <b>LLM 기반 기계번역</b>이 맡고 있습니다 — 최근에는 <b>메이저 언어까지 기계번역을 도입하는 추세</b>입니다. MarbleAI는 그 일을 맡는 사내 AI 플랫폼으로 <b>음성</b>과 <b>언어</b> 두 파트로 이뤄져 있고, 저는 언어 파트(MaMT)의 <b>AI 백엔드를 담당</b>합니다.</p>
     <p class="lead">1세대 MaMT는 <b>이름 그대로 기계번역 한 단계</b>뿐이었고, 앞뒤 공정은 사람과 외주에 남아 있었습니다. 저는 <b>MaMT의 전면 재설계를 결정</b>하고 <b>2세대 MaMT</b>(교정·기계번역·용어집·평가)로 전환했습니다. 이중 <b>기계번역·용어집·평가는 직접 구현</b>해 지금까지 운영·개선하고 있습니다.</p>
 </section>
-
 <hr style="margin-top:64px;">
-
 <!-- ============ P ============ -->
 <section class="narr">
     <h2><span class="mono">Problem</span>1세대 MaMT의 문제점</h2>
@@ -206,14 +188,12 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     </ul>
     <p class="pull" data-rise>고쳐야 하는 규모가 너무 방대하다고 판단하여 전면 재설계를 결정했습니다.</p>
 </section>
-
 <!-- ============ A1 ============ -->
 <section class="narr">
     <h2><span class="mono">Analyze &amp; Apply</span>분석 및 적용</h2>
     <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer, GKE, Cloud Run</b> 세 가지를 고려했고, <b>Cloud Run</b>을 택했습니다. Composer는 <b>필요한 기능에 비해 과하고 비쌌습니다.</b> GKE는 Composer보다는 가벼웠지만, 번역 작업은 <b>간헐적으로 들어오는 배치성 일감이 주류</b>였기 때문에 <b>클라우드 비용이 상시 발생할 필요가 없다</b>고 판단했습니다.</p>
     <p style="margin-top:10px;">Cloud Run 안에서도 작업 분기를 만들었습니다. 전체 번역 작업 중 <b>60%가 100문장 미만</b>이었고, 작은 작업에까지 <b>Cloud Run Job의 콜드스타트를 사용자가 부담할 필요는 없었습니다.</b> 작은 작업은 <b>Cloud Run Service</b>로, 큰 작업은 <b>Cloud Run Job</b>으로 처리되도록 나눴습니다.</p>
     <p style="margin-top:10px;">배포는 <b>GitHub Actions</b>로 CI/CD를 간단히 할 수 있게 했습니다.</p>
-    
     <p style="margin-top:14px;"><span class="ref"><b>03</b>운영 공수</span><b>사람이 개입하는 부분을 최소화</b>하고자 했습니다.</p>
     <div class="sublist" style="margin-top:12px;">
         <div><b class="sk">장애 대응</b>번역 한 건은 <b>하나의 작업 ID 아래</b> 여러 서비스와 실행 단위를 거치며 만들어집니다. <b>작업 ID가 모든 로그에 반드시 들어가도록</b> 하고, 그 <b>ID 단위로 로그를 묶어 GCS 버킷에 쌓았습니다.</b> 검색할 필요 없이 <b>ID 하나면 그 작업의 전 구간이 한 묶음으로</b> 나옵니다. 그 위에 <b>ID만 넣으면 묶음을 읽어 원인을 진단해 주는 Claude Code 스킬</b>을 올렸습니다.</div>
@@ -224,8 +204,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <p style="margin-top:14px;">여기에 <b>원본 교정</b> 과정을 추가했습니다. 한국어 원본의 오탈자와 잘못된 용어는 번역을 거치면 <b>모든 언어로 증폭</b>되기 때문에, 번역 앞단에서 먼저 걸러냅니다.</p>
     <p class="pull" data-rise>모든 판단의 기준은 같았습니다 — 로컬라이제이션의 자동화, 그리고 운영 비용 최소화.</p>
 </section>
-
-
 <!-- ============ R ============ -->
 <section class="narr">
     <h2><span class="mono">Result</span>지금의 MaMT</h2>
@@ -239,20 +217,16 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <div class="num" data-rise><b>출발 6종 · 대상 31개 언어</b><span>한국어 1종에서 영어·일본어·중국어(간·번체)·태국어까지 확장</span></div>
         <div class="num" data-rise><b>4개 시스템 체제</b><span>교정 · 기계번역 · 용어집 · 평가</span></div>
     </div>
-
     <p style="font-size:13px;color:var(--muted);margin:30px 0 8px;">2세대 MaMT — 시스템 아키텍처</p>
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
         <img data-rise loading="lazy" decoding="async" src="img/arch-overview.svg" alt="2세대 MaMT 시스템 아키텍처 — 교정·기계번역·평가가 같은 접수 서버, 큐, 워커 구조로 반복되고 용어집과 저장소를 공유" style="width:100%;">
     </div>
 </section>
-
 <hr style="margin-top:64px;">
-
 <!-- ============ 깊이 층 — 면접관용. 한 일 전량 목록 ============ -->
 <!-- ============ Deep Dive ============ -->
 <section>
     <h2><span class="mono">Deep Dive</span>시스템별로 더 깊이</h2>
-
     <details data-rise>
         <summary>원본 교정 — 번역 전에 소스를 고친다<span class="role">팀원 구현</span></summary>
         <div>
@@ -261,7 +235,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
             <img data-rise loading="lazy" decoding="async" src="img/flow-correction.svg" alt="원본 교정 처리 흐름" style="width:100%;margin-top:6px;">
         </div>
     </details>
-
     <details data-rise>
         <summary>기계번역 — 게임 텍스트가 깨지지 않게<span class="role">직접 구현</span></summary>
         <div>
@@ -270,23 +243,19 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
             <img data-rise loading="lazy" decoding="async" src="img/flow-translation.svg" alt="기계번역 처리 흐름" style="width:100%;margin-top:6px;">
         </div>
     </details>
-
     <details data-rise>
         <summary><i class="star">★</i>게임 특화 — 기존 번역에서 문체와 태그 규칙을 자동으로 학습<span class="role">직접 구현</span></summary>
         <div>
-            <p style="font-size:15px;line-height:1.7;margin-top:4px;">기계번역이 프롬프트에 넣는 <b>유사 문장·캐릭터 페르소나·태그 규칙</b>이 만들어지는 곳입니다. 게임의 기존 번역 파일을 올리면 <b>한 번 굽고</b>, 이후 번역은 그 결과를 가져다 씁니다.</p>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">기계번역이 프롬프트에 넣는 <b>유사 문장·캐릭터 페르소나·태그 규칙</b>이 만들어지는 곳입니다. 게임에 쌓인 기존 번역 파일을 <b>한 번 구워두고</b>, 이후 번역은 그 결과를 가져다 씁니다.</p>
             <ul>
-                <li data-rise><b>언어 인식은 규칙이 먼저, LLM은 예외만</b>: 파일 상위 15행만 훑어 언어 헤더를 찾고, <b>헤더가 둘 이상일 때만</b> 인정합니다. ID 중복이나 표기 없는 언어 열 같은 <b>엣지케이스에만 LLM</b>을 부릅니다.</li>
-                <li data-rise><b>LLM이 말한 것도 코드가 검증</b>: 셀이 실제로 있는지, 읽었다는 값이 셀 값과 같은지, 표준 언어 코드인지, 한 열에 한 언어인지 — <b>네 단계를 LLM 재호출 없이 코드로</b> 확인합니다. 기준은 <b>"오탐보다 미인식이 싸다"</b>였습니다.</li>
                 <li data-rise><b>굽기 산출물 4종</b>: 태그 예시와 복구 규칙, 유사 문장용 <b>벡터 인덱스</b>, 캐릭터 <b>페르소나</b>, 화자별 <b>대화 청크</b>. 번역할 때는 대화 청크로 화자를 맞춰 예시를 넣고, 못 맞추면 벡터 검색으로 폴백합니다.</li>
                 <li data-rise><b>한 번만 굽기</b>: 캐시 키를 <b>파일 내용 · 소스 언어 · 인식기 버전</b>으로 잡아 같은 자산은 다시 굽지 않습니다. 완료 표시는 <b>항상 마지막에</b> 남겨 덜 구워진 결과를 재사용하지 않게 했고, 동시에 굽지 않도록 건 잠금의 범위를 <b>캐시 범위와 같게</b> 맞췄습니다.</li>
                 <li data-rise><b>전처리가 실패해도 번역은 멈추지 않음</b>: 벡터가 아직 준비되지 않았으면 기다렸다 직접 만들고, 그마저 안 되면 <b>few-shot 없이 번역을 진행</b>합니다. 품질은 조금 떨어지지만 작업은 끝납니다.</li>
             </ul>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">전처리 흐름</p>
-            <img data-rise loading="lazy" decoding="async" src="img/flow-memory.svg" alt="기존 번역 파일 전처리 흐름 — 언어 자동 인식(규칙 스캔·LLM 보정·코드 검증) 후 태그 규칙·벡터 인덱스·캐릭터 페르소나·대화 청크를 굽고, 번역할 때 프롬프트에 자동 주입" style="width:100%;margin-top:6px;">
+            <img data-rise loading="lazy" decoding="async" src="img/flow-memory.svg" alt="기존 번역 파일 전처리 흐름 — 태그 규칙·벡터 인덱스·캐릭터 페르소나·대화 청크를 한 번 굽고, 번역할 때 프롬프트에 자동 주입" style="width:100%;margin-top:6px;">
         </div>
     </details>
-
     <details data-rise>
         <summary>용어집 — 수만 개 용어를 전 언어에서 일관되게<span class="role">직접 구현</span></summary>
         <div>
@@ -295,7 +264,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
             <img data-rise loading="lazy" decoding="async" src="img/arch-glossary.svg" alt="용어집 구성" style="width:100%;margin-top:6px;">
         </div>
     </details>
-
     <details data-rise>
         <summary><i class="star">★</i>평가 — 외주 검수를 대체한 자동 채점<span class="role">직접 구현</span></summary>
         <div>
@@ -310,7 +278,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
             <img data-rise loading="lazy" decoding="async" src="img/flow-eval.svg" alt="평가 처리 흐름" style="width:100%;margin-top:6px;">
         </div>
     </details>
-
     <details data-rise>
         <summary>사용성 — 쓰는 사람 쪽의 마찰 제거<span class="role">직접 구현</span></summary>
         <div>
@@ -324,16 +291,13 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         </div>
     </details>
 </section>
-
 <footer>
     <a href="../">← 프로필로</a>
     <a href="../marge/">MARGE</a>
     <a href="../others/">기타 프로젝트</a>
     <a href="mailto:woodullee@naver.com">woodullee@naver.com</a>
 </footer>
-
 </div>
-
 <script>
 (function(){
   var t=document.querySelectorAll('[data-rise]');
