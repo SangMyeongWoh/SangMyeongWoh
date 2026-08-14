@@ -234,7 +234,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">기계번역이 프롬프트에 넣는 <b>유사 문장·캐릭터 페르소나·태그 규칙</b>이 만들어지는 곳입니다. 게임에 쌓인 기존 번역 파일을 <b>한 번 구워두고</b>, 이후 번역은 그 결과를 가져다 씁니다.</p>
             <ul>
-                <li data-rise><b>굽기 산출물 4종</b>: 태그 예시와 복구 규칙, 유사 문장용 <b>벡터 인덱스</b>, 캐릭터 <b>페르소나</b>, 화자별 <b>대화 청크</b>. 번역할 때는 대화 청크로 화자를 맞춰 예시를 넣고, 못 맞추면 벡터 검색으로 폴백합니다.</li>
+                <li data-rise><b>굽기 산출물 4종</b>: 태그 규칙, 유사 문장용 <b>벡터 인덱스</b>, 캐릭터 <b>페르소나</b>, 화자별 <b>대화 청크</b>. 태그는 정규식을 자동 생성하는 게 아니라 <b>게임 소스에서 후보를 걸러낸 뒤 실제로 쓰이는 것만 LLM이 판별</b>하고, 페르소나도 화자별 대화를 모아 <b>LLM이 정리</b>합니다. 번역할 때는 대화 청크로 화자를 맞춰 예시를 넣고, 못 맞추면 벡터 검색으로 폴백합니다.</li>
                 <li data-rise><b>한 번만 굽기</b>: 캐시 키를 <b>파일 내용 · 소스 언어 · 인식기 버전</b>으로 잡아 같은 자산은 다시 굽지 않습니다.</li>
                 <li data-rise><b>전처리가 실패해도 번역은 멈추지 않음</b>: 전처리가 실패하면 <b>로그만 남기고 본 번역은 그대로 진행</b>합니다. 품질은 조금 떨어지지만 작업은 완료됩니다.</li>
             </ul>
@@ -245,7 +245,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <details data-rise>
         <summary><i class="star">★</i>평가 — 외주 검수를 대체한 자동 채점<span class="role">팀원과 공동 구현</span></summary>
         <div>
-            <p style="font-size:15px;line-height:1.7;margin-top:4px;">채점 기준을 새로 만들지 않았습니다. 국제 표준 <b>MQM</b>을 사내 기준으로 변환한 채점 체계가 이미 있었고, 평가기는 <b>그 기준대로 채점</b>합니다.</p>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">국제 표준 <b>MQM</b>을 사내 기준으로 변환한 채점 체계가 이미 있었고, 평가기는 <b>그 기준대로 채점</b>합니다.</p>
             <ul>
                 <li data-rise><b>GT 정의</b>: 이 채점은 결국 사람이 하다 보니 <b>채점자마다 결과가 갈립니다.</b> 특정 채점자를 GT로 놓는 대신, <b>사람 간 편차 범위 수준으로 평가기 결과를 내는 것</b>을 목표로 삼았습니다.</li>
                 <li data-rise><b>검증</b>: <b>수년간 쌓인 사람 채점 데이터</b>와 대조해 <b>그 범위 안에 들어오는 것을 확인한 뒤 적용</b>했습니다.</li>
