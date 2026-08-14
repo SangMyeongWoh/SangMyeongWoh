@@ -153,7 +153,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 <!-- ============ P ============ -->
 <section class="narr">
     <h2><span class="mono">Problem</span>1세대 MARGE의 한계 — 운영하며 발견한 것들</h2>
-    <p style="font-size:17px;color:var(--muted);margin-bottom:18px;">1세대 엔진으로 사내 챗봇들을 2년 가까이 운영하면서, 고쳐서는 풀리지 않고 <b>구조를 바꿔야 하는 문제</b>들이 쌓였습니다.</p>
+    <p style="font-size:17px;color:var(--muted);margin-bottom:18px;">1세대 엔진(하이브리드 검색 + 유형별 답변 생성)으로 사내 챗봇들을 2년 가까이 운영하면서, 고쳐서는 풀리지 않고 <b>구조를 바꿔야 하는 문제</b>들이 쌓였습니다.</p>
     <ul class="idxlist">
         <li data-rise><span class="lbl"><b>01</b>일방통행</span>검색 한 번, 생성 한 번으로 끝나는 <b>고정 파이프라인.</b> 검색이 빗나가면 스스로 알아채지도, 다시 시도하지도 못했습니다.</li>
         <li data-rise><span class="lbl"><b>02</b>검증 부재</span>만들어진 답을 <b>그대로 내보냈습니다.</b> 근거가 부족한 답과 답하면 안 되는 질문을 거르는 최종 관문이 없었습니다.</li>
@@ -171,8 +171,8 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <p style="margin-top:14px;"><span class="ref"><b>02</b>검증 부재</span>답이 나가기 전 <b>검증자를 최종 관문으로</b> 세웠습니다 — 채택·재시도·차단을 판정하고, 차단이면 지어내는 대신 정형 거절문을 내보냅니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>비대해진 분석기</span>한 덩어리였던 분석기를 <b>계획자·검색자·생성자·검증자 노드로 분해</b>해 각자 한 가지 역할만 맡게 했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>확장성</span>검색자를 <b>플러그인 구조</b>로 바꿨습니다 — 계획자가 소스를 고르면 병렬로 실행되고, 새 소스는 등록만 하면 됩니다.</p>
-    <p style="margin-top:14px;"><span class="ref"><b>05</b>품질 측정</span>구조를 바꾼 근거를 <b>실측으로 만들었습니다.</b> 89문항 비교와 가드레일 50문항을 직접 설계·수행했고, <b>느려진 점과 같은 질문에 판정이 갈리는 문제까지 함께 기록</b>했습니다. 정답지 없이 채점하는 <b>자동 평가 하네스</b>는 제가 설계하고 초판을 구현한 뒤 동료가 이어받았습니다.</p>
-    <p class="pull" data-rise>쓰는 쪽은 아무것도 바꾸지 않아도 되도록, <b>기존 응답 형식을 그대로 내보내는 창구</b>를 함께 만들었습니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>05</b>품질 측정</span>구조를 바꾼 근거를 <b>실측으로 만들었습니다.</b> 89문항 비교와 가드레일 50문항을 직접 설계·수행했고, <b>느려진 점·비결정성 같은 약점까지 함께 기록</b>했습니다. 정답지 없이 채점하는 <b>자동 평가 하네스</b>는 제가 설계하고 초판을 구현한 뒤 동료가 이어받았습니다.</p>
+    <p class="pull" data-rise>쓰는 쪽은 아무것도 바꾸지 않아도 되도록, 기존 응답 형식 그대로의 <b>호환 창구</b>를 함께 만들었습니다.</p>
 </section>
 
 <!-- ============ R ============ -->
@@ -209,8 +209,8 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <div>
             <ul>
                 <li data-rise><b>멀티턴 재작성</b>: 대화 이력을 참고해 생략된 질문을 완전한 질문으로 복원.</li>
-                <li data-rise><b>두 가지 검색을 함께</b>: 의미가 비슷한 문서와 단어가 일치하는 문서를 동시에 찾아 하나로 합칩니다.</li>
-                <li data-rise><b>후보 재판정</b>: 찾아온 문서가 정말 질문과 맞는지 LLM이 다시 봅니다. 병렬로 돌려 시간을 줄였습니다.</li>
+                <li data-rise><b>하이브리드 검색 융합</b>: 벡터·키워드(BM25) 검색을 동시에 돌리고 결과를 <b>RRF</b>로 합산.</li>
+                <li data-rise><b>LLM 리랭킹</b>: 후보 문서의 관련성을 LLM이 재판정. 병렬 실행으로 응답 시간을 줄였습니다.</li>
                 <li data-rise><b>7가지 답변 전략</b>: 즉답(FAQ) · 근거 요약 · 문서 집계 리포트 · 메타 질문 · 잡담 · 정형 거절 · 사과 — 질문 유형에 따라 분기.</li>
                 <li data-rise><b>인용 후처리</b>: 답변 문장에 출처 문서를 연결하고, 담당자 정보를 정리해 함께 제공.</li>
             </ul>
@@ -222,10 +222,10 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <div>
             <ul>
                 <li data-rise><b>계획–검색–생성–검증 그래프</b>: 답을 만들기 전 계획을 세우고, 만든 답을 검증해 부족하면 실패 원인을 진단하고 다시 계획(최대 3회).</li>
-                <li data-rise><b>시도 간 문맥 격리</b>: 재시도가 이전 시도의 답을 보지 못하게 문맥을 끊어, 같은 실수를 되풀이하지 않게.</li>
+                <li data-rise><b>시도 간 문맥 격리</b>: 재시도가 이전 시도의 답을 보지 못하게 문맥을 끊어, 같은 실수에 끌려가는 것(<b>앵커링</b>)을 방지.</li>
                 <li data-rise><b>검증자 최종 관문</b>: 채택 · 재시도 · 차단 3판정 — 차단이면 지어내는 대신 정형 거절문.</li>
-                <li data-rise><b>검색자 분리</b>: 계획자가 고른 소스들을 병렬로 실행합니다. 소스 하나가 죽어도 나머지로 답을 만듭니다.</li>
-                <li data-rise><b>기존 형식 유지</b>: 신형 엔진 위에 기존 응답 형식을 그대로 내보내는 창구를 얹어, 프론트를 고치지 않고 전환했습니다.</li>
+                <li data-rise><b>플러그인 검색자</b>: 계획자가 고른 소스들을 병렬로 실행합니다. 소스 하나가 죽어도 나머지로 답을 만듭니다.</li>
+                <li data-rise><b>호환 창구</b>: 신형 엔진 위에 기존 응답 형식을 그대로 내보내는 창구를 얹어, 프론트를 고치지 않고 전환했습니다.</li>
             </ul>
         </div>
     </details>

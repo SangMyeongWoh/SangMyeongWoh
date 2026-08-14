@@ -97,7 +97,7 @@ p { text-wrap: pretty; }
     <div class="phead"><h2>조직 에이전트</h2><span class="when">2025.11 –</span></div>
     <div class="tags"><span>개발 · 기획 · 설계</span><span>총 3명</span><span>Google ADK</span><span>GraphRAG</span></div>
     <p>임원이 조직 현황을 물으려면 부서마다 흩어진 데이터와 시스템을 사람이 모아야 했습니다. <b>조직 에이전트</b>는 그 경계를 넘어, 조직 전체의 데이터를 가로질러 한 번에 답하는 것을 목표로 합니다.</p>
-    <p>각 부서가 저장소에 올린 핵심 데이터는 <b>지식 에이전트</b>가 그래프로 만들어 GraphRAG로 답하고, 실시간 조회가 필요한 부분은 <b>데이터 에이전트</b>로부터 불러옵니다. 두 경로를 함께 써서 <b>저장된 지식과 현재 상태를 같이 근거로 삼는 답변</b>을 만듭니다. 저는 여기서 <b>데이터 에이전트</b>를 담당했습니다. 게임 지표를 묻는 질문을 받으면 <b>지표 계산 · 심층 분석 · 코드 실행</b>을 도구처럼 나눠 부려 답을 만들고, 조직 에이전트가 그대로 불러 쓸 수 있도록 <b>표준 창구로 열어뒀습니다.</b></p>
+    <p>각 부서가 저장소에 올린 핵심 데이터는 <b>지식 에이전트</b>가 그래프로 만들어 GraphRAG로 답하고, 실시간 조회가 필요한 부분은 <b>데이터 에이전트</b>로부터 불러옵니다. 두 경로를 함께 써서 <b>저장된 지식과 현재 상태를 같이 근거로 삼는 답변</b>을 만듭니다. 저는 여기서 <b>데이터 에이전트</b>를 담당했습니다 — 게임 지표·KPI 질문을 받아 <b>KPI 계산 · 심층 분석 · 코드 실행 서브에이전트</b>를 도구처럼 부려 답을 만들고, <b>A2A 표준 창구</b>로 노출해 조직 에이전트가 그대로 불러 쓰게 했습니다.</p>
     <figure><img src="img/flow-org-agent.svg" alt="C레벨용 조직 에이전트 구성 — 질의를 받은 조직 에이전트가 GraphRAG 기반 지식 에이전트와 데이터 에이전트를 함께 참조해 근거와 함께 답변합니다." loading="lazy" decoding="async"><figcaption>전체 흐름 — 그래프로 만든 지식과 실시간 조회 결과를 함께 근거로 씁니다.</figcaption></figure>
 </section>
 
@@ -105,7 +105,7 @@ p { text-wrap: pretty; }
     <div class="phead"><h2>MarbleLaws — 법무 상담 어시스턴트</h2><span class="when">2025.08 –</span></div>
     <div class="tags"><span>개발 · 기획 · 설계</span><span>총 1명</span><span>Google ADK</span><span>Flutter</span><span>Cloud Run</span></div>
     <p>사내 구성원이 법무 상담을 신청할 때 필수 정보를 빠뜨리는 경우가 많았고, 그때마다 법무팀이 같은 내용을 여러 차례 되물어야 했습니다. 반복되는 확인 작업이 그대로 법무팀의 업무 부담이 됐습니다.</p>
-    <p>MarbleLaws는 사내 법무 시스템에 내장되어, <b>AI가 채팅으로 법무 분석에 필요한 핵심 정보를 추출·질문·취합</b>합니다. <b>필요한 정보를 빠뜨리지 않는 것</b>을 기준으로 내부 평가하고, 법무팀이 직접 채점합니다.</p>
+    <p>MarbleLaws는 사내 법무 시스템에 내장되어, <b>AI가 채팅으로 법무 분석에 필요한 핵심 정보를 추출·질문·취합</b>합니다. 분류와 요청사항 생성은 누락을 줄이는 쪽(<b>Recall 중심</b>)으로 내부 평가하고, 법무팀이 포괄성·유창성을 직접 채점합니다.</p>
     <figure><img src="img/flow-marblelaws.svg" alt="법무 상담 어시스턴트 전체 흐름 — 구성원 문의 접수, 법무 타입 분류, 채팅으로 정보 추출·질문, 요청 정리를 거쳐 법무팀 검토로 이어집니다." loading="lazy" decoding="async"><figcaption>전체 흐름 — 정보가 빌 때는 상담 접수 전에 채팅으로 되묻습니다.</figcaption></figure>
 </section>
 
@@ -124,7 +124,7 @@ p { text-wrap: pretty; }
     <div class="phead"><h2>지표AI POC</h2><span class="when">2023.11 – 2024.04</span></div>
     <div class="tags"><span>개발 · 기획 · 설계</span><span>총 2명</span><span>TextToSQL</span><span>Flutter</span></div>
     <p>타 사 DX 부서의 협업 요청으로 시작한 검증 과제입니다. <b>지표를 말로 물어보면 에이전트가 알아서 쿼리를 만들고 리포트까지 써 줄 수 있는가</b>를 확인하는 것이 목표였습니다.</p>
-    <p>플래너가 질문을 보고 다음에 무엇을 할지 판단하면, TextToSQL·쿼리 실행·분석 코드 생성 같은 도구가 순서대로 호출되고 그 결과로 보고서를 씁니다. 정답 쿼리 하나만 맞히는 방식으로는 실무 품질을 알 수 없어서, <b>필요한 지표를 빠뜨리지 않았는지</b>를 보는 평가 기준을 따로 정의했습니다. 웹 UI도 직접 만들었습니다.</p>
+    <p>플래너가 질문을 보고 다음에 무엇을 할지 판단하면, TextToSQL·쿼리 실행·분석 코드 생성 같은 도구가 순서대로 호출되고 그 결과로 보고서를 씁니다. 정답 쿼리 하나만 맞히는 방식으로는 실무 품질을 알 수 없어서, 필요한 지표를 빠뜨리지 않았는지를 보는 <b>Recall 중심 평가 지표</b>를 따로 정의했습니다. 웹 UI도 직접 만들었습니다.</p>
     <figure><img src="img/flow-metric-agent.svg" alt="지표 리포트 에이전트 전체 흐름 — 자연어 질문을 플래너가 받아 TextToSQL, 쿼리 실행, 분석·차트 코드 도구를 호출하고 보고서를 생성합니다." loading="lazy" decoding="async"><figcaption>전체 흐름 — 플래너가 도구를 골라 부르고, 결과를 받아 다음 단계를 다시 정합니다.</figcaption></figure>
 </section>
 
@@ -132,7 +132,7 @@ p { text-wrap: pretty; }
     <div class="phead"><h2>아스달 연대기 지식의 서</h2><span class="when">2023.10 – 2024.05</span></div>
     <div class="tags"><span>개발 · 기획 · 설계</span><span>총 2명</span><span>RAG</span><span>MongoDB Atlas</span></div>
     <p>게임 출시에 맞춰 공략 정보를 답해 주는 <b>B2C RAG 챗봇</b>의 검색 엔진을 만들었습니다. 불특정 다수가 쓰는 서비스라 응답 지연과 LLM 비용이 그대로 서비스 품질이 됐습니다.</p>
-    <p>단어가 일치하는 문서와 의미가 비슷한 문서를 <b>동시에 찾아 하나로 합쳤고</b>, 게임 고유명사를 먼저 인식하도록 한국어 처리를 손봤습니다. 여기에 <b>사전 캐싱</b>을 붙여 자주 나올 질문은 검색·생성 없이 바로 답하게 했고, 근거가 없는 질문은 답변 불가로 걸러냈습니다. 문서 전처리와 서비스 운영, 부서 간 소통도 함께 맡았습니다. 이때 만든 검색 구조가 이후 <a href="../marge/">MARGE</a>로 이어졌습니다.</p>
+    <p>BM25와 벡터 검색을 <b>RRF로 합치고</b>, 게임 고유명사를 우선 등록하는 <b>한국어 토크나이저</b>를 썼습니다. 여기에 <b>사전 캐싱</b>을 붙여 자주 나올 질문은 검색·생성 없이 바로 답하게 했고, 근거가 없는 질문은 답변 불가로 걸러냈습니다. 문서 전처리와 서비스 운영, 부서 간 소통도 함께 맡았습니다. 이때 만든 RAG 베이스라인이 이후 <a href="../marge/">MARGE</a>로 이어졌습니다.</p>
     <figure><img src="img/flow-arthdal.svg" alt="아스달 연대기 지식의 서 전체 흐름 — 질문에 대해 BM25·벡터 검색을 RRF로 결합하고 캐시 적중 여부에 따라 저장된 답변 또는 RAG 답변을 반환합니다." loading="lazy" decoding="async"><figcaption>전체 흐름 — 캐시에 걸리면 검색·생성 없이 즉시 답합니다.</figcaption></figure>
 </section>
 
