@@ -59,7 +59,7 @@
 <path class="ln" d="M572 154 L572 174" marker-end="url(#a)"/>
 <rect class="box" x="400" y="178" width="344" height="58" rx="9"/>
 <text class="t ink" x="414" y="202">감점 · 점수</text>
-<text class="s mut" x="414" y="221">국제 표준(MQM) 기준 · 합격선 근처는 재채점</text>
+<text class="s mut" x="414" y="221">사내 채점 기준(MQM 기반) · 합격선 근처는 재채점</text>
 <path class="ln" d="M572 236 L572 256" marker-end="url(#a)"/>
 <rect class="box" x="400" y="260" width="344" height="42" rx="9"/>
 <text class="t sub" x="414" y="286">채점 리포트</text>
