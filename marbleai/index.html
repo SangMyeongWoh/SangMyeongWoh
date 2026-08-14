@@ -272,7 +272,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
             <ul>
                 <li data-rise><b>태그 보존</b>: <b>가려둔 태그가 그대로 돌아왔는지 · 변수가 같은 수로 남았는지 · 용어를 빠뜨리지 않았는지</b> 세 가지를 검사해 <b>재교정을 시도합니다.</b> <b>모든 재교정 루프가 끝나면 결함이 가장 적은 후보를 내보냅니다.</b></li>
                 <li data-rise><b>문장 묶기</b>: 일정 구간 단위로 <b>대화와 비대화를 분류</b>하고 같은 성격끼리 붙여 한 번에 보냅니다. 분류에 실패한 구간은 비대화로 처리해 <b>멈추지 않고</b> 넘어갑니다.</li>
-                <li data-rise><b>모델 라우팅</b>: <b>언어쌍마다 다른 모델</b>을 지정할 수 있습니다. 장애가 나면 폴백 모델로 한 번 재시도하고 <b>그 언어쌍만 일정 시간 고정</b>했다가 시간이 지나면 원래 모델로 돌아옵니다 — 한 언어의 장애가 전체로 번지지 않게.</li>
+                <li data-rise><b>모델 라우팅</b>: <b>평가기를 통해 언어쌍마다 최고 성능의 LLM을 선정</b>합니다.</li>
             </ul>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
             <img data-rise loading="lazy" decoding="async" src="img/flow-translation.svg" alt="기계번역 처리 흐름" style="width:100%;margin-top:6px;">
