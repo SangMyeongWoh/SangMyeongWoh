@@ -190,8 +190,8 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 <!-- ============ A1 ============ -->
 <section class="narr">
     <h2><span class="mono">Analyze &amp; Apply</span>분석 및 적용</h2>
-    <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer, GKE, Cloud Run</b> 세 가지를 고려했고, <b>Cloud Run</b>을 택했습니다. Composer는 <b>필요한 기능에 비해 과하고 비쌌습니다.</b> 번역 작업은 <b>간헐적으로 들어오는 배치성 일감</b>이라, <b>클라우드 비용이 상시 발생하는 GKE</b> 역시 적합하지 않다고 판단했습니다.</p>
-    <p style="margin-top:10px;">전체 번역 작업 중 <b>60%가 100문장 미만</b>이었습니다. 작은 작업은 <b>Cloud Run Service</b>로, 큰 작업은 <b>Cloud Run Job</b>으로 처리되는 분기를 만들었습니다.</p>
+    <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer, GKE, Cloud Run</b> 세 가지를 고려했고, <b>Cloud Run</b>을 택했습니다. Composer는 <b>필요한 기능에 비해 과하고 비쌌습니다.</b> GKE는 Composer보다는 가벼웠지만, 번역 작업은 <b>간헐적으로 들어오는 배치성 일감이 주류</b>였기 때문에 <b>클라우드 비용이 상시 발생할 필요가 없다</b>고 판단했습니다.</p>
+    <p style="margin-top:10px;">Cloud Run 안에서도 작업 분기를 만들었습니다. 전체 번역 작업 중 <b>60%가 100문장 미만</b>이었고, 작은 작업에까지 <b>Cloud Run Job의 콜드스타트를 사용자가 부담할 필요는 없었습니다.</b> 작은 작업은 <b>Cloud Run Service</b>로, 큰 작업은 <b>Cloud Run Job</b>으로 처리되도록 나눴습니다.</p>
     <p style="margin-top:10px;">배포는 <b>GitHub Actions</b>로 CI/CD를 간단히 할 수 있게 했습니다.</p>
     
     <p style="margin-top:14px;"><span class="ref"><b>03</b>운영 공수</span>둘 다 <b>사람이 직접 관여할 필요는 없다</b>고 판단했습니다. 번역 한 건은 <b>여러 서비스가 맞물려</b> 만들어집니다. 그런데 그 흔적은 시스템마다, Service·Job 실행 단위마다, <b>한 서비스 안에서도 단계마다</b> 따로 남았습니다 — 한 건의 이력이 자잘하게 흩어져 있어 원인을 찾으려면 <b>조각을 일일이 맞춰봐야</b> 했습니다. 그래서 <b>모든 로그에 작업 ID를 달아, ID 하나로 전 구간이 한 번에 조회되게</b> 하고, 그 위에 <b>ID만 넣으면 로그를 읽어 문제를 진단해 주는 Claude Code 스킬</b>을 올렸습니다.</p>
