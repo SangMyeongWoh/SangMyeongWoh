@@ -268,7 +268,13 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <details data-rise>
         <summary>기계번역<span class="role">직접 구현</span></summary>
         <div>
-            <p style="font-size:15px;line-height:1.7;margin-top:4px;">번역 전, 깨질 수 있는 민감한 태그를 마스킹하고 <b>용어집·유사 문장·캐릭터 말투</b>를 모아 프롬프트를 조립합니다. 번역 후엔 태그·변수·용어가 온전한지 <b>룰베이스 기반으로 검증</b>합니다.</p>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">번역 전에는 깨질 수 있는 <b>태그를 가려두고</b> 용어집·유사 문장·캐릭터 페르소나를 모아 프롬프트를 조립합니다. 번역 후에는 <b>결과를 그대로 믿지 않고</b> 검사와 재교정을 거칩니다.</p>
+            <ul>
+                <li data-rise><b>무결성 사다리</b> — 품질 교정의 본체입니다. <b>토큰 차이 · 보존 변수 개수 · 용어 누락</b> 세 가지를 검사해, 걸리면 <b>토큰 재교정 최대 2회 → 내용 재교정 1회 → 제약을 걸어 재번역 1회</b> 순으로 올라갑니다. 끝까지 안 되면 <b>결함이 가장 적은 후보를 내보냅니다</b> — 작업을 실패시키지 않습니다.</li>
+                <li data-rise><b>채택은 코드가 정합니다</b>: 재교정 결과를 받아들일지는 LLM에게 묻지 않고, <b>같은 검사를 다시 돌려</b> 결정합니다. 고쳤다는 주장과 실제로 고쳐졌는지는 다른 문제이기 때문입니다.</li>
+                <li data-rise><b>문장 묶기</b>: 일정 구간 단위로 <b>대화와 비대화를 분류</b>하고 같은 성격끼리 붙여 한 번에 보냅니다. 분류에 실패한 구간은 비대화로 처리해 <b>멈추지 않고</b> 넘어갑니다.</li>
+                <li data-rise><b>모델 라우팅</b>: <b>언어쌍마다 다른 모델</b>을 지정할 수 있습니다. 장애가 나면 폴백 모델로 한 번 재시도하고 <b>그 언어쌍만 일정 시간 고정</b>했다가 시간이 지나면 원래 모델로 돌아옵니다 — 한 언어의 장애가 전체로 번지지 않게.</li>
+            </ul>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
             <img data-rise loading="lazy" decoding="async" src="img/flow-translation.svg" alt="기계번역 처리 흐름" style="width:100%;margin-top:6px;">
         </div>
@@ -276,15 +282,21 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <details data-rise>
         <summary>용어집<span class="role">직접 구현</span></summary>
         <div>
-            <p style="font-size:15px;line-height:1.7;margin-top:4px;">등록할 때 언어별 <b>정규화형을 미리 계산해 저장</b>하고, 매칭할 때 <b>같은 규칙으로 비교</b>합니다.</p>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">등록할 때 언어별 <b>정규화형을 미리 계산해 저장</b>하고, 매칭할 때 <b>같은 규칙으로 비교</b>합니다. 쓰는 쪽과 읽는 쪽의 규칙이 어긋나면 그 순간 매칭이 통째로 무너지는 구조라, 이 대칭을 계약처럼 지킵니다.</p>
+            <ul>
+                <li data-rise><b>언어마다 다른 경로</b>: 한국어·일본어·중국어는 <b>형태소 분석을 버리고 표면형 그대로</b> 훑습니다. 동사에서 파생된 스킬명이나 조사가 붙어 분절이 달라지는 경우에 형태소 분석이 오히려 용어를 놓쳤기 때문입니다. 굴절이 있는 언어는 원형끼리 비교하고, 나머지는 부분 문자열로 떨어뜨립니다.</li>
+                <li data-rise><b>경계 판정</b>: 앞 글자가 단어면 매칭을 거부하고, 뒤에는 <b>한국어 조사 51종 · 일본어 조사 24종</b>까지 붙어도 같은 용어로 봅니다. 겹치면 <b>가장 왼쪽 · 가장 긴 것</b>을 취합니다.</li>
+                <li data-rise><b>짧은 용어 과매칭 차단</b>: 두 글자 이하 한국어 용어는 그 자리가 <b>실제로 명사인지</b> 한 번 더 확인합니다 — 캐릭터 이름 <b>"두"</b>가 <b>"두둑한"</b> 안에서 잡히던 문제를 막기 위해서입니다.</li>
+                <li data-rise><b>누락 검증의 폴백 사다리</b>: 번역문에 용어를 안 썼다고 판정하기 전에 <b>격변화(러시아어·폴란드어 등) · 접어 결합(스페인어·포르투갈어) · 악센트 표기 차이</b>까지 훑습니다. 읽는 쪽만 고치고 <b>저장형은 건드리지 않습니다.</b></li>
+            </ul>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">시스템 아키텍처</p>
-            <img data-rise loading="lazy" decoding="async" src="img/arch-glossary.svg" alt="용어집 구성" style="width:100%;margin-top:6px;">
+            <img data-rise loading="lazy" decoding="async" src="img/arch-glossary.svg" alt="용어집 아키텍처" style="width:100%;margin-top:6px;">
         </div>
     </details>
     <details data-rise>
         <summary>사용성<span class="role">직접 구현</span></summary>
         <div>
-            <p style="font-size:15px;line-height:1.7;margin-top:4px;">사용자 편의성을 위한 개선사항.</p>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">기능이 있어도 <b>쓰기 번거로우면 쓰지 않습니다.</b> 특히 AI 이해가 낮은 부서일수록 그렇습니다. 쓰는 쪽에서 걸리던 것들을 <b>기획자와 함께 UX를 설계해</b> 하나씩 없앴습니다.</p>
             <ul>
                 <li data-rise><b>파일 입력</b> — 엑셀의 어느 열이 어떤 언어인지 사람이 직접 지정하던 절차를 자동화. 언어 자동 감지, 여러 파일 일괄 업로드.</li>
                 <li data-rise><b>문서 번역</b> — 게임 텍스트 외 사업부 문서까지 번역 대상 확장 — 워드·파워포인트·마크다운, 변경추적이 걸린 문서까지 그대로.</li>
