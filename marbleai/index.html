@@ -274,15 +274,16 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <details data-rise>
         <summary><i class="star">★</i>게임 특화 — 기존 번역에서 문체와 태그 규칙을 자동으로 학습<span class="role">직접 구현</span></summary>
         <div>
-            <p style="font-size:15px;line-height:1.7;margin-top:4px;">기계번역이 프롬프트에 넣는 <b>유사 문장·캐릭터 말투·태그 규칙</b>이 만들어지는 곳입니다 — 기존 번역 파일을 올리면 자동으로 처리됩니다.</p>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">기계번역이 프롬프트에 넣는 <b>유사 문장·캐릭터 페르소나·태그 규칙</b>이 만들어지는 곳입니다. 게임의 기존 번역 파일을 올리면 <b>한 번 굽고</b>, 이후 번역은 그 결과를 가져다 씁니다.</p>
             <ul>
-                <li data-rise><b>자동 분해</b>: 기존 번역 파일의 열 구조를 자동 인식해 문장 단위로 나누고 언어쌍으로 정렬.</li>
-                <li data-rise><b>검색 구조로 굽기</b>: 문장을 임베딩해 두고, 번역할 때 비슷한 문장을 찾아 참고 예시로 주입. 대화는 화자별로 묶어 말투 참고에 사용.</li>
-                <li data-rise><b>태그 자동 학습</b>: 기존 번역에 쓰인 태그 패턴을 추출·분류해 보호 규칙을 자동 생성 — 게임별 태그 규칙 수작업 제거.</li>
-                <li data-rise><b>운영 설계</b>: 내용 기반 캐시로 같은 자산은 한 번만 처리하고, 무거운 임베딩은 별도 작업으로 분리. 전처리가 실패해도 <b>번역은 멈추지 않고</b> 사유만 알립니다.</li>
+                <li data-rise><b>언어 인식은 규칙이 먼저, LLM은 예외만</b>: 파일 상위 15행만 훑어 언어 헤더를 찾고, <b>헤더가 둘 이상일 때만</b> 인정합니다. ID 중복이나 표기 없는 언어 열 같은 <b>엣지케이스에만 LLM</b>을 부릅니다.</li>
+                <li data-rise><b>LLM이 말한 것도 코드가 검증</b>: 셀이 실제로 있는지, 읽었다는 값이 셀 값과 같은지, 표준 언어 코드인지, 한 열에 한 언어인지 — <b>네 단계를 LLM 재호출 없이 코드로</b> 확인합니다. 기준은 <b>"오탐보다 미인식이 싸다"</b>였습니다.</li>
+                <li data-rise><b>굽기 산출물 4종</b>: 태그 예시와 복구 규칙, 유사 문장용 <b>벡터 인덱스</b>, 캐릭터 <b>페르소나</b>, 화자별 <b>대화 청크</b>. 번역할 때는 대화 청크로 화자를 맞춰 예시를 넣고, 못 맞추면 벡터 검색으로 폴백합니다.</li>
+                <li data-rise><b>한 번만 굽기</b>: 캐시 키를 <b>파일 내용 · 소스 언어 · 인식기 버전</b>으로 잡아 같은 자산은 다시 굽지 않습니다. 완료 표시는 <b>항상 마지막에</b> 남겨 덜 구워진 결과를 재사용하지 않게 했고, 동시에 굽지 않도록 건 잠금의 범위를 <b>캐시 범위와 같게</b> 맞췄습니다.</li>
+                <li data-rise><b>전처리가 실패해도 번역은 멈추지 않음</b>: 벡터가 아직 준비되지 않았으면 기다렸다 직접 만들고, 그마저 안 되면 <b>few-shot 없이 번역을 진행</b>합니다. 품질은 조금 떨어지지만 작업은 끝납니다.</li>
             </ul>
-            <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
-            <img data-rise loading="lazy" decoding="async" src="img/flow-memory.svg" alt="번역 기억 전처리 흐름 — 기존 번역 파일을 자동 분해해 검색 구조로 굽고, 유사 문장·캐릭터 말투·태그 보호 규칙을 만들어 기계번역 프롬프트에 자동 주입" style="width:100%;margin-top:6px;">
+            <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">전처리 흐름</p>
+            <img data-rise loading="lazy" decoding="async" src="img/flow-memory.svg" alt="기존 번역 파일 전처리 흐름 — 언어 자동 인식(규칙 스캔·LLM 보정·코드 검증) 후 태그 규칙·벡터 인덱스·캐릭터 페르소나·대화 청크를 굽고, 번역할 때 프롬프트에 자동 주입" style="width:100%;margin-top:6px;">
         </div>
     </details>
 
