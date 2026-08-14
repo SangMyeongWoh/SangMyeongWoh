@@ -125,8 +125,10 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
 .sublist li { margin-top: 10px; padding-left: 0; }
 .sublist li:first-child { margin-top: 0; }
 .sublist li::before { display: none; }
-.sublist .sk { display: block; font-size: 14.5px; font-weight: 800; color: var(--muted);
-               letter-spacing: .02em; margin-bottom: 2px; }
+.sublist .sk { display: block; font-size: 16.5px; font-weight: 800; color: var(--ink);
+               letter-spacing: -.1px; margin-bottom: 4px; }
+.sublist .sk::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 2px;
+                       background: var(--accent); margin-right: 9px; vertical-align: 2px; }
 
 /* 시스템 흐름 스트립 (Deep Dive) */
 .flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 6px; margin: 12px 0 16px; }
