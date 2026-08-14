@@ -281,7 +281,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <details data-rise>
         <summary>용어집<span class="role">직접 구현</span></summary>
         <div>
-            <p style="font-size:15px;line-height:1.7;margin-top:4px;">특정 언어는 같은 단어라도 <b>어미가 달라지는 격변화</b>가 존재합니다. 때문에 <b>언어별 정규화형을 미리 계산해 저장</b>하고, 매칭할 때 <b>같은 규칙으로 비교</b>합니다.</p>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">특정 언어는 같은 단어라도 <b>위치에 따라 어미가 달라지는 격변화</b>가 존재합니다. 때문에 <b>언어별 정규화형을 미리 계산해 저장</b>하고, 매칭할 때 <b>같은 규칙으로 비교</b>합니다.</p>
             <ul>
                 <li data-rise><b>언어마다 다른 경로</b>: 한국어·일본어·중국어는 <b>형태소 분석을 버리고 표면형 그대로</b> 훑습니다. 동사에서 파생된 스킬명이나 조사가 붙어 분절이 달라지는 경우에 형태소 분석이 오히려 용어를 놓쳤기 때문입니다. 굴절이 있는 언어는 원형끼리 비교하고, 나머지는 부분 문자열로 떨어뜨립니다.</li>
                 <li data-rise><b>경계 판정</b>: 앞 글자가 단어면 매칭을 거부하고, 뒤에는 <b>한국어 조사 51종 · 일본어 조사 24종</b>까지 붙어도 같은 용어로 봅니다. 겹치면 <b>가장 왼쪽 · 가장 긴 것</b>을 취합니다.</li>
