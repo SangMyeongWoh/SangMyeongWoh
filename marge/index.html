@@ -61,11 +61,9 @@ a:hover { text-decoration: underline; }
 section { margin-top: 64px; }
 header + section { margin-top: 34px; }
 hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
-
 .meta { font-size: 15px; color: var(--muted); }
 .lead { font-size: 18px; margin-top: 14px; }
 .lead + .lead { margin-top: 13px; }
-
 .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 28px; }
 .num { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
 .num b { display: block; font-size: 21px; color: var(--accent); letter-spacing: -.3px; }
@@ -73,13 +71,10 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
 .nums.n3 { grid-template-columns: repeat(3, 1fr); }
 .nums.n2 { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 620px) { .nums, .nums.n3, .nums.n2 { grid-template-columns: repeat(2, 1fr); } }
-
 ul { list-style: none; margin-top: 4px; }
 li { position: relative; padding-left: 20px; margin-top: 10px; }
 li::before { content: ''; position: absolute; left: 4px; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-
 .pull { border-left: 3px solid var(--accent); padding: 6px 0 6px 18px; margin-top: 18px; color: var(--ink); font-weight: 600; }
-
 details { border: 1px solid var(--line); border-radius: 12px; margin-top: 12px; background: var(--panel); }
 summary { cursor: pointer; padding: 14px 18px; font-weight: 700; color: var(--ink); font-size: 16px; list-style: none; }
 summary::before { content: '+'; color: var(--accent); font-weight: 800; margin-right: 10px; }
@@ -90,14 +85,11 @@ details:hover { border-color: var(--line); }
 details[open] summary::before { content: '−'; }
 details > div { padding: 2px 18px 18px; font-size: 16px; }
 details img { max-width: 100%; border-radius: 8px; background: #fff; border: 1px solid var(--line); margin-top: 10px; }
-
 footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); display: flex; gap: 24px; flex-wrap: wrap; }
-
 .narr li, .narr p { font-size: 19px; line-height: 1.75; }
 .narr .pull { font-size: 20.5px; }
 .narr li { padding-left: 24px; margin-top: 14px; }
 .narr li::before { left: 5px; top: 14px; width: 7px; height: 7px; }
-
 .idxlist li { padding-left: 0; }
 .idxlist li::before { display: none; }
 .lbl, .ref { display: inline-block; font-size: 14.5px; font-weight: 700; color: var(--accent);
@@ -105,14 +97,11 @@ footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
              margin-right: 10px; vertical-align: 2px; white-space: nowrap; }
 .lbl b, .ref b { font-family: ui-monospace,'SF Mono',Consolas,monospace; font-weight: 800;
                  margin-right: 6px; letter-spacing: .04em; }
-
-
 /* ── 스크롤 등장 ─────────────────────────────── */
 .js [data-rise] { opacity:0; transform:translateY(14px);
   transition:opacity .5s cubic-bezier(.22,.61,.36,1), transform .5s cubic-bezier(.22,.61,.36,1); }
 .js [data-rise].in { opacity:1; transform:none; }
 @media (prefers-reduced-motion:reduce){ .js [data-rise]{opacity:1;transform:none;transition:none} }
-
 /* ── 리디자인 감사 반영 ─────────────────────────── */
 ::selection{background:var(--accent);color:#06100e}
 a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible,
@@ -134,22 +123,17 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 </head>
 <body>
 <div class="wrap">
-
 <!-- ============ 헤더 ============ -->
 <header>
     <div class="mono">Sangmyeong Woh · NLP/AI Engineer · Netmarble · 2024.06 –</div>
     <h1>기업 문서 지식 Q&amp;A 엔진<br>MARGE 공동 개발</h1>
 </header>
-
 <!-- ============ 30초 요약 ============ -->
 <section>
     <p class="lead">MARGE는 회사 안에 흩어진 <b>규정·정책·업무 문서를 읽고, 직원의 질문에 근거를 달아 답하는</b> RAG 기반 지식 Q&amp;A 엔진입니다.</p>
     <p class="lead"><b>2인이 처음부터 만들었습니다.</b> 저는 그중 <b>질문을 이해하고 → 문서를 찾고 → 답을 만드는 런타임 파이프라인</b>을 담당했고, 2026년에는 <b>에이전틱 구조 리뉴얼을 공동 설계하고 직접 구현</b>했습니다. 문서 수집·인덱싱 파이프라인과 인프라는 동료가 담당했습니다.</p>
-    <p class="lead">2024년 6월 프로젝트 시작 이후, <b>리뉴얼 구현 및 평가 초기설계</b>까지 담당했습니다.</p>
 </section>
-
 <hr style="margin-top:64px;">
-
 <!-- ============ P ============ -->
 <section class="narr">
     <h2><span class="mono">Problem</span>1세대 MARGE의 한계 — 운영하며 발견한 것들</h2>
@@ -163,7 +147,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     </ul>
     <p class="pull" data-rise>고정 파이프라인을 고쳐 쓰는 대신, 스스로 판단하고 다시 시도하는 구조로 재설계를 결정했습니다.</p>
 </section>
-
 <!-- ============ A ============ -->
 <section class="narr">
     <h2><span class="mono">Analyze &amp; Apply</span>분석 및 적용 — 에이전틱 재설계</h2>
@@ -174,7 +157,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <p style="margin-top:14px;"><span class="ref"><b>05</b>품질 측정</span>구조를 바꾼 근거를 <b>실측으로 만들었습니다.</b> 89문항 비교와 가드레일 50문항을 직접 설계·수행했고, <b>느려진 점·비결정성 같은 약점까지 함께 기록</b>했습니다. 정답지 없이 채점하는 <b>자동 평가 하네스</b>는 제가 설계하고 초판을 구현한 뒤 동료가 이어받았습니다.</p>
     <p class="pull" data-rise>쓰는 쪽은 아무것도 바꾸지 않아도 되도록, 기존 응답 형식 그대로의 <b>호환 창구</b>를 함께 만들었습니다.</p>
 </section>
-
 <!-- ============ R ============ -->
 <section class="narr">
     <h2><span class="mono">Result</span>지금의 MARGE</h2>
@@ -186,24 +168,19 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <div class="num" data-rise><b>가드레일 50문항 유출 0</b><span>개인정보·금지 주제 방어 실측 — 오탐도 구형 1건 → 신형 0건</span></div>
         <div class="num" data-rise><b>챗봇 개설 자동화</b><span>프로젝트별 독립 지식저장소 — 스크립트 한 번으로 신규 챗봇 개설</span></div>
     </div>
-
     <p style="font-size:13px;color:var(--muted);margin:30px 0 8px;">MARGE — 전체 흐름</p>
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
         <img data-rise loading="lazy" decoding="async" src="img/flow-overview.svg" alt="MARGE 전체 흐름 — 질문 이해 → 문서 검색 → 답변 생성, 근거 유무에 따라 근거 답변과 정중한 거절로 갈리며 별도의 품질 평가가 뒤따름" style="width:100%;">
     </div>
-
     <p style="font-size:13px;color:var(--muted);margin:22px 0 8px;">MARGE — 시스템 아키텍처</p>
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
         <img data-rise loading="lazy" decoding="async" src="img/arch-overview.svg" alt="MARGE 시스템 아키텍처 — GKE 클러스터 위의 채팅 API·평가기 API·문서 관리 API·인덱싱 파이프라인과 MongoDB·GCS·Vertex AI, 진한 테두리는 직접 구현 영역" style="width:100%;">
     </div>
 </section>
-
 <hr style="margin-top:64px;">
-
 <!-- ============ Deep Dive ============ -->
 <section>
     <h2><span class="mono">Deep Dive</span>내가 만든 것들</h2>
-
     <details data-rise>
         <summary>1세대 엔진<span class="role">직접 구현</span></summary>
         <div>
@@ -216,7 +193,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
             </ul>
         </div>
     </details>
-
     <details data-rise>
         <summary>에이전틱 리뉴얼<span class="role">공동 설계 · 직접 구현</span></summary>
         <div>
@@ -229,7 +205,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
             </ul>
         </div>
     </details>
-
     <details data-rise>
         <summary>실측 검증<span class="role">직접 수행</span></summary>
         <div>
@@ -240,7 +215,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
             </ul>
         </div>
     </details>
-
     <details data-rise>
         <summary>운영 개선<span class="role">직접 구현</span></summary>
         <div>
@@ -252,7 +226,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
             </ul>
         </div>
     </details>
-
     <details data-rise>
         <summary>함께 만든 것과 경계<span class="role">역할 구분</span></summary>
         <div>
@@ -263,16 +236,13 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         </div>
     </details>
 </section>
-
 <footer>
     <a href="../">← 프로필로</a>
     <a href="../marbleai/">MarbleAI 언어 파트</a>
     <a href="../others/">기타 프로젝트</a>
     <a href="mailto:woodullee@naver.com">woodullee@naver.com</a>
 </footer>
-
 </div>
-
 <script>
 (function(){
   var t=document.querySelectorAll('[data-rise]');
