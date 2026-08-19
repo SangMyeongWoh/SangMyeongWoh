@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 352" width="760" height="352" role="img" aria-label="2세대 MARGE 답변 흐름 — 계획, 검색, 생성, 검증 그래프와 재시도 루프, 채택·차단 두 갈래, 시도 간 문맥 격리">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 352" width="760" height="352" role="img" aria-label="MARGE 답변 흐름 — 계획, 검색(근거가 모일 때까지 반복), 생성, 검증 그래프와 재시도 루프, 채택·차단 두 갈래, 시도 간 문맥 격리">
 <style>
   .bg  { fill: #ffffff; }
   .pan { fill: #f4f8f7; stroke: #dce5e2; }
@@ -54,8 +54,8 @@
 
 <rect class="box" x="204" y="84" width="172" height="68" rx="10"/>
 <text class="t ink" x="218" y="108">② 검색</text>
-<text class="s mut" x="218" y="128">계획이 고른 소스를</text>
-<text class="s mut" x="218" y="143">병렬로 실행</text>
+<text class="s mut" x="218" y="128">소스를 병렬로 검색하고</text>
+<text class="s mut" x="218" y="143">부족하면 스스로 더 찾음</text>
 
 <rect class="box" x="392" y="84" width="172" height="68" rx="10"/>
 <text class="t ink" x="406" y="108">③ 생성</text>
@@ -69,6 +69,8 @@
 
 <path class="ln" d="M188 118 L200 118" marker-end="url(#a)"/>
 <path class="ln" d="M376 118 L388 118" marker-end="url(#a)"/>
+<path class="ln dsh" d="M330 152 C 330 178, 250 178, 250 156" marker-end="url(#a)"/>
+<text class="k mut" x="200" y="192">근거가 모일 때까지 반복</text>
 <path class="ln" d="M564 118 L576 118" marker-end="url(#a)"/>
 
 <!-- 판정에 따른 두 갈래 -->
