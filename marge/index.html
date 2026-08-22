@@ -152,7 +152,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 <section class="narr">
     <h2><span class="mono">Analyze &amp; Apply</span>분석 및 적용 — 에이전틱 재설계</h2>
     <p><span class="ref"><b>01</b>일방통행</span><b>Google ADK 2.0의 그래프 워크플로우</b> 위에 <b>Planner(계획) → Retriever(검색) → Generator(생성) → Evaluator(검증)</b> 구조로 다시 설계했습니다. 검증이 "부족하다"고 판정하면 <b>실패 원인을 진단해 계획부터 다시</b> 시도합니다(최대 3회). 재시도가 이전 시도의 답에 끌려가지 않도록 <b>시도마다 문맥을 격리</b>했습니다. 이 재시도 개념은 이후 <b>검색 단계 안의 반복 루프로 진화</b>해, 지금은 답을 만들기 전에 근거를 스스로 모읍니다(동료 주도 고도화).</p>
-    <p style="margin-top:14px;"><span class="ref"><b>02</b>검증 부재</span>답이 나가기 전 마지막 관문으로 <b>Evaluator</b>를 뒀습니다. 답을 <b>그대로 내보낼지 · 다시 시도할지 · 막을지</b> 판정하고, 막을 때는 지어내는 대신 <b>정해진 거절문</b>을 내보냅니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>02</b>검증 부재</span>답이 나가기 전 마지막 관문으로 <b>Evaluator</b>를 뒀습니다. 답을 <b>그대로 내보낼지 · 다시 시도할지 · 막을지</b> 판정합니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>한 덩어리 코드</span>뒤엉켜 있던 역할을 <b>Planner · Retriever · Generator · Evaluator 네 개로 쪼개</b> 각자 한 가지 일만 하게 했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>확장성</span><b>Retriever를 소스별 모듈로 분리</b>했습니다. Planner가 필요한 소스를 고르면 <b>병렬로 실행</b>되고, 새 소스는 <b>모듈만 등록하면</b> 붙습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>05</b>품질 측정</span>구조를 바꾸는 게 실제로 나은지 <b>직접 재봤습니다.</b> 구형과 신형에 <b>같은 질문 89개</b>를 넣어 답을 비교하고, 개인정보·금지 주제를 묻는 <b>50개로 방어도 확인</b>했습니다. 나아진 것만이 아니라 <b>응답이 1.5배 느려진 것, 같은 질문에 판정이 갈리는 것</b>도 함께 기록했습니다. 앞으로 매번 손으로 재지 않도록 <b>자동 평가 하네스</b>를 만들었고, 설계와 초판까지가 제 몫입니다.</p>
