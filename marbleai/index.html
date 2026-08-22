@@ -166,23 +166,24 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 html { scroll-behavior: smooth; }
 section[id] { scroll-margin-top: 28px; }
 .toc { position: fixed; top: 50%; transform: translateY(-50%);
-       left: calc(50% - 596px); width: 176px; z-index: 20; }
+       left: calc(50% - 600px); width: 188px; z-index: 20; }
 .toc ol { list-style: none; margin: 0; padding: 0; }
 .toc li { position: static; padding: 0; margin: 0; }
 .toc li::before { display: none; }
-.toc a { display: block; padding: 7px 0 7px 15px; border-left: 2px solid var(--line);
+.toc a { display: block; padding: 9px 0 9px 16px; border-left: 2px solid var(--line);
          font-family: ui-monospace, 'SF Mono', Consolas, monospace;
-         font-size: 11.5px; letter-spacing: .15em; text-transform: uppercase;
+         font-size: 13.5px; letter-spacing: .11em; text-transform: uppercase;
          font-weight: 700; color: var(--muted); line-height: 1.3;
          transition: color .18s, border-color .18s; }
 .toc a:hover { color: var(--ink); border-left-color: var(--muted); text-decoration: none; }
 .toc a.on { color: var(--accent); border-left-color: var(--accent); }
-@media (max-width: 1250px) { .toc { display: none; } }
+@media (max-width: 1270px) { .toc { display: none; } }
 </style>
 </head>
 <body>
 <nav class="toc" aria-label="목차">
   <ol>
+    <li><a href="#top">Intro</a></li>
     <li><a href="#problem">Problem</a></li>
     <li><a href="#analyze">Analyze</a></li>
     <li><a href="#action">Action</a></li>
@@ -193,7 +194,7 @@ section[id] { scroll-margin-top: 28px; }
 </nav>
 <div class="wrap">
 <!-- ============ 헤더 — 한 문장이 전부를 말한다 ============ -->
-<header>
+<header id="top">
     <div class="mono">Sangmyeong Woh · NLP/AI Engineer · Netmarble · 2023.05 –</div>
     <h1>게임 로컬라이제이션 AI 플랫폼<br>MarbleAI 언어 파트</h1>
 </header>
