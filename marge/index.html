@@ -167,7 +167,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <div class="num" data-rise><b>계열사 5곳 확산</b><span>그룹 계열사 HR 챗봇으로 — 같은 엔진, 독립 지식베이스</span></div>
         <div class="num" data-rise><b>코웨이 전용 구축</b><span>계열사 코웨이에 별도 클라우드 환경으로 상용 공급</span></div>
     </div>
-    <p data-rise style="margin-top:22px;">리뉴얼 때 깐 <b>그래프·상태 스키마 골격은 그대로인 채</b>, 이후 <b>동료 주도로</b> 검증 4판정 · 검색 루프 · 문서 지도가 얹히며 고도화되고 있습니다 — <b>구조가 확장을 받아낸 것입니다.</b></p>
+    <p data-rise style="margin-top:22px;">리뉴얼 때 깐 <b>그래프·상태 스키마 골격은 그대로인 채</b>, 이후 <b>동료 주도로</b> 검증 4판정 · 검색 루프 · 문서 지도가 얹히며 고도화되고 있습니다.</p>
     <p style="font-size:13px;color:var(--muted);margin:30px 0 8px;">MARGE — 전체 흐름</p>
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
         <img data-rise loading="lazy" decoding="async" src="img/flow-overview.svg" alt="MARGE 답변 흐름 — 계획 → 검색(근거가 모일 때까지 반복) → 생성 → 검증 그래프, 부족하면 다시 계획하는 재시도 루프, 채택·차단 두 갈래와 시도 간 문맥 격리" style="width:100%;">
@@ -188,7 +188,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
                 <li data-rise><b>멀티턴 재작성</b>: 대화 이력을 참고해 생략된 질문을 완전한 질문으로 복원.</li>
                 <li data-rise><b>하이브리드 검색 융합</b>: 벡터·키워드(BM25) 검색을 동시에 돌리고 결과를 <b>RRF</b>로 융합.</li>
                 <li data-rise><b>LLM 리랭킹</b>: 후보 문서의 관련성을 LLM이 재판정. 병렬 실행으로 응답 시간을 줄였습니다.</li>
-                <li data-rise><b>7가지 답변 전략</b>: 즉답(FAQ) · 근거 요약 · 문서 집계 리포트 · 메타 질문 · 잡담 · 정형 거절 · 사과 — 질문 유형에 따라 분기.</li>
+                <li data-rise><b>7가지 답변 전략</b>: 즉답(FAQ) · 근거 요약 · 문서 집계 리포트 · 메타 질문 · 잡담 · 정형 거절 · 사과. 질문 유형에 따라 분기합니다.</li>
                 <li data-rise><b>인용 후처리</b>: 답변 문장에 출처 문서를 연결하고, 담당자 정보를 정리해 함께 제공.</li>
             </ul>
         </div>
@@ -197,7 +197,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <summary>에이전틱 리뉴얼<span class="role">공동 설계 · 직접 구현</span></summary>
         <div>
             <ul>
-                <li data-rise><b>ADK 2.0 위에서</b>: 1.x는 에이전트를 계층으로 쌓아 실행하는 구조라 <b>"검사 결과에 따라 계획으로 되돌아가는"</b> 흐름을 만들기 어려웠습니다. 2.0에서 <b>노드 · 조건부 분기 · 순환</b>가 프레임워크에 들어오면서 이 구조를 그대로 옮길 수 있었습니다.</li>
+                <li data-rise><b>ADK 2.0 위에서</b>: 1.x는 에이전트를 계층으로 쌓아 실행하는 구조라 <b>"검사 결과에 따라 계획으로 되돌아가는"</b> 흐름을 만들기 어려웠습니다. 2.0에서 <b>노드 · 조건부 분기 · 순환</b>이 프레임워크에 들어오면서 이 구조를 그대로 옮길 수 있었습니다.</li>
                 <li data-rise><b>권장 방식에서 벗어난 곳</b>: ADK는 <b>노드 사이로 값을 넘기는</b> 방식을 권장하는데, 저희는 <b>공유 상태에 스키마를 걸고 쓸 때마다 검증</b>하는 쪽을 택했습니다. 멀티턴이고, 같은 값을 여러 노드가 쓰고, 채팅 모드에서 노드 입력이 무시되는 문제가 있었기 때문입니다. <b>왜 벗어났는지 근거를 문서로 남겼습니다.</b></li>
                 <li data-rise><b>Planner → Retriever → Generator → Evaluator</b>: 답을 만들기 전 Planner가 계획을 세우고, 만든 답을 Evaluator가 검사해 부족하면 원인을 진단하고 다시 계획합니다(최대 3회).</li>
                 <li data-rise><b>시도 간 문맥 격리</b>: 재시도가 이전 시도의 답을 보지 못하게 문맥을 끊어, 같은 실수에 끌려가는 것(<b>앵커링</b>)을 방지.</li>
@@ -211,8 +211,8 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
         <summary>이후 고도화 — 리뉴얼 골격 위에서<span class="role">동료 주도</span></summary>
         <div>
             <ul>
-                <li data-rise><b>검증 4판정</b>: "재생성"(검색은 그대로, 답만 다시) 분기를 추가해 <b>검색 문제와 생성 문제를 분리</b> — 값싼 수선을 먼저 시도합니다.</li>
-                <li data-rise><b>검색 루프</b>: 답을 만들기 전 전략가가 <b>"더 찾을까, 충분한가"를 스스로 판단하며 반복 검색</b> — 재시도 왕복을 검색 단계 안으로 당겼습니다.</li>
+                <li data-rise><b>검증 4판정</b>: "재생성"(검색은 그대로, 답만 다시) 분기를 추가해 <b>검색 문제와 생성 문제를 분리</b>했습니다. 값싼 수선을 먼저 시도합니다.</li>
+                <li data-rise><b>검색 루프</b>: 답을 만들기 전 Planner가 <b>"더 찾을까, 충분한가"를 스스로 판단하며 반복 검색</b>합니다. 재시도 왕복을 검색 단계 안으로 당겼습니다.</li>
                 <li data-rise><b>되묻기</b>: 대상을 특정할 수 없는 질문엔 답 대신 되묻습니다(프로젝트별 선택).</li>
                 <li data-rise><b>문서 지도</b>: 폴더·제목 색인을 LLM 호출 없이 렌더해 검색이 <b>지식베이스의 실제 구조를 보고 조준</b>하게 합니다.</li>
                 <li data-rise>이 확장 전부가 리뉴얼 때 깐 <b>그래프·상태 스키마 골격의 수정 없이</b> 얹혔습니다.</li>
