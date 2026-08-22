@@ -161,9 +161,36 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 .skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#06100e;
       padding:10px 16px;border-radius:0 0 10px 0;font-weight:700;z-index:50}
 .skip:focus{left:0}
+
+/* ── 좌측 목차 ─────────────────────────────── */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 28px; }
+.toc { position: fixed; top: 50%; transform: translateY(-50%);
+       left: calc(50% - 596px); width: 176px; z-index: 20; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc li { position: static; padding: 0; margin: 0; }
+.toc li::before { display: none; }
+.toc a { display: block; padding: 7px 0 7px 15px; border-left: 2px solid var(--line);
+         font-family: ui-monospace, 'SF Mono', Consolas, monospace;
+         font-size: 11.5px; letter-spacing: .15em; text-transform: uppercase;
+         font-weight: 700; color: var(--muted); line-height: 1.3;
+         transition: color .18s, border-color .18s; }
+.toc a:hover { color: var(--ink); border-left-color: var(--muted); text-decoration: none; }
+.toc a.on { color: var(--accent); border-left-color: var(--accent); }
+@media (max-width: 1250px) { .toc { display: none; } }
 </style>
 </head>
 <body>
+<nav class="toc" aria-label="목차">
+  <ol>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#analyze">Analyze</a></li>
+    <li><a href="#action">Action</a></li>
+    <li><a href="#result">Result</a></li>
+    <li><a href="#future">Future Work</a></li>
+    <li><a href="#deepdive">Deep Dive</a></li>
+  </ol>
+</nav>
 <div class="wrap">
 <!-- ============ 헤더 — 한 문장이 전부를 말한다 ============ -->
 <header>
@@ -177,7 +204,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 </section>
 <hr style="margin-top:64px;">
 <!-- ============ P ============ -->
-<section class="narr">
+<section class="narr" id="problem">
     <h2><span class="mono">Problem</span>1세대 MaMT의 문제점</h2>
     <ul class="idxlist">
         <li data-rise><span class="lbl"><b>01</b>확장성</span><b>서버 한 대에 큐 하나.</b> 몇 문장짜리도 대량 작업 뒤에서 기다렸습니다.</li>
@@ -194,7 +221,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <p class="pull" data-rise>고쳐야 하는 규모가 너무 방대하다고 판단하여 전면 재설계를 결정했습니다.</p>
 </section>
 <!-- ============ A1 — Analyze ============ -->
-<section class="narr">
+<section class="narr" id="analyze">
     <h2><span class="mono">Analyze</span>무엇을 놓고 무엇을 골랐나</h2>
     <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer · GKE · Cloud Run</b> 세 가지를 놓고 비교했습니다. Composer는 <b>필요한 기능에 비해 과하고 비쌌습니다.</b> GKE는 Composer보다는 가벼웠지만, 번역 작업은 <b>간헐적으로 들어오는 배치성 일감이 주류</b>였기 때문에 <b>비싼 클라우드 비용이 상시 발생할 필요가 없다</b>고 판단해 <b>Cloud Run</b>을 택했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>운영 공수</span><b>사람이 개입하는 부분을 최소화</b>하는 것이 기준이었습니다.</p>
@@ -207,7 +234,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <p class="pull" data-rise>로컬라이제이션의 자동화와 운영 비용 최소화를 목표로 모든 판단을 했습니다.</p>
 </section>
 <!-- ============ A2 — Action ============ -->
-<section class="narr">
+<section class="narr" id="action">
     <h2><span class="mono">Action</span>무엇을 만들고 무엇을 감수했나</h2>
     <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span>Cloud Run 안에서도 작업 분기를 뒀습니다. 전체 번역 작업 중 <b>60%가 100문장 미만</b>이었고, 작은 작업에까지 <b>Cloud Run Job의 콜드스타트를 사용자가 부담할 필요는 없었습니다.</b> 작은 작업은 <b>비용이 작은 Cloud Run Service를 상시 띄워두고</b>, 큰 작업은 <b>Cloud Run Job</b>으로 나눴습니다. 배포는 <b>GitHub Actions</b>로 자동화했습니다.</p>
     <p style="margin-top:10px;">만약 <b>큰 작업에 대한 트래픽이 상시화된다면 다시 한번 다른 선택을 고민</b>해야 합니다.</p>
@@ -222,7 +249,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     <p style="margin-top:14px;">여기에 <b>원본 교정</b> 과정을 추가했습니다. 한국어 원본의 오탈자와 잘못된 용어는 번역을 거치면 <b>모든 언어로 증폭</b>되기 때문에, 번역 앞단에서 먼저 걸러냅니다.</p>
 </section>
 <!-- ============ R ============ -->
-<section class="narr">
+<section class="narr" id="result">
     <h2><span class="mono">Result</span>지금의 MaMT</h2>
     <div class="nums n3">
         <div class="num big" data-rise><b>2026 상반기 50억+ 절감</b><span>사람이 번역했을 때의 비용으로 환산 — 사내 집계 기준</span></div>
@@ -241,7 +268,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 </section>
 
 <!-- ============ Future Work ============ -->
-<section class="narr">
+<section class="narr" id="future">
     <h2><span class="mono">Future Work</span>다음 — AI가 통합된 사내 CMS</h2>
     <p data-rise>게임 콘텐츠 텍스트는 지금도 <b>각 계열사마다 별도의 툴과 지침으로 관리</b>되고 있습니다. 게임 콘텐츠를 다룰 <b>마땅한 CMS가 그룹 내에 없기 때문</b>입니다. MarbleAI는 <b>전 계열사에서 활용할 수 있는, AI가 통합된 CMS</b>입니다.</p>
     <p data-rise style="margin-top:10px;">교정 · 기계번역 · 용어집 · 평가의 <b>4단계 체제는 이를 위한 초석</b>이며, 여기에 <b>텍스트와 용어의 형상관리</b>(버전 · 이력 · 원본 관리)가 더해지면 <b>CMS로서의 기능을 수행하는 시작점</b>이 될 수 있습니다.</p>
@@ -249,7 +276,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 <hr style="margin-top:64px;">
 <!-- ============ 깊이 층 — 면접관용. 한 일 전량 목록 ============ -->
 <!-- ============ Deep Dive ============ -->
-<section>
+<section id="deepdive">
     <h2><span class="mono" style="margin-bottom:0;">Deep Dive</span></h2>
     <details data-rise>
         <summary><i class="star">★</i>게임별 번역 학습<span class="role">직접 구현</span></summary>
@@ -344,6 +371,20 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
     });
   },{rootMargin:'0px 0px -8% 0px',threshold:.06});
   t.forEach(function(e){io.observe(e)});
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.toc'); if(!nav) return;
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))});
+  function upd(){
+    var y=window.scrollY+window.innerHeight*0.28, i=0;
+    for(var k=0;k<secs.length;k++){ if(secs[k]&&secs[k].offsetTop<=y) i=k; }
+    for(var n=0;n<links.length;n++){ links[n].classList.toggle('on', n===i) }
+  }
+  window.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd); upd();
 })();
 </script>
 </body>
