@@ -43,8 +43,8 @@
 <text class="s mut" x="294" y="79">게임에 쌓인 번역</text>
 <path class="ln" d="M380 90 V114" marker-end="url(#a)"/>
 <rect class="pan" x="16" y="122" width="728" height="116" rx="9"/>
-<text class="k acc" x="30" y="143">굽기 — 한 번 구우면 재사용</text>
-<text class="s sub" x="30" y="162">같은 자산이면 다시 굽지 않습니다</text>
+<text class="k acc" x="30" y="143">전처리 — 한 번 만들어 두고 재사용</text>
+<text class="s sub" x="30" y="162">같은 파일이면 다시 처리하지 않습니다</text>
 <rect class="box" x="30" y="172" width="166" height="52" rx="9"/>
 <text class="t ink" x="44" y="196">태그 규칙</text>
 <text class="s mut" x="44" y="215">정규식 + 예외 목록</text>
