@@ -166,30 +166,33 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 html { scroll-behavior: smooth; }
 section[id] { scroll-margin-top: 28px; }
 .toc { position: fixed; top: 50%; transform: translateY(-50%);
-       left: calc(50% - 600px); width: 188px; z-index: 20; }
+       left: calc(50% - 608px); width: 200px; z-index: 20; }
 .toc ol { list-style: none; margin: 0; padding: 0; }
 .toc li { position: static; padding: 0; margin: 0; }
 .toc li::before { display: none; }
-.toc a { display: block; padding: 9px 0 9px 16px; border-left: 2px solid var(--line);
+.toc a { display: flex; align-items: baseline; gap: 9px;
+         padding: 10px 0 10px 16px; border-left: 2px solid var(--line);
          font-family: ui-monospace, 'SF Mono', Consolas, monospace;
-         font-size: 13.5px; letter-spacing: .11em; text-transform: uppercase;
-         font-weight: 700; color: var(--muted); line-height: 1.3;
+         font-size: 15px; letter-spacing: .1em; text-transform: uppercase;
+         font-weight: 700; color: var(--muted); line-height: 1.25;
          transition: color .18s, border-color .18s; }
+.toc .n { font-size: 12.5px; font-weight: 800; opacity: .5; letter-spacing: .04em; }
 .toc a:hover { color: var(--ink); border-left-color: var(--muted); text-decoration: none; }
 .toc a.on { color: var(--accent); border-left-color: var(--accent); }
-@media (max-width: 1270px) { .toc { display: none; } }
+.toc a.on .n { opacity: 1; }
+@media (max-width: 1280px) { .toc { display: none; } }
 </style>
 </head>
 <body>
 <nav class="toc" aria-label="목차">
   <ol>
-    <li><a href="#top">Intro</a></li>
-    <li><a href="#problem">Problem</a></li>
-    <li><a href="#analyze">Analyze</a></li>
-    <li><a href="#action">Action</a></li>
-    <li><a href="#result">Result</a></li>
-    <li><a href="#future">Future Work</a></li>
-    <li><a href="#deepdive">Deep Dive</a></li>
+    <li><a href="#top"><span class="n">01</span>Intro</a></li>
+    <li><a href="#problem"><span class="n">02</span>Problem</a></li>
+    <li><a href="#analyze"><span class="n">03</span>Analyze</a></li>
+    <li><a href="#action"><span class="n">04</span>Action</a></li>
+    <li><a href="#result"><span class="n">05</span>Result</a></li>
+    <li><a href="#future"><span class="n">06</span>Future Work</a></li>
+    <li><a href="#deepdive"><span class="n">07</span>Deep Dive</a></li>
   </ol>
 </nav>
 <div class="wrap">
