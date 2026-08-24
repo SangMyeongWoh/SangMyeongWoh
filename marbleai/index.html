@@ -227,7 +227,7 @@ section[id] { scroll-margin-top: 28px; }
 <!-- ============ A1 — Analyze ============ -->
 <section class="narr" id="analyze">
     <h2><span class="mono">Analyze</span>무엇을 놓고 무엇을 골랐나</h2>
-    <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer · GKE · Cloud Run</b> 세 가지를 놓고 비교했습니다. 번역은 <b>시간표대로 도는 일이 아니라 요청이 올 때 도는 일</b>입니다. Composer는 스케줄 중심이라 <b>기능이 과했고, 작업이 없어도 환경이 항상 떠 있어 비쌌습니다.</b> GKE는 <b>클러스터 관리 부담</b>이 남고 <b>노드 콜드스타트가 너무 길었습니다.</b> <b>안 쓸 때는 0으로 내려가고 관리할 것이 가장 적은 Cloud Run</b>을 택했습니다.</p>
+    <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span><b>Cloud Composer · GKE · Cloud Run</b> 세 가지를 놓고 비교했습니다. 번역은 <b>시간표대로 도는 일이 아니라 요청이 올 때 도는 일</b>입니다. Composer는 스케줄 중심이라 <b>기능이 과했고, 작업이 없어도 환경이 항상 떠 있어 비쌌습니다.</b> GKE는 <b>클러스터 관리 부담</b>이 남고 <b>노드 콜드스타트가 너무 길었습니다.</b></p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>운영 공수</span><b>사람이 개입하는 부분을 최소화</b>하는 것이 기준이었습니다.</p>
     <div class="sublist" style="margin-top:12px;">
         <div><b class="sk">장애 대응</b>로그는 이미 전부 남고 있었습니다. 문제는 <b>한 건으로 묶을 키가 없다</b>는 것이었습니다. <b>로그 라우터</b>는 <b>시간 단위로 떨어뜨려</b> 여러 작업이 섞이기 때문에, 작업 한 건을 통째로 집어내지 못합니다. 그래서 <b>작업 단위로 직접 묶는 쪽</b>을 택했습니다.</div>
