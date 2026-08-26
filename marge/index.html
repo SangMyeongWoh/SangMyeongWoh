@@ -171,7 +171,7 @@ section[id] { scroll-margin-top: 28px; }
 <section class="narr" id="problem">
     <h2><span class="mono" style="margin-bottom:0;">Problem</span></h2>
     <ul class="idxlist">
-        <li data-rise><span class="lbl"><b>01</b>질의 다양성</span>잡담도 들어오고, 문서에 없는 것도 물어보고, 대화 중에는 "그건 언제까지야?"처럼 앞말을 생략한 질문도 옵니다. <b>전부 검색에 태우면 비용과 오답이 같이 늘어납니다.</b></li>
+        <li data-rise><span class="lbl"><b>01</b>질의 다양성</span>잡담도 들어오고, 문서에 없는 것도 물어보고, 대화 중에는 "그건 언제까지야?"처럼 앞말을 생략한 질문도 옵니다. <b>질문마다 필요한 처리가 다른데, 하나의 흐름에 다 태우면 엉뚱한 답이 나갑니다.</b></li>
         <li data-rise><span class="lbl"><b>02</b>질의-문서 불일치</span>사람은 "연차 어떻게 써요?"라고 묻고, 문서에는 "연차휴가 사용 절차"라고 적혀 있습니다. 조직 이름 · 게임 용어 · 약어는 <b>LLM도 검색기도 모르는 말입니다.</b> 표현은 어긋나고 용어는 낯설어, <b>질문으로 문서를 바로 찾으면 자주 빗나갑니다.</b></li>
         <li data-rise><span class="lbl"><b>03</b>도메인 다양성</span>인사 챗봇은 조직 구조를, QA 챗봇은 게임 용어를 다룹니다. <b>도메인마다 모델을 새로 학습해 붙이는 길은 2인이 감당할 수 없는데</b>, 검색 후보에는 무관한 조각이 섞여 들어 <b>정밀도는 올려야 합니다.</b></li>
         <li data-rise><span class="lbl"><b>04</b>컨텍스트 초과</span>관련 문서가 너무 많으면 <b>LLM 컨텍스트에 다 넣을 수 없습니다.</b> 잘라내면 누락되고, 누락되면 틀립니다.</li>
