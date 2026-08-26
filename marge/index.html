@@ -201,7 +201,8 @@ section[id] { scroll-margin-top: 28px; }
 <!-- ============ Preprocess ============ -->
 <section class="narr" id="preprocess">
     <h2><span class="mono">Preprocess</span>문서 전처리</h2>
-    <p data-rise>엔진에 들어오는 문서는 <b>동료가 주도한 전처리 파이프라인</b>이 만듭니다. 저는 보조로 참여했습니다. DOCX · PDF · PPT · TXT를 받아 <b>시맨틱 청킹</b>으로 조각내는데, 우선순위는 <b>내용 누락이 없을 것, 그다음이 의미 단위로 잘릴 것</b>입니다(Lumberchunker 논문 참조).</p>
+    <p data-rise>RAG에 입력되는 문서는 <b>길이가 불규칙합니다.</b> 한 번에 수십만 토큰으로 구성된 문서를 통째로 LLM에 넣을 수는 없으므로, <b>반드시 문서를 자르는 과정이 필요합니다.</b></p>
+    <p data-rise style="margin-top:10px;">그래서 DOCX · PDF · PPT · TXT를 받아 <b>시맨틱 청킹</b>으로 조각냅니다. 우선순위는 <b>내용 누락이 없을 것, 그다음이 의미 단위로 잘릴 것</b>입니다(Lumberchunker 논문 참조). 이 파이프라인은 <b>동료가 주도</b>했고 저는 보조로 참여했습니다.</p>
     <p data-rise style="margin-top:10px;">전처리는 엔진 설계가 요구하는 재료를 만드는 단계이기도 합니다. 청킹 때 각 조각의 <b>예상 질문(Q-cluster)이 여기서 생성</b>되고, 전처리가 끝나면 <b>문서 충돌 감지</b>가 이 산출물 위에서 돌아갑니다.</p>
 </section>
 <hr style="margin-top:64px;">
