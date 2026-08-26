@@ -148,10 +148,11 @@ section[id] { scroll-margin-top: 28px; }
     <li><a href="#problem"><span class="n">02</span>Problem</a></li>
     <li><a href="#analyze"><span class="n">03</span>Analyze</a></li>
     <li><a href="#action"><span class="n">04</span>Action</a></li>
-    <li><a href="#result"><span class="n">05</span>Result</a></li>
-    <li><a href="#renewal"><span class="n">06</span>Renewal</a></li>
-    <li><a href="#future"><span class="n">07</span>Future Work</a></li>
-    <li><a href="#deepdive"><span class="n">08</span>Deep Dive</a></li>
+    <li><a href="#preprocess"><span class="n">05</span>Preprocess</a></li>
+    <li><a href="#result"><span class="n">06</span>Result</a></li>
+    <li><a href="#renewal"><span class="n">07</span>Renewal</a></li>
+    <li><a href="#future"><span class="n">08</span>Future Work</a></li>
+    <li><a href="#deepdive"><span class="n">09</span>Deep Dive</a></li>
   </ol>
 </nav>
 <div class="wrap">
@@ -197,6 +198,13 @@ section[id] { scroll-margin-top: 28px; }
     <p style="margin-top:14px;"><span class="ref"><b>05</b>품질 판정</span>89문항 GT에 대한 <b>LLM 판정기를 구축</b>해 엔진을 고칠 때마다 품질을 재게 했습니다. <b>이 GT셋은 2026년 리뉴얼의 전환 검증에도 그대로 쓰였습니다.</b></p>
     <p style="margin-top:14px;"><span class="ref"><b>06</b>시스템</span>상시 서빙되는 챗봇과 상주 구성요소가 있는 워크로드라 <b>GKE를 택했습니다.</b> 간헐 배치인 MaMT를 Cloud Run에 올린 것과 반대 판단입니다. 클러스터 구성과 배포(Jenkins CI/CD)는 <b>동료가 주도하고 저는 보조</b>했습니다. 별도로 <b>멀티 프로바이더 LLM 호출 공통 패키지</b>를 만들어, 모든 LLM 입출력이 메타정보와 함께 <b>GCS에 적재</b>되게 했습니다. 디버깅과 품질 판정이 이 로그 위에서 돌아갑니다.</p>
 </section>
+<!-- ============ Preprocess ============ -->
+<section class="narr" id="preprocess">
+    <h2><span class="mono">Preprocess</span>문서 전처리</h2>
+    <p data-rise>엔진에 들어오는 문서는 <b>동료가 주도한 전처리 파이프라인</b>이 만듭니다. 저는 보조로 참여했습니다. DOCX · PDF · PPT · TXT를 받아 <b>시맨틱 청킹</b>으로 조각내는데, 우선순위는 <b>내용 누락이 없을 것, 그다음이 의미 단위로 잘릴 것</b>입니다(Lumberchunker 논문 참조).</p>
+    <p data-rise style="margin-top:10px;">전처리는 엔진 설계가 요구하는 재료를 만드는 단계이기도 합니다. 청킹 때 각 조각의 <b>예상 질문(Q-cluster)이 여기서 생성</b>되고, 전처리가 끝나면 <b>문서 충돌 감지</b>가 이 산출물 위에서 돌아갑니다.</p>
+</section>
+<hr style="margin-top:64px;">
 <!-- ============ R ============ -->
 <section class="narr" id="result">
     <h2><span class="mono">Result</span>지금의 MARGE</h2>
