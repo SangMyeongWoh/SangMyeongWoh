@@ -157,7 +157,7 @@ section[id] { scroll-margin-top: 28px; }
 <div class="wrap">
 <!-- ============ 헤더 ============ -->
 <header id="top">
-    <div class="mono">Sangmyeong Woh · NLP/AI Engineer · Netmarble · 2024.06 – · 2026 리뉴얼</div>
+    <div class="mono">Sangmyeong Woh · NLP/AI Engineer · Netmarble · 1세대 2024.06 – · 리뉴얼 2026</div>
     <h1>기업 문서 지식 Q&amp;A 엔진<br>MARGE</h1>
 </header>
 <!-- ============ 30초 요약 ============ -->
@@ -186,15 +186,16 @@ section[id] { scroll-margin-top: 28px; }
     <p style="margin-top:14px;"><span class="ref"><b>03</b>리랭킹</span>검색 상위 후보를 다시 거르는 단계는 <b>크로스인코더와 LLM</b>을 놓고 비교했습니다. 당시 한국어 크로스인코더는 선택지가 마땅치 않았고 자체 서빙 부담도 있었습니다. <b>이미 쓰는 LLM에게 관련성 재판정</b>을 맡기면 사내 용어 문맥까지 반영됩니다. 대신 지연이 늘어나므로 병렬 실행을 전제로 깔았습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>질의 이해</span>검색보다 앞 단이 먼저였습니다. <b>대화 이력으로 생략된 질문을 복원하는 멀티턴 재작성</b>, 그리고 <b>질문 유형 분류</b>. 잡담·고정 답변·범위 밖 질문은 검색을 태우지 않고 따로 처리해, <b>비용과 오답을 앞에서 같이 줄이는</b> 구조를 택했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>05</b>품질 기준</span>정답이 문서에 있는 도메인이라 <b>GT(정답셋)를 만들 수 있었습니다.</b> 오래 운영돼 온 HR 챗봇의 기존 GT <b>89문항</b>을 기준으로 삼고, <b>GT는 사람이 만들고 답변과 GT의 대조 판정은 LLM이 하는</b> E2E 품질 판정 체계를 세웠습니다. 채점자를 상시로 둘 수 없다는 제약을 GT+LLM 판정으로 푼 겁니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>06</b>시스템</span>상시 서빙되는 챗봇과 상주 구성요소(인덱싱 파이프라인 등)가 있는 워크로드라 <b>GKE를 택했습니다.</b> 간헐 배치인 MaMT를 Cloud Run에 올린 것과 반대 판단으로, <b>워크로드가 인프라를 정했습니다.</b></p>
 </section>
 <!-- ============ Act ============ -->
 <section class="narr" id="action">
     <h2><span class="mono">Action</span>구현</h2>
-    <p><span class="ref"><b>01</b>검색</span><b>RRF 융합을 자체 구현</b>하고, 원본 질의와 재작성 질의를 <b>병렬로 검색</b>해 합쳤습니다. 고유명사는 사전에 최우선 등록되도록 했습니다. 새 조직·용어가 생길 때마다 <b>사전 갱신이 운영 업무로 남는 것</b>은 감수했습니다.</p>
+    <p><span class="ref"><b>01</b>검색</span><span class="ref"><b>02</b>한국어</span><b>RRF 융합을 자체 구현</b>하고, 원본 질의와 재작성 질의를 <b>병렬로 검색</b>해 합쳤습니다. 고유명사는 사전에 최우선 등록되도록 했습니다. 새 조직·용어가 생길 때마다 <b>사전 갱신이 운영 업무로 남는 것</b>은 감수했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>리랭킹</span>후보 문서들을 <b>LLM이 병렬로 재판정</b>하게 해 지연을 눌렀습니다. 호출 수가 늘어 <b>비용이 증가하는 것</b>은 품질과 맞바꾼 대가입니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>질의 이해 · 답변</span>멀티턴 재작성과 유형 분류를 구현하고, <b>7가지 답변 전략</b>(즉답 · 근거 요약 · 문서 집계 리포트 · 메타 질문 · 잡담 · 정형 거절 · 사과)으로 분기시켰습니다. 답변 문장에는 <b>출처 문서를 연결하는 인용 후처리</b>를 붙여 근거 없는 문장이 나가지 않게 했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>05</b>품질 판정</span>89문항 GT에 대한 <b>LLM 판정기를 구축</b>해 엔진을 고칠 때마다 품질을 재게 했습니다. <b>이 GT셋은 2026년 리뉴얼의 전환 검증에도 그대로 쓰였습니다.</b></p>
-    <p style="margin-top:14px;"><span class="ref"><b>06</b>시스템</span>상시 서빙되는 챗봇과 상주 구성요소(인덱싱 파이프라인 등)가 있는 워크로드라 <b>GKE 위에 올렸습니다.</b> 간헐 배치인 MaMT를 Cloud Run에 올린 것과 반대 판단으로, 워크로드가 인프라를 정했습니다. 시스템 구성과 배포(Jenkins CI/CD)는 <b>동료가 주도하고 저는 보조</b>했습니다. 별도로 <b>멀티 프로바이더 LLM 호출 공통 패키지</b>를 만들어, 모든 LLM 입출력이 메타정보와 함께 <b>GCS에 적재</b>되게 했습니다. 디버깅과 품질 판정이 이 로그 위에서 돌아갑니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>06</b>시스템</span>GKE 클러스터 구성과 배포(Jenkins CI/CD)는 <b>동료가 주도하고 저는 보조</b>했습니다. 별도로 <b>멀티 프로바이더 LLM 호출 공통 패키지</b>를 만들어, 모든 LLM 입출력이 메타정보와 함께 <b>GCS에 적재</b>되게 했습니다. 디버깅과 품질 판정이 이 로그 위에서 돌아갑니다.</p>
 </section>
 <!-- ============ R ============ -->
 <section class="narr" id="result">
