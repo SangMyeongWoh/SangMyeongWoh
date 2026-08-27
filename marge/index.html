@@ -257,7 +257,16 @@ section[id] { scroll-margin-top: 28px; }
 <!-- ============ Deep Dive ============ -->
 <section id="deepdive">
     <h2><span class="mono" style="margin-bottom:0;">Deep Dive</span></h2>
-        <details data-rise>
+    <p class="mono" style="font-size:12px;margin:24px 0 0;">1세대</p>
+    <details data-rise>
+        <summary>품질 판정<span class="role">직접 구축</span></summary>
+        <div>
+            <ul>
+                <li data-rise><b>GT 기반 E2E 판정기</b>: 오래 운영된 HR 챗봇의 기존 GT <b>89문항</b>을 기준으로, <b>GT는 사람이 만들고 답변과 GT의 대조 판정은 LLM이 하는</b> 판정기를 구축했습니다. 엔진을 고칠 때마다 품질을 쟀습니다.</li>
+            </ul>
+        </div>
+    </details>
+    <details data-rise>
         <summary>시스템 구성<span class="role">판단 · 패키지 직접, 구성은 보조</span></summary>
         <div>
             <ul>
@@ -266,12 +275,12 @@ section[id] { scroll-margin-top: 28px; }
             </ul>
         </div>
     </details>
-        <details data-rise>
+    <p class="mono" style="font-size:12px;margin:28px 0 0;">2세대</p>
+    <details data-rise>
         <summary>실측 검증 — 전환 시점<span class="role">직접 수행</span></summary>
         <div>
             <ul>
-                <li data-rise><b>판정기</b>: 1세대에서 <b>89문항 GT에 대한 LLM 판정기를 구축</b>해 엔진을 고칠 때마다 품질을 쟀습니다. 리뉴얼 전환 검증도 같은 판정기로 진행했습니다.</li>
-                <li data-rise><b>비교 평가</b>: 오래 운영된 HR 챗봇의 기존 GT <b>89문항(인사 50 · 총무 39)</b>으로 구형·신형을 같은 기준에서 비교 — 우위 20 · 동등 69 · 열위 0.</li>
+                <li data-rise><b>비교 평가</b>: 1세대에서 구축한 GT <b>89문항(인사 50 · 총무 39)</b>과 판정기를 그대로 사용해 구형·신형을 같은 기준에서 비교 — 우위 20 · 동등 69 · 열위 0.</li>
                 <li data-rise><b>가드레일 실측</b>: 개인정보·금지 주제 50문항. 유출은 양쪽 0건, 오탐은 구형 1건 · 신형 0건.</li>
                 <li data-rise><b>약점도 기록</b>: 응답이 1.5배 느려진 점, 같은 질문에 판정이 갈리는 문제까지 그대로 남겨 전환 판단의 근거로 삼았습니다.</li>
             </ul>
