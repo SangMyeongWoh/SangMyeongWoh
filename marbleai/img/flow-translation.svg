@@ -66,6 +66,6 @@
 <path class="ln" d="M720 125 L744 125 L744 289 L724 289" marker-end="url(#a)"/>
 <text class="k acc" x="716" y="117" text-anchor="end">통과</text>
 <rect class="box" x="400" y="260" width="320" height="58" rx="9"/>
-<text class="t ink" x="414" y="284">복원 · 완성</text>
+<text class="t ink" x="414" y="284">태그 복원 · 완성</text>
 <text class="s mut" x="414" y="303">재교정 루프 종료 시 결함이 가장 적은 후보 채택</text>
 </svg>
