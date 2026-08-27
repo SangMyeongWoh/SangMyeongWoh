@@ -55,7 +55,7 @@
 <path class="ln" d="M572 72 L572 92" marker-end="url(#a)"/>
 <rect class="box" x="400" y="96" width="344" height="74" rx="9"/>
 <text class="t ink" x="414" y="120">근거 검증</text>
-<text class="s mut" x="414" y="139">심판에게 개선안까지 받아 — 지정 용어가 빠진 지적은 감점 무효화</text>
+<text class="s mut" x="414" y="139">지정 용어를 잘못됐다고 지적할 경우 감점 무효화</text>
 <text class="s mut" x="414" y="155">그 외 틀린 지적도 기각 — 용어집이 권위</text>
 <path class="ln" d="M572 170 L572 190" marker-end="url(#a)"/>
 <rect class="box" x="400" y="194" width="344" height="58" rx="9"/>
