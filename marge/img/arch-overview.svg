@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 404" width="760" height="404" role="img" aria-label="MARGE 시스템 아키텍처 — GKE 클러스터 위의 채팅·문서관리·평가 서비스와 MongoDB, GCS, Vertex AI">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 404" width="760" height="404" role="img" aria-label="MARGE 시스템 아키텍처(1·2세대 공용) — GKE 클러스터 위의 채팅·문서관리 서비스와 인덱싱 파이프라인, MongoDB·GCS·Vertex AI">
 <style>
   .bg  { fill: #ffffff; }
   .pan { fill: #f4f8f7; stroke: #dce5e2; }
@@ -10,7 +10,7 @@
   .acc { fill: #0b6b5c; }
   .ln  { stroke: #33403e; }
   .mk  { fill: #33403e; }
-  
+  @media (prefers-color-scheme: dark) {
     .bg  { fill: #0d1413; }
     .pan { fill: #101817; stroke: #26332f; }
     .box { fill: #0d1413; stroke: #26332f; }
@@ -21,7 +21,7 @@
     .acc { fill: #6fdcc6; }
     .ln  { stroke: #bcc9c6; }
     .mk  { fill: #bcc9c6; }
-  
+  }
   text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
   .t { font-size: 15px; font-weight: 700; }
   .s { font-size: 12.5px; }
@@ -48,15 +48,15 @@
 
 <rect class="box hot" x="32" y="108" width="340" height="64" rx="8"/>
 <text class="t ink" x="44" y="132">채팅 API — 응답 엔진</text>
-<text class="s mut" x="44" y="152">계획 · 검색 · 생성 · 검증 — 에이전틱 워크플로우</text>
+<text class="s mut" x="44" y="152">1세대 파이프라인 · 2세대 에이전틱 — 함께 서빙</text>
 
 <rect class="box" x="32" y="184" width="164" height="56" rx="8"/>
 <text class="s ink" x="42" y="206">임베딩·형태소 API</text>
 <text class="s mut" x="42" y="224">검색 보조</text>
 
 <rect class="box" x="208" y="184" width="164" height="56" rx="8"/>
-<text class="s ink" x="218" y="206">대화 이력 — Redis</text>
-<text class="s mut" x="218" y="224">멀티턴 맥락</text>
+<text class="s ink" x="218" y="206">대화 이력</text>
+<text class="s mut" x="218" y="224">1세대 Redis · 2세대 Postgres</text>
 
 <rect class="box" x="404" y="108" width="324" height="56" rx="8"/>
 <text class="t ink" x="416" y="132">문서 관리 API</text>

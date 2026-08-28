@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" width="760" height="332" role="img" aria-label="1세대 MARGE 답변 흐름 — 질의 분석, 하이브리드 검색, LLM 리랭킹, 답변 생성으로 이어지는 한 방향 파이프라인과 검색이 쓰는 자산(Q-cluster·고유명사 사전·그래프)">
+<style>
+  .bg  { fill: #ffffff; }
+  .pan { fill: #f4f8f7; stroke: #dce5e2; }
+  .box { fill: #ffffff; stroke: #dce5e2; }
+  .hot { stroke: #0b6b5c; }
+  .ink { fill: #16211f; }
+  .sub { fill: #33403e; }
+  .mut { fill: #6b7c79; }
+  .acc { fill: #0b6b5c; }
+  .ln  { stroke: #33403e; }
+  .mk  { fill: #33403e; }
+  @media (prefers-color-scheme: dark) {
+    .bg  { fill: #0d1413; }
+    .pan { fill: #101817; stroke: #26332f; }
+    .box { fill: #0d1413; stroke: #26332f; }
+    .hot { stroke: #6fdcc6; }
+    .ink { fill: #e6edea; }
+    .sub { fill: #bcc9c6; }
+    .mut { fill: #849692; }
+    .acc { fill: #6fdcc6; }
+    .ln  { stroke: #bcc9c6; }
+    .mk  { fill: #bcc9c6; }
+  }
+  text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
+  .t { font-size: 15px; font-weight: 700; }
+  .s { font-size: 12.5px; }
+  .k { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; }
+  rect { stroke-width: 1.2; }
+  .hot { stroke-width: 1.7; }
+  .ln  { fill: none; stroke-width: 1.5; }
+</style>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" class="mk"/>
+  </marker>
+</defs>
+
+<!-- 입력 -->
+<rect class="box" x="16" y="12" width="172" height="40" rx="9"/>
+<text class="t sub" x="30" y="37">질문</text>
+<path class="ln" d="M102 52 L102 80" marker-end="url(#a)"/>
+
+<text class="k mut" x="284" y="52">한 방향 파이프라인 — 중간에 되돌아가는 길이 없음</text>
+
+<!-- 4단 파이프라인 -->
+<rect class="box" x="16" y="84" width="172" height="68" rx="10"/>
+<text class="t ink" x="30" y="108">① 질의 분석</text>
+<text class="s mut" x="30" y="128">이력으로 생략 복원</text>
+<text class="s mut" x="30" y="143">질문 유형 분류</text>
+
+<rect class="box hot" x="204" y="84" width="172" height="68" rx="10"/>
+<text class="t ink" x="218" y="108">② 하이브리드 검색</text>
+<text class="s mut" x="218" y="128">BM25 + 벡터 검색을</text>
+<text class="s mut" x="218" y="143">RRF로 융합</text>
+
+<rect class="box" x="392" y="84" width="172" height="68" rx="10"/>
+<text class="t ink" x="406" y="108">③ LLM 리랭킹</text>
+<text class="s mut" x="406" y="128">후보의 관련성을</text>
+<text class="s mut" x="406" y="143">병렬로 재판정</text>
+
+<rect class="box" x="580" y="84" width="172" height="68" rx="10"/>
+<text class="t ink" x="594" y="108">④ 답변 생성</text>
+<text class="s mut" x="594" y="128">유형별 7가지 전략</text>
+<text class="s mut" x="594" y="143">계층 취합으로 긴 근거 소화</text>
+
+<path class="ln" d="M188 118 L200 118" marker-end="url(#a)"/>
+<path class="ln" d="M376 118 L388 118" marker-end="url(#a)"/>
+<path class="ln" d="M564 118 L576 118" marker-end="url(#a)"/>
+
+<!-- 출력 -->
+<path class="ln" d="M666 152 L666 180" marker-end="url(#a)"/>
+<rect class="box" x="534" y="184" width="218" height="54" rx="9"/>
+<text class="t sub" x="548" y="206">답변</text>
+<text class="s mut" x="548" y="225">출처 문서 · 담당자 함께 제공</text>
+
+<!-- 공용 자산 -->
+<rect class="pan" x="16" y="266" width="728" height="54" rx="12"/>
+<text class="k acc" x="32" y="287">검색이 쓰는 자산</text>
+<text class="t sub" x="32" y="309">Q-cluster · 고유명사 사전·그래프</text>
+<text class="s mut" x="300" y="309">조각별 예상 질문을 미리 만들어 — 질문을 질문에 매칭</text>
+</svg>
