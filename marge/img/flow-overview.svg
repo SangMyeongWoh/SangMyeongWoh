@@ -10,7 +10,7 @@
   .acc { fill: #0b6b5c; }
   .ln  { stroke: #33403e; }
   .mk  { fill: #33403e; }
-  @media (prefers-color-scheme: dark) {
+  
     .bg  { fill: #0d1413; }
     .pan { fill: #101817; stroke: #26332f; }
     .box { fill: #0d1413; stroke: #26332f; }
@@ -21,7 +21,6 @@
     .acc { fill: #6fdcc6; }
     .ln  { stroke: #bcc9c6; }
     .mk  { fill: #bcc9c6; }
-  }
   text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
   .t { font-size: 15px; font-weight: 700; }
   .s { font-size: 12.5px; }
