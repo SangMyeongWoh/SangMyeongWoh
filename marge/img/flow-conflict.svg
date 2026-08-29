@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322" role="img" aria-label="1세대 문서 충돌 감지 흐름 — Q-cluster로 같은 주제의 조각을 모으고, 조각별로 같은 질문에 각각 답하게 한 뒤 상반된 답을 낸 원본 문서를 지목해 사용자에게 경고">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 224" width="760" height="224" role="img" aria-label="1세대 문서 충돌 감지 흐름 — Q-cluster로 같은 주제의 조각을 모으고, 조각별로 같은 질문에 각각 답하게 한 뒤 상반된 답을 낸 원본 문서를 지목해 사용자에게 경고">
 <style>
   .bg  { fill: #ffffff; }
   .pan { fill: #f4f8f7; stroke: #dce5e2; }
@@ -72,8 +72,4 @@
 <text class="s mut" x="542" y="189">사용자에게 상충 내용 안내</text>
 
 <!-- 회고 -->
-<rect class="pan" x="16" y="234" width="728" height="70" rx="12"/>
-<text class="k acc" x="32" y="256">만들고 나서 배운 것</text>
-<text class="s mut" x="32" y="277">실사용 팀 대부분이 이미 잘 관리된 문서를 가져왔고, 문서가 바뀔 때마다 다시 돌려야 해 LLM 비용 대비 효용이 낮았습니다.</text>
-<text class="s mut" x="32" y="294">별도 시스템은 접었습니다. 근래의 LLM 성능이면 별도 장치 없이도 생성 단계에서 자연스럽게 풀리는 문제입니다.</text>
 </svg>
