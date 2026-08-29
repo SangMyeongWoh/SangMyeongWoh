@@ -185,7 +185,7 @@ section[id] { scroll-margin-top: 28px; }
 <section class="narr" id="analyze">
     <h2><span class="mono">Analyze</span>설계 판단</h2>
     <p><span class="ref"><b>01</b>질의 분석</span>모든 질문에 대해 <b>파이프라인을 태우기 전 LLM 기반 분석</b>을 진행해야 한다고 판단했습니다.</p>
-    <p style="margin-top:14px;"><span class="ref"><b>02</b>검색</span>크로스인코더는 <b>도메인별로 파인튜닝 및 서빙할 인력 부족으로 제외</b>했습니다. 대신 LLM을 사용하고자 했습니다. <b>질문은 질문끼리 비교하는 게 정확하다</b>고 봤습니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>02</b>검색</span>크로스인코더는 <b>도메인별 파인튜닝 및 서빙이 어렵다 판단하여 제외</b>했습니다. 대신 LLM을 사용하고자 했습니다. <b>질문은 질문끼리 비교하는 게 정확하다</b>고 봤습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>문서 전처리</span>토큰 수 기준으로 기계적으로 자르면 <b>문장이나 설명이 중간에서 끊깁니다.</b> 잘린 조각은 검색돼도 반쪽짜리 근거가 됩니다. 그래서 <b>의미적으로 잘림 없는 문서 전처리가 필요했습니다.</b></p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>문서 품질</span>Garbage in, garbage out입니다. <b>문서 자체의 품질을 올릴 방법이 필요했습니다.</b></p>
 </section>
