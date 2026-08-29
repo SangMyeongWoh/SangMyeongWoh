@@ -175,7 +175,7 @@ section[id] { scroll-margin-top: 28px; }
 <section class="narr" id="problem">
     <h2><span class="mono" style="margin-bottom:0;">Problem</span></h2>
     <ul class="idxlist">
-        <li data-rise><span class="lbl"><b>01</b>질의 이해</span>대화 중에는 <b>앞말을 생략한 질문</b>이 들어옵니다. 생략된 채로는 <b>그대로 검색하면 빗나갑니다.</b></li>
+        <li data-rise><span class="lbl"><b>01</b>질의 이해</span>유저 질문은 <b>항상 깔끔하게 입력되지 않습니다.</b> 관계자만 이해할 수 있는 특수한 단어나 축약된 단어가 들어오기도 하고, 멀티턴 대화의 경우 <b>핵심 단어가 생략된 채 입력</b>되기도 합니다.</li>
         <li data-rise><span class="lbl"><b>02</b>검색</span>유저의 질문은 보통 길거나 짧은 문장 형태지만 <b>실제 문서는 그렇게 구성되어 있지 않습니다.</b> RRF로 검색을 구현할 때, BM25는 단어 간 비교가 기본이기 때문에 문제 없지만 <b>벡터 비교는 정확도가 떨어질 수 있습니다.</b></li>
         <li data-rise><span class="lbl"><b>03</b>문서 전처리</span>RAG에 입력되는 문서는 길이가 불규칙해 <b>수십만 토큰짜리를 통째로 넣을 수 없고</b>, LLM은 <b>긴 입력을 온전히 이해하기도 어려워합니다.</b> 들어가는 텍스트의 양을 <b>전처리와 검색 양쪽에서 조절</b>해야 합니다.</li>
         <li data-rise><span class="lbl"><b>04</b>문서 품질</span><b>검색 정확도가 아무리 높아도 원본이 잘못되면 답변이 잘못됩니다.</b> 특히 넷마블에서는 오래 운영된 사내 문서가 많았고, <b>흩어진 문서에서 같은 내용을 다르게 서술하는 경우가 많았습니다.</b></li>
