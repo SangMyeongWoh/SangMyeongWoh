@@ -227,7 +227,7 @@ section[id] { scroll-margin-top: 28px; }
     <h2><span class="mono">Analyze</span>설계 판단</h2>
     <p><span class="ref"><b>01</b>고정 플로우</span>고정 플로우 대신 <b>계획 &rarr; 검색 &rarr; 생성 &rarr; 검증의 에이전틱 그래프 구조</b>를 택했습니다. 각 세부 플로우가 독자적인 에이전트라 <b>프로젝트별로 필요한 도구를 넣고 뺄 수 있으며, 그래프 자체도 프로젝트별로 변경</b>할 수 있게 하고자 했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>02</b>구세대 프롬프트</span>현 세대 LLM 기준으로 <b>프롬프트를 다시 구성했습니다.</b> <b>규칙을 최소화해 LLM에게 자율성을 제공</b>하고자 했고, <b>Structured Output</b> 등으로 필요한 답변 형식을 유지했습니다.</p>
-    <p style="margin-top:14px;"><span class="ref"><b>03</b>충돌 감지 효용</span>2세대에서는 <b>충돌 감지를 별도로 다루지 않기로 했습니다.</b> 1세대를 만들 당시(Gemini 1.5~2.0 시절)와는 다르게, 근래의 LLM 성능이면 굳이 상세하게 다루지 않아도 <b>생성 단계에서 자연스럽게 풀리는 문제</b>라고 판단했습니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>03</b>충돌 감지 효용</span>2세대에서는 <b>충돌 감지를 별도로 다루지 않기로 했습니다.</b> 1세대를 만들 당시(Gemini 1.5~2.0 시절)와는 다르게, 최신 LLM 성능이면 굳이 상세하게 다루지 않아도 <b>답변 과정에서 LLM이 자체적으로 유저에게 제시할 수 있다</b>고 판단했습니다.</p>
 </section>
 <section class="narr">
     <h2><span class="mono">Action</span>구현</h2>
