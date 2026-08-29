@@ -270,7 +270,7 @@ section[id] { scroll-margin-top: 28px; }
     <p class="mono" style="font-size:12px;margin:24px 0 0;">1세대</p>
     <p style="font-size:13px;color:var(--muted);margin:14px 0 8px;">1세대 — 전체 흐름</p>
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
-        <img data-rise loading="lazy" decoding="async" src="img/flow-gen1.svg" alt="1세대 MARGE 답변 흐름 — 쿼리 분석 → 하이브리드 검색 → LLM 리랭킹 → 답변 생성의 한 방향 파이프라인, 검색이 쓰는 자산은 Q-cluster와 고유명사 사전·그래프" style="width:100%;">
+        <img data-rise loading="lazy" decoding="async" src="img/flow-gen1.svg" alt="1세대 MARGE 답변 흐름 — 쿼리 분석 → 하이브리드 검색 → LLM 리랭킹 → 답변 생성의 한 방향 파이프라인, 검색이 쓰는 자산은 Q-cluster와 고유명사·동의어 사전" style="width:100%;">
     </div>
     <p style="font-size:13px;color:var(--muted);margin:24px 0 8px;">1세대 — 문서 충돌 감지</p>
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
@@ -280,7 +280,7 @@ section[id] { scroll-margin-top: 28px; }
         <summary>검색 보강 장치<span class="role">직접 구현</span></summary>
         <div>
             <ul>
-                <li data-rise><b>고유명사 사전 · 그래프</b>: 사내 조직·용어의 사전과 관계 그래프를 구축해 <b>쿼리 재작성 · 검색 · 답변 생성에 공급</b>합니다.</li>
+                <li data-rise><b>고유명사 · 동의어 사전</b>: 사내 조직·용어의 사전을 구축해 <b>쿼리 재작성 · 검색 · 답변 생성에 공급</b>합니다.</li>
                 <li data-rise><b>FAQ</b>: 본 파이프라인 돌기 이전에 <b>FAQ 유사 여부를 먼저 판별</b>합니다. <b>LLM 판정과 벡터 유사도 둘 다 통과</b>할 경우 FAQ로 바로 출력이 됩니다.</li>
             </ul>
         </div>

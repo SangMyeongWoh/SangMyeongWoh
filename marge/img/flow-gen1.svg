@@ -77,6 +77,6 @@
 <!-- 공용 자산 -->
 <rect class="pan" x="16" y="266" width="728" height="54" rx="12"/>
 <text class="k acc" x="32" y="287">검색이 쓰는 자산</text>
-<text class="t sub" x="32" y="309">Q-cluster · 고유명사 사전·그래프</text>
+<text class="t sub" x="32" y="309">Q-cluster · 고유명사·동의어 사전</text>
 <text class="s mut" x="300" y="309">조각별 예상 질문을 미리 만들어 — 질문을 질문에 매칭</text>
 </svg>
