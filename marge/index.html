@@ -291,7 +291,7 @@ section[id] { scroll-margin-top: 28px; }
         <summary>시스템 구성<span class="role">동료 구현</span></summary>
         <div>
             <ul>
-                <li data-rise><b>GKE</b>: 상시 서빙되는 챗봇과 상주 구성요소가 있는 워크로드라 <b>GKE를 택했습니다.</b> 간헐 배치인 MaMT를 Cloud Run에 올린 것과 반대 판단입니다. 엔진 API와 전처리 파이프라인이 같은 클러스터 위에서 돕니다.</li>
+                <li data-rise><b>GKE</b>: 상시 서빙되는 챗봇과 상주 구성요소가 있는 워크로드라 <b>GKE를 택했습니다.</b> 엔진 API와 전처리 파이프라인이 같은 클러스터 위에서 돕니다.</li>
                 <li data-rise><b>Airflow</b>: 전처리 파이프라인(문서 처리 · 청킹 · Q-cluster 생성)은 <b>Apache Airflow로 오케스트레이션</b>하고, <b>helm chart로 GKE에 배포</b>했습니다.</li>
                 <li data-rise><b>CI/CD · 모니터링</b>: 배포는 <b>Jenkins CI/CD</b>로 자동화하고, <b>GCP Logging</b>으로 모니터링을 구축했습니다.</li>
             </ul>
