@@ -196,7 +196,7 @@ section[id] { scroll-margin-top: 28px; }
     <h2><span class="mono">Action</span>구현</h2>
     <p><span class="ref"><b>01</b>쿼리 이해</span>멀티턴 대화를 불러와 <b>유저의 의도에 걸맞는 정제된 문장을 LLM이 생성</b>하게 했습니다. <b>원본 쿼리도 그대로 검색에 병렬로 태웁니다.</b> LLM 재생성이 잘못된 경우를 방지하기 위함입니다. 이 쿼리 생성 단계에서는 프로젝트별로 구축된 <b>고유명사와 동의어 사전</b>을 함께 활용합니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>02</b>문서 전처리</span>문서는 고정 길이 대신 <b>시맨틱 청킹(Lumberchunker)</b>으로 조각내어 여러 개 세그먼트로 나눕니다. 그리고 나서 LLM으로 각 세그먼트로부터 생길 수 있는 <b>예상 질문(Q-cluster)을 미리 생성</b>해 둡니다.</p>
-    <p style="margin-top:14px;"><span class="ref"><b>03</b>검색</span>검색은 <b>BM25와 Vector를 융합</b>해서 사용했습니다. BM25의 경우 <b>재작성된 쿼리와 원본 쿼리를 concat</b>한 후 <b>세그먼트+문서 제목</b>에 대해서 검색을 진행합니다. 벡터의 경우 사전에 만들어 둔 <b>Q-cluster와 원본 쿼리/재작성된 쿼리를 각각 병렬 비교</b>합니다. 가장 많이 선택된 세그먼트를 <b>majority voting으로 선별</b>합니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>03</b>검색</span>검색은 <b>BM25와 Vector를 RRF 융합</b>합니다. BM25의 경우 <b>재작성된 쿼리와 원본 쿼리를 concat</b>한 후 <b>세그먼트+문서 제목</b>에 대해서 검색을 진행합니다. 벡터의 경우 사전에 만들어 둔 <b>Q-cluster와 원본 쿼리/재작성된 쿼리를 각각 병렬 비교</b>합니다. 가장 많이 선택된 세그먼트를 <b>majority voting으로 선별</b>합니다.</p>
     <ul>
         <li data-rise>토크나이저는 <b>고유명사가 최우선으로 보장되며 속도 및 관리가 용이한 Kiwi</b>를 골랐습니다.</li>
         <li data-rise>임베딩 모델의 경우 OpenAI 등에서 제공하는 다국어 임베딩은 <b>한국어 문장 유사도가 많이 뭉개졌습니다.</b> 대신 <b>가장 고른 분포를 가지고 있던 KoSimCSE-RoBERTa</b>를 선택했습니다.</li>
