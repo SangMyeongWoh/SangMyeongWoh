@@ -167,7 +167,7 @@ section[id] { scroll-margin-top: 28px; }
 <!-- ============ 30초 요약 ============ -->
 <section>
     <p class="lead">MARGE는 넷마블의 <b>사내 RAG 엔진</b>입니다.</p>
-    <p class="lead"><b>1세대(단일 플로우 RAG)</b>는 2인 프로젝트의 주담당으로 <b>엔진 설계 · 기획 · 구현과 서비스 운영</b>을 맡았습니다. 질문 이해부터 <b>검색 · 리랭킹 · 답변 생성, 문서 충돌 감지까지 직접 만들었고</b>, 전처리 및 전체 시스템 인프라 및 CI/CD는 동료가 주도했습니다.</p>
+    <p class="lead"><b>1세대(단일 플로우 RAG)</b>는 2인 프로젝트의 주담당으로 <b>엔진 설계 · 기획 · 구현과 서비스 운영</b>을 맡았습니다. 질문 이해부터 <b>검색 · 리랭킹 · 답변 생성, 문서 충돌 감지까지 직접 만들었고</b>, 전처리, 전체 시스템 인프라, CI/CD는 동료가 주도했습니다.</p>
     <p class="lead">이후 다년간 운영하면서 누적된 기술부채를 해결하기 위해 <b>MARGE 2세대로 리뉴얼</b>을 진행했습니다. 저는 2세대 MARGE의 <b>초기 설계 및 구현까지 진행</b>했습니다. 현재는 직접 관여 없이 <b>같이 논의하는 것으로 참여</b>하고 있습니다.</p>
 </section>
 <details class="gen" id="gen1" open>
@@ -195,8 +195,8 @@ section[id] { scroll-margin-top: 28px; }
 <!-- ============ Act ============ -->
 <section class="narr" id="action">
     <h2><span class="mono">Action</span>구현</h2>
-    <p><span class="ref"><b>01</b>쿼리 이해</span>멀티턴 대화를 불러와 <b>유저의 의도에 걸맞는 정제된 문장을 LLM이 생성</b>하게 했습니다. <b>원본 쿼리도 그대로 검색에 병렬로 태웁니다.</b> LLM 재생성이 잘못된 경우를 방지하기 위함입니다. 이 쿼리 생성 단계에서는 프로젝트별로 구축된 <b>고유명사와 동의어 사전</b>을 함께 활용합니다.</p>
-    <p style="margin-top:14px;"><span class="ref"><b>02</b>문서 전처리</span>문서는 고정 길이 대신 <b>시맨틱 청킹(Lumberchunker)</b>으로 조각내어 여러 개 세그먼트로 나눕니다. 그리고 나서 LLM으로 각 세그먼트로부터 생길 수 있는 <b>예상 질문(Q-cluster)을 미리 생성</b>해 둡니다.</p>
+    <p><span class="ref"><b>01</b>쿼리 이해</span>멀티턴 대화를 불러와 <b>유저의 의도에 걸맞은 정제된 문장을 LLM이 생성</b>하게 했습니다. <b>원본 쿼리도 그대로 검색에 병렬로 태웁니다.</b> LLM 재생성이 잘못된 경우를 방지하기 위함입니다. 이 쿼리 생성 단계에서는 프로젝트별로 구축된 <b>고유명사와 동의어 사전</b>을 함께 활용합니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>02</b>문서 전처리</span>문서는 고정 길이 대신 <b>시맨틱 청킹(Lumberchunker)</b>으로 조각내어 여러 개 세그먼트로 나눕니다. 그러고 나서 LLM으로 각 세그먼트로부터 생길 수 있는 <b>예상 질문(Q-cluster)을 미리 생성</b>해 둡니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>검색</span>검색은 <b>BM25와 Vector를 RRF 융합</b>합니다. BM25의 경우 <b>재작성된 쿼리와 원본 쿼리를 concat</b>한 후 <b>세그먼트+문서 제목</b>에 대해서 검색을 진행합니다. 벡터의 경우 사전에 만들어 둔 <b>Q-cluster와 원본 쿼리/재작성된 쿼리를 각각 병렬 비교</b>합니다. 가장 많이 선택된 세그먼트를 <b>majority voting으로 선별</b>합니다.</p>
     <ul>
         <li data-rise>토크나이저는 <b>고유명사가 최우선으로 보장되며 속도 및 관리가 용이한 Kiwi</b>를 골랐습니다.</li>
@@ -298,7 +298,7 @@ section[id] { scroll-margin-top: 28px; }
             <p class="mono" style="font-size:12px;margin:28px 0 0;">2세대</p>
     <p style="font-size:13px;color:var(--muted);margin:14px 0 8px;">2세대 — 전체 흐름</p>
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
-        <img data-rise loading="lazy" decoding="async" src="img/flow-overview.svg" alt="MARGE 2세대(최신) 답변 흐름 — 계획 → 검색(근거가 모일 때까지 반복) → 생성 → 검증(채택·재검색·재생성·차단) 그래프와 재시도 루프, 시도 간 문맥 격리" style="width:100%;">
+        <img data-rise loading="lazy" decoding="async" src="img/flow-overview.svg" alt="MARGE 2세대 답변 흐름 — 계획 → 검색(근거가 모일 때까지 반복) → 생성 → 검증(채택·재검색·재생성·차단) 그래프와 재시도 루프, 시도 간 문맥 격리" style="width:100%;">
     </div>
         </section>
 <footer>
