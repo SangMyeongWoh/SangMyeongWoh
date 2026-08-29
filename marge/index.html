@@ -272,6 +272,10 @@ section[id] { scroll-margin-top: 28px; }
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
         <img data-rise loading="lazy" decoding="async" src="img/flow-gen1.svg" alt="1세대 MARGE 답변 흐름 — 쿼리 분석 → 하이브리드 검색 → LLM 리랭킹 → 답변 생성의 한 방향 파이프라인, 검색이 쓰는 자산은 Q-cluster와 고유명사 사전·그래프" style="width:100%;">
     </div>
+    <p style="font-size:13px;color:var(--muted);margin:24px 0 8px;">1세대 — 문서 충돌 감지</p>
+    <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
+        <img data-rise loading="lazy" decoding="async" src="img/flow-conflict.svg" alt="문서 충돌 감지 흐름 — Q-cluster로 같은 주제 조각을 모으고, 조각별로 같은 질문에 각각 답하게 한 뒤 상반된 답을 낸 원본 문서를 지목해 경고. 비용 대비 효용이 낮아 접었고, 2세대에서는 별도로 다루지 않기로 판단" style="width:100%;">
+    </div>
     <details data-rise>
         <summary>검색 보강 장치<span class="role">직접 구현</span></summary>
         <div>
@@ -281,13 +285,7 @@ section[id] { scroll-margin-top: 28px; }
             </ul>
         </div>
     </details>
-    <details data-rise>
-        <summary>문서 충돌 감지 흐름<span class="role">직접 구현</span></summary>
-        <div>
-            <img data-rise loading="lazy" decoding="async" src="img/flow-conflict.svg" alt="문서 충돌 감지 흐름 — Q-cluster로 같은 주제 조각을 모으고, 조각별로 같은 질문에 각각 답하게 한 뒤 상반된 답을 낸 원본 문서를 지목해 경고. 비용 대비 효용이 낮아 접었고, 2세대에서는 별도로 다루지 않기로 판단" style="width:100%;margin-top:6px;">
-        </div>
-    </details>
-    <details data-rise>
+        <details data-rise>
         <summary>시스템 구성<span class="role">동료 구현</span></summary>
         <div>
             <ul>
