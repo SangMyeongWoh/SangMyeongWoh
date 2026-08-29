@@ -366,6 +366,11 @@ section[id] { scroll-margin-top: 28px; }
   }
   window.addEventListener('scroll',upd,{passive:true});
   window.addEventListener('resize',upd); upd();
+  function openIf(id){var el=document.getElementById(id);
+    if(el&&el.tagName==='DETAILS') el.open=true;}
+  links.forEach(function(a){a.addEventListener('click',function(){
+    openIf(a.getAttribute('href').slice(1));});});
+  if(location.hash) openIf(location.hash.slice(1));
 })();
 </script>
 </body>
