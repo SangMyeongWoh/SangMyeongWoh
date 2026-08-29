@@ -236,6 +236,7 @@ section[id] { scroll-margin-top: 28px; }
     <p style="margin-top:14px;"><span class="ref">Retriever</span><b>근거가 모일 때까지 검색을 반복하는 노드</b>입니다. 매 스텝 더 찾을지 충분한지를 스스로 결정하고, 모인 근거를 읽고 다음 검색어를 다시 짭니다. <b>소스별 모듈이 병렬로 돌아 하나가 실패해도 검색은 계속됩니다.</b> <b>1세대의 검색 엔진과 전처리를 동일하게 사용</b>하지만, 전처리 과정에서 추가로 <b>구글 드라이브의 인덱스를 생성</b>합니다. 만들어진 인덱스는 <b>검색 범위를 좁히는 데 활용</b>합니다.</p>
     <p style="margin-top:14px;"><span class="ref">Generator</span>등록된 답을 그대로 내보내는 <b>faq</b>, 근거 기반으로 생성하는 <b>rag</b>, 검색 없이 답하는 <b>direct</b> 중 하나로 실행됩니다. 답변 속 인용은 <b>실제로 검색된 문서와 대조</b>해, 존재하지 않는 인용이 섞이지 않게 합니다.</p>
     <p style="margin-top:14px;"><span class="ref">Evaluator</span><b>답이 나가기 전 마지막 관문</b>입니다. 그대로 내보낼지(accept) · 답만 다시 만들지(regenerate) · 계획부터 다시 할지(retry, 최대 3회) · 막을지(block) <b>네 가지로 판정</b>합니다. <b>생성 문제일 경우 regenerate 판정</b>을 하고, <b>검색 문제일 경우 다시 Planner 단계로 회귀</b>합니다.</p>
+    <p style="margin-top:10px;font-size:14px;color:var(--muted);">※ 판정에 대한 정확한 방식 추가 조사 필요</p>
 </section>
   </div>
 </details>
