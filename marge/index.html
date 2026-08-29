@@ -227,7 +227,7 @@ section[id] { scroll-margin-top: 28px; }
     <h2><span class="mono">Analyze</span>설계 판단</h2>
     <p><span class="ref"><b>01</b>고정 플로우</span>고정 플로우 대신 <b>계획 &rarr; 검색 &rarr; 생성 &rarr; 검증의 에이전틱 그래프 구조</b>를 택했습니다. 검사 결과에 따라 계획으로 되돌아가는 구조라, <b>개선 요청을 플로우 수술 없이 받아낼 수 있습니다.</b></p>
     <p style="margin-top:14px;"><span class="ref"><b>02</b>구세대 프롬프트</span>현 세대 LLM 기준으로 <b>프롬프트와 설계를 다시 세웠습니다.</b></p>
-    <p style="margin-top:14px;"><span class="ref"><b>03</b>충돌 감지 효용</span>별도 시스템 대신 <b>답변을 만들 때 충돌 위험을 함께 감지하는 방향</b>으로 잡았습니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>03</b>충돌 감지 효용</span>2세대에서는 <b>충돌 감지를 별도로 다루지 않기로 했습니다.</b> 근래의 LLM 성능이면 굳이 상세하게 다루지 않아도 <b>생성 단계에서 자연스럽게 풀리는 문제</b>라고 판단했습니다.</p>
 </section>
 <section class="narr">
     <h2><span class="mono">Action</span>구현</h2>
@@ -284,7 +284,7 @@ section[id] { scroll-margin-top: 28px; }
     <details data-rise>
         <summary>문서 충돌 감지 흐름<span class="role">직접 구현</span></summary>
         <div>
-            <img data-rise loading="lazy" decoding="async" src="img/flow-conflict.svg" alt="문서 충돌 감지 흐름 — Q-cluster로 같은 주제 조각을 모으고, 조각별로 같은 질문에 각각 답하게 한 뒤 상반된 답을 낸 원본 문서를 지목해 경고. 비용 대비 효용이 낮아 접었고 2세대에선 답변 생성 단계로 통합" style="width:100%;margin-top:6px;">
+            <img data-rise loading="lazy" decoding="async" src="img/flow-conflict.svg" alt="문서 충돌 감지 흐름 — Q-cluster로 같은 주제 조각을 모으고, 조각별로 같은 질문에 각각 답하게 한 뒤 상반된 답을 낸 원본 문서를 지목해 경고. 비용 대비 효용이 낮아 접었고, 2세대에서는 별도로 다루지 않기로 판단" style="width:100%;margin-top:6px;">
         </div>
     </details>
     <details data-rise>
