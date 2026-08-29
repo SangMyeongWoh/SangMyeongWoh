@@ -186,7 +186,7 @@ section[id] { scroll-margin-top: 28px; }
 <section class="narr" id="analyze">
     <h2><span class="mono">Analyze</span>설계 판단</h2>
     <p><span class="ref"><b>01</b>쿼리 이해</span>본 파이프라인을 시작하기 이전에 <b>유저의 질문을 깔끔하게 정제하는 과정이 필요하다</b>고 판단했습니다. 이 과정을 거쳐야 <b>검색 성능이 대폭 향상</b>될 수 있습니다.</p>
-    <p style="margin-top:14px;"><span class="ref"><b>02</b>검색</span>크로스인코더는 <b>도메인별 파인튜닝 및 서빙이 어렵다 판단하여 제외</b>했습니다. 대신 LLM을 사용하고자 했습니다. <b>질문은 질문끼리 비교하는 게 정확하다</b>고 봤습니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>02</b>검색</span>크로스인코더는 <b>도메인별 파인튜닝 및 서빙이 어렵다 판단하여 제외</b>했습니다. 대신 LLM을 사용하고자 했습니다. <b>질문은 질문끼리 비교하는 게 정확하다</b>고 봤습니다. 토크나이저와 임베딩은 <b>후보들을 직접 실험해 가장 좋은 것을 골랐습니다</b>(Kiwi, KoSimCSE-RoBERTa).</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>문서 전처리</span>토큰 수 기준으로 기계적으로 자르면 <b>문장이나 설명이 중간에서 끊깁니다.</b> 잘린 조각은 검색돼도 반쪽짜리 근거가 됩니다. 그래서 <b>의미적으로 잘림 없는 문서 전처리가 필요했습니다.</b></p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>문서 품질</span>문제를 풀기 위한 방법은 두 가지가 존재했습니다. <b>RAG 파이프라인에서 해결하기 vs 유저에게 문서 자체 개선을 권장하기.</b> 당시 유저 쪽에서 답변 속도가 느려지는 것을 극도로 꺼려했기 때문에, 파이프라인에서 해결하는 것 대신 <b>문서 개선을 권장할 수 있는 방향</b>으로 결정했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>05</b>답변 생성</span>검색 뒤 <b>LLM 분석으로 질문의 유형을 분류</b>해, <b>유형에 맞는 답변 경로로 라우팅</b>하기로 판단했습니다.</p>
