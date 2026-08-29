@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 352" width="760" height="352" role="img" aria-label="MARGE 2세대(최신) 답변 흐름 — 계획, 검색(근거가 모일 때까지 반복), 생성, 검증(채택·재검색·재생성·차단) 그래프와 재시도 루프, 시도 간 문맥 격리">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 286" width="760" height="286" role="img" aria-label="MARGE 2세대(최신) 답변 흐름 — 계획, 검색(근거가 모일 때까지 반복), 생성, 검증(채택·재검색·재생성·차단) 그래프와 재시도 루프, 시도 간 문맥 격리">
 <style>
   .bg  { fill: #ffffff; }
   .pan { fill: #f4f8f7; stroke: #dce5e2; }
@@ -90,8 +90,5 @@
 <text class="s mut" x="590" y="245">지어내지 않고 안내</text>
 
 <!-- 공용 -->
-<rect class="pan" x="16" y="286" width="728" height="54" rx="12"/>
-<text class="k acc" x="32" y="307">재시도의 함정 방지</text>
-<text class="t sub" x="32" y="329">시도 간 문맥 격리</text>
-<text class="s mut" x="176" y="329">이전 시도의 답을 보지 못하게 끊어 — 같은 실수에 끌려가는 것(앵커링)을 차단</text>
+
 </svg>
