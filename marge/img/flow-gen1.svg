@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" width="760" height="332" role="img" aria-label="1세대 MARGE 답변 흐름 — 질의 분석, 하이브리드 검색, LLM 리랭킹, 답변 생성으로 이어지는 한 방향 파이프라인과 검색이 쓰는 자산(Q-cluster·고유명사 사전·그래프)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" width="760" height="332" role="img" aria-label="1세대 MARGE 답변 흐름 — 쿼리 분석, 하이브리드 검색, LLM 리랭킹, 답변 생성으로 이어지는 한 방향 파이프라인과 검색이 쓰는 자산(Q-cluster·고유명사 사전·그래프)">
 <style>
   .bg  { fill: #ffffff; }
   .pan { fill: #f4f8f7; stroke: #dce5e2; }
@@ -45,7 +45,7 @@
 
 <!-- 4단 파이프라인 -->
 <rect class="box" x="16" y="84" width="172" height="68" rx="10"/>
-<text class="t ink" x="30" y="108">① 질의 분석</text>
+<text class="t ink" x="30" y="108">① 쿼리 분석</text>
 <text class="s mut" x="30" y="128">이력으로 생략 복원</text>
 <text class="s mut" x="30" y="143">질문 유형 분류</text>
 
