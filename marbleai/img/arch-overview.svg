@@ -175,5 +175,5 @@
 <use href="#i-gcs" x="408" y="520" width="13" height="13"/>
 <text class="s mut" x="426" y="532">GCS — 파일 · 캐시 · 결과물</text>
 
-<text class="s mut" x="16" y="566">세 시스템이 같은 구조(접수 서버 → 큐 → 워커)를 반복합니다 — 워커는 작업 크기만큼 늘어나는 서버리스.</text>
+<text class="s mut" x="16" y="566">워커는 작업 크기만큼 늘어나는 서버리스입니다.</text>
 </svg>
