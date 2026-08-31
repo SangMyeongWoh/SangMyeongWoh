@@ -235,7 +235,7 @@ section[id] { scroll-margin-top: 28px; }
     <p style="margin-top:16px;"><span class="ref">Planner</span>질문을 받으면 <b>가장 먼저 무엇을 할지 정하는 계획 노드</b>입니다. 검색이 필요한지(retrieve), 검색 없이 답해도 되는지(direct), 너무 모호해서 되물어야 하는지(clarify)를 판정합니다. 출력 필드를 <b>의도 &rarr; 상황 &rarr; 근거 &rarr; 결정 순서로 강제</b>해, 결정보다 근거를 먼저 쓰게 했습니다. 재시도로 돌아오면 <b>이전 시도의 요약을 참고해</b> 다시 계획합니다.</p>
     <p style="margin-top:14px;"><span class="ref">Retriever</span><b>근거가 모일 때까지 검색을 반복하는 노드</b>입니다. <b>문서 검색과 FAQ 검색이 기본 도구</b>로 주어지고, 프로젝트에 따라 도구를 더 붙일 수 있습니다. 매 스텝 더 찾을지 충분한지를 스스로 결정하고, 모인 근거를 읽고 다음 검색어를 다시 짭니다. <b>도구별 모듈이 병렬로 돌아 하나가 실패해도 검색은 계속됩니다.</b> 문서 검색은 <b>1세대의 검색 엔진과 전처리를 동일하게 사용</b>하되, 전처리 때 <b>1세대의 드라이브 트리를 강화한 인덱스</b>를 생성합니다. 만들어진 인덱스는 <b>검색 범위를 좁히는 데 활용</b>합니다.</p>
     <p style="margin-top:14px;"><span class="ref">Generator</span>등록된 답을 그대로 내보내는 <b>faq</b>, 근거 기반으로 생성하는 <b>rag</b>, 검색 없이 답하는 <b>direct</b> 중 하나로 실행됩니다. 답변 속 인용은 <b>실제로 검색된 문서와 대조</b>해, 존재하지 않는 인용이 섞이지 않게 합니다.</p>
-    <p style="margin-top:14px;"><span class="ref">Evaluator</span><b>답이 나가기 전 마지막 관문</b>입니다. 그대로 내보낼지(accept) · 답만 다시 만들지(regenerate) · 계획부터 다시 할지(retry, 최대 3회) · 막을지(block) <b>네 가지로 판정</b>합니다. 판정 기준은 답의 품질이 아니라, <b>필요한 근거가 이미 검색된 것 안에 있는가</b>입니다. <b>생성 문제일 경우 regenerate 판정</b>을 하고, <b>검색 문제일 경우 다시 Planner 단계로 회귀</b>합니다.</p>
+    <p style="margin-top:14px;"><span class="ref">Evaluator</span><b>답이 나가기 전 마지막 관문</b>입니다. 그대로 내보낼지(accept) · 답만 다시 만들지(regenerate) · 계획부터 다시 할지(retry, 최대 3회) · 막을지(block) <b>네 가지로 판정</b>합니다. 판정은 <b>답에 필요한 근거가 검색된 세그먼트 안에 있는지</b>를 기준으로 합니다. <b>생성 문제일 경우 regenerate 판정</b>을 하고, <b>검색 문제일 경우 다시 Planner 단계로 회귀</b>합니다.</p>
 </section>
   </div>
 </details>
@@ -301,13 +301,13 @@ section[id] { scroll-margin-top: 28px; }
         <img data-rise loading="lazy" decoding="async" src="img/flow-overview.svg" alt="MARGE 2세대 답변 흐름 — 계획 → 검색(근거가 모일 때까지 반복) → 생성 → 검증(채택 · 재생성 · 계획부터 재시도 · 차단) 그래프와 재시도 루프" style="width:100%;">
     </div>
     <details data-rise>
-        <summary>Evaluator — 판정의 장치들<span class="role">골격 직접 · 세부는 동료 고도화</span></summary>
+        <summary>Evaluator 상세<span class="role">골격 직접 · 세부는 동료 고도화</span></summary>
         <div>
             <ul>
-                <li data-rise><b>정직한 무응답</b>: 충분히 뒤졌는데도 없으면 "없습니다"를 그대로 내보냅니다(accept). <b>답을 실제로 줬는지가 별도 값(answered)으로 기록</b>되고, <b>무응답이 몰리는 주제가 데이터로 드러나 문서 보강의 근거</b>가 됩니다.</li>
-                <li data-rise><b>못 가리는 건 인정하고 비용을 가둡니다</b>: 검색을 잘못한 건지 문서가 없는 건지는 증명이 안 됩니다. 구분하는 대신 검색 궤적으로 <b>"더 해볼 게 남았나"만 추정</b>하고, 추정이 틀려도 <b>재시도 예산 3회가 손실을 가둡니다.</b></li>
-                <li data-rise><b>검색 영수증</b>: 매 스텝의 검색어 · 범위 · 건수가 궤적으로 남아, <b>판정과 디버깅이 같은 기록 위에서</b> 돌아갑니다.</li>
-                <li data-rise><b>거절문 변조 불가</b>: 막을 때 LLM은 등록된 거절문의 <b>번호만</b> 고르고, 코드가 원문으로 치환합니다.</li>
+                <li data-rise><b>무응답 처리</b>: 충분히 검색했는데도 근거가 없으면 답을 지어내지 않고 <b>"해당 내용이 없습니다"로 답합니다.</b> 답을 실제로 줬는지는 별도 값(answered)으로 기록합니다. 무응답이 자주 나오는 주제를 보면 어떤 문서가 부족한지 알 수 있어서, <b>문서 보강에 사용합니다.</b></li>
+                <li data-rise><b>retry 판단</b>: 검색을 잘못한 건지 문서가 원래 없는 건지는 <b>확실히 구분할 수 없습니다.</b> 대신 검색 기록을 보고 <b>안 써본 검색어나 안 뒤진 범위가 남았는지만</b> 봅니다. 판단이 틀려도 재시도는 최대 3회로 제한됩니다.</li>
+                <li data-rise><b>검색 기록</b>: 매 스텝의 검색어 · 범위 · 결과 수가 기록으로 남습니다. <b>retry 판정과 디버깅 모두 이 기록을 사용합니다.</b></li>
+                <li data-rise><b>거절문</b>: 막을 때 LLM은 등록된 거절문 중 <b>번호만 고릅니다.</b> 원문 치환은 코드가 하기 때문에 거절문이 바뀔 수 없습니다.</li>
             </ul>
         </div>
     </details>
