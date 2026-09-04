@@ -48,7 +48,6 @@
 
 <rect class="box hot" x="32" y="108" width="340" height="64" rx="8"/>
 <text class="t ink" x="44" y="132">채팅 API — 응답 엔진</text>
-<text class="s mut" x="44" y="152">1세대 파이프라인 · 2세대 에이전틱 — 함께 서빙</text>
 
 <rect class="box" x="32" y="184" width="164" height="56" rx="8"/>
 <text class="s ink" x="42" y="206">임베딩·형태소 API</text>
@@ -56,7 +55,6 @@
 
 <rect class="box" x="208" y="184" width="164" height="56" rx="8"/>
 <text class="s ink" x="218" y="206">대화 이력</text>
-<text class="s mut" x="218" y="224">1세대 Redis · 2세대 Postgres</text>
 
 <rect class="box" x="404" y="108" width="324" height="56" rx="8"/>
 <text class="t ink" x="416" y="132">문서 관리 API</text>
