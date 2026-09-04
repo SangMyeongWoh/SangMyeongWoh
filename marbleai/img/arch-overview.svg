@@ -103,15 +103,16 @@
 <text class="s ink" x="64" y="262">큐 · Cloud Tasks</text>
 <path class="ln" d="M132 274 L132 284 L80 284 L80 296" marker-end="url(#a)"/>
 <path class="ln" d="M132 274 L132 284 L184 284 L184 296" marker-end="url(#a)"/>
-<rect class="box" x="32" y="300" width="96" height="52" rx="8"/>
-<use href="#i-run" x="108" y="336" width="13" height="13"/>
+<rect class="box" x="32" y="300" width="96" height="64" rx="8"/>
+<use href="#i-run" x="108" y="308" width="13" height="13"/>
 <text class="s ink" x="40" y="320">워커 서비스</text>
-<text class="s mut" x="40" y="338">소형 · 즉시</text>
-<rect class="box" x="136" y="300" width="96" height="52" rx="8"/>
-<use href="#i-run" x="212" y="336" width="13" height="13"/>
+<text class="s mut" x="40" y="338">소형 작업</text>
+<text class="s mut" x="40" y="354">콜드스타트 없음</text>
+<rect class="box" x="136" y="300" width="96" height="64" rx="8"/>
+<use href="#i-run" x="212" y="308" width="13" height="13"/>
 <text class="s ink" x="144" y="320">워커 잡</text>
 <text class="s mut" x="144" y="338">대형 · 배치</text>
-<text class="s mut" x="32" y="382">교정안은 사람이 확정</text>
+<text class="s mut" x="32" y="392">교정안은 사람이 확정</text>
 
 <!-- 기계번역 -->
 <rect class="pan" x="264" y="160" width="232" height="280" rx="12"/>
@@ -125,18 +126,19 @@
 <text class="s ink" x="312" y="262">큐 · Cloud Tasks</text>
 <path class="ln" d="M380 274 L380 284 L328 284 L328 296" marker-end="url(#a)"/>
 <path class="ln" d="M380 274 L380 284 L432 284 L432 296" marker-end="url(#a)"/>
-<rect class="box" x="280" y="300" width="96" height="52" rx="8"/>
-<use href="#i-run" x="356" y="336" width="13" height="13"/>
+<rect class="box" x="280" y="300" width="96" height="64" rx="8"/>
+<use href="#i-run" x="356" y="308" width="13" height="13"/>
 <text class="s ink" x="288" y="320">워커 서비스</text>
-<text class="s mut" x="288" y="338">소형 · 즉시</text>
-<rect class="box" x="384" y="300" width="96" height="52" rx="8"/>
-<use href="#i-run" x="460" y="336" width="13" height="13"/>
+<text class="s mut" x="288" y="338">소형 작업</text>
+<text class="s mut" x="288" y="354">콜드스타트 없음</text>
+<rect class="box" x="384" y="300" width="96" height="64" rx="8"/>
+<use href="#i-run" x="460" y="308" width="13" height="13"/>
 <text class="s ink" x="392" y="320">워커 잡</text>
 <text class="s mut" x="392" y="338">대형 · 배치</text>
-<rect class="box dsh" x="280" y="364" width="200" height="48" rx="8"/>
-<use href="#i-run" x="458" y="370" width="15" height="15"/>
-<text class="s ink" x="292" y="384">실시간 경량 서비스</text>
-<text class="s mut" x="292" y="401">큐 없이 바로 응답</text>
+<rect class="box dsh" x="280" y="376" width="200" height="48" rx="8"/>
+<use href="#i-run" x="458" y="382" width="15" height="15"/>
+<text class="s ink" x="292" y="396">실시간 경량 서비스</text>
+<text class="s mut" x="292" y="413">큐 없이 바로 응답</text>
 
 <!-- 평가 -->
 <rect class="pan" x="512" y="160" width="232" height="280" rx="12"/>
