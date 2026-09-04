@@ -62,7 +62,7 @@
 <text class="k acc" x="630" y="171">재검사</text>
 <rect class="box" x="400" y="178" width="320" height="58" rx="9"/>
 <text class="t ink" x="414" y="202">리플렉션</text>
-<text class="s mut" x="414" y="221">실패 항목만 LLM이 교정 — 이미 지킨 용어는 손대지 않음</text>
+<text class="s mut" x="414" y="221">실패 항목만 LLM이 수정 · 지킨 용어는 유지</text>
 <path class="ln" d="M720 125 L744 125 L744 289 L724 289" marker-end="url(#a)"/>
 <text class="k acc" x="716" y="117" text-anchor="end">통과</text>
 <rect class="box" x="400" y="260" width="320" height="58" rx="9"/>
