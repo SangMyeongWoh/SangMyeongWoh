@@ -39,7 +39,7 @@
 
 <!-- 진입 -->
 <rect class="box" x="270" y="10" width="220" height="40" rx="9"/>
-<text class="t ink" x="380" y="35" text-anchor="middle">사내 챗봇 · 메신저 · nDIS</text>
+<text class="t ink" x="380" y="35" text-anchor="middle">사내 챗봇 · 메신저</text>
 <path class="ln" d="M380 50 L380 72" marker-end="url(#a)"/>
 
 <!-- GKE 클러스터 -->

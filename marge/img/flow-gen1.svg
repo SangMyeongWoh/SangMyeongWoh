@@ -47,7 +47,7 @@
 <rect class="box" x="16" y="84" width="172" height="68" rx="10"/>
 <text class="t ink" x="30" y="108">① 쿼리 분석</text>
 <text class="s mut" x="30" y="128">이력으로 생략 복원</text>
-<text class="s mut" x="30" y="143">질문 유형 분류</text>
+<text class="s mut" x="30" y="143">원본과 재작성 쿼리 병렬</text>
 
 <rect class="box hot" x="204" y="84" width="172" height="68" rx="10"/>
 <text class="t ink" x="218" y="108">② 하이브리드 검색</text>
@@ -56,13 +56,13 @@
 
 <rect class="box" x="392" y="84" width="172" height="68" rx="10"/>
 <text class="t ink" x="406" y="108">③ LLM 리랭킹</text>
-<text class="s mut" x="406" y="128">후보의 관련성을</text>
-<text class="s mut" x="406" y="143">병렬로 재판정</text>
+<text class="s mut" x="406" y="128">병렬 필터링 · 넘치면</text>
+<text class="s mut" x="406" y="143">트리 말단 저순위 제거</text>
 
 <rect class="box" x="580" y="84" width="172" height="68" rx="10"/>
 <text class="t ink" x="594" y="108">④ 답변 생성</text>
-<text class="s mut" x="594" y="128">유형별 7가지 전략</text>
-<text class="s mut" x="594" y="143">계층 취합으로 긴 근거 소화</text>
+<text class="s mut" x="594" y="128">T/F 판별 → 7가지 전략</text>
+<text class="s mut" x="594" y="143">인용 후처리</text>
 
 <path class="ln" d="M188 118 L200 118" marker-end="url(#a)"/>
 <path class="ln" d="M376 118 L388 118" marker-end="url(#a)"/>
