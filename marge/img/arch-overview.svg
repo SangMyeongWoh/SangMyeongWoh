@@ -48,6 +48,7 @@
 
 <rect class="box hot" x="32" y="108" width="340" height="64" rx="8"/>
 <text class="t ink" x="44" y="132">채팅 API — 응답 엔진</text>
+<text class="s mut" x="44" y="152">쿼리 이해 · 검색 · 리랭킹 · 답변 생성</text>
 
 <rect class="box" x="32" y="184" width="164" height="56" rx="8"/>
 <text class="s ink" x="42" y="206">임베딩·형태소 API</text>
