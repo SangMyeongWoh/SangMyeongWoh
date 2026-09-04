@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 286" width="760" height="286" role="img" aria-label="MARGE 2세대 답변 흐름 — 계획, 검색(근거가 모일 때까지 반복), 생성, 검증. 검증 결과에 따라 채택·재생성(생성으로 되돌림)·재계획(계획으로 되돌림, 최대 3회)·차단">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 286" width="760" height="286" role="img" aria-label="MARGE 2세대 답변 흐름 — 계획 노드가 retrieve·direct·clarify를 판정. retrieve는 검색(근거가 모일 때까지 반복)→생성→검증, direct는 검색 없이 바로 생성, clarify는 유저에게 되묻기. 검증 결과에 따라 채택·재생성·재계획(최대 3회)·차단">
 <style>
   .bg  { fill: #ffffff; }
   .pan { fill: #f4f8f7; stroke: #dce5e2; }
@@ -53,8 +53,8 @@
 <!-- 4단 그래프 -->
 <rect class="box" x="16" y="84" width="172" height="68" rx="10"/>
 <text class="t ink" x="30" y="108">① 계획</text>
-<text class="s mut" x="30" y="128">질문 의도를 분석하고</text>
-<text class="s mut" x="30" y="143">검색 전략을 세움</text>
+<text class="s mut" x="30" y="128">의도를 분석해 판정</text>
+<text class="s mut" x="30" y="143">retrieve · direct · clarify</text>
 
 <rect class="box" x="204" y="84" width="172" height="68" rx="10"/>
 <text class="t ink" x="218" y="108">② 검색</text>
@@ -74,15 +74,25 @@
 <path class="ln" d="M188 118 L200 118" marker-end="url(#a)"/>
 <path class="ln" d="M376 118 L388 118" marker-end="url(#a)"/>
 <path class="ln dsh" d="M330 152 C 330 178, 250 178, 250 156" marker-end="url(#a)"/>
-<text class="k mut" x="200" y="192">근거가 모일 때까지 반복</text>
+<text class="k mut" x="290" y="184" text-anchor="middle" font-size="10">근거 모일 때까지 반복</text>
 <path class="ln" d="M564 118 L576 118" marker-end="url(#a)"/>
+
+<!-- direct: ①→③ 검색 없이 바로 생성 -->
+<path class="ln dsh" d="M176 152 L176 194 L420 194 L420 156" marker-end="url(#a)"/>
+<text class="k mut" x="200" y="207" font-size="10">direct · 검색 없이 바로 생성</text>
+
+<!-- clarify: 되묻기 출구 -->
+<path class="ln dsh" d="M90 152 L90 200" marker-end="url(#a)"/>
+<rect class="box" x="16" y="204" width="148" height="54" rx="9"/>
+<text class="t sub" x="30" y="226">되묻기</text>
+<text class="s mut" x="30" y="245">clarify · 유저에게 확인</text>
 
 <!-- 판정에 따른 두 갈래 -->
 <path class="ln" d="M666 152 L666 178"/>
 <path class="ln" d="M468 178 L666 178"/>
 <path class="ln" d="M468 178 L468 200" marker-end="url(#a)"/>
 <path class="ln" d="M666 178 L666 200" marker-end="url(#a)"/>
-<text class="k mut" x="420" y="174">채택</text>
+<text class="k mut" x="476" y="197">채택</text>
 <text class="k mut" x="680" y="174">차단</text>
 
 <rect class="box" x="380" y="204" width="176" height="54" rx="9"/>
