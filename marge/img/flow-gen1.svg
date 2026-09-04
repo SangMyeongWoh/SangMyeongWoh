@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 332" width="780" height="332" role="img" aria-label="1세대 MARGE 답변 흐름 — 쿼리 분석, 하이브리드 검색, LLM 리랭킹, 답변 생성으로 이어지는 한 방향 파이프라인과 검색이 쓰는 자산(Q-cluster·고유명사 사전·그래프). 질문은 먼저 FAQ 판정을 거쳐 일치하면 즉답, 불일치하면 파이프라인 진입">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" width="760" height="332" role="img" aria-label="1세대 MARGE 답변 흐름 — 쿼리 분석 뒤 FAQ 판정을 거쳐 일치하면 즉답, 불일치하면 하이브리드 검색, LLM 리랭킹, 답변 생성으로 이어지는 한 방향 파이프라인. 검색이 쓰는 자산은 Q-cluster와 고유명사·동의어 사전">
 <style>
   .bg  { fill: #ffffff; }
   .pan { fill: #f4f8f7; stroke: #dce5e2; }
@@ -38,20 +38,11 @@
 <rect class="bg" x="0" y="0" width="100%" height="100%"/>
 
 <!-- 입력 -->
-<rect class="box" x="16" y="12" width="172" height="44" rx="9"/>
-<text class="t sub" x="30" y="39">질문</text>
-<path class="ln" d="M188 34 L200 34" marker-end="url(#a)"/>
+<rect class="box" x="16" y="12" width="172" height="40" rx="9"/>
+<text class="t sub" x="30" y="37">질문</text>
+<path class="ln" d="M102 52 L102 80" marker-end="url(#a)"/>
 
-<!-- FAQ 선판정 -->
-<rect class="box" x="204" y="12" width="172" height="44" rx="9"/>
-<text class="t ink" x="218" y="30">FAQ 판정</text>
-<text class="s mut" x="218" y="48">LLM 판정 + 벡터 유사도</text>
-<path class="ln dsh" d="M290 56 L290 70 L150 70 L150 80" marker-end="url(#a)"/>
-<text class="k mut" x="300" y="74">불일치</text>
-<path class="ln dsh" d="M376 34 L768 34 L768 211 L756 211" marker-end="url(#a)"/>
-<text class="k mut" x="400" y="28">일치 시 파이프라인 없이 즉답</text>
-
-<text class="k mut" x="400" y="52">한 방향 파이프라인 — 중간에 되돌아가는 길이 없음</text>
+<text class="k mut" x="284" y="52">한 방향 파이프라인 — 중간에 되돌아가는 길이 없음</text>
 
 <!-- 4단 파이프라인 -->
 <rect class="box" x="16" y="84" width="172" height="68" rx="10"/>
@@ -74,9 +65,18 @@
 <text class="s mut" x="594" y="128">T/F 판별 → 7가지 전략</text>
 <text class="s mut" x="594" y="143">인용 후처리</text>
 
-<path class="ln" d="M188 118 L200 118" marker-end="url(#a)"/>
 <path class="ln" d="M376 118 L388 118" marker-end="url(#a)"/>
 <path class="ln" d="M564 118 L576 118" marker-end="url(#a)"/>
+
+<!-- FAQ 판정 (① 뒤, ② 앞) -->
+<path class="ln" d="M102 152 L102 180" marker-end="url(#a)"/>
+<rect class="box" x="16" y="184" width="172" height="54" rx="9"/>
+<text class="t ink" x="30" y="206">FAQ 판정</text>
+<text class="s mut" x="30" y="225">LLM 판정 + 벡터 유사도</text>
+<path class="ln dsh" d="M188 200 L290 200 L290 156" marker-end="url(#a)"/>
+<text class="k mut" x="298" y="182">불일치 → 검색</text>
+<path class="ln dsh" d="M188 222 L530 222" marker-end="url(#a)"/>
+<text class="k mut" x="300" y="240">일치 · 파이프라인 없이 즉답</text>
 
 <!-- 출력 -->
 <path class="ln" d="M666 152 L666 180" marker-end="url(#a)"/>
