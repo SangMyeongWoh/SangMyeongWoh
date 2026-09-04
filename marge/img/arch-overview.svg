@@ -66,7 +66,7 @@
 
 <rect class="box" x="404" y="180" width="324" height="68" rx="8"/>
 <text class="t ink" x="416" y="204">전처리 파이프라인 — Airflow</text>
-<text class="s mut" x="416" y="224">문서 파싱 → 조각 → 벡터·키워드 인덱스</text>
+<text class="s mut" x="416" y="224">문서 파싱 → 세그먼트 → 벡터·키워드 인덱스</text>
 
 <!-- 저장소·외부 의존 -->
 <path class="ln" d="M132 264 L132 288" marker-end="url(#a)"/>
@@ -75,7 +75,7 @@
 
 <rect class="box" x="16" y="292" width="232" height="68" rx="9"/>
 <text class="t sub" x="30" y="314">MongoDB</text>
-<text class="s mut" x="30" y="334">문서 조각 · 벡터 · FAQ</text>
+<text class="s mut" x="30" y="334">문서 세그먼트 · 벡터 · FAQ</text>
 <text class="s mut" x="30" y="350">챗봇마다 독립 DB</text>
 
 <rect class="box" x="264" y="292" width="232" height="68" rx="9"/>
