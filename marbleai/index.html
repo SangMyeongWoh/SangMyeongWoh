@@ -283,6 +283,19 @@ section[id] { scroll-margin-top: 28px; }
 <section id="deepdive">
     <h2><span class="mono" style="margin-bottom:0;">Deep Dive</span></h2>
     <details data-rise>
+        <summary>기계번역<span class="role">직접 구현</span></summary>
+        <div>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">번역 전에는 깨질 수 있는 <b>태그를 가려두고</b> 용어집·유사 문장·캐릭터 페르소나를 모아 프롬프트를 조립합니다. 번역 후에는 <b>결과를 그대로 믿지 않고</b> 검사와 리플렉션을 거칩니다.</p>
+            <ul>
+                <li data-rise><b>무결성 검사 · 리플렉션</b>: <b>가려둔 태그가 그대로 돌아왔는지, 변수가 같은 수로 남았는지, 용어를 빠뜨리지 않았는지</b> 코드로 검사합니다. <b>실패한 항목만 LLM이 수정하고 다시 검사합니다.</b> 루프가 끝나도 결함이 남으면 <b>결함이 가장 적은 후보를 내보냅니다.</b></li>
+                <li data-rise><b>문장 묶기</b>: 일정 구간 단위로 <b>대화와 비대화를 분류</b>하고 같은 성격끼리 붙여 한 번에 보냅니다. 분류에 실패한 구간은 비대화로 처리해 <b>멈추지 않고</b> 넘어갑니다.</li>
+                <li data-rise><b>모델 라우팅</b>: <b>평가기를 통해 언어쌍마다 점수가 가장 높은 LLM을 선정</b>합니다. 심판은 한 모델이 아니라 여러 모델로 두어, 특정 계열에 유리한 채점을 막습니다.</li>
+            </ul>
+            <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
+            <img data-rise loading="lazy" decoding="async" src="img/flow-translation.svg" alt="기계번역 처리 흐름" style="width:100%;margin-top:6px;">
+        </div>
+    </details>
+    <details data-rise>
         <summary>게임별 전처리<span class="role">직접 구현</span></summary>
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;"><b>기계번역의 전처리 단계입니다.</b> 기계번역이 프롬프트에 넣는 <b>유사 문장·캐릭터 페르소나·태그 규칙</b>이 만들어지는 곳입니다. 게임에 쌓인 기존 번역 파일을 <b>한 번 처리해 두고</b>, 이후 번역은 그 결과를 가져다 씁니다.</p>
@@ -303,6 +316,14 @@ section[id] { scroll-margin-top: 28px; }
         </div>
     </details>
     <details data-rise>
+        <summary>용어집<span class="role">직접 구현</span></summary>
+        <div>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">특정 언어는 같은 단어라도 <b>문장 안에서의 문법적 역할에 따라 형태가 달라지는 격변화</b>가 존재합니다. 그래서 <b>언어별 정규화형을 미리 계산해 저장</b>하고, 매칭할 때 <b>같은 규칙으로 비교</b>합니다.</p>
+            <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">시스템 아키텍처</p>
+            <img data-rise loading="lazy" decoding="async" src="img/arch-glossary.svg" alt="용어집 아키텍처" style="width:100%;margin-top:6px;">
+        </div>
+    </details>
+    <details data-rise>
         <summary>평가<span class="role">팀원과 공동 구현</span></summary>
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;"><b>수년 전부터</b> 국제 표준 <b>MQM</b>을 사내 기준으로 변환한 채점 체계가 이미 있었습니다. 기존에는 <b>사람이 그 기준대로</b> 기계번역 결과를 채점했고, 지금은 <b>평가기가 같은 기준으로</b> 채점합니다.</p>
@@ -316,24 +337,11 @@ section[id] { scroll-margin-top: 28px; }
         </div>
     </details>
     <details data-rise>
-        <summary>기계번역<span class="role">직접 구현</span></summary>
+        <summary class="dim">원본 교정<span class="role">팀원 구현</span></summary>
         <div>
-            <p style="font-size:15px;line-height:1.7;margin-top:4px;">번역 전에는 깨질 수 있는 <b>태그를 가려두고</b> 용어집·유사 문장·캐릭터 페르소나를 모아 프롬프트를 조립합니다. 번역 후에는 <b>결과를 그대로 믿지 않고</b> 검사와 리플렉션을 거칩니다.</p>
-            <ul>
-                <li data-rise><b>무결성 검사 · 리플렉션</b>: <b>가려둔 태그가 그대로 돌아왔는지, 변수가 같은 수로 남았는지, 용어를 빠뜨리지 않았는지</b> 코드로 검사합니다. <b>실패한 항목만 LLM이 수정하고 다시 검사합니다.</b> 루프가 끝나도 결함이 남으면 <b>결함이 가장 적은 후보를 내보냅니다.</b></li>
-                <li data-rise><b>문장 묶기</b>: 일정 구간 단위로 <b>대화와 비대화를 분류</b>하고 같은 성격끼리 붙여 한 번에 보냅니다. 분류에 실패한 구간은 비대화로 처리해 <b>멈추지 않고</b> 넘어갑니다.</li>
-                <li data-rise><b>모델 라우팅</b>: <b>평가기를 통해 언어쌍마다 점수가 가장 높은 LLM을 선정</b>합니다. 심판은 한 모델이 아니라 여러 모델로 두어, 특정 계열에 유리한 채점을 막습니다.</li>
-            </ul>
+            <p style="font-size:15px;line-height:1.7;margin-top:4px;">한국어 원본의 오탈자·잘못된 용어는 번역을 거치면 <b>모든 언어로 증폭</b>됩니다. <b>숫자가 든 변경은 통째로 거부</b>하고(게임 데이터 보호가 교정률보다 우선), 최종 채택은 <b>사람이 문장별로 확정</b>합니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
-            <img data-rise loading="lazy" decoding="async" src="img/flow-translation.svg" alt="기계번역 처리 흐름" style="width:100%;margin-top:6px;">
-        </div>
-    </details>
-    <details data-rise>
-        <summary>용어집<span class="role">직접 구현</span></summary>
-        <div>
-            <p style="font-size:15px;line-height:1.7;margin-top:4px;">특정 언어는 같은 단어라도 <b>문장 안에서의 문법적 역할에 따라 형태가 달라지는 격변화</b>가 존재합니다. 그래서 <b>언어별 정규화형을 미리 계산해 저장</b>하고, 매칭할 때 <b>같은 규칙으로 비교</b>합니다.</p>
-            <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">시스템 아키텍처</p>
-            <img data-rise loading="lazy" decoding="async" src="img/arch-glossary.svg" alt="용어집 아키텍처" style="width:100%;margin-top:6px;">
+            <img data-rise loading="lazy" decoding="async" src="img/flow-correction.svg" alt="원본 교정 처리 흐름" style="width:100%;margin-top:6px;">
         </div>
     </details>
     <details data-rise>
@@ -346,14 +354,6 @@ section[id] { scroll-margin-top: 28px; }
                 <li data-rise><b>용어집 등록</b> — 텍스트만 받던 1세대와 달리, 개발사가 실제 쓰는 <b>이미지 섞인 용어집도 가공 없이 그대로 등록</b>합니다.</li>
                 <li data-rise><b>스킬 배포</b> — 플랫폼 웹에 접속하지 않아도, <b>Claude Code 같은 AI 도구에서 바로 번역할 수 있는 스킬</b>을 배포했습니다.</li>
             </ul>
-        </div>
-    </details>
-    <details data-rise>
-        <summary class="dim">원본 교정<span class="role">팀원 구현</span></summary>
-        <div>
-            <p style="font-size:15px;line-height:1.7;margin-top:4px;">한국어 원본의 오탈자·잘못된 용어는 번역을 거치면 <b>모든 언어로 증폭</b>됩니다. <b>숫자가 든 변경은 통째로 거부</b>하고(게임 데이터 보호가 교정률보다 우선), 최종 채택은 <b>사람이 문장별로 확정</b>합니다.</p>
-            <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
-            <img data-rise loading="lazy" decoding="async" src="img/flow-correction.svg" alt="원본 교정 처리 흐름" style="width:100%;margin-top:6px;">
         </div>
     </details>
 </section>
