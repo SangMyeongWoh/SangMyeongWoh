@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" width="760" height="332" role="img" aria-label="1세대 MARGE 답변 흐름 — 쿼리 분석 뒤 FAQ 판정을 거쳐 일치하면 즉답, 불일치하면 하이브리드 검색, LLM 리랭킹, 답변 생성으로 이어지는 한 방향 파이프라인. 검색이 쓰는 자산은 Q-cluster와 고유명사·동의어 사전">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" width="760" height="332" role="img" aria-label="1세대 MARGE 답변 흐름 — 쿼리 이해 뒤 FAQ 판정을 거쳐 일치하면 즉답, 불일치하면 하이브리드 검색, LLM 리랭킹, 답변 생성으로 이어지는 한 방향 파이프라인. 검색이 쓰는 자산은 Q-cluster와 고유명사·동의어 사전">
 <style>
   .bg  { fill: #ffffff; }
   .pan { fill: #f4f8f7; stroke: #dce5e2; }
@@ -42,11 +42,11 @@
 <text class="t sub" x="30" y="37">질문</text>
 <path class="ln" d="M102 52 L102 80" marker-end="url(#a)"/>
 
-<text class="k mut" x="284" y="52">한 방향 파이프라인 — 중간에 되돌아가는 길이 없음</text>
+<text class="k mut" x="284" y="52">고정 플로우 — 중간에 되돌아가는 길이 없음</text>
 
 <!-- 4단 파이프라인 -->
 <rect class="box" x="16" y="84" width="172" height="68" rx="10"/>
-<text class="t ink" x="30" y="108">① 쿼리 분석</text>
+<text class="t ink" x="30" y="108">① 쿼리 이해</text>
 <text class="s mut" x="30" y="128">이력으로 생략 복원</text>
 <text class="s mut" x="30" y="143">원본과 재작성 쿼리 병렬</text>
 
