@@ -95,12 +95,14 @@
 <text class="k mut" x="476" y="197">채택</text>
 <text class="k mut" x="680" y="174">차단</text>
 
-<rect class="box" x="380" y="204" width="176" height="54" rx="9"/>
+<rect class="box" x="380" y="204" width="176" height="66" rx="9"/>
 <text class="t sub" x="394" y="226">근거 답변</text>
-<text class="s mut" x="394" y="245">출처·담당자 함께 제공</text>
+<text class="s mut" x="394" y="243">출처·담당자 함께 제공</text>
+<text class="s mut" x="394" y="259">근거 없으면 없다고 답함</text>
 
-<rect class="box" x="576" y="204" width="176" height="54" rx="9"/>
+<rect class="box" x="576" y="204" width="176" height="66" rx="9"/>
 <text class="t sub" x="590" y="226">정중한 거절</text>
-<text class="s mut" x="590" y="245">지어내지 않고 안내</text>
+<text class="s mut" x="590" y="243">정책에 어긋나는 질문</text>
+<text class="s mut" x="590" y="259">등록된 거절문으로 응답</text>
 
 </svg>
