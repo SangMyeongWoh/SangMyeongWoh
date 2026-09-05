@@ -149,7 +149,7 @@
 <path class="ln" d="M628 222 L628 238" marker-end="url(#a)"/>
 <rect class="box" x="528" y="242" width="200" height="52" rx="8"/>
 <use href="#i-run" x="536" y="250" width="18" height="18"/>
-<text class="s ink" x="560" y="262">채점 워커 · Cloud Run 잡</text>
+<text class="s ink" x="560" y="262">채점 워커 · Cloud Run Job</text>
 <text class="s mut" x="560" y="280">MQM 기준 자동 채점</text>
 <path class="ln" d="M628 294 L628 312" marker-end="url(#a)"/>
 <rect class="box" x="528" y="316" width="200" height="36" rx="8"/>
