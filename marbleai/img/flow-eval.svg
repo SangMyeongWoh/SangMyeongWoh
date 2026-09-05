@@ -45,8 +45,8 @@
 <text class="s mut" x="30" y="123">태그·미번역·숫자 등 확정 오류 — LLM 없이</text>
 <path class="ln" d="M188 138 L188 158" marker-end="url(#a)"/>
 <rect class="box" x="16" y="162" width="344" height="58" rx="9"/>
-<text class="t ink" x="30" y="186">용어 대조</text>
-<text class="s mut" x="30" y="205">지정 용어를 썼는지 용어집으로 확인</text>
+<text class="t ink" x="30" y="186">용어 조회</text>
+<text class="s mut" x="30" y="205">지정 용어·정답 번역을 받아 둠 · 심판 힌트와 기각에 사용</text>
 <path class="ln" d="M360 191 L372 191 L372 43"/>
 <path class="ln" d="M372 43 L396 43" marker-end="url(#a)"/>
 <rect class="box hot" x="400" y="14" width="344" height="58" rx="9"/>
