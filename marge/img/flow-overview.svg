@@ -39,7 +39,7 @@
 
 <!-- 재시도 루프 (위쪽) -->
 <path class="ln dsh" d="M666 84 L666 40 L150 40 L150 80" marker-end="url(#a)"/>
-<text class="k mut" x="284" y="33">근거가 부족하면 다시 계획 (최대 3회)</text>
+<text class="k mut" x="284" y="33">찾아볼 범위·검색어가 남으면 다시 계획 (최대 3회)</text>
 
 <!-- 재생성 루프 (④→③) -->
 <path class="ln dsh" d="M652 84 C 652 42, 476 42, 476 82" marker-end="url(#a)"/>
