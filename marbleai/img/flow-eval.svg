@@ -55,7 +55,7 @@
 <path class="ln" d="M572 72 L572 92" marker-end="url(#a)"/>
 <rect class="box" x="400" y="96" width="344" height="58" rx="9"/>
 <text class="t ink" x="414" y="120">근거 검증</text>
-<text class="s mut" x="414" y="139">지정 용어를 잘못됐다고 지적할 경우 감점 무효화</text>
+<text class="s mut" x="414" y="139">지적된 부분이 지정 용어를 올바르게 쓴 것이면 감점 무효화</text>
 <path class="ln" d="M572 154 L572 174" marker-end="url(#a)"/>
 <rect class="box" x="400" y="178" width="344" height="58" rx="9"/>
 <text class="t ink" x="414" y="202">감점 · 점수</text>
