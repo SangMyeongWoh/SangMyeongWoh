@@ -240,7 +240,7 @@ section[id] { scroll-margin-top: 28px; }
 <!-- ============ A2 — Action ============ -->
 <section class="narr" id="action">
     <h2><span class="mono">Action</span>구현</h2>
-    <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span>Cloud Run 안에서도 작업 분기를 뒀습니다. 전체 번역 작업 중 <b>60%가 100문장 미만</b>일 만큼 작은 작업이 대부분이라, 작은 작업에까지 <b>Cloud Run Job의 콜드스타트를 사용자가 부담할 필요는 없었습니다.</b> 그래서 접수 단계에서 <b>문장 수와 언어 수를 곱한 작업 크기</b>를 추정해, 워커가 한 번에 감당할 양 안이면 <b>상시 띄워둔 Cloud Run Service</b>로, 넘으면 <b>Cloud Run Job</b>으로 보냅니다. 추정에 실패하면 Job으로 보냅니다. 두 경로 모두 접수 서버가 Cloud Tasks 큐로 넘깁니다. 이와 별개로, 파일이 아니라 화면에 텍스트를 직접 입력해 결과를 바로 보는 즉시 번역은 <b>큐를 거치지 않는 전용 경량 서비스</b>가 응답합니다. 배포는 <b>GitHub Actions</b>로 자동화했습니다. Cloud Run은 새 리비전이 새 요청만 받고 이미 시작된 작업은 끝까지 돌기 때문에, <b>배포 시점을 고를 필요가 없어졌습니다.</b> MarbleAI 플랫폼과 AI 백엔드 사이의 통신은 <b>다른 팀이 운영하는 Bridge(GKE)</b>가 맡으며, 이번 재설계 범위 밖입니다.</p>
+    <p><span class="ref"><b>01</b>확장성</span><span class="ref"><b>02</b>배포</span>Cloud Run 안에서도 작업 분기를 뒀습니다. 전체 번역 작업 중 <b>60%가 100문장 미만</b>일 만큼 작은 작업이 대부분이라, 작은 작업에까지 <b>Cloud Run Job의 콜드스타트를 사용자가 부담할 필요는 없었습니다.</b> 그래서 접수 단계에서 <b>문장 수와 언어 수를 곱한 작업 크기</b>를 추정해, 워커가 한 번에 감당할 양 안이면 <b>상시 띄워둔 Cloud Run Service</b>로, 넘으면 <b>Cloud Run Job</b>으로 보냅니다. 추정에 실패하면 Job으로 보냅니다. 두 경로 모두 접수 서버가 Cloud Tasks 큐로 넘깁니다. 이와 별개로, 파일이 아니라 화면에 텍스트를 직접 입력해 결과를 바로 보는 즉시 번역은 <b>큐를 거치지 않는 전용 경량 서비스</b>가 응답합니다. 배포는 <b>GitHub Actions</b>로 자동화했습니다. Cloud Run은 새 리비전이 새 요청만 받고 이미 시작된 작업은 끝까지 돌기 때문에, <b>배포 시점을 고를 필요가 없어졌습니다.</b></p>
     <p style="margin-top:10px;">만약 <b>큰 작업에 대한 트래픽이 상시화된다면 다시 한번 다른 선택을 고민</b>해야 합니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>운영 공수</span>사람이 붙어야 하던 두 자리를 각각 자동화했습니다.</p>
     <div class="sublist" style="margin-top:14px;">
@@ -268,6 +268,7 @@ section[id] { scroll-margin-top: 28px; }
     <p style="font-size:13px;color:var(--muted);margin:30px 0 8px;">2세대 MaMT — 시스템 아키텍처</p>
     <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;">
         <img data-rise loading="lazy" decoding="async" src="img/arch-overview.svg" alt="2세대 MaMT 시스템 아키텍처 — 교정·기계번역·평가 시스템이 용어집과 저장소를 공유, 워커는 작업 크기만큼 늘어나는 서버리스" style="width:100%;">
+        <p style="font-size:12.5px;color:var(--muted);margin:10px 0 0;">※ Bridge(GKE)는 다른 팀이 운영하는 MarbleAI 백엔드입니다. 이번 재설계 범위 밖입니다.</p>
     </div>
 </section>
 
