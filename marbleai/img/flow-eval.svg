@@ -51,7 +51,7 @@
 <path class="ln" d="M372 43 L396 43" marker-end="url(#a)"/>
 <rect class="box hot" x="400" y="14" width="344" height="58" rx="9"/>
 <text class="t ink" x="414" y="38">LLM 심판</text>
-<text class="s mut" x="414" y="57">원문과 대조해 오역·누락·문법 탐지</text>
+<text class="s mut" x="414" y="57">원문과 대조해 오역·누락·문법 탐지 · 여러 모델</text>
 <path class="ln" d="M572 72 L572 92" marker-end="url(#a)"/>
 <rect class="box" x="400" y="96" width="344" height="58" rx="9"/>
 <text class="t ink" x="414" y="120">근거 검증</text>

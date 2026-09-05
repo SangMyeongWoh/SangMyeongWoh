@@ -290,7 +290,7 @@ section[id] { scroll-margin-top: 28px; }
             <ul>
                 <li data-rise><b>무결성 검사 · 리플렉션</b>: <b>가려둔 태그가 그대로 돌아왔는지, 변수가 같은 수로 남았는지, 용어를 빠뜨리지 않았는지</b> 코드로 검사합니다. <b>실패한 항목만 LLM이 수정하고 다시 검사합니다.</b> 루프가 끝나도 결함이 남으면 <b>결함이 가장 적은 후보를 내보냅니다.</b></li>
                 <li data-rise><b>문장 묶기</b>: 일정 구간 단위로 <b>대화와 비대화를 분류</b>하고 같은 성격끼리 붙여 한 번에 보냅니다. 분류에 실패한 구간은 비대화로 처리해 <b>멈추지 않고</b> 넘어갑니다.</li>
-                <li data-rise><b>모델 라우팅</b>: <b>평가기를 통해 언어쌍마다 점수가 가장 높은 LLM을 선정</b>합니다. 심판은 한 모델이 아니라 여러 모델로 두어, 특정 계열에 유리한 채점을 막습니다.</li>
+                <li data-rise><b>모델 라우팅</b>: <b>평가기를 통해 언어쌍마다 점수가 가장 높은 LLM을 선정</b>합니다. 평가기의 심판이 여러 모델이라 특정 계열에 유리한 선정이 되지 않습니다.</li>
             </ul>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
             <img data-rise loading="lazy" decoding="async" src="img/flow-translation.svg" alt="기계번역 처리 흐름" style="width:100%;margin-top:6px;">
@@ -331,7 +331,7 @@ section[id] { scroll-margin-top: 28px; }
             <ul>
                 <li data-rise><b>GT 정의</b>: 같은 기준일지라도 <b>사람마다 채점 점수는 제법 다른 편</b>입니다. 특정 채점자를 GT로 놓는 대신, <b>사람 간 편차 범위 수준으로 평가기 결과를 내는 것</b>을 목표로 삼았습니다.</li>
                 <li data-rise><b>검증</b>: <b>수년간 쌓인 사람 채점 데이터</b>와 대조해 <b>평가기의 오차가 사람 간 오차 범위 수준으로</b> 들어오는 것을 확인했습니다.</li>
-                <li data-rise><b>판정 구조</b>: 확실한 오류는 규칙이 LLM 없이 잡고, 애매한 것만 <b>LLM 심판</b>이 원문과 대조합니다. 심판의 주장도 <b>근거를 검증해 틀린 지적은 기각</b>합니다.</li>
+                <li data-rise><b>판정 구조</b>: 확실한 오류는 규칙이 LLM 없이 잡고, 애매한 것만 <b>LLM 심판</b>이 원문과 대조합니다. 심판은 한 모델이 아니라 <b>여러 모델을 두어</b>, 특정 계열에 유리한 채점을 막습니다. 심판의 주장도 <b>근거를 검증해 틀린 지적은 기각</b>합니다.</li>
             </ul>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">처리 흐름</p>
             <img data-rise loading="lazy" decoding="async" src="img/flow-eval.svg" alt="평가 처리 흐름" style="width:100%;margin-top:6px;">
