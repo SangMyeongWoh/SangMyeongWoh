@@ -321,7 +321,7 @@ section[id] { scroll-margin-top: 28px; }
         <div>
             <p style="font-size:15px;line-height:1.7;margin-top:4px;">번역 결과에서 지정 용어를 제대로 썼는지 검사할 때 걸리는 언어가 있습니다. 러시아어처럼 같은 단어라도 <b>문장 안에서의 문법적 역할에 따라 형태가 달라지는 격변화</b>가 있는 언어입니다. 형태가 바뀌면 용어를 썼는데도 못 썼다고 판정될 수 있어서, <b>언어별 정규화형을 미리 계산해 저장</b>하고 검사할 때 <b>같은 규칙으로 비교</b>합니다.</p>
             <p style="font-size:13px;color:var(--muted);margin:10px 0 2px;">시스템 아키텍처</p>
-            <img data-rise loading="lazy" decoding="async" src="img/arch-glossary.svg" alt="용어집 아키텍처" style="width:100%;margin-top:6px;">
+            <img data-rise loading="lazy" decoding="async" src="img/arch-glossary.svg" alt="용어집 구성 — 기계번역·원본 교정·평가가 용어집 API를 조회. API 안에 match(원문에서 용어 찾기)와 validate(번역문의 용어 사용 확인, 정규화형으로 격변화 대응). 조회는 메모리 캐시 → GCS 캐시 → Cloud SQL 순" style="width:100%;margin-top:6px;">
         </div>
     </details>
     <details data-rise>
