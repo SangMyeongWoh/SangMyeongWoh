@@ -82,10 +82,10 @@
 <text class="t ink" x="380" y="35" text-anchor="middle">AI 스튜디오 — 플랫폼 웹</text>
 <path class="ln" d="M380 50 L380 70" marker-end="url(#a)"/>
 
-<rect class="box" x="270" y="74" width="220" height="44" rx="9"/>
+<rect class="box" x="230" y="74" width="300" height="44" rx="9"/>
 <use href="#i-gke" x="312" y="78" width="16" height="16"/>
 <text class="t ink" x="380" y="92" text-anchor="middle">Bridge (GKE)</text>
-<text class="s mut" x="380" y="109" text-anchor="middle">프론트 ↔ AI 서비스 중계</text>
+<text class="s mut" x="380" y="109" text-anchor="middle">MarbleAI ↔ AI 백엔드 통신 · 다른 팀 운영</text>
 
 <path class="ln" d="M380 118 L380 138 L132 138 L132 156" marker-end="url(#a)"/>
 <path class="ln" d="M380 118 L380 156" marker-end="url(#a)"/>
