@@ -76,5 +76,5 @@
 <rect class="box" x="548" y="302" width="196" height="58" rx="9"/>
 <text class="t ink" x="562" y="326">③ Cloud SQL</text>
 <text class="s mut" x="562" y="345">원문형 + 정규화형</text>
-<text class="s mut" x="16" y="390">용어가 바뀌면 캐시가 자동으로 새로 구워집니다 — 매칭을 고쳐도 기계번역 재배포가 필요 없습니다.</text>
+<text class="s mut" x="16" y="390">용어가 바뀌면 캐시가 자동으로 새로 구워집니다. 매칭 엔진이 용어집 서비스 안에 있어, 매칭을 고쳐도 기계번역은 손대지 않습니다.</text>
 </svg>
