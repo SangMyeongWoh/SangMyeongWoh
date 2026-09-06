@@ -175,7 +175,7 @@
 <use href="#i-sql" x="408" y="504" width="13" height="13"/>
 <text class="s mut" x="426" y="516">Cloud SQL — 작업 상태 · 용어</text>
 <use href="#i-gcs" x="408" y="520" width="13" height="13"/>
-<text class="s mut" x="426" y="532">GCS — 파일 · 캐시 · 결과물</text>
+<text class="s mut" x="426" y="532">GCS — 파일 · 캐시 · 결과물 · 로그</text>
 
 <text class="s mut" x="16" y="566">워커는 작업 크기만큼 늘어나는 서버리스입니다.</text>
 </svg>
