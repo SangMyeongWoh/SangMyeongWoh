@@ -137,7 +137,7 @@
 <text class="s mut" x="392" y="338">대형 · 배치</text>
 <rect class="box dsh" x="280" y="376" width="200" height="48" rx="8"/>
 <use href="#i-run" x="458" y="382" width="15" height="15"/>
-<text class="s ink" x="292" y="396">실시간 경량 서비스</text>
+<text class="s ink" x="292" y="396">즉시 번역 · 경량 서비스</text>
 <text class="s mut" x="292" y="413">큐 없이 바로 응답</text>
 
 <!-- 평가 -->
