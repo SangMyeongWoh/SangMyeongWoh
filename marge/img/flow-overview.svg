@@ -102,7 +102,7 @@
 
 <rect class="box" x="576" y="204" width="176" height="66" rx="9"/>
 <text class="t sub" x="590" y="226">정중한 거절</text>
-<text class="s mut" x="590" y="243">정책에 어긋나는 질문</text>
+<text class="s mut" x="590" y="243">정책에 어긋나는 답</text>
 <text class="s mut" x="590" y="259">등록된 거절문으로 응답</text>
 
 </svg>
