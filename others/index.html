@@ -161,7 +161,7 @@ section[id] { scroll-margin-top: 28px; }
 <section class="proj" data-rise id="asdal">
     <div class="phead"><h2>아스달 연대기 지식의 서</h2><span class="when">2023.10 – 2024.05</span></div>
     <div class="tags"><span>개발 · 기획 · 설계</span><span>총 2명</span><span>RAG</span><span>MongoDB Atlas</span></div>
-    <p>게임 출시에 맞춰 공략 정보를 답해 주는 <b>B2C RAG 챗봇</b>의 검색 엔진을 만들었습니다. 불특정 다수가 쓰는 서비스라 응답 지연과 LLM 비용이 그대로 서비스 품질이 됐습니다.</p>
+    <p>게임 출시에 맞춰 공략 정보를 답해 주는 <b>B2C RAG 챗봇</b>의 검색 엔진을 만들었습니다. 불특정 다수가 쓰는 서비스라 응답 시간을 줄이면서 LLM 호출 비용도 관리해야 했습니다.</p>
     <p>BM25와 벡터 검색을 <b>RRF로 융합하고</b>, 게임 고유명사를 <b>사용자 사전으로 등록한 한국어 토크나이저</b>를 썼습니다. 자주 나올 질문은 <b>미리 캐싱해 검색·생성 없이 즉답</b>하게 했고, 근거가 없는 질문은 답변 불가로 걸러냈습니다. 문서 전처리와 서비스 운영, 부서 간 소통도 함께 맡았습니다. 이때 만든 RAG 베이스라인이 이후 <a href="../marge/">MARGE</a>로 이어졌습니다.</p>
     <figure><img src="img/flow-arthdal.svg" alt="아스달 연대기 지식의 서 전체 흐름 — 질문에 대해 BM25·벡터 검색을 RRF로 결합하고 캐시 적중 여부에 따라 저장된 답변 또는 RAG 답변을 반환합니다." loading="lazy" decoding="async"><figcaption>전체 흐름 — 캐시에 걸리면 검색·생성 없이 즉시 답합니다.</figcaption></figure>
 </section>
