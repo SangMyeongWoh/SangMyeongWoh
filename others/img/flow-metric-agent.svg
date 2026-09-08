@@ -69,5 +69,5 @@
 <text class="s mut" x="536" y="201">계산과 시각화</text>
 <rect class="pan" x="16" y="240" width="728" height="46" rx="9"/>
 <text class="k acc" x="30" y="261">평가</text>
-<text class="s sub" x="30" y="280">SA를 변형해 Recall을 강조한 지표로 리포트 정확도를 측정</text>
+<text class="s sub" x="30" y="280">필요한 지표를 빠뜨리지 않았는지(Recall) 중심으로 리포트 정확도를 측정</text>
 </svg>
