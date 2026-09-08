@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" width="760" height="332" role="img" aria-label="데이터 리포트 에이전트 전체 흐름 — 매니저 에이전트가 지표 추출, 데이터 분석, 웹 검색, 요약 작성 에이전트를 조율해 게임 데이터를 PDF와 PPT 보고서로 만듭니다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" width="760" height="332" role="img" aria-label="데이터 리포트 에이전트 전체 흐름 — 오케스트레이터가 지표 추출, 데이터 분석, 웹 검색, 요약 작성 에이전트를 호출해 게임 데이터를 PDF와 PPT 보고서로 만듭니다.">
 <style>
   .bg  { fill: #ffffff; }
   .pan { fill: #f4f8f7; stroke: #dce5e2; }
@@ -46,7 +46,7 @@
 <path class="ln" d="M206 65 L234 65" marker-end="url(#a)"/>
 
 <rect class="box hot" x="238" y="36" width="230" height="58" rx="9"/>
-<text class="t ink" x="252" y="60">매니저 에이전트</text>
+<text class="t ink" x="252" y="60">오케스트레이터</text>
 <text class="s mut" x="252" y="79">분석 → 작성 워크플로우 조율</text>
 
 <path class="ln" d="M353 94 L353 114 L100 114 L100 132" marker-end="url(#a)"/>
