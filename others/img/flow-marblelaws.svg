@@ -58,7 +58,7 @@
 <path class="ln" d="M665 94 V132 H390 V152" marker-end="url(#a)"/>
 <rect class="box" x="290" y="160" width="200" height="50" rx="9"/>
 <text class="t ink" x="304" y="184">법무팀 검토</text>
-<text class="s mut" x="304" y="203">재문의 없이 바로 상담</text>
+<text class="s mut" x="304" y="203">취합된 정보로 상담 검토</text>
 <rect class="pan" x="16" y="232" width="728" height="50" rx="9"/>
 <text class="k acc" x="30" y="253">구성</text>
 <text class="s sub" x="30" y="272">ADK SequentialAgent · AG-UI + Flutter · Cloud Run · Jenkins CI/CD</text>
