@@ -65,18 +65,18 @@
 <text class="s mut" x="594" y="128">T/F 판별 → 7가지 전략</text>
 <text class="s mut" x="594" y="143">인용 후처리</text>
 
+<path class="ln" d="M188 118 L200 118" marker-end="url(#a)"/>
 <path class="ln" d="M376 118 L388 118" marker-end="url(#a)"/>
 <path class="ln" d="M564 118 L576 118" marker-end="url(#a)"/>
 
-<!-- FAQ 판정 (① 뒤, ② 앞) -->
+<!-- FAQ 판정 (① 뒤, ②와 나란히) -->
 <path class="ln" d="M102 152 L102 180" marker-end="url(#a)"/>
 <rect class="box" x="16" y="184" width="172" height="54" rx="9"/>
 <text class="t ink" x="30" y="206">FAQ 판정</text>
 <text class="s mut" x="30" y="225">LLM 판정 + 벡터 유사도</text>
-<path class="ln dsh" d="M188 200 L290 200 L290 156" marker-end="url(#a)"/>
-<text class="k mut" x="298" y="182">불일치 → 검색</text>
+<text class="k mut" x="300" y="205">불일치 → 검색 결과로 답변 생성</text>
 <path class="ln dsh" d="M188 222 L530 222" marker-end="url(#a)"/>
-<text class="k mut" x="300" y="240">일치 · 파이프라인 없이 FAQ 답 반환</text>
+<text class="k mut" x="300" y="240">일치 → 생성 대신 FAQ 답 반환</text>
 
 <!-- 출력 -->
 <path class="ln" d="M666 152 L666 180" marker-end="url(#a)"/>
