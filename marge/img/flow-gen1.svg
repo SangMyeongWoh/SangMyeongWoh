@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" width="760" height="332" role="img" aria-label="1세대 MARGE 답변 흐름 — 쿼리 이해 뒤 FAQ 판정을 거쳐 일치하면 FAQ 답 반환, 불일치하면 하이브리드 검색, LLM 리랭킹, 답변 생성으로 이어지는 고정 플로우. 검색이 쓰는 자산은 Q-cluster와 고유명사·동의어 사전">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" width="760" height="332" role="img" aria-label="1세대 MARGE 답변 흐름 — 쿼리 이해 뒤 FAQ 판정을 거쳐 일치하면 FAQ 답 반환, 불일치하면 하이브리드 검색, LLM 리랭킹, 답변 분기로 이어지는 고정 플로우. 검색이 쓰는 자산은 Q-cluster와 고유명사·동의어 사전">
 <style>
   .bg  { fill: #ffffff; }
   .pan { fill: #f4f8f7; stroke: #dce5e2; }
@@ -56,13 +56,13 @@
 
 <rect class="box" x="392" y="84" width="172" height="68" rx="10"/>
 <text class="t ink" x="406" y="108">③ LLM 리랭킹</text>
-<text class="s mut" x="406" y="128">넘치면 트리 가지치기 →</text>
-<text class="s mut" x="406" y="143">마지막에 LLM 병렬 필터링</text>
+<text class="s mut" x="406" y="128">넘치면 먼저 트리 가지치기</text>
+<text class="s mut" x="406" y="143">LLM 병렬 리랭킹은 항상</text>
 
 <rect class="box" x="580" y="84" width="172" height="68" rx="10"/>
-<text class="t ink" x="594" y="108">④ 답변 생성</text>
-<text class="s mut" x="594" y="128">T/F 판별 → 7가지 전략</text>
-<text class="s mut" x="594" y="143">인용 후처리</text>
+<text class="t ink" x="594" y="108">④ 답변 분기</text>
+<text class="s mut" x="594" y="128">체크리스트 T/F 판정</text>
+<text class="s mut" x="594" y="143">7가지 로직으로 분기</text>
 
 <path class="ln" d="M188 118 L200 118" marker-end="url(#a)"/>
 <path class="ln" d="M376 118 L388 118" marker-end="url(#a)"/>
@@ -70,18 +70,18 @@
 
 <!-- FAQ 판정 (① 뒤, ②와 나란히) -->
 <path class="ln" d="M102 152 L102 180" marker-end="url(#a)"/>
-<rect class="box" x="16" y="184" width="172" height="54" rx="9"/>
+<rect class="box" x="16" y="184" width="172" height="68" rx="9"/>
 <text class="t ink" x="30" y="206">FAQ 판정</text>
 <text class="s mut" x="30" y="225">LLM 판정 + 벡터 유사도</text>
-<text class="k mut" x="300" y="205">불일치 → 검색 결과로 답변 생성</text>
-<path class="ln dsh" d="M188 222 L530 222" marker-end="url(#a)"/>
-<text class="k mut" x="300" y="240">일치 → 생성 대신 FAQ 답 반환</text>
+<text class="k mut" x="30" y="242">일치 → FAQ 답 반환</text>
+<path class="ln dsh" d="M188 218 L200 218" marker-end="url(#a)"/>
 
 <!-- 출력 -->
 <path class="ln" d="M666 152 L666 180" marker-end="url(#a)"/>
-<rect class="box" x="534" y="184" width="218" height="54" rx="9"/>
-<text class="t sub" x="548" y="206">답변</text>
-<text class="s mut" x="548" y="225">출처 문서 · 담당자 함께 제공</text>
+<rect class="box" x="204" y="184" width="548" height="68" rx="9"/>
+<text class="t sub" x="218" y="206">답변</text>
+<text class="s mut" x="218" y="226">FAQ 답 반환 · 일반 답변 · 문서 집계 리포트 · 잡담 · 메타 질문 · 정형 거절 · 사과</text>
+<text class="s mut" x="218" y="243">출처 문서 · 담당자 함께 제공</text>
 
 <!-- 공용 자산 -->
 <rect class="pan" x="16" y="266" width="728" height="54" rx="12"/>
