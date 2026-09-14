@@ -186,7 +186,7 @@ section[id] { scroll-margin-top: 28px; }
 <section class="narr" id="analyze">
     <h2><span class="mono">Analyze</span>설계 판단</h2>
     <p><span class="ref"><b>01</b>쿼리 이해</span>사내 용어는 사전으로, 생략된 맥락은 대화 이력으로 보충할 수 있었습니다. 다만 <b>다시 쓴 질문이 원래 뜻에서 벗어날 수 있다</b>는 점은 감안해야 했습니다.</p>
-    <p style="margin-top:14px;"><span class="ref"><b>02</b>문서 전처리</span>토큰 수 기준으로 기계적으로 자르면 <b>문장이나 설명이 중간에서 끊깁니다.</b> 잘린 조각은 검색돼도 반쪽짜리 근거가 됩니다. 그래서 <b>설명이 중간에서 끊기지 않도록 의미 단위로 자르는 전처리가 필요했습니다.</b></p>
+    <p style="margin-top:14px;"><span class="ref"><b>02</b>문서 전처리</span>토큰 수 기준으로 기계적으로 자르면 <b>문장이나 설명이 중간에서 끊깁니다.</b> 잘린 조각은 검색돼도 반쪽짜리 근거가 됩니다. 그래서 의미 단위로 자르는 전처리가 필요했고, 사내 문서에 많은 <b>표와 서식을 중간에서 끊지 않고 자를 수 있는 방법이 LumberChunker</b>(<a href="https://arxiv.org/abs/2406.17526" target="_blank" rel="noopener">Duarte et al., 2024</a>)였습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>검색</span>키워드 검색은 고유명사만 등록해 주면 사내 용어를 잘 잡아 문제가 없었습니다. 벡터 검색은 질문과 세그먼트의 유사도 비교를 하는 대신, <b>질문과 질문 사이의 비교</b>로 바꿔서 수행하고자 했습니다. 양질의 답변을 위해 유저 질의와 무관한 후보는 검색 후 한 번 필터링해야 했습니다. <b>크로스인코더는 서빙 비용이 비싸 API형 LLM으로 대신</b>하고자 했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>답변 분기</span>MTRAG(<a href="https://arxiv.org/abs/2501.03468" target="_blank" rel="noopener">Katsis et al., 2025</a>)의 질문 유형·답변 가능성 분류를 참고해, 사내 질문에 맞게 <b>답변 형식을 일곱 가지로</b> 나눴습니다.</p>
     <ul style="margin-top:6px;">
@@ -204,7 +204,7 @@ section[id] { scroll-margin-top: 28px; }
 <section class="narr" id="action">
     <h2><span class="mono">Action</span>구현</h2>
     <p><span class="ref"><b>01</b>쿼리 이해</span>앞선 대화 이력을 포함하여 유저 의도를 파악하고, <b>의도에 걸맞게 쿼리를 재작성</b>합니다. 이때 챗봇마다 따로 둔 <b>고유명사 및 동의어 사전</b>을 함께 제공하고, <b>재작성 쿼리와 원본 쿼리를 둘 다 검색에 넘겨</b> 재작성 오류를 최소화합니다.</p>
-    <p style="margin-top:14px;"><span class="ref"><b>02</b>문서 전처리</span>청킹 방법 여러 개를 놓고 봤을 때, 사내 문서에 많은 <b>표와 서식을 중간에서 끊지 않고 자를 수 있는 것은 LumberChunker</b>(<a href="https://arxiv.org/abs/2406.17526" target="_blank" rel="noopener">Duarte et al., 2024</a>)였습니다. LLM에게 본문을 슬라이딩 윈도우로 보여 주고 <b>의미가 나뉘는 지점마다 표시하게 하는</b> 방식입니다. 이렇게 나눈 세그먼트를 BM25 토큰화해 두고, 벡터 검색을 위한 <b>예상 질문 셋(Q-cluster)</b>까지 생성합니다.</p>
+    <p style="margin-top:14px;"><span class="ref"><b>02</b>문서 전처리</span>문서는 <b>LumberChunker</b>로 나눕니다. LLM에게 본문을 슬라이딩 윈도우로 보여 주고 <b>의미가 나뉘는 지점마다 표시하게 하는</b> 방식입니다. 이렇게 나눈 세그먼트를 BM25 토큰화해 두고, 벡터 검색을 위한 <b>예상 질문 셋(Q-cluster)</b>까지 생성합니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>검색</span>키워드 검색은 BM25로, 벡터 검색은 유저 질의를 <b>세그먼트별 예상 질문(Q-cluster)과 비교</b>하도록 했습니다. 두 순위는 RRF로 합칩니다. 무관한 후보는 <b>LLM 리랭킹</b>으로 걸러냅니다. 후보가 컨텍스트 한도를 넘으면 <b>문서 트리(드라이브 폴더 &rarr; 문서 &rarr; 세그먼트 구조)로 먼저 줄이고 나서</b> 리랭킹합니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>04</b>답변 분기</span>답변 방식을 LLM이 직접 고르는 대신, <b>판별 항목을 체크리스트로 만들어 항목마다 T/F를 매기게</b> 했습니다. 판정한 결과의 조합을 읽어 <b>FAQ를 제외한 답변 형식 중 어디에 해당하는지 룰베이스로 선택</b>합니다.</p>
     <p style="margin-top:10px;">FAQ 판정은 속도를 위해 문서 검색과 병렬로 진행하며, <b>LLM 판정과 벡터 유사도를 둘 다 통과할 때만</b> 등록된 답변을 그대로 내보내도록 했습니다. LLM 판정은 유저 질의와 내용의 일치도를 보고, 벡터 유사도는 유저 질의와 FAQ에 등록된 질의 간 유사도를 비교합니다.</p>
@@ -236,11 +236,11 @@ section[id] { scroll-margin-top: 28px; }
 </section>
 <section class="narr">
     <h2><span class="mono">Action</span>구현</h2>
-    <p data-rise>초기 설계는 공동으로 진행했습니다. <b>ADK 2.0의 그래프 워크플로우</b> 위에 <b>Planner(계획) &rarr; Retriever(검색) &rarr; Generator(생성) &rarr; Verifier(검증)</b>의 흐름을 잡았습니다. <b>저는 1세대 기능 중 2세대에 그대로 가져가야 하는 것들을 이식했습니다.</b> 검색 엔진은 Retriever의 도구로, <b>출처 표시 · 담당자 제공</b>은 Generator로, <b>정책 위반 시 등록 거절문</b>은 Verifier의 차단 경로로 옮겼고, 생성 단계에는 가드레일을 넣었습니다.</p>
-    <p data-rise style="margin-top:10px;">기존 웹이 수정 없이 2세대를 쓰도록 1세대와 같은 API를 유지해 <b>무중단으로 전환</b>했고, 전환 전에 실제 질문으로 두 세대를 A/B 비교했습니다. 이후 직접 구현 및 고도화는 동료가 진행 중이고, 저는 고도화 논의에 참여하고 있습니다. 아래 네 노드의 세부 동작은 고도화된 현재 상태입니다.</p>
+    <p data-rise>초기 설계는 공동으로 진행했습니다. <b>ADK 2.0의 그래프 워크플로우</b> 위에 <b>Planner(계획) &rarr; Retriever(검색) &rarr; Generator(생성) &rarr; Verifier(검증)</b>의 흐름을 잡았습니다. <b>저는 1세대 기능 중 2세대에 그대로 가져가야 하는 것들을 이식했습니다.</b> 검색 엔진은 Retriever의 도구로, <b>출처 표시 · 담당자 제공</b>은 Generator로, <b>정책 위반 시 등록 거절문</b>은 Verifier의 차단 경로로 옮겼고, 생성 단계에는 가드레일을 넣었습니다. 충돌 감지는 이식하지 않았습니다.</p>
+    <p data-rise style="margin-top:10px;">기존 웹이 수정 없이 2세대를 쓰도록 1세대와 같은 API를 유지해 <b>무중단으로 전환</b>했고, 전환 전에 실제 질문으로 두 세대를 A/B 비교했습니다. 프롬프트 재구성은 동료가 맡아, 출력 형식을 Structured Output으로 넘기고 제약 규칙을 핵심만 남겼습니다. 이후 직접 구현 및 고도화는 동료가 진행 중이고, 저는 고도화 논의에 참여하고 있습니다. 아래 네 노드의 세부 동작은 고도화된 현재 상태입니다.</p>
     <p style="margin-top:16px;"><span class="ref">Planner</span>질문을 받으면 <b>가장 먼저 무엇을 할지 정하는 계획 노드</b>입니다. 검색이 필요한지(retrieve), 검색 없이 답해도 되는지(direct), 너무 모호해서 되물어야 하는지(clarify)를 판정합니다. 출력 필드를 <b>의도 &rarr; 상황 &rarr; 근거 &rarr; 결정 순서로 강제</b>해, 결정보다 근거를 먼저 쓰게 했습니다. 재시도로 돌아오면 <b>Verifier가 넘긴 피드백(남은 범위·검색어)을 참고해</b> 다시 계획합니다.</p>
-    <p style="margin-top:14px;"><span class="ref">Retriever</span><b>근거가 모일 때까지 검색을 반복하는 노드</b>입니다. <b>문서 검색과 FAQ 검색이 기본 도구</b>로 주어지고, 프로젝트에 따라 도구를 더 붙일 수 있습니다. <b>FAQ 검색이 적중하면 Generator는 등록된 답을 그대로 내보내는 faq 모드로 실행</b>됩니다. 매 스텝 더 찾을지 충분한지를 스스로 결정하고, 모인 근거를 읽고 다음 검색어를 다시 짭니다. <b>도구별 모듈이 병렬로 돌아 하나가 실패해도 검색은 계속됩니다.</b> 문서 검색은 <b>1세대의 하이브리드 검색(BM25 · Q-cluster 벡터 · RRF)을 그대로 쓰고</b>, 쿼리 재작성과 후보 선별은 Planner와 Retriever가 맡습니다.</p>
-    <p style="margin-top:14px;"><span class="ref">Generator</span>등록된 답을 그대로 내보내는 <b>faq</b>, 근거 기반으로 생성하는 <b>rag</b>, 검색 없이 답하는 <b>direct</b> 중 하나로 실행됩니다. 답변 속 인용은 <b>실제로 검색된 문서와 대조</b>해, 존재하지 않는 인용이 섞이지 않게 합니다.</p>
+    <p style="margin-top:14px;"><span class="ref">Retriever</span><b>근거가 모일 때까지 검색을 반복하는 노드</b>입니다. <b>문서 검색과 FAQ 검색이 기본 도구</b>로 주어지고, 프로젝트에 따라 도구를 더 붙일 수 있습니다. 검색할 때는 먼저 <b>문서 트리에서 폴더를 골라 범위를 좁히고</b>, 그 안에서 검색합니다. 매 스텝 더 찾을지 충분한지를 스스로 결정하고, 모인 근거를 읽고 다음 검색어와 범위를 다시 짭니다. <b>도구별 모듈이 병렬로 돌아 하나가 실패해도 검색은 계속됩니다.</b> 문서 검색은 <b>1세대의 하이브리드 검색(BM25 · Q-cluster 벡터 · RRF)을 그대로 쓰고</b>, 쿼리 재작성과 후보 선별은 Planner와 Retriever가 맡습니다.</p>
+    <p style="margin-top:14px;"><span class="ref">Generator</span>Planner가 direct로 보낸 질문이면 검색 없이 바로 답을 만듭니다. retrieve로 온 질문은 <b>GenerationClassifier</b>가 LLM 호출 한 번으로 faq와 rag 중 하나를 고릅니다. Retriever가 찾은 FAQ가 질문에 맞으면 <b>FAQ에 등록된 답변을 그대로</b> 내보내고, 그렇지 않으면 <b>RAG 답변을 생성</b>합니다. 답변 생성 시 <b>출처를 반드시 같이 작성하도록</b> 하며, 올바르지 않은 출처는 룰베이스로 걸러냅니다.</p>
     <p style="margin-top:14px;"><span class="ref">Verifier</span><b>답이 나가기 전 마지막 관문</b>입니다. 그대로 내보낼지(accept) · 답만 다시 만들지(regenerate) · 계획부터 다시 할지(retry, 최대 3회) · 막을지(block) <b>네 가지로 판정</b>합니다. 판정은 <b>답에 필요한 근거가 검색된 세그먼트 안에 있는지</b>를 기준으로 합니다. <b>생성 문제일 경우 regenerate 판정</b>을 하고, <b>검색 문제일 경우 다시 Planner 단계로 회귀</b>합니다.</p>
 </section>
   </div>
@@ -275,7 +275,7 @@ section[id] { scroll-margin-top: 28px; }
     <h2><span class="mono" style="margin-bottom:0;">Deep Dive</span></h2>
     <p class="mono" style="font-size:12px;margin:24px 0 0;">1세대</p>
     <details data-rise>
-        <summary>전체 흐름<span class="role">직접 설계 · 구현</span></summary>
+        <summary>전체 흐름<span class="role">공동 설계 · 구현</span></summary>
         <div>
             <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px;margin-top:8px;">
                 <img data-rise loading="lazy" decoding="async" src="img/flow-gen1.svg" alt="1세대 MARGE 답변 흐름 — 쿼리 이해 → 하이브리드 검색 → LLM 리랭킹 → 답변 분기의 고정 플로우, 검색이 쓰는 자산은 Q-cluster와 고유명사·동의어 사전" style="width:100%;">
@@ -326,7 +326,7 @@ section[id] { scroll-margin-top: 28px; }
             <ul>
                 <li data-rise><b>accept(채택)</b>: 답에 필요한 근거가 검색된 세그먼트 안에 있고 답이 그 근거를 제대로 반영하면 그대로 내보냅니다. 근거가 없어 Generator가 <b>"해당 내용이 없습니다"로 답했고 Verifier가 봐도 더 찾아볼 범위와 검색어가 남지 않은 경우</b>는, 지어낸 것이 아니므로 accept로 통과시키되, 답을 실제로 줬는지를 나타내는 값(<b>answered</b>)만 false로 남깁니다. 이 값이 false인 질문이 몰리는 주제를 추려 검색 실패인지 문서 부족인지 검토하고, <b>문서 보강 대상을 정하는 데 씁니다.</b></li>
                 <li data-rise><b>regenerate(재생성)</b>: 근거는 검색된 세그먼트 안에 있는데 답이 그것을 빠뜨리거나 잘못 옮겼으면, <b>검색은 그대로 두고 Generator만 다시 돌립니다.</b></li>
-                <li data-rise><b>retry(재계획, 최대 3회)</b>: 근거가 검색된 세그먼트 안에 없을 때입니다. 검색을 잘못한 것인지 문서가 원래 없는 것인지는 <b>확실히 구분할 수 없어서</b>, Verifier는 <b>"아직 찾아보지 않은 범위나 안 써본 검색어가 남았는가"</b>만 봅니다.<br><br>재료는 Retriever가 스텝마다 남긴 검색 기록(검색어 · 범위 · 결과 수)입니다. 범위는 <b>전처리 때 만들어 둔 드라이브 인덱스(폴더 · 문서 목록)를 보고 Retriever가 고른 폴더</b>입니다. 찾아보지 않은 범위는 기록의 범위와 인덱스를 비교해 알 수 있고, 안 써본 검색어는 LLM이 원래 질문과 써본 검색어 목록을 대조해 <b>질문을 다르게 표현할 여지가 남았는지</b>로 판단합니다.<br><br>남아 있으면 retry, 남은 범위와 검색어까지 다 써봤는데도 근거가 안 나오면 retry 대신 <b>accept(answered=false)</b>입니다. 이 판단은 LLM의 추정이라 틀릴 수 있어 <b>재시도는 최대 3회로 제한</b>합니다. 같은 기록을 디버깅에도 씁니다.</li>
+                <li data-rise><b>retry(재계획, 최대 3회)</b>: 검색된 세그먼트 중에 답의 근거가 될 내용이 없을 때는, <b>답만 다시 만들어도 소용이 없으므로 계획부터 다시 해서 재검색</b>합니다. 검색을 잘못한 것인지 문서가 원래 없는 것인지 구분이 어려워, Verifier는 <b>"아직 찾아보지 않은 범위나 안 써본 검색어가 남았는가"</b>만 봅니다.<br><br>Retriever가 처음 선택한 폴더와 <b>Retriever가 스텝마다 남긴 검색 기록(검색어 · 범위 · 결과 수)</b>을 비교합니다. 찾아보지 않은 범위가 있거나, 기존 검색어를 바꿀 만한 여지가 있을 경우 <b>retry로 쿼리 작성부터 다시</b> 합니다. 남은 범위와 검색어까지 다 써봤는데도 근거가 없으면 더 재검색해도 소용이 없으므로, <b>"문서에 없다"는 답을 accept로 통과시키되 answered를 false로</b> 남깁니다. answered=false는 향후 문서 보강을 위한 통계로 사용합니다.</li>
                 <li data-rise><b>block(차단)</b>: 정책에 어긋나는 답을 막아야 할 때입니다. 거절 문장을 LLM이 그 자리에서 쓰게 하지 않고, <b>미리 등록해 둔 거절문 목록에서 번호만 고르게</b> 합니다. 거절 문구가 매번 달라지거나 거절하면서 내용을 흘리는 일을 막고, 문구를 바꿀 때도 목록만 고치면 됩니다.</li>
             </ul>
         </div>
