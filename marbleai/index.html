@@ -253,7 +253,7 @@ section[id] { scroll-margin-top: 28px; }
 <!-- ============ A2 — Action ============ -->
 <section class="narr" id="action">
     <h2><span class="mono">Action</span>구현</h2>
-    <p><span class="ref"><b>01</b>동시 처리</span><span class="ref"><b>02</b>배포</span>Cloud Run으로 구현·운영하는 과정에서 <b>작업 크기에 따른 처리 경로를 추가</b>했습니다. 전체 번역 작업 중 <b>60%가 100문장 미만</b>이어서, 작은 작업은 <b>Cloud Run Job의 콜드스타트를 피하도록</b> 개선했습니다. 접수 단계에서 <b>문장 수와 언어 수를 곱해 작업 크기</b>를 추정하고, 워커가 한 번에 감당할 양 안이면 <b>상시 띄워둔 Cloud Run Service</b>로, 넘으면 <b>Cloud Run Job</b>으로 보냅니다.</p>
+    <p><span class="ref"><b>01</b>동시 처리</span><span class="ref"><b>02</b>배포</span>번역 작업을 Cloud Run으로 옮겨 <b>작업마다 실행 단위가 따로 뜨게</b> 했습니다. 큰 작업은 <b>Cloud Run Job</b> 하나를 통째로 받고, 그 안에서 <b>문장 묶음과 대상 언어 단위로 나눈 샤드들이 병렬로 번역</b>합니다. 큰 작업이 몰려도 다른 작업을 막지 않습니다. 운영하면서 작업 크기에 따른 경로도 추가했습니다. 전체 번역 작업 중 <b>60%가 100문장 미만</b>이어서, 작은 작업은 Job의 콜드스타트를 겪지 않도록 <b>상시 띄워 둔 Cloud Run Service</b>가 맡습니다. 접수 단계에서 <b>문장 수와 언어 수를 곱해 작업 크기</b>를 추정해 어느 쪽으로 보낼지 정합니다.</p>
     <p style="margin-top:10px;">파일이 아니라 화면에 텍스트를 직접 입력해 결과를 바로 보는 즉시 번역은 <b>별도의 Cloud Run Service</b>가 바로 응답합니다. 배포는 <b>GitHub Actions로 자동화</b>해, 진행 중인 번역이 끝날 때까지 기다렸다가 수동으로 배포하던 절차를 없앴습니다.</p>
     <p style="margin-top:10px;">큰 작업이 상시화되면 상시 인스턴스 비용이 역전되므로, <b>그때는 GKE를 다시 검토할 계획</b>입니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>03</b>운영 공수</span>사람이 붙어야 하던 두 가지 일을 각각 자동화했습니다.</p>
