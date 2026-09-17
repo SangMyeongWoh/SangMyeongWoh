@@ -1,26 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 404" width="760" height="404" role="img" aria-label="MARGE 시스템 아키텍처(1·2세대 공용) — GKE 클러스터 위의 채팅·문서관리 서비스와 전처리 파이프라인, MongoDB·GCS·Vertex AI">
 <style>
   .bg  { fill: #ffffff; }
-  .pan { fill: #f4f8f7; stroke: #dce5e2; }
-  .box { fill: #ffffff; stroke: #dce5e2; }
-  .hot { stroke: #0b6b5c; }
-  .ink { fill: #16211f; }
-  .sub { fill: #33403e; }
-  .mut { fill: #6b7c79; }
-  .acc { fill: #0b6b5c; }
-  .ln  { stroke: #33403e; }
-  .mk  { fill: #33403e; }
+  .pan { fill: #f4f5f8; stroke: #dde1ea; }
+  .box { fill: #ffffff; stroke: #dde1ea; }
+  .hot { stroke: #7a5c10; }
+  .ink { fill: #151a24; }
+  .sub { fill: #343a48; }
+  .mut { fill: #6b7385; }
+  .acc { fill: #7a5c10; }
+  .ln  { stroke: #343a48; }
+  .mk  { fill: #343a48; }
   
-    .bg  { fill: #0d1413; }
-    .pan { fill: #101817; stroke: #26332f; }
-    .box { fill: #0d1413; stroke: #26332f; }
-    .hot { stroke: #6fdcc6; }
-    .ink { fill: #e6edea; }
-    .sub { fill: #bcc9c6; }
-    .mut { fill: #849692; }
-    .acc { fill: #6fdcc6; }
-    .ln  { stroke: #bcc9c6; }
-    .mk  { fill: #bcc9c6; }
+    .bg  { fill: #10131a; }
+    .pan { fill: #151922; stroke: #2a3040; }
+    .box { fill: #10131a; stroke: #2a3040; }
+    .hot { stroke: #e3c77a; }
+    .ink { fill: #e9e8e4; }
+    .sub { fill: #c5c5c0; }
+    .mut { fill: #8e919b; }
+    .acc { fill: #e3c77a; }
+    .ln  { stroke: #c5c5c0; }
+    .mk  { fill: #c5c5c0; }
   text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
   .t { font-size: 15px; font-weight: 700; }
   .s { font-size: 12.5px; }

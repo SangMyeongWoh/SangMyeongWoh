@@ -5,16 +5,16 @@
     :root { color-scheme: light dark; }
     .sans { font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif }
     .mono { font-family:ui-monospace,'SF Mono','Cascadia Mono',Consolas,'D2Coding',monospace }
-    .ink    { fill:#16211F }
-    .sub    { fill:#33403E }
-    .muted  { fill:#6B7C79 }
-    .accent { fill:#0B6B5C }
-    .rule   { stroke:#DCE5E2 }
-    .panel  { fill:#F4F8F7 }
-    .bullet { fill:#0B6B5C }
+    .ink    { fill:#151a24 }
+    .sub    { fill:#343a48 }
+    .muted  { fill:#6b7385 }
+    .accent { fill:#7a5c10 }
+    .rule   { stroke:#dde1ea }
+    .panel  { fill:#f4f5f8 }
+    .bullet { fill:#7a5c10 }
     @media (prefers-color-scheme: dark) {
-      .ink{fill:#E6EDEA} .sub{fill:#BCC9C6} .muted{fill:#849692}
-      .accent{fill:#6FDCC6} .rule{stroke:#26332F} .panel{fill:#101817} .bullet{fill:#6FDCC6}
+      .ink{fill:#e9e8e4} .sub{fill:#c5c5c0} .muted{fill:#8e919b}
+      .accent{fill:#e3c77a} .rule{stroke:#2a3040} .panel{fill:#151922} .bullet{fill:#e3c77a}
     }
   </style>
 
