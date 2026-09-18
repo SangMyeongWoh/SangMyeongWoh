@@ -233,9 +233,9 @@ section[id] { scroll-margin-top: 28px; }
 <!-- ============ A1 — Analyze ============ -->
 <section class="narr" id="analyze">
     <h2><span class="mono">Analyze</span>설계 판단</h2>
-    <p><span class="ref"><b>01</b>인프라</span>번역 요청은 <b>60%가 100문장 미만</b>입니다. 평소에는 작은 요청이 이어지다가 <b>한 번씩 수십만 문장이 몰립니다.</b> 이 패턴에 맞으면서 <b>운영 부담도 적은 환경</b>을 찾아 <b>Cloud Composer · GKE · Cloud Run</b>을 비교했습니다.</p>
-    <p style="margin-top:10px;">Composer는 Airflow를 그대로 옮길 수 있고 직접 관리할 서버도 없어지지만, <b>요청이 없을 때도 환경 전체가 항상 떠 있습니다.</b> 평소에 작은 요청 위주인 우리 번역 패턴에서는 효율성이 떨어진다고 판단해 제외했습니다.</p>
-    <p style="margin-top:10px;">GKE도 비슷했습니다. <b>노드 수를 피크에 맞춰 두면 낭비가 되고, 평소 수준에 맞춰 두면 피크마다 노드 확보 대기 시간이 너무 길었습니다.</b> 뿐만 아니라 GKE는 운영 부담까지 있었습니다.</p>
+    <p><span class="ref"><b>01</b>인프라</span>번역 요청은 <b>60%가 100문장 미만</b>이었습니다. 평소에는 작은 요청이 이어지다가 <b>한 번씩 수십만 문장이 몰렸습니다.</b> 이 패턴에 맞으면서 <b>운영 부담도 적은 환경</b>을 찾아 <b>Cloud Composer · GKE · Cloud Run</b>을 비교했습니다.</p>
+    <p style="margin-top:10px;">Composer는 Airflow를 그대로 옮길 수 있고 직접 관리할 서버도 없어지지만, <b>요청이 없을 때도 환경 전체가 항상 떠 있어야 했습니다.</b> 평소에 작은 요청 위주인 우리 번역 패턴에서는 효율성이 떨어진다고 판단해 제외했습니다.</p>
+    <p style="margin-top:10px;">GKE도 비슷했습니다. <b>노드 수를 피크에 맞춰 두면 낭비가 되고, 평소 수준에 맞춰 두면 피크마다 노드 확보 대기 시간이 너무 길었습니다.</b> 뿐만 아니라 GKE는 <b>클러스터를 직접 관리해야 하는 운영 부담</b>까지 있었습니다.</p>
     <p style="margin-top:10px;">반면 Cloud Run은 <b>요청이 올 때만 컨테이너를 띄울 수 있었고, 클러스터 관리도 없었습니다.</b> 리비전 교체 방식이라 <b>진행 중인 번역을 끊지 않고 배포</b> 역시 가능했습니다.</p>
     <p style="margin-top:14px;"><span class="ref"><b>02</b>운영 공수</span></p>
     <div class="sublist" style="margin-top:12px;">
