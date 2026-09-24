@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 224" width="760" height="224" role="img" aria-label="1세대 문서 충돌 감지 흐름 — Q-cluster 일부를 질의로 삼아 관련 세그먼트를 모으고, 문서 쌍마다 LLM이 어긋나는 내용을 짚어낸 뒤 다시 LLM이 재검증해 모순이 실제인지 판정. 모순이면 원본 문서를 지목해 사용자에게 경고">
+<style>
+  .bg  { fill: #ffffff; }
+  .pan { fill: #f4f5f8; stroke: #dde1ea; }
+  .box { fill: #ffffff; stroke: #dde1ea; }
+  .hot { stroke: #7a5c10; }
+  .ink { fill: #151a24; }
+  .sub { fill: #343a48; }
+  .mut { fill: #6b7385; }
+  .acc { fill: #7a5c10; }
+  .ln  { stroke: #343a48; }
+  .mk  { fill: #343a48; }
+  @media (prefers-color-scheme: dark) {
+    .bg  { fill: #10131a; }
+    .pan { fill: #151922; stroke: #2a3040; }
+    .box { fill: #10131a; stroke: #2a3040; }
+    .hot { stroke: #e3c77a; }
+    .ink { fill: #e9e8e4; }
+    .sub { fill: #c5c5c0; }
+    .mut { fill: #8e919b; }
+    .acc { fill: #e3c77a; }
+    .ln  { stroke: #c5c5c0; }
+    .mk  { fill: #c5c5c0; }
+  }
+  text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
+  .t { font-size: 15px; font-weight: 700; }
+  .s { font-size: 12.5px; }
+  .k { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; }
+  rect { stroke-width: 1.2; }
+  .hot { stroke-width: 1.7; }
+  .ln  { fill: none; stroke-width: 1.5; }
+</style>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" class="mk"/>
+  </marker>
+</defs>
+<rect class="bg" x="0" y="0" width="100%" height="100%"/>
+
+<!-- 3단 -->
+<rect class="box" x="16" y="24" width="228" height="68" rx="10"/>
+<text class="t ink" x="30" y="48">① 같은 주제 묶기</text>
+<text class="s mut" x="30" y="68">Q-cluster 일부를 질의로 삼아</text>
+<text class="s mut" x="30" y="83">검색 경로로 관련 세그먼트 수집</text>
+
+<rect class="box" x="266" y="24" width="228" height="68" rx="10"/>
+<text class="t ink" x="280" y="48">② 쌍마다 모순 찾기</text>
+<text class="s mut" x="280" y="68">문서 쌍마다 LLM이</text>
+<text class="s mut" x="280" y="83">서로 어긋나는 내용을 짚어냄</text>
+
+<rect class="box hot" x="516" y="24" width="228" height="68" rx="10"/>
+<text class="t ink" x="530" y="48">③ 재검증 · 최종 판정</text>
+<text class="s mut" x="530" y="68">정확성·논리 일관성을 다시 검토</text>
+<text class="s mut" x="530" y="83">모순이 실제인지 LLM이 판정</text>
+
+<path class="ln" d="M244 58 L262 58" marker-end="url(#a)"/>
+<path class="ln" d="M494 58 L512 58" marker-end="url(#a)"/>
+
+<!-- 갈래 -->
+<path class="ln" d="M630 92 L630 122"/>
+<path class="ln" d="M374 122 L636 122"/>
+<path class="ln" d="M374 122 L374 144" marker-end="url(#a)"/>
+<path class="ln" d="M636 122 L636 144" marker-end="url(#a)"/>
+<text class="k mut" x="300" y="118">모순 아님</text>
+<text class="k mut" x="648" y="118">모순 실존</text>
+
+<rect class="box" x="266" y="148" width="216" height="54" rx="9"/>
+<text class="t sub" x="280" y="170">이상 없음</text>
+<text class="s mut" x="280" y="189">문서 품질 통과</text>
+
+<rect class="box" x="528" y="148" width="216" height="54" rx="9"/>
+<text class="t sub" x="542" y="170">원본 문서 지목 · 경고</text>
+<text class="s mut" x="542" y="189">사용자에게 상충 내용 안내</text>
+
+</svg>
