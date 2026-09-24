@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 332" width="760" height="332" role="img" aria-label="1세대 MARGE 답변 흐름 — 쿼리 이해 뒤 FAQ 판정을 거쳐 일치하면 FAQ 답 반환, 불일치하면 하이브리드 검색, 근거 선별, 답변 분기로 이어지는 고정 플로우. 검색이 쓰는 자산은 Q-cluster와 고유명사·동의어 사전">
+<style>
+  .bg  { fill: #ffffff; }
+  .pan { fill: #f4f5f8; stroke: #dde1ea; }
+  .box { fill: #ffffff; stroke: #dde1ea; }
+  .hot { stroke: #7a5c10; }
+  .ink { fill: #151a24; }
+  .sub { fill: #343a48; }
+  .mut { fill: #6b7385; }
+  .acc { fill: #7a5c10; }
+  .ln  { stroke: #343a48; }
+  .mk  { fill: #343a48; }
+  @media (prefers-color-scheme: dark) {
+    .bg  { fill: #10131a; }
+    .pan { fill: #151922; stroke: #2a3040; }
+    .box { fill: #10131a; stroke: #2a3040; }
+    .hot { stroke: #e3c77a; }
+    .ink { fill: #e9e8e4; }
+    .sub { fill: #c5c5c0; }
+    .mut { fill: #8e919b; }
+    .acc { fill: #e3c77a; }
+    .ln  { stroke: #c5c5c0; }
+    .mk  { fill: #c5c5c0; }
+  }
+  text { font-family: 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif; }
+  .t { font-size: 15px; font-weight: 700; }
+  .s { font-size: 12.5px; }
+  .k { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; }
+  rect { stroke-width: 1.2; }
+  .hot { stroke-width: 1.7; }
+  .ln  { fill: none; stroke-width: 1.5; }
+  .dsh { stroke-dasharray: 4 3; }
+</style>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" class="mk"/>
+  </marker>
+</defs>
+<rect class="bg" x="0" y="0" width="100%" height="100%"/>
+
+<!-- 입력 -->
+<rect class="box" x="16" y="12" width="172" height="40" rx="9"/>
+<text class="t sub" x="30" y="37">질문</text>
+<path class="ln" d="M102 52 L102 80" marker-end="url(#a)"/>
+
+
+<!-- 4단 파이프라인 -->
+<rect class="box" x="16" y="84" width="172" height="68" rx="10"/>
+<text class="t ink" x="30" y="108">① 쿼리 이해</text>
+<text class="s mut" x="30" y="128">이력으로 생략 복원</text>
+<text class="s mut" x="30" y="143">원본과 재작성 쿼리 병렬</text>
+
+<rect class="box hot" x="204" y="84" width="172" height="68" rx="10"/>
+<text class="t ink" x="218" y="108">② 하이브리드 검색</text>
+<text class="s mut" x="218" y="128">BM25 + 벡터 검색을</text>
+<text class="s mut" x="218" y="143">RRF로 융합</text>
+
+<rect class="box" x="392" y="84" width="172" height="68" rx="10"/>
+<text class="t ink" x="406" y="108">③ 근거 선별</text>
+<text class="s mut" x="406" y="128">트리 가지치기 후 쓸 문단만</text>
+<text class="s mut" x="406" y="143">LLM이 병렬로 선별</text>
+
+<rect class="box" x="580" y="84" width="172" height="68" rx="10"/>
+<text class="t ink" x="594" y="108">④ 답변 분기</text>
+<text class="s mut" x="594" y="128">체크리스트 T/F 판정</text>
+<text class="s mut" x="594" y="143">7가지 로직으로 분기</text>
+
+<path class="ln" d="M188 118 L200 118" marker-end="url(#a)"/>
+<path class="ln" d="M376 118 L388 118" marker-end="url(#a)"/>
+<path class="ln" d="M564 118 L576 118" marker-end="url(#a)"/>
+
+<!-- FAQ 판정 (① 뒤, ②와 나란히) -->
+<path class="ln" d="M102 152 L102 180" marker-end="url(#a)"/>
+<rect class="box" x="16" y="184" width="172" height="68" rx="9"/>
+<text class="t ink" x="30" y="206">FAQ 판정</text>
+<text class="s mut" x="30" y="225">LLM 판정 + 벡터 유사도</text>
+<text class="k mut" x="30" y="242">일치 → FAQ 답 반환</text>
+<path class="ln dsh" d="M188 218 L200 218" marker-end="url(#a)"/>
+
+<!-- 출력 -->
+<path class="ln" d="M666 152 L666 180" marker-end="url(#a)"/>
+<rect class="box" x="204" y="184" width="548" height="68" rx="9"/>
+<text class="t sub" x="218" y="206">답변</text>
+<text class="s mut" x="218" y="226">FAQ 답 반환 · 일반 답변 · 문서 집계 리포트 · 잡담 · 메타 질문 · 정형 거절 · 사과</text>
+<text class="s mut" x="218" y="243">출처 문서 · 담당자 함께 제공</text>
+
+<!-- 공용 자산 -->
+<rect class="pan" x="16" y="266" width="728" height="54" rx="12"/>
+<text class="k acc" x="32" y="287">검색이 쓰는 자산</text>
+<text class="t sub" x="32" y="309">Q-cluster · 고유명사·동의어 사전</text>
+<text class="s mut" x="300" y="309">세그먼트별 예상 질문을 미리 만들어 — 질문을 질문에 매칭</text>
+</svg>

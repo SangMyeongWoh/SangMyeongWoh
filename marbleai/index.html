@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MarbleAI 번역 시스템 | 우상명</title>
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b2130'/%3E%3Cpath d='M7.5 11l3.1 10L15.5 12.5 20.4 21l3.1-10' fill='none' stroke='%23e3c77a' stroke-width='2.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MarbleAI 번역 시스템 | 우상명">
+<meta property="og:description" content="게임 로컬라이제이션 AI 플랫폼 MaMT의 전면 재설계. 교정·기계번역·용어집·평가 4개 시스템.">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="css/marbleai.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="ph-play" viewBox="0 0 256 256"><path fill="currentColor" d="M234.49,111.07,90.41,22.94A20,20,0,0,0,60,39.87V216.13a20,20,0,0,0,30.41,16.93l144.08-88.13a19.82,19.82,0,0,0,0-33.86ZM84,208.85V47.15L216.16,128Z"/></symbol><symbol id="ph-pause" viewBox="0 0 256 256"><path fill="currentColor" d="M200,28H160a20,20,0,0,0-20,20V208a20,20,0,0,0,20,20h40a20,20,0,0,0,20-20V48A20,20,0,0,0,200,28Zm-4,176H164V52h32ZM96,28H56A20,20,0,0,0,36,48V208a20,20,0,0,0,20,20H96a20,20,0,0,0,20-20V48A20,20,0,0,0,96,28ZM92,204H60V52H92Z"/></symbol><symbol id="ph-caret-left" viewBox="0 0 256 256"><path fill="currentColor" d="M168.49,199.51a12,12,0,0,1-17,17l-80-80a12,12,0,0,1,0-17l80-80a12,12,0,0,1,17,17L97,128Z"/></symbol><symbol id="ph-caret-right" viewBox="0 0 256 256"><path fill="currentColor" d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z"/></symbol><symbol id="ph-check" viewBox="0 0 256 256"><path fill="currentColor" d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></symbol><symbol id="ph-x" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"/></symbol><symbol id="ph-arrow-right" viewBox="0 0 256 256"><path fill="currentColor" d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></symbol><symbol id="ph-arrow-left" viewBox="0 0 256 256"><path fill="currentColor" d="M228,128a12,12,0,0,1-12,12H69l51.52,51.51a12,12,0,0,1-17,17l-72-72a12,12,0,0,1,0-17l72-72a12,12,0,0,1,17,17L69,116H216A12,12,0,0,1,228,128Z"/></symbol><symbol id="ph-plus" viewBox="0 0 256 256"><path fill="currentColor" d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"/></symbol></defs></svg>
+<a class="skip" href="#pipeline">본문으로 건너뛰기</a>
+
+<nav class="nav" aria-label="목차">
+  <div class="nav__in">
+    <a class="nav__home" href="../"><svg class="ic " aria-hidden="true"><use href="#ph-arrow-left"/></svg><span>우상명</span></a>
+    <ul class="nav__links">
+      <li><a href="#top" data-until="#bridge">한눈에 보기</a></li>
+      <li><a href="#bridge">배경과 역할</a></li>
+      <li><a href="#paar">재설계로 해결한 문제</a></li>
+      <li><a href="#deepdive">자세히 보기</a></li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="rail" aria-label="바로가기">
+  <ol>
+    <li><a href="#top"><span class="n">01</span>한눈에 보기</a></li>
+    <li><a href="#bridge"><span class="n">02</span>배경과 역할</a></li>
+    <li><a href="#case-infra"><span class="n">03</span>인프라</a></li>
+    <li><a href="#case-rules"><span class="n">04</span>태그·few-shot</a></li>
+    <li><a href="#case-glossary"><span class="n">05</span>용어집</a></li>
+    <li><a href="#case-eval"><span class="n">06</span>평가</a></li>
+    <li><a href="#case-ux"><span class="n">07</span>사용성</a></li>
+    <li><a href="#deepdive"><span class="n">08</span>자세히 보기</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 히어로 + 파이프라인 데모 ============ -->
+<header class="hero" id="top">
+  <div class="shell">
+    <p class="eyebrow" data-in>MarbleAI 번역 시스템</p>
+    <h1 data-in>게임 텍스트를 31개 언어로 옮기는 <span class="nb">사내 AI 플랫폼의</span> <span class="nb">AI 백엔드를</span> 전담합니다.</h1>
+    <p class="hero__sub" data-in>우상명 · AI Engineer · Netmarble<span>2023.05 - 현재, 2026 백엔드 전면 재설계</span></p>
+  </div>
+</header>
+
+<section id="pipeline" class="demo" aria-labelledby="pipeline-h">
+  <div class="shell">
+    <h2 id="pipeline-h" class="overview__h" data-in>한눈에 보기</h2>
+    <h3 class="sub-h" data-in>번역 한 건의 처리 과정</h3>
+
+    <div class="demo__panel" data-in>
+      <div class="demo__top">
+        <span class="demo__pair"><b class="demo__src"></b><svg class="ic " aria-hidden="true"><use href="#ph-arrow-right"/></svg><b class="demo__tgt"></b></span>
+        <div class="demo__tabs" role="group" aria-label="샘플"></div>
+      </div>
+
+      <div class="demo__main">
+        <ol class="demo__steps" aria-label="처리 단계">
+          <li data-stage="0"><button type="button"><i></i><span>마스킹</span></button></li>
+          <li data-stage="1"><button type="button"><i></i><span>용어집</span></button></li>
+          <li data-stage="2"><button type="button"><i></i><span>번역</span></button></li>
+          <li data-stage="3"><button type="button"><i></i><span>무결성 검사</span></button></li>
+          <li data-stage="4"><button type="button"><i></i><span>수정</span><em class="demo__loop" aria-hidden="true"></em></button></li>
+          <li data-stage="5"><button type="button"><i></i><span>재검사</span></button></li>
+        </ol>
+
+        <div class="demo__work">
+          <div class="demo__stage"><div class="demo__toks"></div><i class="demo__scan" aria-hidden="true"></i></div>
+          <div class="demo__below">
+            <ul class="demo__checks" aria-label="무결성 검사 결과">
+              <li data-check="tags"><span class="ck" aria-hidden="true"></span><span class="ck__t">태그</span></li>
+              <li data-check="vars"><span class="ck" aria-hidden="true"></span><span class="ck__t">변수</span></li>
+              <li data-check="glossary"><span class="ck" aria-hidden="true"></span><span class="ck__t">용어</span></li>
+            </ul>
+            <span class="demo__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="demo__card" hidden></span>
+          </div>
+          <p class="demo__log" aria-live="polite"><span class="demo__logtext"></span><span class="demo__meta"></span></p>
+        </div>
+      </div>
+
+      <div class="demo__bar">
+        <div class="demo__ctl">
+          <button type="button" class="btn-ic" data-act="prev" aria-label="이전 단계"><svg class="ic " aria-hidden="true"><use href="#ph-caret-left"/></svg></button>
+          <button type="button" class="btn-play" data-act="toggle" aria-label="재생"><svg class="ic ic-play" aria-hidden="true"><use href="#ph-play"/></svg><svg class="ic ic-pause" aria-hidden="true"><use href="#ph-pause"/></svg><span>재생</span></button>
+          <button type="button" class="btn-ic" data-act="next" aria-label="다음 단계"><svg class="ic " aria-hidden="true"><use href="#ph-caret-right"/></svg></button>
+          <button type="button" class="btn-ic btn-speed" data-act="speed" aria-label="재생 속도">1x</button>
+        </div>
+        <p class="demo__note">과정을 보여주기 위한 예시입니다. 문장은 가상의 게임 텍스트입니다.</p><div class="mores"><a class="more" href="#dd-mt" data-open="dd-mt">기계번역 자세히 보기<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 숫자 ============ -->
+<section class="stats" aria-labelledby="stats-h">
+  <div class="shell">
+    <h3 id="stats-h" class="sub-h" data-rise>플랫폼 운영 실적</h3>
+    <dl class="stats__grid">
+      <div class="stat stat--lead" data-rise><dd><span data-count="50" data-suffix="억+">50억+</span></dd><dt>2026 상반기 절감</dt><p>2026 상반기 MaMT 전체 번역량을 사람 번역 비용으로 환산한 사내 집계</p></div>
+      <div class="stat stat--wide" data-rise><dd><span data-count="7000" data-suffix="+" data-comma>7,000+</span></dd><dt>누적 처리 건</dt><p>기계번역 작업 (재설계 전후 합산)</p></div>
+      <div class="stat" data-rise><dd><span data-count="248">248</span></dd><dt>워크스페이스</dt><p>사내 게임 프로젝트가 사용 중</p></div>
+      <div class="stat" data-rise><dd><span data-count="10">10</span></dd><dt>라이브 게임</dt><p>실제 서비스 중인 게임이 활용</p></div>
+      <div class="stat" data-rise><dd><span data-count="31">31</span></dd><dt>지원 언어 · 출발 6종</dt><p>한국어·영어 2종에서 일본어·중국어(간·번체)·태국어까지 확장</p></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ 배경과 역할 ============ -->
+<section id="bridge" class="bridge" aria-labelledby="bridge-h">
+  <div class="shell bridge__in">
+    <h2 id="bridge-h">배경과 역할</h2>
+    <div class="bridge__text">
+      <p class="bridge__line">게임을 새로 해외에 런칭하거나 업데이트를 할 때마다 <b>수만 문장</b>을 각 나라의 <b>언어 수만큼</b> 번역해야 합니다. 사람 번역만으로는 일정도 비용도 맞출 수 없어 지금은 대부분을 <b>LLM이 번역</b>합니다. <b>MaMT(Marble Machine Translation)</b>는 이 번역을 맡는 시스템으로, 넷마블 <b>사내 AI 플랫폼 MarbleAI의 번역 시스템</b>입니다. 저는 MaMT의 <b>AI 백엔드를 전담</b>합니다.</p>
+      <p class="bridge__line">MaMT를 전담하기 전 약 2년간 운영을 지원하며, <span class="labs"><a class="lab" href="#case-infra">인프라<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a> <a class="lab" href="#case-rules">태그·few-shot 관리<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a> <a class="lab" href="#case-glossary">용어집<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a> <a class="lab" href="#case-eval">평가<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a></span> 전반에 걸친 <b>구조적 문제</b>를 확인했습니다. 모든 처리가 <b>단일 VM</b>에서 이뤄지고 있어 개별 개선만으로는 한계가 있었고, 전담 이후 <b>백엔드를 전면 재설계</b>했습니다. <b>기계번역과 용어집 시스템은 직접 구현</b>했으며, <b>평가 시스템은 팀원과 공동 개발</b>했습니다. 원본 교정 시스템은 비슷한 시기에 팀원이 별도 구축했고, 현재는 이 <b>네 시스템을 모두 맡아 운영</b>하고 있습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 항목별 PAAR ============ -->
+<section id="paar" class="paar" aria-labelledby="paar-h">
+  <div class="shell">
+    <h2 id="paar-h">재설계로 해결한 문제</h2>
+    <div class="paar__matrix">
+  <article class="case case--flow" id="case-infra">
+    <header class="case__head">
+      <h3>인프라</h3>
+      <p class="case__sum">VM 한 대의 Airflow에서 Cloud Run으로</p>
+      <span class="role">직접 구현</span>
+    </header>
+    <div class="ptabs" data-ptabs>
+      <div class="ptabs__list" role="tablist" aria-orientation="vertical" aria-label="인프라 단계">
+        <button type="button" role="tab" id="infra-tab-0" aria-controls="infra-panel-0" aria-selected="true" tabindex="0"><b>P</b><span>Problem</span></button>
+        <button type="button" role="tab" id="infra-tab-1" aria-controls="infra-panel-1" aria-selected="false" tabindex="-1"><b>A</b><span>Analyze</span></button>
+        <button type="button" role="tab" id="infra-tab-2" aria-controls="infra-panel-2" aria-selected="false" tabindex="-1"><b>A</b><span>Action</span></button>
+        <button type="button" role="tab" id="infra-tab-3" aria-controls="infra-panel-3" aria-selected="false" tabindex="-1" class="is-r"><b>R</b><span>Result</span></button>
+      </div>
+      <div class="ptabs__panels">
+        <section role="tabpanel" id="infra-panel-0" aria-labelledby="infra-tab-0" class="ptabs__panel is-on" tabindex="0">
+          <div class="flow__body">
+            <p>기존 백엔드는 <b>VM 한 대에 Airflow를 올려</b> 돌렸습니다. 처리 용량이 VM 한 대로 정해져 있어, 대량 작업이 들어와 워커를 다 차지하면 <b>몇 문장짜리도 그 뒤에서 기다렸습니다.</b></p>
+            <p>워커와 Redis, DB가 VM 한 대의 메모리와 디스크를 나눠 써서, <b>한 작업이 자원을 과하게 쓰면 다른 작업에까지 영향을 미쳤습니다.</b> 이로 인한 장애가 <b>한 달에 몇 번씩</b> 있었습니다.</p>
+            <p>VM은 사람이 직접 관리해야 했고, <b>워커 수평 확장을 위해 VM을 추가하기에는 운영 부담이 컸습니다.</b></p>
+            <p>배포는 자동화 없이 컨테이너를 직접 내렸다 올려야 해서, <b>진행 중인 번역이 없는 때를 골라야</b> 했습니다.</p>
+          </div>
+        </section>
+        <section role="tabpanel" id="infra-panel-1" aria-labelledby="infra-tab-1" class="ptabs__panel" tabindex="0">
+          <div class="flow__body">
+            <p>번역 요청은 <b>60%가 100문장 미만</b>입니다. 평소에는 작은 요청이 이어지다가 <b>한 번씩 수십만 문장이 몰리는 패턴</b>입니다. 이 패턴에 맞으면서 <b>운영 부담도 적은 환경</b>을 찾아 <b>Cloud Composer · GKE · Cloud Run</b>을 비교했습니다.</p>
+        <p>Composer는 Airflow를 그대로 옮길 수 있고 직접 관리할 서버도 없어지지만, <b>요청이 없을 때도 환경 전체가 항상 떠 있어야 했습니다.</b> 평소에 작은 요청 위주인 우리 번역 패턴에서는 효율성이 떨어진다고 판단해 제외했습니다.</p>
+        <p>GKE도 비슷했습니다. <b>노드 수를 피크에 맞춰 두면 낭비가 되고, 평소 수준에 맞춰 두면 피크마다 노드 확보 대기 시간이 너무 길었습니다.</b> 뿐만 아니라 GKE는 <b>클러스터를 직접 관리해야 하는 운영 부담</b>까지 있었습니다.</p>
+        <p>반면 Cloud Run은 <b>요청이 올 때만 컨테이너를 띄울 수 있었고, 클러스터 관리도 없었습니다.</b> 리비전 교체 방식이라 <b>진행 중인 번역을 끊지 않고 배포</b> 역시 가능했습니다.</p>
+          <div class="cmp" role="table" aria-label="후보 비교">
+            <div class="cmp__col" role="row"><h5 role="columnheader">Cloud Composer</h5><p>요청이 없어도 환경 전체가 항상 떠 있음</p><p>직접 관리할 서버는 없음</p></div>
+            <div class="cmp__col" role="row"><h5 role="columnheader">GKE</h5><p>피크에 맞추면 낭비, 평소에 맞추면 피크마다 노드 확보 대기</p><p>클러스터를 직접 관리해야 함</p></div>
+            <div class="cmp__col is-pick" role="row"><h5 role="columnheader">Cloud Run<svg class="ic " aria-hidden="true"><use href="#ph-check"/></svg></h5><p>요청이 올 때만 컨테이너가 뜸</p><p>클러스터 관리 없음</p></div>
+          </div>
+          </div>
+        </section>
+        <section role="tabpanel" id="infra-panel-2" aria-labelledby="infra-tab-2" class="ptabs__panel" tabindex="0">
+          <div class="flow__body">
+            <p>번역 작업을 <b>Cloud Run으로 옮겼습니다.</b> 접수를 맡은 라우터가 문장 수와 언어 수를 곱해 작업 크기를 추정하고, <b>크기에 따라 경로를 나눕니다.</b></p>
+            <p>대부분을 차지하는 작은 작업은 콜드스타트를 겪지 않도록 <b>상시 띄워 둔 Cloud Run Service</b>가 바로 처리합니다. 큰 작업은 문장 묶음과 대상 언어 단위로 샤드를 나눠 <b>Cloud Run Job을 여러 개 띄우고, 병렬로 번역</b>합니다.</p>
+        <p>배포는 <b>GitHub Actions로 자동화</b>했습니다. Cloud Run은 새 리비전을 올려도 처리 중이던 요청을 끝까지 마치므로, <b>번역이 없는 때를 고를 필요가 없어졌습니다.</b></p>
+          <p>장애가 나면 <b>작업 ID만 넣어 원인을 진단해 주는 스킬</b>을 만들어, 장애 때마다 로그를 직접 읽던 일을 대신하게 했습니다. 이를 위해 라우터와 Service, Job, 샤드에 흩어지는 로그에 <b>작업 ID를 넣고, 작업이 끝나면 ID 단위로 합쳐 둡니다.</b></p>
+            <div class="mores"><a class="more" href="#dd-arch" data-open="dd-arch">아키텍처<svg class="ic " aria-hidden="true"><use href="#ph-arrow-right"/></svg></a><a class="more" href="#dd-ops" data-open="dd-ops">장애 진단<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a></div>
+          </div>
+        </section>
+        <section role="tabpanel" id="infra-panel-3" aria-labelledby="infra-tab-3" class="ptabs__panel ptabs__panel--r" tabindex="0">
+          <div class="flow__body">
+            <p>서버리스로 옮기면서 <b>VM을 직접 관리하는 일이 없어졌고</b>, 장애 진단 스킬로 인해 운영에 드는 사람 손이 줄었습니다.</p>
+            <p>작은 요청은 큰 작업과 <b>처리 경로를 분리해</b>, 큰 작업이 몰려도 그 작업이 끝나기를 기다리지 않고 <b>바로 처리합니다.</b></p>
+            <p>작업마다 컨테이너가 따로 떠서, <b>한 작업이 자원을 많이 써도 다른 작업에 영향을 주지 않습니다.</b></p>
+            <p><b>진행 중인 번역을 중단하지 않고 배포할 수 있어</b>, 번역 작업이 없는 시간을 따로 고를 필요가 없어졌습니다.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </article>
+  <article class="case case--flow" id="case-rules">
+    <header class="case__head">
+      <h3>태그·few-shot 관리</h3>
+      <p class="case__sum">태그 규칙 자동 생성, 문장 재사용, few-shot 개선 등</p>
+      <span class="role">직접 구현</span>
+    </header>
+    <div class="ptabs" data-ptabs>
+      <div class="ptabs__list" role="tablist" aria-orientation="vertical" aria-label="태그·few-shot 관리 단계">
+        <button type="button" role="tab" id="rules-tab-0" aria-controls="rules-panel-0" aria-selected="true" tabindex="0"><b>P</b><span>Problem</span></button>
+        <button type="button" role="tab" id="rules-tab-1" aria-controls="rules-panel-1" aria-selected="false" tabindex="-1"><b>A</b><span>Analyze</span></button>
+        <button type="button" role="tab" id="rules-tab-2" aria-controls="rules-panel-2" aria-selected="false" tabindex="-1"><b>A</b><span>Action</span></button>
+        <button type="button" role="tab" id="rules-tab-3" aria-controls="rules-panel-3" aria-selected="false" tabindex="-1" class="is-r"><b>R</b><span>Result</span></button>
+      </div>
+      <div class="ptabs__panels">
+        <section role="tabpanel" id="rules-panel-0" aria-labelledby="rules-tab-0" class="ptabs__panel is-on" tabindex="0">
+          <div class="flow__body">
+            <dl class="fold__dl strands"><div><dt>태그</dt><dd><p>새 게임을 연동할 때마다 <b>사람이 태그 패턴을 찾아 정규식을 만들고 코드에 직접 추가해야</b> 했습니다. 그렇게 쌓인 <b>정규식이 수십 종</b>에 달했지만, 그마저도 <b>태그를 정확히 판별하지 못했습니다.</b></p><p>번역 과정에서 태그가 지켜지지 않을 때마다 <b>사람이 규칙을 하나씩 보완</b>해야 했고, 정규식으로 판별하기 어려운 태그는 <b>few-shot 예시로 직접 넣어야</b> 했습니다.</p></dd></div><div><dt>Translation Memory</dt><dd><p>번역 요청으로 들어오는 <b>문장의 35%는 기존 번역에 이미 있는 문장</b>이었습니다. 번역할 필요가 없는데도 <b>번역 파이프라인을 그대로 타고 있어</b>, 그만큼 비용이 낭비됐습니다.</p></dd></div><div><dt>few-shot</dt><dd><p>태그를 위한 예시 외에 few-shot으로 들어가는 것은 <b>벡터 유사도만으로 찾은 유사 문장</b>이 전부였습니다.</p></dd></div></dl>
+          </div>
+        </section>
+        <section role="tabpanel" id="rules-panel-1" aria-labelledby="rules-tab-1" class="ptabs__panel" tabindex="0">
+          <div class="flow__body">
+            <dl class="fold__dl strands"><div><dt>태그</dt><dd><p>기존 번역 파일에는 <b>그 게임에서 실제로 사용한 태그 사례</b>가 쌓여 있었습니다. 정규식을 사람이 계속 보완하는 대신, 이 자료로 게임별 규칙을 만들 수 있다고 판단했습니다.</p></dd></div><div><dt>Translation Memory · few-shot</dt><dd><p>이미 검수된 번역이 있는데 다시 LLM으로 번역하면 비용이 들고 표현도 달라질 수 있습니다. 그래서 <b>재사용할 수 있는 번역을 먼저 찾아야</b> 했습니다.</p><p>few-shot은 기존 번역을 그대로 쓰는 경우와 목적이 다릅니다. 번역에 참고할 예시를 고르는 일이므로, 단순한 유사도 점수만으로는 충분하지 않다고 판단했습니다.</p></dd></div></dl>
+          </div>
+        </section>
+        <section role="tabpanel" id="rules-panel-2" aria-labelledby="rules-tab-2" class="ptabs__panel" tabindex="0">
+          <div class="flow__body">
+            <dl class="fold__dl strands"><div><dt>태그</dt><dd><p>기존 번역 파일을 바탕으로 <b>게임별 태그 규칙을 자동 생성하고 검증하는 전처리</b>를 구현했습니다. 번역할 때는 이 규칙으로 태그를 보호하고, 번역 결과에서도 태그가 지켜졌는지 확인합니다.</p><a class="more" href="#dd-tags" data-open="dd-tags">LLM 기반 태그 규칙 생성<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a></dd></div><div><dt>Translation Memory · few-shot</dt><dd><p>기존 번역과 일치하는 문장은 <b>번역 파이프라인을 거치지 않고 재사용</b>하도록 했습니다. 태그 값만 다른 문장도 기존 번역을 활용합니다.</p><p>재사용할 번역이 없으면 기존 번역에서 few-shot 예시를 고릅니다. 벡터 유사도뿐 아니라 <b>문장에 실제로 겹치는 표현</b>도 반영했습니다.</p><a class="more" href="#dd-tm" data-open="dd-tm">Translation Memory와 few-shot 선정<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a><a class="more" href="#dd-preprocess" data-open="dd-preprocess">게임별 전처리<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a></dd></div></dl>
+          </div>
+        </section>
+        <section role="tabpanel" id="rules-panel-3" aria-labelledby="rules-tab-3" class="ptabs__panel ptabs__panel--r" tabindex="0">
+          <div class="flow__body">
+            <p>더 이상 <b>사람이 태그 규칙을 직접 작성하지 않습니다.</b> 기존 번역 파일에서 LLM이 자동으로 태그 규칙을 추출하고 검증까지 끝냅니다.</p>
+            <p>기존 번역에 같은 문장이 있으면 <b>번역 파이프라인 없이 그 번역이 그대로 나옵니다.</b> <b>전체 입력의 35%</b>가 이렇게 처리되어, 그만큼 번역·검사·리플렉션에 드는 <b>LLM 호출이 발생하지 않습니다.</b></p>
+            <p>few-shot 예시도 <b>번역할 문장과 실제로 겹치는 표현</b>을 기준으로 선별합니다.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </article>
+  <article class="case case--flow" id="case-glossary">
+    <header class="case__head">
+      <h3>용어집</h3>
+      <p class="case__sum">엑셀 관리에서 공통 API로</p>
+      <span class="role">직접 구현</span>
+    </header>
+    <div class="ptabs" data-ptabs>
+      <div class="ptabs__list" role="tablist" aria-orientation="vertical" aria-label="용어집 단계">
+        <button type="button" role="tab" id="glossary-tab-0" aria-controls="glossary-panel-0" aria-selected="true" tabindex="0"><b>P</b><span>Problem</span></button>
+        <button type="button" role="tab" id="glossary-tab-1" aria-controls="glossary-panel-1" aria-selected="false" tabindex="-1"><b>A</b><span>Analyze</span></button>
+        <button type="button" role="tab" id="glossary-tab-2" aria-controls="glossary-panel-2" aria-selected="false" tabindex="-1"><b>A</b><span>Action</span></button>
+        <button type="button" role="tab" id="glossary-tab-3" aria-controls="glossary-panel-3" aria-selected="false" tabindex="-1" class="is-r"><b>R</b><span>Result</span></button>
+      </div>
+      <div class="ptabs__panels">
+        <section role="tabpanel" id="glossary-panel-0" aria-labelledby="glossary-tab-0" class="ptabs__panel is-on" tabindex="0">
+          <div class="flow__body">
+            <dl class="fold__dl strands"><div><dt>구조</dt><dd><p>기존 MaMT에서는 용어집을 엑셀 파일로 관리하고, <b>번역 요청이 들어올 때마다 파일을 다시 읽었습니다.</b> 용어 매칭 로직도 <b>기계번역 코드에 포함돼 있어</b>, 매칭 방식을 조금만 수정해도 <b>기계번역 전체를 다시 배포</b>해야 했습니다.</p></dd></div><div><dt>용어 매칭</dt><dd><p>번역할 문장에서 <b>용어집에 들어 있는 용어를 찾아야</b> 합니다. 찾은 용어는 번역 프롬프트에 들어가 번역에 쓰입니다.</p><p>기존에는 문장에서 용어집에 등록된 단어와 글자가 일치하는 부분을 찾고, <b>앞뒤 글자만 확인해 용어인지 판단했습니다.</b> 문맥을 보지 않아 <b>동음이의어에 대한 처리가 되지 않았습니다.</b></p></dd></div></dl>
+          </div>
+        </section>
+        <section role="tabpanel" id="glossary-panel-1" aria-labelledby="glossary-tab-1" class="ptabs__panel" tabindex="0">
+          <div class="flow__body">
+            <dl class="fold__dl strands"><div><dt>구조</dt><dd><p>기계번역, 교정, 평가가 같은 용어집을 쓰더라도 용어를 찾는 방식이 다르면 결과가 달라집니다. 규칙을 바꿀 때마다 여러 시스템을 고쳐야 하는 문제도 있습니다. 그래서 용어집과 용어를 찾는 기능을 한 서비스에 두고, 각 시스템이 같은 API를 호출하도록 했습니다.</p></dd></div><div><dt>용어 매칭</dt><dd><p>용어집에는 아이템 이름처럼 정해진 번역을 써야 하는 단어가 들어 있습니다. 번역할 문장에서 그 단어를 찾아야 하지만, 글자가 같다고 항상 같은 뜻은 아닙니다. 예를 들어 “수정이 필요합니다”의 “수정”은 아이템일 수도, 내용을 고친다는 뜻일 수도 있습니다.</p><p>규칙으로 판단할 수 있는 것은 바로 처리하고, “수정”처럼 뜻이 헷갈리는 경우에만 LLM이 문맥을 보고 판단하게 했습니다. 이렇게 하면 찾은 단어마다 LLM을 호출하지 않아도 됩니다.</p></dd></div></dl>
+          </div>
+        </section>
+        <section role="tabpanel" id="glossary-panel-2" aria-labelledby="glossary-tab-2" class="ptabs__panel" tabindex="0">
+          <div class="flow__body">
+            <dl class="fold__dl strands"><div><dt>구조</dt><dd><p>엑셀로 관리하던 용어를 <b>DB에서 관리</b>하도록 바꾸고, <b>단일 Cloud Run Service에 용어 조회·매칭 API를 구현</b>했습니다.</p></dd></div><div><dt>용어 매칭</dt><dd><p>원문 언어에 따라 용어를 찾는 방식을 나눈 <b>match API</b>를 구현했습니다. 한국어·일본어는 글자가 일치해도 뜻이 불분명한 경우를 따로 판정하고, 중국어·대만어와 영어는 각 언어의 표기 방식에 맞춰 용어를 찾습니다.</p><a class="more" href="#dd-glossary" data-open="dd-glossary">용어집<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a></dd></div></dl>
+          </div>
+        </section>
+        <section role="tabpanel" id="glossary-panel-3" aria-labelledby="glossary-tab-3" class="ptabs__panel ptabs__panel--r" tabindex="0">
+          <div class="flow__body">
+            <p><b>용어 매칭을 수정해도 기계번역·교정·평가를 다시 배포할 필요가 없습니다.</b> 세 시스템이 같은 용어집 API를 사용하므로 동일한 기준으로 용어를 찾습니다.</p>
+            <p>용어를 DB에서 조회해, <b>번역 요청마다 엑셀 파일을 다시 읽지 않습니다.</b></p>
+            <p>원문 언어에 맞는 방식으로 용어를 찾고, <b>한국어·일본어의 동음이의어</b>는 <b>LLM이 문맥을 보고 판정</b>합니다.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </article>
+  <article class="case case--flow" id="case-eval">
+    <header class="case__head">
+      <h3>평가</h3>
+      <p class="case__sum">외주 검수를 LLM 평가기로 대체</p>
+      <span class="role">팀원과 공동 구현</span>
+    </header>
+    <div class="ptabs" data-ptabs>
+      <div class="ptabs__list" role="tablist" aria-orientation="vertical" aria-label="평가 단계">
+        <button type="button" role="tab" id="eval-tab-0" aria-controls="eval-panel-0" aria-selected="true" tabindex="0"><b>P</b><span>Problem</span></button>
+        <button type="button" role="tab" id="eval-tab-1" aria-controls="eval-panel-1" aria-selected="false" tabindex="-1"><b>A</b><span>Analyze</span></button>
+        <button type="button" role="tab" id="eval-tab-2" aria-controls="eval-panel-2" aria-selected="false" tabindex="-1"><b>A</b><span>Action</span></button>
+        <button type="button" role="tab" id="eval-tab-3" aria-controls="eval-panel-3" aria-selected="false" tabindex="-1" class="is-r"><b>R</b><span>Result</span></button>
+      </div>
+      <div class="ptabs__panels">
+        <section role="tabpanel" id="eval-panel-0" aria-labelledby="eval-tab-0" class="ptabs__panel is-on" tabindex="0">
+          <div class="flow__body">
+            <p>품질 확인이 <b>외주 검수(2주~한 달, 분기 1회)</b>라, 모델을 바꿔도 다음 분기에야 결과를 알 수 있었습니다. <b>새 모델이 나와도 기존 모델보다 나은지 빠르게 확인할 수 없었습니다.</b></p>
+          </div>
+        </section>
+        <section role="tabpanel" id="eval-panel-1" aria-labelledby="eval-tab-1" class="ptabs__panel" tabindex="0">
+          <div class="flow__body">
+            <p>수년간 쌓인 외주 평가 결과에는 번역문마다 발견된 오류의 종류·심각도와 점수가 기록돼 있었습니다. 이를 살펴보니 태그 누락·숫자 불일치·미번역처럼 규칙으로 확인할 수 있는 오류와, 오역·내용 누락처럼 문맥을 읽어야 판단할 수 있는 오류가 나뉘었습니다.</p>
+            <p>따라서 LLM에는 문맥을 읽어야 찾을 수 있는 오류를 맡기고, 규칙으로 확인할 수 있는 오류와 점수 계산은 코드로 처리하기로 했습니다. LLM이 찾은 오류는 기존 평가지에 기록된 오류와 비교해 검증할 수 있었습니다.</p>
+          </div>
+        </section>
+        <section role="tabpanel" id="eval-panel-2" aria-labelledby="eval-tab-2" class="ptabs__panel" tabindex="0">
+          <div class="flow__body">
+            <p>기존 외주 채점 기준을 바탕으로 <b>내부 번역 평가기</b>를 만들었습니다. 태그·변수·숫자·미번역은 정해진 규칙으로 검사하고, 용어 누락·문법 오류·자연스러움은 LLM이 평가합니다. 확인된 오류를 기준표에 따라 점수로 계산하고, <b>문장별 감점 이유를 리포트로 제공</b>합니다.</p>
+            <a class="more" href="#dd-eval" data-open="dd-eval">평가<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a>
+          </div>
+        </section>
+        <section role="tabpanel" id="eval-panel-3" aria-labelledby="eval-tab-3" class="ptabs__panel ptabs__panel--r" tabindex="0">
+          <div class="flow__body">
+            <p><b>번역 품질 검수를 더 이상 외주에 맡기지 않습니다.</b> 필요할 때 내부 평가기로 번역 결과를 채점하고, 점수와 문장별 감점 이유를 리포트로 확인합니다.</p>
+            <p>새 모델이 나오면 기존 모델과 새 모델로 같은 문장을 번역해 <b>같은 기준으로 바로 비교</b>합니다. 그 결과를 바탕으로 <b>언어쌍마다 점수가 가장 높은 LLM</b>을 실제 번역에 사용합니다.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </article>
+  <article class="case case--flow" id="case-ux">
+    <header class="case__head">
+      <h3>사용성</h3>
+      <p class="case__sum">파일 등록·용어집 관리·번역 실행 개선</p>
+      <span class="role">직접 구현</span>
+    </header>
+    <div class="ptabs" data-ptabs>
+      <div class="ptabs__list" role="tablist" aria-orientation="vertical" aria-label="사용성 단계">
+        <button type="button" role="tab" id="ux-tab-0" aria-controls="ux-panel-0" aria-selected="true" tabindex="0"><b>P</b><span>Problem</span></button>
+        <button type="button" role="tab" id="ux-tab-1" aria-controls="ux-panel-1" aria-selected="false" tabindex="-1"><b>A</b><span>Analyze</span></button>
+        <button type="button" role="tab" id="ux-tab-2" aria-controls="ux-panel-2" aria-selected="false" tabindex="-1"><b>A</b><span>Action</span></button>
+        <button type="button" role="tab" id="ux-tab-3" aria-controls="ux-panel-3" aria-selected="false" tabindex="-1" class="is-r"><b>R</b><span>Result</span></button>
+      </div>
+      <div class="ptabs__panels">
+        <section role="tabpanel" id="ux-panel-0" aria-labelledby="ux-tab-0" class="ptabs__panel is-on" tabindex="0">
+          <div class="flow__body">
+            <dl class="fold__dl strands">
+          <div><dt>프리셋</dt><dd><p>프리셋은 엑셀의 헤더가 몇 행인지, 몇 번째 열이 어느 언어인지 시스템에 알려 주는 설정입니다. 시트 번역을 맡길 때도 용어집을 등록할 때도 이걸 사람이 직접 만들어야 했습니다.</p></dd></div>
+          <div><dt>이미지 용어집</dt><dd><p>원본 용어집에는 이미지가 들어 있는데 시스템이 이미지를 받지 못해서, 이미지를 지우고 다시 만들어 올려야 했습니다.</p></dd></div>
+          <div><dt>용어집 롤백</dt><dd><p>용어집은 수정이 수시로 일어납니다. 수정 이력은 남았지만 그 시점으로 되돌리는 기능이 없었습니다.</p></dd></div>
+          <div><dt>용어 자동 번역</dt><dd><p>용어집에 언어를 하나 추가하면 그 열이 통째로 비는데, 사람이 다 채워야 했습니다.</p></dd></div>
+        </dl>
+          </div>
+        </section>
+        <section role="tabpanel" id="ux-panel-1" aria-labelledby="ux-tab-1" class="ptabs__panel" tabindex="0">
+          <div class="flow__body">
+            <dl class="fold__dl strands">
+          <div><dt>프리셋</dt><dd><p>게임마다 언어 코드 표기와 헤더 위치는 달랐지만, <b>입력 파일은 모두 엑셀</b>이었습니다. 행·열로 구성된 형식이 정해져 있어, <b>규칙과 LLM을 조합하면 헤더와 언어 열을 자동으로 인식</b>할 수 있다고 판단했습니다.</p></dd></div>
+          <div><dt>이미지 용어집</dt><dd><p>엑셀 안에서 <b>이미지가 놓인 위치</b>를 알 수 있으니, 원본 파일을 따로 가공하지 않고 <b>용어와 이미지를 함께 DB에 적재</b>할 수 있습니다.</p></dd></div>
+          <div><dt>용어집 롤백</dt><dd><p>용어집은 보통 수백~수천 항목이라, 저장 시점마다 전체를 스냅샷으로 남기고 복원 시 통째로 갈아 끼워도 부담이 작다고 판단했습니다. 스냅샷은 복원할 때만 읽으므로 DB 대신 GCS에 파일로 두기로 했습니다.</p></dd></div>
+          <div><dt>용어 자동 번역</dt><dd><p>새로 추가한 언어의 용어도, <b>기존에 등록된 다른 언어의 용어를 참고</b>하면 LLM으로 초안을 만들 수 있습니다.</p></dd></div>
+        </dl>
+          </div>
+        </section>
+        <section role="tabpanel" id="ux-panel-2" aria-labelledby="ux-tab-2" class="ptabs__panel" tabindex="0">
+          <div class="flow__body">
+            <dl class="fold__dl strands"><div><dt>프리셋</dt><dd><p>기존 용어집과 번역 파일에서 <b>언어 코드 표기를 모아 사전</b>으로 만들었습니다. 헤더와 언어 열은 이 사전과 규칙으로 먼저 판별하고, <b>판별되지 않는 열만 LLM에</b> 보냅니다. 시트 번역과 용어집 등록이 같은 인식 과정을 씁니다.</p></dd></div><div><dt>이미지 용어집</dt><dd><p>엑셀 파일 안의 XML에서 <b>이미지가 놓인 행·열</b>을 읽어, 그 위치의 용어에 이미지를 연결해 저장합니다. 재등록, 편집, 내보내기도 이 연결을 기준으로 동작합니다.</p></dd></div><div><dt>용어집 롤백</dt><dd><p>용어집이 바뀔 때마다 <b>전체 용어와 시트·열 구조를 묶어 GCS에 저장</b>합니다. 복원할 때는 용어집에 잠금을 걸어 편집을 막은 뒤 스냅샷으로 교체합니다.</p></dd></div><div><dt>용어 자동 번역</dt><dd><p>언어 열을 추가하고 자동 번역을 누르면 빈칸을 LLM이 번역합니다. 이때 <b>같은 용어의 다른 언어 번역을 함께</b> 보여 줍니다. 결과는 사용자가 확인한 뒤에 저장합니다.</p></dd></div></dl>
+          </div>
+        </section>
+        <section role="tabpanel" id="ux-panel-3" aria-labelledby="ux-tab-3" class="ptabs__panel ptabs__panel--r" tabindex="0">
+          <div class="flow__body">
+            <p>시트 번역을 맡길 때도 용어집을 등록할 때도 <b>프리셋을 만들지 않습니다.</b> 여러 파일을 한 번에 올릴 수 있고, 헤더와 언어 열은 자동으로 인식합니다.</p>
+            <p><b>이미지가 들어 있는 용어집을 원본 그대로 등록</b>합니다. 이미지를 지우고 다시 만들어 올리는 일이 없어졌습니다.</p>
+            <p>용어집을 <b>저장 시점으로 되돌릴 수 있습니다.</b></p>
+            <p>새 언어를 추가하면 다른 언어의 용어를 참고해 <b>빈칸의 번역 초안을 만들고</b>, 사용자가 확인한 뒤 저장합니다.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </article>
+    </div>
+    <div class="after">
+      <h3>현재의 MaMT</h3>
+      <ul class="after__grid">
+        <li data-rise><i>전체</i><b>4개 시스템 체제</b><span>교정 · 기계번역 · 용어집 · 평가</span></li>
+        <li data-rise><a class="after__tag" href="#case-infra">인프라</a><b>Cloud Run 기반 서버리스</b><span>작은 작업은 상시 떠 있는 Service가, 큰 작업은 샤드별 Job이 병렬로 처리</span></li>
+        <li data-rise><a class="after__tag" href="#case-infra">인프라</a><b>작업 ID로 장애 진단</b><span>흩어진 로그를 작업 ID로 합쳐 두고, 스킬이 원인을 진단</span></li>
+        <li data-rise><a class="after__tag" href="#case-rules">태그·few-shot 관리</a><b>LLM이 만드는 태그 규칙</b><span>기존 번역 파일에서 Claude가 규칙을 작성하고 Gemini가 검증</span></li>
+        <li data-rise><a class="after__tag" href="#case-rules">태그·few-shot 관리</a><b>Translation Memory</b><span>기존 번역에 같은 문장이 있으면 번역 파이프라인 없이 그대로 출력</span></li>
+        <li data-rise><a class="after__tag" href="#case-glossary">용어집</a><b>용어집 API</b><span>기계번역·교정·평가가 같은 API로 용어를 찾고, 애매한 후보는 LLM이 판정</span></li>
+        <li data-rise><a class="after__tag" href="#case-eval">평가</a><b>내부 LLM 평가기</b><span>새 모델을 기존 모델과 바로 비교하고, 언어쌍마다 점수가 가장 높은 LLM을 사용</span></li>
+        <li data-rise><a class="after__tag" href="#case-ux">사용성</a><b>프리셋 없는 파일 등록</b><span>시트 번역·용어집 모두 헤더와 언어 열을 자동 인식</span></li>
+        <li data-rise><a class="after__tag" href="#case-ux">사용성</a><b>이미지 용어집 등록 · 시점 복원</b><span>원본 편집 없이 이미지까지 연결, 저장 시점마다 스냅샷으로 되돌리기</span></li>
+        <li data-rise><a class="after__tag" href="#case-ux">사용성</a><b>AI 도구에서 번역 실행</b><span>플랫폼 웹에 접속하지 않고 Claude Code 같은 AI 도구에서 번역할 수 있는 스킬 배포</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 자세히 보기 ============ -->
+<section id="deepdive" class="deep" aria-labelledby="deep-h">
+  <div class="shell">
+    <h2 id="deep-h">자세히 보기</h2>
+
+    <div class="deep__list">
+    <details class="fold dd" id="dd-mt">
+    <summary><span>기계번역</span><span class="role">직접 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+    <div class="fold__body"><div class="fold__in">
+      <p>기존 번역에 같은 문장이 있으면 <b>그 번역을 그대로 쓰고, 없는 문장만 LLM으로 번역</b>합니다(<a class="cite" href="#dd-tm" data-open="dd-tm">Translation Memory와 few-shot 선정</a>). 번역 전에는 깨질 수 있는 <b>태그를 가려두고</b> 용어집·유사 문장·캐릭터 페르소나를 모아 프롬프트를 조립합니다. 번역 후에는 <b>결과를 그대로 믿지 않고</b> 검사와 리플렉션을 거칩니다.</p>
+      <ul>
+        <li><b>무결성 검사 · 리플렉션</b>: <b>가려둔 태그가 그대로 돌아왔는지, 변수가 같은 수로 남았는지, 용어를 빠뜨리지 않았는지</b> 코드로 검사합니다. 용어 검사는 용어집의 <a class="cite" href="#glossary-validate" data-open="dd-glossary" data-scroll="glossary-validate">validate</a>가 맡습니다. <b>실패한 항목만 LLM이 수정하고 다시 검사합니다.</b> 루프가 끝나도 결함이 남으면 <b>결함이 가장 적은 후보를 내보냅니다.</b> 결과에 따로 표시하지는 않고, 이런 건은 로그에 남겨 얼마나 나오는지 봅니다.</li>
+        <li><b>문장 묶기</b>: 일정 구간 단위로 <b>대화와 비대화를 분류</b>하고 같은 성격끼리 붙여 한 번에 보냅니다. 분류에 실패한 구간은 비대화로 처리해 <b>멈추지 않고</b> 넘어갑니다.</li>
+        <li><b>모델 라우팅</b>: <b>언어쌍마다 평가기 점수가 가장 높은 LLM을 씁니다</b>.</li>
+      </ul>
+      <h4>처리 흐름</h4>
+      <figure class="arch flowfig">
+        <figcaption>기계번역 흐름도</figcaption>
+        <div class="flowfig__scroll"><svg class="is-wide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 872 634" role="img" aria-label="기계번역 처리 흐름도. 번역할 문장에서 태그를 가리고, 대화와 비대화로 문장을 묶은 뒤, 기존 번역에 같은 문장이 있으면 그 번역을 그대로 쓴다. 없는 문장은 용어집, 유사 문장, 캐릭터 페르소나로 프롬프트를 조립해 LLM으로 번역한다. 번역 후에는 태그, 변수, 용어가 지켜졌는지 검사하고, 실패한 항목만 LLM이 고친 뒤 다시 검사한다. 통과하면 태그를 복원해 완성한다."><defs><marker id="ft-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker><marker id="ft-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk-g"/></marker><marker id="ft-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk-r"/></marker></defs><rect class="box" x="40" y="10" width="520" height="58" rx="9"/><text class="t ink" x="62" y="35" text-anchor="start">번역할 문장</text><text class="s mut" x="62" y="55" text-anchor="start">원문과 번역 대상 언어</text><path class="ln" d="M300.0 68 L300.0 84" marker-end="url(#ft-a)"/><rect class="box" x="40" y="88" width="520" height="58" rx="9"/><text class="t ink" x="62" y="113" text-anchor="start">태그 가리기</text><text class="s mut" x="62" y="133" text-anchor="start">태그와 변수를 번역 중에 깨지지 않게 가려 둠</text><rect class="chip" x="498" y="98" width="46" height="22" rx="11"/><text class="s2 sub" x="521.0" y="113" text-anchor="middle">코드</text><path class="ln dsh" d="M560 117 L616 117"/><g class="arch-node" data-target="dd-tags" tabindex="0" role="link" aria-label="LLM 기반 태그 규칙 생성 자세히 보기 열기"><rect class="box" x="616" y="92" width="224" height="50" rx="9"/><text class="s2 mut" x="630" y="111" text-anchor="start">게임별 태그 규칙</text><text class="s acc" x="630" y="130" text-anchor="start">LLM 기반 태그 규칙 생성 →</text></g><path class="ln" d="M300.0 146 L300.0 162" marker-end="url(#ft-a)"/><rect class="box" x="40" y="166" width="520" height="58" rx="9"/><text class="t ink" x="62" y="191" text-anchor="start">문장 묶기</text><text class="s mut" x="62" y="211" text-anchor="start">대화와 비대화를 나눠 같은 성격끼리 묶음</text><rect class="llm" x="498" y="176" width="46" height="22" rx="11"/><text class="s2 acc" x="521.0" y="191" text-anchor="middle">LLM</text><path class="ln" d="M300.0 224 L300.0 240" marker-end="url(#ft-a)"/><rect class="dec" x="40" y="244" width="520" height="58" rx="29"/><text class="t ink" x="70" y="269" text-anchor="start">기존 번역에 같은 문장이 있는가</text><text class="s mut" x="70" y="289" text-anchor="start">있으면 번역하지 않음</text><path class="ln" d="M560 273 L612 273" marker-end="url(#ft-a)"/><text class="s okt" x="588.0" y="266" text-anchor="middle">예</text><g class="arch-node" data-target="dd-tm" tabindex="0" role="link" aria-label="Translation Memory · few-shot 선정 자세히 보기 열기"><rect class="ok" x="616" y="248" width="224" height="50" rx="9"/><text class="s2 mut" x="630" y="267" text-anchor="start">기존 번역을 그대로 사용</text><text class="s2 okt" x="630" y="286" text-anchor="start">Translation Memory · few-shot 선정 →</text></g><path class="ln" d="M300.0 302 L300.0 318" marker-end="url(#ft-a)"/><text class="s mut" x="312.0" y="313" text-anchor="start">아니오</text><rect class="box" x="40" y="322" width="520" height="58" rx="9"/><text class="t ink" x="62" y="347" text-anchor="start">프롬프트 조립</text><text class="s mut" x="62" y="367" text-anchor="start">용어집 · 유사 문장 · 캐릭터 페르소나</text><rect class="chip" x="498" y="332" width="46" height="22" rx="11"/><text class="s2 sub" x="521.0" y="347" text-anchor="middle">코드</text><rect class="chip" x="406" y="332" width="84" height="22" rx="11"/><text class="s2 sub" x="448.0" y="347" text-anchor="middle">용어집 API</text><path class="ln dsh" d="M560 351 L616 351"/><g class="arch-node" data-target="dd-glossary" tabindex="0" role="link" aria-label="용어집 · match 자세히 보기 열기"><rect class="box" x="616" y="326" width="224" height="50" rx="9"/><text class="s2 mut" x="630" y="345" text-anchor="start">번역할 문장에서 용어 찾기</text><text class="s acc" x="630" y="364" text-anchor="start">용어집 · match →</text></g><path class="ln" d="M300.0 380 L300.0 396" marker-end="url(#ft-a)"/><rect class="box" x="40" y="400" width="520" height="58" rx="9"/><text class="t ink" x="62" y="425" text-anchor="start">LLM 번역</text><text class="s mut" x="62" y="445" text-anchor="start">언어쌍마다 평가기 점수가 가장 높은 LLM</text><rect class="llm" x="498" y="410" width="46" height="22" rx="11"/><text class="s2 acc" x="521.0" y="425" text-anchor="middle">LLM</text><path class="ln" d="M300.0 458 L300.0 474" marker-end="url(#ft-a)"/><rect class="dec" x="40" y="478" width="520" height="58" rx="29"/><text class="t ink" x="70" y="503" text-anchor="start">태그 · 변수 · 용어가 지켜졌는가</text><text class="s mut" x="70" y="523" text-anchor="start">무결성 검사</text><rect class="chip" x="488" y="488" width="46" height="22" rx="11"/><text class="s2 sub" x="511.0" y="503" text-anchor="middle">코드</text><rect class="chip" x="396" y="488" width="84" height="22" rx="11"/><text class="s2 sub" x="438.0" y="503" text-anchor="middle">용어집 API</text><path class="ln ln-g" d="M560 497 L612 497" marker-end="url(#ft-g)"/><text class="s acc" x="588.0" y="490" text-anchor="middle">아니오</text><rect class="llm" x="616" y="478" width="224" height="58" rx="9"/><text class="t ink" x="632" y="503" text-anchor="start">리플렉션</text><text class="s2 mut" x="632" y="523" text-anchor="start">실패한 항목만 LLM이 수정</text><rect class="llm" x="782" y="488" width="46" height="22" rx="11"/><text class="s2 acc" x="805.0" y="503" text-anchor="middle">LLM</text><path class="ln ln-g dsh" d="M616 519 L564 519" marker-end="url(#ft-g)"/><text class="s2 mut" x="588.0" y="535" text-anchor="middle">다시 검사</text><path class="ln" d="M300.0 536 L300.0 560" marker-end="url(#ft-a)"/><text class="s mut" x="312.0" y="555" text-anchor="start">예</text><rect class="ok" x="40" y="564" width="520" height="58" rx="9"/><text class="t okt" x="62" y="589" text-anchor="start">태그 복원 · 완성</text><text class="s mut" x="62" y="609" text-anchor="start">끝까지 결함이 남으면 결함이 가장 적은 후보를 내보냄</text><path class="ln" d="M840 273 L856 273 L856 593 L564 593" marker-end="url(#ft-a)"/></svg></div>
+      </figure>
+    </div></div>
+  </details>
+
+  <details class="fold dd" id="dd-arch">
+      <summary><span>시스템 아키텍처</span><span class="role">직접 설계 · 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+      <div class="fold__body"><div class="fold__in">
+        <figure class="arch">
+    <figcaption>지금의 MaMT 시스템 아키텍처</figcaption>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 576" role="img" aria-label="지금의 MaMT 시스템 아키텍처 — 교정·기계번역·평가가 같은 접수 서버, 큐, 워커 구조로 반복되고 용어집과 저장소를 공유">
+      <defs>
+        <marker id="arch-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker>
+        <symbol id="i-run" viewBox="0 0 24 24"><polygon fill="#aecbfa" points="8.9 2.63 12.02 12 21.38 12 8.9 2.63"/><polygon fill="#4285f4" points="21.38 12 12.02 12 8.9 21.38 21.38 12"/><polygon fill="#4285f4" points="3.44 21.38 6.57 19.81 8.9 12 5.78 12 3.44 21.38"/><polygon fill="#aecbfa" points="3.44 2.63 5.78 12 8.9 12 6.57 4.19 3.44 2.63"/></symbol>
+        <symbol id="i-tasks" viewBox="0 0 24 24"><rect fill="#669df6" x="3" y="5" width="2" height="7"/><rect fill="#4285f4" x="3" y="12" width="2" height="7"/><rect fill="#669df6" x="7" y="5" width="2" height="7"/><rect fill="#4285f4" x="7" y="12" width="2" height="7"/><rect fill="#669df6" x="11" y="5" width="2" height="7"/><rect fill="#4285f4" x="11" y="12" width="2" height="7"/><rect fill="#669df6" x="15" y="5" width="2" height="7"/><rect fill="#4285f4" x="15" y="12" width="2" height="7"/><rect fill="#669df6" x="19" y="5" width="2" height="7"/><rect fill="#4285f4" x="19" y="12" width="2" height="7"/></symbol>
+        <symbol id="i-sql" viewBox="0 0 24 24"><polygon fill="#aecbfa" points="4.67 10.44 4.67 13.45 12 17.35 12 14.34 4.67 10.44"/><polygon fill="#aecbfa" points="4.67 15.09 4.67 18.1 12 22 12 18.99 4.67 15.09"/><polygon fill="#669df6" points="12 17.35 19.33 13.45 19.33 10.44 12 14.34 12 17.35"/><polygon fill="#669df6" points="12 22 19.33 18.1 19.33 15.09 12 18.99 12 22"/><polygon fill="#4285f4" points="19.33 8.91 19.33 5.9 12 2 12 5.01 19.33 8.91"/><polygon fill="#669df6" points="12 2 4.67 5.9 4.67 8.91 12 5.01 12 2"/><polygon fill="#aecbfa" points="4.67 5.87 4.67 8.89 12 12.79 12 9.77 4.67 5.87"/><polygon fill="#669df6" points="12 12.79 19.33 8.89 19.33 5.87 12 9.77 12 12.79"/></symbol>
+        <symbol id="i-gcs" viewBox="0 0 24 24"><rect fill="#aecbfa" x="2" y="4" width="20" height="7"/><rect fill="#669df6" x="20" y="4" width="2" height="7"/><polygon fill="#4285f4" points="22 4 20 4 20 11 22 4"/><rect fill="#669df6" x="2" y="4" width="2" height="7"/><rect fill="#ffffff" x="6" y="7" width="6" height="1"/><rect fill="#ffffff" x="15" y="6" width="3" height="3" rx="1.5"/><rect fill="#aecbfa" x="2" y="13" width="20" height="7"/><rect fill="#669df6" x="20" y="13" width="2" height="7"/><polygon fill="#4285f4" points="22 13 20 13 20 20 22 13"/><rect fill="#669df6" x="2" y="13" width="2" height="7"/><rect fill="#ffffff" x="6" y="16" width="6" height="1"/><rect fill="#ffffff" x="15" y="15" width="3" height="3" rx="1.5"/></symbol>
+        <symbol id="i-gke" viewBox="0 0 24 24"><polygon fill="#4285f4" points="14.68 13.06 19.23 15.69 19.23 16.68 14.29 13.83 14.68 13.06"/><polygon fill="#669df6" points="9.98 13.65 4.77 16.66 4.45 15.86 9.53 12.92 9.98 13.65"/><rect fill="#aecbfa" x="11.55" y="3.29" width="0.86" height="5.78"/><path fill="#aecbfa" d="M3.25,7V17L12,22l8.74-5V7L12,2Zm15.63,8.89L12,19.78,5.12,15.89V8.11L12,4.22l6.87,3.89v7.78Z"/><polygon fill="#aecbfa" points="11.98 11.5 15.96 9.21 11.98 6.91 8.01 9.21 11.98 11.5"/><polygon fill="#669df6" points="11.52 12.3 7.66 10.01 7.66 14.6 11.52 16.89 11.52 12.3"/><polygon fill="#4285f4" points="12.48 12.3 12.48 16.89 16.34 14.6 16.34 10.01 12.48 12.3"/></symbol>
+      </defs>
+
+      <!-- 진입 -->
+      <rect class="box" x="270" y="10" width="220" height="40" rx="9"/>
+      <text class="t ink" x="380" y="35" text-anchor="middle">AI 스튜디오 — 플랫폼 웹</text>
+      <path class="ln" d="M380 50 L380 70" marker-end="url(#arch-a)"/>
+      <rect class="box" x="230" y="74" width="300" height="44" rx="9"/>
+      <use href="#i-gke" x="312" y="78" width="16" height="16"/>
+      <text class="t ink" x="380" y="92" text-anchor="middle">Bridge (GKE)</text>
+      <text class="s mut" x="380" y="109" text-anchor="middle">플랫폼 웹 ↔ AI 백엔드 통신 · 다른 팀 운영</text>
+      <path class="ln" d="M380 118 L380 138 L132 138 L132 156" marker-end="url(#arch-a)"/>
+      <path class="ln" d="M380 118 L380 156" marker-end="url(#arch-a)"/>
+      <path class="ln" d="M380 118 L380 138 L628 138 L628 156" marker-end="url(#arch-a)"/>
+
+      <!-- 교정 -->
+      <g class="arch-node" data-target="dd-correction" tabindex="0" role="link" aria-label="원본 교정 딥다이브 열기">
+        <rect class="pan" x="16" y="160" width="232" height="280" rx="12"/>
+        <text class="k acc" x="32" y="182">원본 교정</text>
+        <text class="s mut" x="232" y="182" text-anchor="end">팀원 구현</text>
+        <rect class="box" x="32" y="190" width="200" height="32" rx="8"/>
+        <use href="#i-run" x="40" y="197" width="18" height="18"/>
+        <text class="s ink" x="64" y="210">접수 서버 · Cloud Run</text>
+        <path class="ln" d="M132 222 L132 238" marker-end="url(#arch-a)"/>
+        <rect class="box" x="32" y="242" width="200" height="32" rx="8"/>
+        <use href="#i-tasks" x="40" y="249" width="18" height="18"/>
+        <text class="s ink" x="64" y="262">큐 · Cloud Tasks</text>
+        <path class="ln" d="M132 274 L132 284 L80 284 L80 296" marker-end="url(#arch-a)"/>
+        <path class="ln" d="M132 274 L132 284 L184 284 L184 296" marker-end="url(#arch-a)"/>
+        <rect class="box" x="32" y="300" width="96" height="64" rx="8"/>
+        <use href="#i-run" x="108" y="308" width="13" height="13"/>
+        <text class="s ink" x="40" y="320">워커 서비스</text>
+        <text class="s mut" x="40" y="338">소형 작업</text>
+        <text class="s mut" x="40" y="354">콜드스타트 없음</text>
+        <rect class="box" x="136" y="300" width="96" height="64" rx="8"/>
+        <use href="#i-run" x="212" y="308" width="13" height="13"/>
+        <text class="s ink" x="144" y="320">워커 잡</text>
+        <text class="s mut" x="144" y="338">대형 · 배치</text>
+        <text class="s mut" x="32" y="392">교정안은 사람이 확정</text>
+      </g>
+
+      <!-- 기계번역 -->
+      <g class="arch-node" data-target="dd-mt" tabindex="0" role="link" aria-label="기계번역 딥다이브 열기">
+        <rect class="pan" x="264" y="160" width="232" height="280" rx="12"/>
+        <text class="k acc" x="280" y="182">기계번역</text>
+        <rect class="box" x="280" y="190" width="200" height="32" rx="8"/>
+        <use href="#i-run" x="288" y="197" width="18" height="18"/>
+        <text class="s ink" x="312" y="210">접수 서버 · Cloud Run</text>
+        <path class="ln" d="M380 222 L380 238" marker-end="url(#arch-a)"/>
+        <rect class="box" x="280" y="242" width="200" height="32" rx="8"/>
+        <use href="#i-tasks" x="288" y="249" width="18" height="18"/>
+        <text class="s ink" x="312" y="262">큐 · Cloud Tasks</text>
+        <path class="ln" d="M380 274 L380 284 L328 284 L328 296" marker-end="url(#arch-a)"/>
+        <path class="ln" d="M380 274 L380 284 L432 284 L432 296" marker-end="url(#arch-a)"/>
+        <rect class="box" x="280" y="300" width="96" height="64" rx="8"/>
+        <use href="#i-run" x="356" y="308" width="13" height="13"/>
+        <text class="s ink" x="288" y="320">워커 서비스</text>
+        <text class="s mut" x="288" y="338">소형 작업</text>
+        <text class="s mut" x="288" y="354">콜드스타트 없음</text>
+        <rect class="box" x="384" y="300" width="96" height="64" rx="8"/>
+        <use href="#i-run" x="460" y="308" width="13" height="13"/>
+        <text class="s ink" x="392" y="320">워커 잡</text>
+        <text class="s mut" x="392" y="338">대형 · 배치</text>
+        <rect class="box dsh" x="280" y="376" width="200" height="48" rx="8"/>
+        <use href="#i-run" x="458" y="382" width="15" height="15"/>
+        <text class="s ink" x="292" y="396">즉시 번역 · Cloud Run Service</text>
+        <text class="s mut" x="292" y="413">큐 없이 바로 응답</text>
+      </g>
+
+      <!-- 평가 -->
+      <g class="arch-node" data-target="dd-eval" tabindex="0" role="link" aria-label="평가 딥다이브 열기">
+        <rect class="pan" x="512" y="160" width="232" height="280" rx="12"/>
+        <text class="k acc" x="528" y="182">평가</text>
+        <rect class="box" x="528" y="190" width="200" height="32" rx="8"/>
+        <use href="#i-run" x="536" y="197" width="18" height="18"/>
+        <text class="s ink" x="560" y="210">접수 서버 · Cloud Run</text>
+        <path class="ln" d="M628 222 L628 238" marker-end="url(#arch-a)"/>
+        <rect class="box" x="528" y="242" width="200" height="52" rx="8"/>
+        <use href="#i-run" x="536" y="250" width="18" height="18"/>
+        <text class="s ink" x="560" y="262">채점 워커 · Cloud Run Job</text>
+        <text class="s mut" x="560" y="280">MQM 기준 자동 채점</text>
+        <path class="ln" d="M628 294 L628 312" marker-end="url(#arch-a)"/>
+        <rect class="box" x="528" y="316" width="200" height="36" rx="8"/>
+        <text class="s ink" x="540" y="338">채점 리포트 — 점수 · 오류 목록</text>
+      </g>
+
+      <!-- 공용 층으로 내려가는 버스 -->
+      <path class="ln" d="M132 440 L132 450"/>
+      <path class="ln" d="M380 440 L380 450"/>
+      <path class="ln" d="M628 440 L628 450"/>
+      <path class="ln" d="M132 450 L628 450"/>
+      <path class="ln" d="M192 450 L192 470" marker-end="url(#arch-a)"/>
+      <path class="ln" d="M568 450 L568 470" marker-end="url(#arch-a)"/>
+
+      <!-- 공용 서비스 · 저장소 -->
+      <g class="arch-node" data-target="dd-glossary" tabindex="0" role="link" aria-label="용어집 딥다이브 열기">
+        <rect class="box pan-like" x="16" y="474" width="352" height="64" rx="12"/>
+        <use href="#i-run" x="32" y="484" width="15" height="15"/>
+        <text class="t sub" x="52" y="497">용어집 API · Cloud Run</text>
+        <text class="s mut" x="32" y="516">세 시스템이 같은 용어를 조회</text>
+        <text class="s mut" x="32" y="532">등록 · 관리는 플랫폼 웹에서</text>
+      </g>
+
+      <rect class="box" x="392" y="474" width="352" height="64" rx="12"/>
+      <text class="t sub" x="408" y="497">공유 저장소</text>
+      <use href="#i-sql" x="408" y="504" width="13" height="13"/>
+      <text class="s mut" x="426" y="516">Cloud SQL — 작업 상태 · 용어</text>
+      <use href="#i-gcs" x="408" y="520" width="13" height="13"/>
+      <text class="s mut" x="426" y="532">GCS — 파일 · 캐시 · 결과물 · 로그</text>
+
+      <text class="s mut" x="16" y="566">워커는 작업 크기만큼 늘어나는 서버리스입니다.</text>
+    </svg>
+    <p class="arch__note">※ Bridge(GKE)는 플랫폼 웹에 이 글에서 다룬 AI 백엔드를 서빙하는 역할이며, 다른 팀이 운영합니다.</p>
+  </figure>
+      </div></div>
+    </details>
+  <details class="fold dd" id="dd-ops">
+    <summary><span>장애 진단</span><span class="role">직접 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+    <div class="fold__body"><div class="fold__in">
+      <p><b>작업 ID만 입력하면 관련 로그를 찾아 장애 원인을 분석하는 Claude Code 스킬</b>을 만들었습니다. 장애가 날 때마다 로그를 직접 뒤져 원인을 추정하던 과정을 <b>이 스킬로 자동화</b>했습니다.</p>
+      <ul>
+        <li><b>로그 통합</b>: 번역 한 건은 라우터와 Service, Job, 샤드를 거치며 로그가 흩어집니다. <b>모든 로그에 작업 ID를 넣고 같은 형식으로 남긴 뒤, 작업이 끝나면 ID 단위로 합쳐 GCS에 둡니다.</b> GCP 로그 라우터는 시간 단위로 로그가 쌓여 서로 다른 작업이 뒤섞여 보이므로 사용하지 않았습니다.</li>
+        <li><b>요약 파일</b>: 로그를 합치면서 <b>오류·경고가 발생한 줄 번호와 처리 단계·언어별 로그 구간을 인덱스로 정리</b>하고, LLM 비용도 함께 기록합니다. 장애 진단 스킬은 이 파일을 먼저 읽고 <b>필요한 로그 구간으로 바로 이동</b>합니다.</li>
+        <li><b>통합 로그가 없는 경우</b>: 메모리 초과나 시간 초과로 <b>컨테이너가 강제 종료되어 통합 로그가 생성되지 않으면</b>, Cloud Logging에서 해당 컨테이너의 로그를 직접 확인합니다.</li>
+      </ul>
+    </div></div>
+  </details>
+    <details class="fold dd" id="dd-tags">
+    <summary><span>LLM 기반 태그 규칙 생성</span><span class="role">직접 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+    <div class="fold__body"><div class="fold__in">
+      <p>기존 번역 파일의 원문과 번역문을 비교해 게임별 태그 규칙을 만듭니다. 원문에서 <code>[ ]</code>, <code>{ }</code>, <code>&lt; &gt;</code>로 감싼 문자열을 후보로 모으고, 번역문에도 그대로 남아 있는지 확인해 태그와 일반 문구를 구분합니다. Claude가 이 결과로 규칙을 작성하고, Gemini가 전체 후보에 적용해 검증합니다. 오류가 있으면 Claude가 수정하고 Gemini가 다시 검사합니다.</p>
+      <div class="rdemo" id="rules-demo">
+        <ol class="rdemo__steps" aria-label="태그 규칙 생성 단계">
+          <li><button type="button"><i></i><span>후보 추출</span></button></li>
+          <li><button type="button"><i></i><span>태그 판정</span></button></li>
+          <li><button type="button"><i></i><span>규칙 작성</span><em>Claude</em></button></li>
+          <li><button type="button"><i></i><span>검증</span><em>Gemini</em></button></li>
+          <li><button type="button"><i></i><span>수정</span><em>Claude</em></button></li>
+          <li><button type="button"><i></i><span>재검증</span><em>Gemini</em></button></li>
+        </ol>
+        <div class="rdemo__main">
+          <div class="rdemo__table">
+            <div class="rdemo__head" aria-hidden="true"><span>KO</span><span>EN</span></div>
+            <div class="rdemo__body"><div class="rdemo__rows"></div><i class="rdemo__win" aria-hidden="true"></i></div>
+          </div>
+          <aside class="rdemo__rules is-empty" aria-label="태그 규칙">
+            <h5>정규식</h5>
+            <ul class="rdemo__regex"></ul>
+            <h5>태그 목록</h5>
+            <ul class="rdemo__list"></ul>
+          </aside>
+        </div>
+        <p class="rdemo__desc" hidden><b>Gemini</b><span class="rdemo__desctext"></span></p>
+        <p class="rdemo__log" aria-live="polite"></p>
+        <div class="demo__bar">
+          <div class="demo__ctl">
+            <button type="button" class="btn-ic" data-act="prev" aria-label="이전 단계"><svg class="ic " aria-hidden="true"><use href="#ph-caret-left"/></svg></button>
+            <button type="button" class="btn-play" data-act="toggle" aria-label="재생"><svg class="ic ic-play" aria-hidden="true"><use href="#ph-play"/></svg><svg class="ic ic-pause" aria-hidden="true"><use href="#ph-pause"/></svg><span>재생</span></button>
+            <button type="button" class="btn-ic" data-act="next" aria-label="다음 단계"><svg class="ic " aria-hidden="true"><use href="#ph-caret-right"/></svg></button>
+            <button type="button" class="btn-ic btn-speed" data-act="speed" aria-label="재생 속도">1x</button>
+          </div>
+          <p class="demo__note">과정을 보여주기 위한 예시입니다. 문장은 가상의 게임 텍스트입니다.</p>
+        </div>
+      </div>
+    </div></div>
+  </details>
+  <details class="fold dd" id="dd-tm">
+    <summary><span>Translation Memory와 few-shot 선정</span><span class="role">직접 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+    <div class="fold__body"><div class="fold__in">
+      <h4>똑같은 문장 찾기</h4>
+      <ul>
+        <li><b>문장이 동일한 경우</b>: 대소문자, 앞뒤·중복 공백, 앞의 글머리표, 한국어 띄어쓰기 차이는 무시합니다. <b>태그와 변수는 값까지 같아야</b> 하고, 구두점이나 단어가 다르면 다른 문장으로 봅니다. 이 조건을 만족하면 기존 번역을 그대로 출력합니다.</li>
+        <li><b>태그만 제외하고 동일한 경우</b>: 태그 안의 값만 다르고 나머지가 모두 같으며 태그 개수와 위치도 같으면, <b>기존 번역의 태그 값을 바꿔 넣어 출력합니다.</b></li>
+        <li><b>기존 번역문의 태그 확인</b>: 기존 번역은 사람이 만든 정답지라 실수가 섞여 있습니다. 예를 들어 기존 원문은 <code>&lt;color=red&gt;{0}&lt;/color&gt; 피해</code>인데 기존 번역문은 <code>{0} damage</code>여서, 번역한 사람이 color 태그를 빠뜨린 줄이 있습니다. <b>이런 줄은 번역할 문장과 똑같아도 쓰지 않습니다.</b> 그 번역을 그대로 내보내면 태그가 빠진 번역이 다시 나가기 때문입니다.</li>
+        <li><b>태그의 기준</b>: <a class="cite" href="#dd-tags" data-open="dd-tags">LLM 기반 태그 규칙 생성</a>에서 만든 규칙을 따릅니다.</li>
+      </ul>
+      <p class="figcap">똑같은 문장을 찾는 과정</p>
+      <div class="rdemo tmdemo" id="tm-demo">
+        <div class="demo__top"><div class="demo__tabs" role="group" aria-label="샘플"></div></div>
+        <ol class="rdemo__steps" aria-label="똑같은 문장 찾기 단계">
+          <li><button type="button"><i></i><span>정규화</span></button></li>
+          <li><button type="button"><i></i><span>문장 비교</span></button></li>
+          <li><button type="button"><i></i><span>태그 비교</span></button></li>
+          <li><button type="button"><i></i><span>기존 번역문 확인</span></button></li>
+          <li><button type="button"><i></i><span>결과</span></button></li>
+        </ol>
+        <div class="tmdemo__main">
+          <div class="tmdemo__rows"></div>
+          <ul class="demo__checks is-on" aria-label="판정">
+            <li data-check="sentence"><span class="ck" aria-hidden="true"></span><span class="ck__t">문장</span></li>
+            <li data-check="tags"><span class="ck" aria-hidden="true"></span><span class="ck__t">태그</span></li>
+            <li data-check="target"><span class="ck" aria-hidden="true"></span><span class="ck__t">기존 번역문의 태그</span></li>
+          </ul>
+          <div class="tmdemo__out"></div>
+        </div>
+        <p class="rdemo__log" aria-live="polite"></p>
+        <div class="demo__bar">
+          <div class="demo__ctl">
+            <button type="button" class="btn-ic" data-act="prev" aria-label="이전 단계"><svg class="ic " aria-hidden="true"><use href="#ph-caret-left"/></svg></button>
+            <button type="button" class="btn-play" data-act="toggle" aria-label="재생"><svg class="ic ic-play" aria-hidden="true"><use href="#ph-play"/></svg><svg class="ic ic-pause" aria-hidden="true"><use href="#ph-pause"/></svg><span>재생</span></button>
+            <button type="button" class="btn-ic" data-act="next" aria-label="다음 단계"><svg class="ic " aria-hidden="true"><use href="#ph-caret-right"/></svg></button>
+            <button type="button" class="btn-ic btn-speed" data-act="speed" aria-label="재생 속도">1x</button>
+          </div>
+          <p class="demo__note">과정을 보여주기 위한 예시입니다. 문장은 가상의 게임 텍스트입니다.</p>
+        </div>
+      </div>
+
+      <h4>few-shot 예시 고르기</h4>
+      <p>똑같은 문장이 없는 줄은 세 단계로 예시를 고릅니다.</p>
+      <ul>
+        <li><b>후보 선별</b>: <b>벡터 검색과 BM25의 합집합</b>으로 후보를 모읍니다. BM25는 글자 2-gram을 쓰고, 한 글자 단어가 많은 중국어는 1-gram도 함께 씁니다.</li>
+        <li><b>점수 매기기</b>: <b>LCS(최장 공통 부분 수열)</b>로 점수를 매깁니다. 한국어·일본어·중국어·태국어는 글자 단위, 영어는 단어 단위로 계산합니다<a class="ref" href="#ref-tm-1" aria-label="참고 문헌 1">[1]</a>.</li>
+        <li><b>고르기</b>: LCS가 높은 순으로 고르고, 동률이면 벡터 점수로 가립니다.</li>
+      </ul>
+      <p class="refs" id="ref-tm-1"><span>[1]</span><span>M. Bouthors, J. Crego, and F. Yvon, “Retrieving Examples from Memory for Retrieval Augmented Neural Machine Translation: A Systematic Comparison,” <i>arXiv preprint</i> <a class="cite" href="https://arxiv.org/abs/2404.02835" target="_blank" rel="noopener">arXiv:2404.02835</a>, 2024.</span></p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>번역할 문장</th><th>후보</th><th>LCS</th><th>사유</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="4">공격력 증가</td><td>공격력 대폭 증가</td><td>0.96</td><td>다 들어 있고 여분만 있음</td></tr>
+          <tr><td>공격력</td><td>0.6</td><td>"증가"가 빠짐</td></tr>
+          <tr><td>증가 공격력</td><td>0.58</td><td>글자는 같지만 순서가 다름</td></tr>
+          <tr><td>체력 회복</td><td>0.19</td><td>"력" 하나만 겹침</td></tr>
+        </tbody>
+      </table></div>
+    </div></div>
+  </details>
+  <details class="fold dd" id="dd-preprocess">
+    <summary><span>게임별 전처리</span><span class="role">직접 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+    <div class="fold__body"><div class="fold__in">
+      <p><b>기계번역의 전처리 단계입니다.</b> 기계번역이 프롬프트에 넣는 <b>유사 문장·캐릭터 페르소나·대화 예시·태그 규칙</b>이 만들어지는 곳입니다. 게임에 쌓인 기존 번역 파일을 <b>한 번 처리해 두고</b>, 이후 번역은 그 결과를 가져다 씁니다.</p>
+      <ul>
+        <li><b>전처리 결과물</b>
+          <ul class="sub2">
+            <li><b>태그 규칙</b>: <a class="cite" href="#dd-tags" data-open="dd-tags">LLM 기반 태그 규칙 생성</a> 항목에서 설명합니다.</li>
+            <li><b>캐릭터 페르소나</b>: <b>캐릭터가 아닌 화자를 걸러낸 뒤</b>, 캐릭터별로 대사를 모아 LLM이 말투 설명을 만들어 둡니다. 같은 화자의 번역이 입력으로 들어오면 번역 컨텍스트에 포함시킵니다.</li>
+            <li><b>벡터 인덱스</b>: 태그를 뺀 원문을 임베딩해 DB에 넣어 둡니다. 번역할 때 <b>예시 후보를 찾는 데</b> 씁니다. 그 가운데 무엇을 예시로 넣는지는 <a class="cite" href="#dd-tm" data-open="dd-tm">Translation Memory와 few-shot 선정</a> 항목에서 설명합니다.</li>
+            <li><b>대화 예시</b>: <b>화자가 이어지는 구간을 대화 묶음으로</b> 잘라 둡니다. 번역할 때 같은 캐릭터들이 등장하면 해당 대화 묶음을 컨텍스트에 넣어 활용합니다.</li>
+          </ul>
+        </li>
+        <li>결과는 파일 내용과 원문 언어로 만든 키로 GCS에 저장해 두고, <b>같은 파일이 같은 언어로 다시 들어오면 전처리를 건너뜁니다</b>. 한 파일에 원문 언어가 여럿이면 언어별로 병렬로 만들고, 같은 파일을 동시에 요청해도 한 번만 만듭니다.</li>
+        <li>전처리가 실패해도 본 번역은 그대로 진행하고, <b>완료 통보에 기존 번역 파일이 반영되지 않았다는 표시와 사유</b>를 함께 보냅니다. 태그 규칙만 실패하면 공통 규칙으로, 벡터 인덱스만 준비되지 않으면 예시 없이 번역합니다.</li>
+      </ul>
+      <h4>전처리 흐름</h4>
+      <figure class="arch flowfig">
+        <figcaption>게임별 전처리 흐름도</figcaption>
+        <div class="flowfig__scroll"><svg class="is-wide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 872 736" role="img" aria-label="게임별 전처리 흐름도. 기존 번역 파일이 같은 언어로 이미 처리됐으면 저장된 결과를 그대로 쓴다. 아니면 태그 규칙, 캐릭터 페르소나, 벡터 인덱스, 대화 예시를 만들어 GCS에 저장하고, 번역할 때 프롬프트에 쓴다. 전처리가 실패해도 본 번역은 그대로 진행하고 완료 통보에 사유를 함께 보낸다."><defs><marker id="fp-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker><marker id="fp-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk-g"/></marker></defs><rect class="box" x="40" y="10" width="520" height="58" rx="9"/><text class="t ink" x="62" y="35" text-anchor="start">기존 번역 파일</text><text class="s mut" x="62" y="55" text-anchor="start">게임에 쌓인 번역. 등록하면 한 번 처리해 둠</text><path class="ln" d="M300.0 68 L300.0 84" marker-end="url(#fp-a)"/><rect class="dec" x="40" y="88" width="520" height="58" rx="29"/><text class="t ink" x="70" y="113" text-anchor="start">같은 파일이 같은 언어로 이미 처리됐는가</text><text class="s mut" x="70" y="133" text-anchor="start">처리한 적이 있으면 전처리를 건너뜀</text><path class="ln" d="M560 117 L612 117" marker-end="url(#fp-a)"/><text class="s okt" x="588.0" y="110" text-anchor="middle">예</text><rect class="ok" x="616" y="92" width="224" height="50" rx="9"/><text class="s okt" x="728.0" y="122" text-anchor="middle">저장된 결과를 그대로 사용</text><path class="ln" d="M300.0 146 L300.0 170" marker-end="url(#fp-a)"/><text class="s mut" x="312.0" y="165" text-anchor="start">아니오</text><rect class="pan" x="24" y="174" width="552" height="308" rx="12"/><text class="k acc" x="40" y="196" text-anchor="start">전처리 결과물</text><rect class="box" x="40" y="206" width="520" height="58" rx="9"/><text class="t ink" x="62" y="231" text-anchor="start">태그 규칙</text><text class="s mut" x="62" y="251" text-anchor="start">기존 번역과 대조해 태그를 가려내고 규칙을 작성</text><rect class="llm" x="498" y="216" width="46" height="22" rx="11"/><text class="s2 acc" x="521.0" y="231" text-anchor="middle">LLM</text><path class="ln dsh" d="M560 235 L616 235"/><g class="arch-node" data-target="dd-tags" tabindex="0" role="link" aria-label="LLM 기반 태그 규칙 생성 자세히 보기 열기"><rect class="box" x="616" y="210" width="224" height="50" rx="9"/><text class="s2 mut" x="630" y="229" text-anchor="start">규칙을 만드는 과정</text><text class="s2 acc" x="630" y="248" text-anchor="start">LLM 기반 태그 규칙 생성 →</text></g><rect class="box" x="40" y="274" width="520" height="58" rx="9"/><text class="t ink" x="62" y="299" text-anchor="start">캐릭터 페르소나</text><text class="s mut" x="62" y="319" text-anchor="start">캐릭터가 아닌 화자를 걸러내고 말투 설명을 만듦</text><rect class="llm" x="498" y="284" width="46" height="22" rx="11"/><text class="s2 acc" x="521.0" y="299" text-anchor="middle">LLM</text><rect class="box" x="40" y="342" width="520" height="58" rx="9"/><text class="t ink" x="62" y="367" text-anchor="start">벡터 인덱스</text><text class="s mut" x="62" y="387" text-anchor="start">태그를 뺀 원문을 임베딩해 DB에 저장</text><rect class="chip" x="498" y="352" width="46" height="22" rx="11"/><text class="s2 sub" x="521.0" y="367" text-anchor="middle">코드</text><path class="ln dsh" d="M560 371 L616 371"/><g class="arch-node" data-target="dd-tm" tabindex="0" role="link" aria-label="Translation Memory · few-shot 선정 자세히 보기 열기"><rect class="box" x="616" y="346" width="224" height="50" rx="9"/><text class="s2 mut" x="630" y="365" text-anchor="start">예시를 고르는 방식</text><text class="s2 acc" x="630" y="384" text-anchor="start">Translation Memory · few-shot 선정 →</text></g><rect class="box" x="40" y="410" width="520" height="58" rx="9"/><text class="t ink" x="62" y="435" text-anchor="start">대화 예시</text><text class="s mut" x="62" y="455" text-anchor="start">화자가 이어지는 구간을 대화 묶음으로 자름</text><rect class="chip" x="498" y="420" width="46" height="22" rx="11"/><text class="s2 sub" x="521.0" y="435" text-anchor="middle">코드</text><path class="ln" d="M300.0 482 L300.0 506" marker-end="url(#fp-a)"/><rect class="box" x="40" y="510" width="520" height="58" rx="9"/><text class="t ink" x="62" y="535" text-anchor="start">결과 저장</text><text class="s mut" x="62" y="555" text-anchor="start">파일 내용과 원문 언어로 만든 키로 GCS에 저장</text><rect class="chip" x="498" y="520" width="46" height="22" rx="11"/><text class="s2 sub" x="521.0" y="535" text-anchor="middle">코드</text><path class="ln" d="M300.0 568 L300.0 584" marker-end="url(#fp-a)"/><rect class="ok" x="40" y="588" width="520" height="58" rx="9"/><text class="t okt" x="62" y="613" text-anchor="start">번역할 때 프롬프트에 사용</text><text class="s mut" x="62" y="633" text-anchor="start">유사 문장 · 캐릭터 페르소나 · 대화 예시 · 태그 규칙</text><path class="ln" d="M840 117 L856 117 L856 617 L564 617" marker-end="url(#fp-a)"/><rect class="pan" x="24" y="668" width="552" height="56" rx="12"/><text class="k acc" x="40" y="690" text-anchor="start">전처리가 실패해도</text><text class="s sub" x="40" y="711" text-anchor="start">본 번역은 그대로 진행하고, 완료 통보에 사유를 함께 보냄</text></svg></div>
+      </figure>
+    </div></div>
+  </details>
+
+  <details class="fold dd" id="dd-glossary">
+    <summary><span>용어집</span><span class="role">직접 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+    <div class="fold__body"><div class="fold__in">
+      <h4 id="glossary-match" tabindex="-1">match: 원문에서 용어 찾기</h4>
+      <p>match는 원문에서 용어집 용어를 찾아 <b>용어와 번역을 돌려줍니다.</b> 기계번역은 프롬프트에 넣고, 평가기는 LLM의 용어 사용 검사에 활용합니다. 한국어·일본어·중국어·대만어·태국어는 <b>Aho-Corasick으로 원문에서 용어와 글자가 일치하는 위치를 찾습니다.</b> 영어는 단어를 기본형으로 바꿔 비교합니다. 한국어·일본어에서는 앞뒤 글자로 후보를 걸러내고, 남은 애매한 후보는 LLM이 판정합니다.</p>
+      <p>큰 용어집의 검색 구조(Aho-Corasick 오토마톤)는 매번 만들지 않고 <b>메모리와 GCS에 저장</b>해 용어가 바뀔 때만 다시 만듭니다.</p>
+      <figure class="arch flowfig">
+        <figcaption>match 흐름도</figcaption>
+        <div class="flowfig__scroll"><svg class="is-wide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1056 700" role="img" aria-label="match 흐름도. 번역할 문장에서 태그와 변수를 가린 뒤 언어에 따라 나뉜다. 한국어·일본어는 Aho-Corasick으로 글자가 같은 자리를 찾고 앞뒤 글자를 검사하며, 확정되지 않는 후보와 두 글자 이하 용어는 LLM이 판정한다. 중국어·대만어·태국어는 앞뒤 검사 없이 확정한다. 영어는 기본형으로 되돌려 비교한다. 확정된 용어는 겹침을 정리해 번역 프롬프트와 평가기로 전달된다."><defs><marker id="fm-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker><marker id="fm-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk-g"/></marker><marker id="fm-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk-r"/></marker></defs><rect class="box" x="418" y="10" width="220" height="36" rx="9"/><text class="t ink" x="528.0" y="33.0" text-anchor="middle">번역할 문장</text><path class="ln" d="M528 46 L528 62" marker-end="url(#fm-a)"/><rect class="box" x="378" y="66" width="300" height="48" rx="9"/><text class="t ink" x="528.0" y="87.0" text-anchor="middle">태그·변수 가리기</text><text class="s mut" x="528.0" y="105.0" text-anchor="middle">태그, {0}, \n을 공백으로 바꾼다</text><path class="ln" d="M528 114 L528 134 L286 134 L286 152" marker-end="url(#fm-a)"/><path class="ln" d="M528 114 L528 134 L672 134 L672 152" marker-end="url(#fm-a)"/><path class="ln" d="M528 114 L528 134 L914 134 L914 152" marker-end="url(#fm-a)"/><rect class="pan" x="16" y="156" width="540" height="412" rx="12"/><text class="k acc" x="32" y="180" text-anchor="start">한국어 · 일본어</text><rect class="box" x="32" y="192" width="240" height="48" rx="9"/><text class="t ink" x="152.0" y="213.0" text-anchor="middle">글자가 같은 자리 찾기</text><text class="s mut" x="152.0" y="231.0" text-anchor="middle">Aho-Corasick · 공백은 무시</text><path class="ln" d="M152.0 240 L152.0 258" marker-end="url(#fm-a)"/><rect class="dec" x="32" y="262" width="240" height="48" rx="24"/><text class="t ink" x="152.0" y="291.0" text-anchor="middle">앞에 글자가 붙어 있는가</text><path class="ln ln-r" d="M272 286 L332 286" marker-end="url(#fm-r)"/><text class="s not" x="302" y="280" text-anchor="middle">예</text><rect class="no" x="336" y="270" width="72" height="32" rx="9"/><text class="s not" x="372.0" y="291.0" text-anchor="middle">버림</text><path class="ln" d="M152.0 310 L152.0 328" marker-end="url(#fm-a)"/><text class="s mut" x="164.0" y="324" text-anchor="start">아니오</text><rect class="dec" x="32" y="332" width="240" height="48" rx="24"/><text class="t ink" x="152.0" y="353.0" text-anchor="middle">뒤에 붙은 글자가 조사인가</text><text class="s mut" x="152.0" y="371.0" text-anchor="middle">글자가 없어도 통과</text><path class="ln ln-g" d="M272 356 L332 356" marker-end="url(#fm-g)"/><text class="s acc" x="302" y="350" text-anchor="middle">아니오</text><path class="ln" d="M152.0 380 L152.0 398" marker-end="url(#fm-a)"/><text class="s mut" x="164.0" y="394" text-anchor="start">예</text><rect class="dec" x="32" y="402" width="240" height="48" rx="24"/><text class="t ink" x="152.0" y="431.0" text-anchor="middle">용어가 두 글자 이하인가</text><path class="ln ln-g" d="M272 426 L332 426" marker-end="url(#fm-g)"/><text class="s acc" x="302" y="420" text-anchor="middle">예</text><path class="ln" d="M152.0 450 L152.0 494" marker-end="url(#fm-a)"/><text class="s mut" x="164.0" y="476" text-anchor="start">아니오</text><rect class="llm" x="336" y="332" width="204" height="118" rx="9"/><text class="k acc" x="438" y="372" text-anchor="middle">LLM 판정</text><text class="s ink" x="438" y="398" text-anchor="middle">용어집의 번역으로 바꿔 넣어도</text><text class="s ink" x="438" y="416" text-anchor="middle">문장의 뜻이 유지되는가</text><path class="ln ln-g" d="M380 450 L380 522 L276 522" marker-end="url(#fm-g)"/><text class="s acc" x="372" y="474" text-anchor="end">예</text><path class="ln ln-r" d="M488 450 L488 478" marker-end="url(#fm-r)"/><text class="s not" x="498" y="470" text-anchor="start">아니오</text><rect class="no" x="452" y="482" width="72" height="32" rx="9"/><text class="s not" x="488.0" y="503.0" text-anchor="middle">버림</text><rect class="ok" x="32" y="498" width="240" height="48" rx="9"/><text class="t okt" x="152.0" y="527.0" text-anchor="middle">용어로 확정</text><rect class="pan" x="572" y="156" width="200" height="412" rx="12"/><text class="k acc" x="588" y="180" text-anchor="start">중국어 · 대만어 · 태국어</text><rect class="box" x="588" y="192" width="168" height="60" rx="9"/><text class="t ink" x="672.0" y="212.0" text-anchor="middle">글자가 같은 자리 찾기</text><text class="s mut" x="672.0" y="228.0" text-anchor="middle">Aho-Corasick</text><text class="s2 mut" x="672.0" y="243.0" text-anchor="middle">앞뒤 검사 없음</text><path class="ln" d="M672.0 252 L672.0 494" marker-end="url(#fm-a)"/><rect class="ok" x="588" y="498" width="168" height="48" rx="9"/><text class="t okt" x="672.0" y="527.0" text-anchor="middle">용어로 확정</text><rect class="pan" x="788" y="156" width="252" height="412" rx="12"/><text class="k acc" x="804" y="180" text-anchor="start">영어</text><rect class="box" x="804" y="192" width="184" height="48" rx="9"/><text class="t ink" x="896.0" y="213.0" text-anchor="middle">기본형으로 되돌리기</text><text class="s mut" x="896.0" y="231.0" text-anchor="middle">spaCy</text><path class="ln" d="M896.0 240 L896.0 258" marker-end="url(#fm-a)"/><rect class="box" x="804" y="262" width="184" height="48" rx="9"/><text class="t ink" x="896.0" y="283.0" text-anchor="middle">용어의 기본형과 비교</text><text class="s2 mut" x="896.0" y="301.0" text-anchor="middle">등록할 때 미리 계산해 저장</text><path class="ln" d="M896.0 310 L896.0 494" marker-end="url(#fm-a)"/><rect class="ok" x="804" y="498" width="184" height="48" rx="9"/><text class="t okt" x="896.0" y="527.0" text-anchor="middle">용어로 확정</text><path class="ln" d="M152.0 546 L152.0 608 L374 608" marker-end="url(#fm-a)"/><path class="ln" d="M672.0 546 L672.0 566 L604 566 L604 580" marker-end="url(#fm-a)"/><path class="ln" d="M896.0 546 L896.0 608 L682 608" marker-end="url(#fm-a)"/><rect class="box" x="378" y="584" width="300" height="48" rx="9"/><text class="t ink" x="528.0" y="605.0" text-anchor="middle">겹친 용어 정리</text><text class="s mut" x="528.0" y="623.0" text-anchor="middle">앞에서 시작하는 것 먼저, 같으면 긴 것</text><path class="ln" d="M528 632 L528 650" marker-end="url(#fm-a)"/><rect class="box" x="398" y="654" width="260" height="36" rx="9"/><text class="t ink" x="528.0" y="677.0" text-anchor="middle">용어와 번역을 번역·평가에 전달</text></svg></div>
+      </figure>
+
+      <h4 id="glossary-validate" tabindex="-1">validate: 번역문에 용어가 들어갔는지 확인</h4>
+      <p><a class="cite" href="#dd-mt" data-open="dd-mt">기계번역</a>의 무결성 검사에서 match가 찾은 용어가 번역문에 쓰였는지 확인합니다. <b>번역할 때마다 LLM에 묻지 않고 규칙으로 판별</b>해, 빠진 용어를 돌려줍니다. 지원하는 31개 번역 언어를 다루며, 러시아어처럼 어미가 바뀌는 언어는 <b>기본형과 격변화 규칙으로 비교</b>합니다.</p>
+      <figure class="arch flowfig">
+        <figcaption>validate 흐름도</figcaption>
+        <div class="flowfig__scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 786" role="img" aria-label="validate 흐름도. 번역문의 태그와 변수를 가리고, 번역문이 비어 있으면 찾은 용어 전부를 빠진 용어로 돌려준다. 아니면 번역문을 기본형으로 되돌린 뒤 용어마다 기본형 일치, 격변화 어미, 동사에 대명사가 붙은 형태, 소문자·악센트·복수 어미 정리, 같은 용어의 다른 번역을 차례로 확인한다. 하나라도 맞으면 들어간 용어로 통과하고, 모두 아니면 빠진 용어로 돌려준다."><defs><marker id="fv-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker><marker id="fv-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk-g"/></marker><marker id="fv-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk-r"/></marker></defs><rect class="box" x="60" y="10" width="340" height="36" rx="9"/><text class="t ink" x="230.0" y="33.0" text-anchor="middle">원문 · 번역문 · match가 찾은 용어</text><path class="ln" d="M230.0 46 L230.0 62" marker-end="url(#fv-a)"/><rect class="box" x="60" y="66" width="340" height="40" rx="9"/><text class="t ink" x="230.0" y="91.0" text-anchor="middle">번역문의 태그·변수 가리기</text><path class="ln" d="M230.0 106 L230.0 122" marker-end="url(#fv-a)"/><rect class="dec" x="60" y="126" width="340" height="44" rx="22"/><text class="t ink" x="230.0" y="153.0" text-anchor="middle">번역문이 비어 있는가</text><path class="ln ln-r" d="M400 148 L496 148" marker-end="url(#fv-r)"/><text class="s not" x="448" y="142" text-anchor="middle">예</text><rect class="no" x="500" y="128" width="230" height="40" rx="9"/><text class="s not" x="615.0" y="153.0" text-anchor="middle">찾은 용어 전부를 빠진 용어로</text><path class="ln" d="M230.0 170 L230.0 190" marker-end="url(#fv-a)"/><text class="s mut" x="242.0" y="186" text-anchor="start">아니오</text><rect class="box" x="60" y="194" width="340" height="48" rx="9"/><text class="t ink" x="230.0" y="215.0" text-anchor="middle">번역문을 기본형으로 되돌리기</text><text class="s2 mut" x="230.0" y="233.0" text-anchor="middle">유럽 언어 simplemma · 영어 spaCy · 한국어 Kiwi</text><path class="ln" d="M230.0 242 L230.0 274" marker-end="url(#fv-a)"/><rect class="pan" x="32" y="278" width="696" height="376" rx="12"/><text class="k acc" x="48" y="302" text-anchor="start">용어마다 확인</text><rect class="ok" x="540" y="314" width="172" height="312" rx="9"/><text class="t okt" x="626" y="464" text-anchor="middle">들어간 용어</text><text class="s mut" x="626" y="484" text-anchor="middle">통과</text><rect class="dec" x="60" y="314" width="340" height="48" rx="24"/><text class="t2 ink" x="230.0" y="343.0" text-anchor="middle">용어의 기본형이 번역문에 있는가</text><path class="ln" d="M400 338 L536 338" marker-end="url(#fv-a)"/><text class="s okt" x="470" y="332" text-anchor="middle">예</text><path class="ln" d="M230.0 362 L230.0 376" marker-end="url(#fv-a)"/><text class="s2 mut" x="242.0" y="374" text-anchor="start">아니오</text><rect class="dec" x="60" y="380" width="340" height="48" rx="24"/><text class="t2 ink" x="230.0" y="401.0" text-anchor="middle">격변화 어미가 붙은 형태인가</text><text class="s2 mut" x="230.0" y="419.0" text-anchor="middle">러시아어 등 6개 언어 · Луна → Луны</text><path class="ln" d="M400 404 L536 404" marker-end="url(#fv-a)"/><text class="s okt" x="470" y="398" text-anchor="middle">예</text><path class="ln" d="M230.0 428 L230.0 442" marker-end="url(#fv-a)"/><text class="s2 mut" x="242.0" y="440" text-anchor="start">아니오</text><rect class="dec" x="60" y="446" width="340" height="48" rx="24"/><text class="t2 ink" x="230.0" y="467.0" text-anchor="middle">동사에 대명사가 붙은 형태인가</text><text class="s2 mut" x="230.0" y="485.0" text-anchor="middle">스페인어 · 포르투갈어 · únete ↔ unirte</text><path class="ln" d="M400 470 L536 470" marker-end="url(#fv-a)"/><text class="s okt" x="470" y="464" text-anchor="middle">예</text><path class="ln" d="M230.0 494 L230.0 508" marker-end="url(#fv-a)"/><text class="s2 mut" x="242.0" y="506" text-anchor="start">아니오</text><rect class="dec" x="60" y="512" width="340" height="48" rx="24"/><text class="t2 ink" x="230.0" y="533.0" text-anchor="middle">소문자·악센트·복수 어미를 정리하면 같은가</text><text class="s2 mut" x="230.0" y="551.0" text-anchor="middle">Dunkler → dunkel</text><path class="ln" d="M400 536 L536 536" marker-end="url(#fv-a)"/><text class="s okt" x="470" y="530" text-anchor="middle">예</text><path class="ln" d="M230.0 560 L230.0 574" marker-end="url(#fv-a)"/><text class="s2 mut" x="242.0" y="572" text-anchor="start">아니오</text><rect class="dec" x="60" y="578" width="340" height="48" rx="24"/><text class="t2 ink" x="230.0" y="607.0" text-anchor="middle">같은 용어의 다른 번역이 번역문에 있는가</text><path class="ln" d="M400 602 L536 602" marker-end="url(#fv-a)"/><text class="s okt" x="470" y="596" text-anchor="middle">예</text><path class="ln" d="M230.0 626 L230.0 672" marker-end="url(#fv-a)"/><text class="s mut" x="242.0" y="668" text-anchor="start">아니오</text><rect class="no" x="60" y="676" width="340" height="40" rx="9"/><text class="t not" x="230.0" y="701.0" text-anchor="middle">빠진 용어로 반환</text><path class="ln" d="M230.0 716 L230.0 732" marker-end="url(#fv-a)"/><rect class="box" x="60" y="736" width="340" height="40" rx="9"/><text class="s ink" x="230.0" y="761.0" text-anchor="middle">기계번역의 리플렉션이 수정</text></svg></div>
+      </figure>
+    </div></div>
+  </details>
+
+  <details class="fold dd" id="dd-eval">
+    <summary><span>평가</span><span class="role">팀원과 공동 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+    <div class="fold__body"><div class="fold__in">
+      <p>수년 전부터 국제 표준 <b>MQM</b>을 사내 기준으로 변환한 채점 체계가 이미 있었습니다. 기존에는 사람이 그 기준대로 기계번역 결과를 채점했고, 지금은 <b>평가기가 같은 기준으로</b> 채점합니다.</p>
+
+      <h4>평가 흐름</h4>
+      <p>평가기에는 원문과 번역문을 넣어 태그·변수, 숫자, 미번역, 용어 누락, 문법 오류와 자연스러움을 확인합니다. 태그·변수 검사에는 <a class="cite" href="#dd-tags" data-open="dd-tags">LLM 기반 태그 규칙 생성</a>에서 만든 게임별 규칙을 쓰고, 숫자·미번역은 원문과 번역문을 규칙으로 비교합니다.</p>
+      <p>용어 누락은 용어집의 <a class="cite" href="#glossary-match" data-open="dd-glossary" data-scroll="glossary-match">match</a>가 원문에서 찾은 후보를 LLM이 번역문과 대조해 판단합니다. 기계번역의 규칙 기반 <a class="cite" href="#glossary-validate" data-open="dd-glossary" data-scroll="glossary-validate">validate</a>와 판단 방식을 분리해, 평가가 번역 단계의 검사 결과를 그대로 재사용하지 않도록 했습니다. 문법 오류와 자연스러움도 LLM이 평가합니다. 확인된 오류는 기준표에 따라 감점합니다.</p>
+      <figure class="arch flowfig">
+        <figcaption>평가 흐름도</figcaption>
+        <div class="flowfig__scroll"><svg class="is-wide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 872 542" role="img" aria-label="평가 흐름도. 원문과 번역문을 받아 태그·변수, 숫자, 미번역을 규칙으로 검사한다. 용어집 match가 원문에서 용어 후보를 찾고, LLM이 번역문에서 실제로 누락됐는지 판단한다. 문법 오류와 자연스러움도 LLM이 평가하고, 확인된 오류에 따라 점수를 계산한다. 합격선 근처 점수는 다시 채점한다. 태그 검사에는 LLM 기반 태그 규칙 생성에서 만든 게임별 규칙을 쓴다."><defs><marker id="fe-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker><marker id="fe-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk-g"/></marker></defs><rect class="box" x="40" y="10" width="560" height="58" rx="9"/><text class="t ink" x="62" y="35" text-anchor="start">원문과 번역 완료본</text><text class="s mut" x="62" y="55" text-anchor="start">번역 대상 언어마다 따로 채점</text><path class="ln" d="M320.0 68 L320.0 84" marker-end="url(#fe-a)"/><rect class="box" x="40" y="88" width="560" height="58" rx="9"/><text class="t ink" x="62" y="113" text-anchor="start">규칙 검사</text><text class="s mut" x="62" y="133" text-anchor="start">태그·변수 개수 · 미번역 · 숫자 · 줄바꿈 소실</text><rect class="chip" x="538" y="98" width="46" height="22" rx="11"/><text class="s2 sub" x="561.0" y="113" text-anchor="middle">코드</text><path class="ln dsh" d="M600 117 L616 117"/><g class="arch-node" data-target="dd-tags" tabindex="0" role="link" aria-label="LLM 기반 태그 규칙 생성 자세히 보기 열기"><rect class="box" x="616" y="92" width="224" height="50" rx="9"/><text class="s2 mut" x="630" y="111" text-anchor="start">기계번역과 같은 태그 규칙</text><text class="s acc" x="630" y="130" text-anchor="start">LLM 기반 태그 규칙 생성 →</text></g><path class="ln" d="M320.0 146 L320.0 162" marker-end="url(#fe-a)"/><rect class="box" x="40" y="166" width="560" height="58" rx="9"/><text class="t ink" x="62" y="191" text-anchor="start">용어 누락 확인</text><text class="s mut" x="62" y="211" text-anchor="start">용어집 match가 후보를 찾고, LLM이 실제 누락인지 판정</text><rect class="llm" x="538" y="176" width="46" height="22" rx="11"/><text class="s2 acc" x="561.0" y="191" text-anchor="middle">LLM</text><text class="s2 mut" x="528" y="191" text-anchor="middle">→</text><rect class="chip" x="434" y="176" width="84" height="22" rx="11"/><text class="s2 sub" x="476.0" y="191" text-anchor="middle">용어집 API</text><path class="ln dsh" d="M600 195 L616 195"/><g class="arch-node" data-target="dd-glossary" data-scroll="glossary-match" tabindex="0" role="link" aria-label="용어집 · match 자세히 보기 열기"><rect class="box" x="616" y="170" width="224" height="50" rx="9"/><text class="s2 mut" x="630" y="189" text-anchor="start">원문의 용어 후보 찾기</text><text class="s acc" x="630" y="208" text-anchor="start">용어집 · match →</text></g><path class="ln" d="M320.0 224 L320.0 240" marker-end="url(#fe-a)"/><rect class="box" x="40" y="244" width="560" height="58" rx="9"/><text class="t ink" x="62" y="269" text-anchor="start">LLM 채점</text><text class="s mut" x="62" y="289" text-anchor="start">문법 오류와 자연스러움을 평가</text><rect class="llm" x="538" y="254" width="46" height="22" rx="11"/><text class="s2 acc" x="561.0" y="269" text-anchor="middle">LLM</text><path class="ln" d="M320.0 302 L320.0 318" marker-end="url(#fe-a)"/><rect class="box" x="40" y="322" width="560" height="58" rx="9"/><text class="t ink" x="62" y="347" text-anchor="start">점수 계산</text><text class="s mut" x="62" y="367" text-anchor="start">확인된 오류를 기준표대로 감점</text><rect class="chip" x="538" y="332" width="46" height="22" rx="11"/><text class="s2 sub" x="561.0" y="347" text-anchor="middle">코드</text><path class="ln" d="M320.0 380 L320.0 396" marker-end="url(#fe-a)"/><rect class="dec" x="40" y="400" width="560" height="58" rx="29"/><text class="t ink" x="62" y="425" text-anchor="start">합격선 근처 점수인가</text><text class="s mut" x="62" y="445" text-anchor="start">두 점수 중 낮은 쪽 · 크게 다르면 세 번째까지 채점해 중앙값</text><path class="ln ln-g dsh" d="M600 429 L660 429 L660 273 L604 273" marker-end="url(#fe-g)"/><text class="s acc" x="672" y="340" text-anchor="start">예</text><text class="s2 mut" x="672" y="360" text-anchor="start">LLM 채점을</text><text class="s2 mut" x="672" y="376" text-anchor="start">한 번 더 실행</text><path class="ln" d="M320.0 458 L320.0 482" marker-end="url(#fe-a)"/><text class="s mut" x="332.0" y="476" text-anchor="start">아니오</text><rect class="ok" x="40" y="486" width="560" height="44" rx="9"/><text class="t okt" x="320.0" y="514" text-anchor="middle">채점 리포트 · 점수 · 등급 · 오류 목록</text></svg></div>
+      </figure>
+      <ul>
+        <li><b>합격선 근처 재채점</b>: LLM 채점을 한 번 더 실행해 두 점수 중 낮은 쪽을 사용합니다. 두 점수의 차이가 크면 세 번째까지 채점해 중앙값을 사용합니다.</li>
+      </ul>
+
+      <h4>검증 방법</h4>
+      <p>번역 품질 채점에는 하나의 정답이 없습니다. 같은 기준표로 같은 번역을 채점해도 <b>숙련된 평가사끼리 점수가 갈립니다.</b> 그래서 특정 평가사의 점수를 정답으로 놓지 않았습니다.</p>
+      <p>대신 같은 번역에 대해 <b>평가사들의 점수가 흩어지는 범위</b>를 기준으로 삼았습니다. 예를 들어 평가사 세 명이 70점, 80점, 90점을 줬다면 평균은 80점이고 점수는 70~90점 사이에 흩어져 있습니다. 평가기의 점수도 <b>이 범위 안에 들어오는 것을 목표로</b> 평가기를 만들었고, 수년간 쌓인 외주 평가지와 대조해 범위 안에 들어오는 것을 확인했습니다.</p>
+      <p>오류 항목도 같은 평가지로 확인했습니다. 평가사가 오류로 표시한 문장과 오류 종류를 평가기도 찾아내는지 비교했습니다.</p>
+
+      <h4>한계</h4>
+      <p>용어집의 match가 원문에서 놓친 용어는 평가할 후보에도 들어오지 않습니다. 태그 검사도 기계번역과 같은 게임별 규칙을 쓰므로, <b>규칙 자체가 놓친 태그는 평가에서도 발견하지 못합니다.</b></p>
+      <p>사람끼리도 점수가 갈리는 만큼, 평가기 점수는 절대 판정이 아니라 <b>모델 간 비교와 추세 확인</b>에 씁니다.</p>
+    </div></div>
+  </details>
+
+  <details class="fold dd dd--dim" id="dd-correction">
+    <summary><span>원본 교정</span><span class="role">팀원 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+    <div class="fold__body"><div class="fold__in">
+      <p>한국어 원본의 오탈자·잘못된 용어는 번역을 거치면 <b>모든 언어로 증폭</b>됩니다. 번역 전에 이런 오류를 찾아 <b>교정안을 제시</b>합니다. <b>숫자가 든 변경은 통째로 거부</b>하고(게임 데이터 보호가 교정률보다 우선), <b>사람이 문장별로 검토</b>합니다.</p>
+      <p class="figcap">처리 흐름</p>
+      <img loading="lazy" decoding="async" src="img/flow-correction.svg" alt="원본 교정 처리 흐름">
+    </div></div>
+  </details>
+
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell foot__in">
+    <a href="../"><svg class="ic " aria-hidden="true"><use href="#ph-arrow-left"/></svg>프로필로</a>
+    <a href="../marge/">MARGE</a>
+    <a href="../others/">기타 프로젝트</a>
+    <a href="mailto:woodullee@naver.com">woodullee@naver.com</a>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Flip.min.js"></script>
+<script>if (window.gsap) gsap.registerPlugin(ScrollTrigger, Flip);</script>
+<script src="js/main.js"></script>
+<script src="js/paar-tabs.js"></script>
+<script src="data/pipeline-samples.js"></script>
+<script src="js/pipeline-demo.js"></script>
+<script src="data/rules-sample.js"></script>
+<script src="js/rules-demo.js"></script>
+<script src="data/tm-samples.js"></script>
+<script src="js/tm-demo.js"></script>
+</body>
+</html>
