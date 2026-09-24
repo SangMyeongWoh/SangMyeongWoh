@@ -1,0 +1,71 @@
+/* 한눈에 보기의 SVG 안에만 적용한다. */
+.mamt-overview {
+  --ink: var(--text); --ink-soft: var(--text-2); --ink-muted: var(--text-3);
+  --pipe: rgba(255, 255, 255, .24);
+}
+.mamt-overview__head { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.mamt-overview__head .overview__h { margin-bottom: 0; font-size: clamp(30px, 3.6vw, 44px); }
+.mamt-overview__lead { margin-top: 18px; max-width: 47em; font-size: 17px; }
+
+
+
+.mamt-overview .stage {
+    margin-top: 28px; padding: clamp(14px, 2.4vw, 28px); overflow-x: auto;
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow);
+    scrollbar-color: var(--line-2) var(--bg-2);
+  }
+.mamt-overview .stage svg { display: block; width: 100%; min-width: 980px; height: auto; }
+.mamt-overview .stage text { font-family: inherit; fill: var(--ink); }
+.mamt-overview .dots { fill: rgba(255, 255, 255, .035); }
+.mamt-overview .pipe {
+    fill: none; stroke: var(--pipe); stroke-width: 1.5; stroke-linecap: round;
+    stroke-dasharray: 1; stroke-dashoffset: 1; animation: mamt-draw 1.3s var(--ease) forwards;
+  }
+  @keyframes mamt-draw { to { stroke-dashoffset: 0; } }
+  @keyframes mamt-appear { to { opacity: 1; } }
+.mamt-overview .flow-label rect { fill: var(--bg-2); stroke: var(--line-2); }
+.mamt-overview .flow-label text { font-size: 16px; font-weight: 600; fill: var(--ink-soft); text-anchor: middle; }
+.mamt-overview .flow-label { opacity: 0; animation: mamt-appear .6s 1.2s forwards; }
+.mamt-overview .small-shape { fill: var(--bg-3); stroke: var(--line-2); stroke-width: 1.5; }
+.mamt-overview .small-fold { fill: none; stroke: var(--line-2); stroke-width: 1.5; }
+.mamt-overview .stage .small-label { font-size: 17px; font-weight: 500; fill: var(--ink-soft); text-anchor: middle; }
+.mamt-overview .stage .storage-label { font-size: 14px; }
+.mamt-overview .small { opacity: 0; animation: mamt-appear .7s .2s forwards; }
+.mamt-overview .node { cursor: pointer; opacity: 0; animation: mamt-appear .8s forwards; }
+.mamt-overview .node:focus { outline: none; }
+.mamt-overview .node .lift { transition: transform .25s var(--ease); transform-box: fill-box; transform-origin: center; }
+.mamt-overview .node .panel { fill: var(--bg-3); stroke: rgba(227, 199, 122, .45); stroke-width: 2; transition: fill .25s, stroke .25s; }
+.mamt-overview .node:hover .lift, .mamt-overview .node:focus-within .lift { transform: scale(1.02); }
+.mamt-overview .node:hover .panel, .mamt-overview .node:focus-within .panel { stroke: var(--accent); }
+.mamt-overview .node[data-node="llm"] .panel { fill: rgba(227, 199, 122, .14); stroke: var(--accent); }
+.mamt-overview .stage .node .title { font-size: 28px; font-weight: 700; letter-spacing: -.03em; fill: var(--accent); }
+.mamt-overview .stage .node .desc { font-size: 16px; fill: var(--ink-soft); }
+.mamt-overview .node .icon { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.mamt-overview .node-group { cursor: default; }
+.mamt-overview .node-group .btn { cursor: pointer; }
+.mamt-overview .node-group .btn:focus { outline: none; }
+.mamt-overview .btn-bg { fill: var(--accent-bg); stroke: var(--accent-line); stroke-width: 1.5; transition: fill .25s, stroke .25s; }
+.mamt-overview .stage .btn-text { font-size: 17px; font-weight: 600; fill: var(--accent); }
+.mamt-overview .btn:hover .btn-bg, .mamt-overview .btn:focus-visible .btn-bg { fill: rgba(227, 199, 122, .16); stroke: var(--accent); }
+.mamt-overview .btn:focus-visible .btn-bg { stroke: var(--accent); stroke-width: 3; }
+.mamt-overview .btn-sm .btn-text { font-size: 14px; }
+.mamt-overview .btn-sm .btn-bg { stroke-width: 1.5; }
+.mamt-overview .pipe-glossary { stroke: var(--accent-line); }
+.mamt-overview .node-mtf { animation-delay: .35s; }
+.mamt-overview .node-glossary { animation-delay: .5s; }
+.mamt-overview .node-translate { animation-delay: .65s; }
+.mamt-overview .node-eval { animation-delay: .8s; }
+.mamt-overview .halo { opacity: .35; animation: mamt-breathe 5s ease-in-out infinite; transform-origin: 675px 400px; }
+  @keyframes mamt-breathe { 50% { transform: scale(1.04); opacity: .2; } }
+.mamt-overview #mamt-tokens { opacity: 0; animation: mamt-appear .8s 1.3s forwards; }
+.mamt-overview .flow, .mamt-overview .small, .mamt-overview .token { transition: opacity .25s; }
+.mamt-overview .dim { opacity: .12 !important; }
+.mamt-overview .paused .halo { animation-play-state: paused; }
+  @media (max-width: 820px) {
+.mamt-overview__lead { font-size: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+.mamt-overview .pipe, .mamt-overview .flow-label, .mamt-overview .small, .mamt-overview .node, .mamt-overview #mamt-tokens { animation: none; opacity: 1; stroke-dashoffset: 0; }
+.mamt-overview .halo { animation: none; }
+.mamt-overview .node .lift { transition: none; }
+  }

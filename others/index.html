@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<script>document.documentElement.className+=" js"</script>
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기타 프로젝트 — 우상명</title>
+<meta name="description" content="MarbleAI 번역 시스템·MARGE 외에 참여한 프로젝트 — 조직 에이전트, 데이터 리포트 에이전트, MarbleLaws, 지표AI POC, 아스달 연대기 지식의 서.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b2130'/%3E%3Cpath d='M7.5 11l3.1 10L15.5 12.5 20.4 21l3.1-10' fill='none' stroke='%23e3c77a' stroke-width='2.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="기타 프로젝트 — 우상명">
+<meta property="og:description" content="조직 에이전트 · 데이터 리포트 에이전트 · MarbleLaws · 지표AI POC · 아스달 연대기 지식의 서">
+<meta property="og:url" content="https://sangmyeongwoh.github.io/SangMyeongWoh/others/">
+<meta name="twitter:card" content="summary">
+<style>
+:root {
+    --bg: #ffffff; --panel: #f4f5f8; --line: #dde1ea;
+    --ink: #151a24; --sub: #343a48; --muted: #6b7385; --accent: #7a5c10;
+}
+
+    :root { --bg: #10131a; --panel: #151922; --line: #2a3040;
+            --ink: #e9e8e4; --sub: #c5c5c0; --muted: #8e919b; --accent: #e3c77a; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: var(--bg); color: var(--sub);
+    font-family: 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    line-height: 1.7; font-size: 17px; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 72px 24px 96px; }
+.mono { font-family: ui-monospace, 'SF Mono', Consolas, 'D2Coding', monospace;
+        font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+        color: var(--accent); font-weight: 700; }
+h1 { font-size: 34px; font-weight: 800; color: var(--ink); line-height: 1.35;
+     letter-spacing: -.5px; margin: 14px 0 10px; }
+b, strong { color: var(--ink); font-weight: 700; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.lead { font-size: 18px; margin-top: 14px; }
+
+/* 프로젝트 카드 */
+.proj { margin-top: 56px; padding-top: 34px; border-top: 1px solid var(--line); }
+.phead { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.phead h2 { font-size: 25px; font-weight: 800; color: var(--ink); letter-spacing: -.4px; }
+.when { font-size: 12px; font-weight: 700; color: var(--muted); white-space: nowrap;
+        font-family: ui-monospace, 'SF Mono', Consolas, monospace; font-variant-numeric: tabular-nums; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.tags span { font-size: 12px; font-weight: 700; color: var(--accent);
+             border: 1px solid var(--accent); border-radius: 999px; padding: 2px 11px; opacity: .9; }
+.proj p { margin-top: 15px; }
+.proj p + p { margin-top: 11px; }
+
+figure { margin-top: 22px; }
+figure img { display: block; width: 100%; border: 1px solid var(--line);
+             border-radius: 12px; background: var(--bg); }
+figcaption { margin-top: 9px; font-size: 13px; color: var(--muted); }
+
+
+footer { margin-top: 76px; padding-top: 24px; border-top: 1px solid var(--line);
+         font-size: 14px; color: var(--muted); display: flex; gap: 24px; flex-wrap: wrap; }
+footer a { color: var(--muted); }
+footer a:hover { color: var(--accent); }
+
+.js [data-rise] { opacity: 0; transform: translateY(14px);
+  transition: opacity .5s cubic-bezier(.22,.61,.36,1), transform .5s cubic-bezier(.22,.61,.36,1); }
+.js [data-rise].in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .js [data-rise] { opacity: 1; transform: none; transition: none; } }
+
+::selection { background: var(--accent); color: #14110a; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+h1, h2 { text-wrap: balance; }
+p { text-wrap: pretty; }
+.skip { position: absolute; left: -9999px; top: 0; background: var(--accent); color: #14110a;
+        padding: 10px 16px; border-radius: 0 0 10px 0; font-weight: 700; z-index: 50; }
+.skip:focus { left: 0; }
+@media (max-width: 560px) {
+    .phead { flex-direction: column; align-items: flex-start; gap: 4px; }
+    h1 { font-size: 28px; }
+}
+
+/* ── 좌측 목차 ─────────────────────────────── */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 28px; }
+.toc { position: fixed; top: 50%; transform: translateY(-50%);
+       left: calc(50% - 608px); width: 200px; z-index: 20; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc li { padding: 0; margin: 0; }
+.toc a { display: flex; align-items: baseline; gap: 9px;
+         padding: 10px 0 10px 16px; border-left: 2px solid var(--line);
+         font-family: ui-monospace, 'SF Mono', Consolas, 'D2Coding', monospace;
+         font-size: 15px; letter-spacing: .06em;
+         font-weight: 700; color: var(--muted); line-height: 1.25;
+         transition: color .18s, border-color .18s; }
+.toc .n { font-size: 12.5px; font-weight: 800; opacity: .5; letter-spacing: .04em; }
+.toc a:hover { color: var(--ink); border-left-color: var(--muted); text-decoration: none; }
+.toc a.on { color: var(--accent); border-left-color: var(--accent); }
+.toc a.on .n { opacity: 1; }
+.toc__home { display: block; font-size: 13px; font-weight: 600; color: var(--muted);
+  padding: 0 0 10px 11px; margin-bottom: 8px; border-bottom: 1px solid var(--line); }
+.toc__home:hover { color: var(--accent); text-decoration: none; }
+.backtop { display: none; font-size: 13.5px; font-weight: 600; color: var(--muted); margin-bottom: 14px; }
+.backtop:hover { color: var(--accent); text-decoration: none; }
+@media (max-width: 1280px) { .toc { display: none; } .backtop { display: inline-block; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<nav class="toc" aria-label="목차">
+  <a class="toc__home" href="../">← 우상명</a>
+  <ol>
+    <li><a href="#org"><span class="n">01</span>조직 에이전트</a></li>
+    <li><a href="#laws"><span class="n">02</span>MarbleLaws</a></li>
+    <li><a href="#report"><span class="n">03</span>데이터 리포트</a></li>
+    <li><a href="#poc"><span class="n">04</span>지표AI POC</a></li>
+    <li><a href="#asdal"><span class="n">05</span>아스달 연대기</a></li>
+  </ol>
+</nav>
+
+<div class="wrap">
+
+<header>
+    <a class="backtop" href="../">← 우상명</a>
+    <div class="mono">우상명 · AI Engineer · Netmarble</div>
+    <h1>기타 프로젝트</h1>
+    <p class="lead">MarbleAI 번역 시스템과 MARGE 외에 넷마블에서 맡았던 프로젝트들입니다. 각각 어떤 문제를 풀었고 전체 흐름이 어떻게 생겼는지만 짧게 정리했습니다.</p>
+</header>
+
+<main id="main">
+
+<section class="proj" data-rise id="org">
+    <div class="phead"><h2>조직 에이전트</h2><span class="when">2025.11 – 2026.02</span></div>
+    <div class="tags"><span>개발 · 기획 · 설계</span><span>총 3명</span><span>Google ADK</span><span>GraphRAG</span></div>
+    <p>임원의 조직 현황 질문에 답하려면 사람이 부서별 시스템에서 데이터를 모아야 했습니다. <b>조직 에이전트</b>는 부서별 자료와 실시간 조회 결과를 함께 써서 이런 질문에 답하는 것을 목표로 했고, C레벨 대상 파일럿까지 진행했습니다.</p>
+    <p>각 부서가 저장소에 올린 핵심 데이터는 <b>지식 에이전트</b>가 그래프로 만들어 GraphRAG로 답하고, 실시간 조회가 필요한 부분은 <b>데이터 에이전트</b>로부터 불러옵니다. 두 경로를 함께 써서 <b>저장된 지식과 현재 상태를 같이 근거로 삼는 답변</b>을 만듭니다.</p>
+    <p>저는 여기서 <b>데이터 에이전트</b>를 담당했습니다. 데이터 에이전트는 게임 지표·KPI 질문을 받아 <b>KPI 계산 · 심층 분석 · 코드 실행 서브에이전트</b>를 도구로 호출해 답을 생성합니다.</p>
+    <figure><img src="img/flow-org-agent.svg" alt="C레벨용 조직 에이전트 구성 — 질의를 받은 조직 에이전트가 GraphRAG 기반 지식 에이전트와 데이터 에이전트를 함께 참조해 근거와 함께 답변합니다." loading="lazy" decoding="async"><figcaption>전체 흐름 — 그래프로 만든 지식과 실시간 조회 결과를 함께 근거로 씁니다.</figcaption></figure>
+</section>
+
+<section class="proj" data-rise id="laws">
+    <div class="phead"><h2>MarbleLaws — 법무 상담 어시스턴트</h2><span class="when">2025.08 – 2025.11</span></div>
+    <div class="tags"><span>개발 · 기획 · 설계</span><span>총 1명</span><span>Google ADK</span><span>Flutter</span><span>Cloud Run</span></div>
+    <p>사내 구성원이 법무 상담을 신청할 때 필수 정보를 빠뜨리는 경우가 많았고, 그때마다 법무팀이 같은 내용을 여러 차례 되물어야 했습니다.</p>
+    <p>화면(Flutter)부터 에이전트 백엔드, Cloud Run 배포까지 혼자 만들어 파일럿까지 진행했습니다. MarbleLaws는 사내 법무 시스템에 내장해, 상담 내용에서 필요한 정보를 추출하고 <b>빠진 정보는 채팅으로 되물어 법무팀에 전달할 요청사항을 정리</b>합니다. 분류와 요청사항 생성은 누락을 줄이는 쪽(<b>Recall 중심</b>)으로 내부 평가하고, 법무팀이 포괄성·유창성을 직접 채점합니다.</p>
+    <figure><img src="img/flow-marblelaws.svg" alt="법무 상담 어시스턴트 전체 흐름 — 구성원 문의 접수, 법무 타입 분류, 채팅으로 정보 추출·질문, 요청 정리를 거쳐 법무팀 검토로 이어집니다." loading="lazy" decoding="async"><figcaption>전체 흐름 — 정보가 빌 때는 상담 접수 전에 채팅으로 되묻습니다.</figcaption></figure>
+</section>
+
+<section class="proj" data-rise id="report">
+    <div class="phead"><h2>사업부를 위한 데이터 리포트 에이전트</h2><span class="when">2025.10 – 2025.12</span></div>
+    <div class="tags"><span>개발 · 기획</span><span>총 1명</span><span>Google ADK</span><span>멀티 에이전트</span></div>
+    <p>사업부가 게임 성과를 보고하려면 데이터를 뽑고, 지표를 해석하고, 보고서로 옮겨 적는 일을 매번 손으로 반복해야 했습니다.</p>
+    <p><b>오케스트레이터</b>가 <b>지표 추출 · 데이터 분석 · 웹 검색 · 요약 작성</b> 에이전트를 호출합니다. 엑셀·CSV·차트 이미지를 읽어 <b>PDF·PPT 보고서를 생성</b>합니다. 주간 스케줄러로 정기 리포트도 자동 발행되게 했습니다. 여기서 만든 데이터 분석 설계를 이후 <b>조직 에이전트의 데이터 에이전트</b>에 활용했습니다.</p>
+    <figure>
+<img src="img/flow-report-agent.svg" alt="데이터 리포트 에이전트 전체 흐름 — 오케스트레이터가 지표 추출·데이터 분석·웹 검색·요약 작성 에이전트를 호출해 게임 데이터를 PDF·PPT 보고서로 만듭니다." loading="lazy" decoding="async">
+<figcaption>전체 흐름 — 오케스트레이터가 분석과 보고서 작성에 필요한 에이전트를 호출합니다.</figcaption>
+</figure>
+</section>
+
+<section class="proj" data-rise id="poc">
+    <div class="phead"><h2>지표AI POC</h2><span class="when">2023.11 – 2024.04</span></div>
+    <div class="tags"><span>개발 · 기획 · 설계</span><span>총 2명</span><span>TextToSQL</span><span>Flutter</span></div>
+    <p>타 사업부 DX 조직의 협업 요청으로 시작한 검증 과제입니다. <b>지표를 말로 물어보면 에이전트가 알아서 쿼리를 만들고 리포트까지 써 줄 수 있는가</b>를 확인하는 것이 목표였습니다.</p>
+    <p>플래너가 질문을 보고 다음에 무엇을 할지 판단하면, TextToSQL·쿼리 실행·분석 코드 생성 같은 도구가 순서대로 호출되고 그 결과로 보고서를 씁니다. 정답 쿼리 하나만 맞히는 방식으로는 실무 품질을 알 수 없어서, 필요한 지표를 빠뜨리지 않았는지를 보는 <b>Recall 중심 평가 지표</b>를 따로 정의했습니다. 웹 UI도 직접 만들었습니다.</p>
+    <figure><img src="img/flow-metric-agent.svg" alt="지표 리포트 에이전트 전체 흐름 — 자연어 질문을 플래너가 받아 TextToSQL, 쿼리 실행, 분석·차트 코드 도구를 호출하고 보고서를 생성합니다." loading="lazy" decoding="async"><figcaption>전체 흐름 — 플래너가 도구를 골라 부르고, 결과를 받아 다음 단계를 다시 정합니다.</figcaption></figure>
+</section>
+
+<section class="proj" data-rise id="asdal">
+    <div class="phead"><h2>아스달 연대기 지식의 서</h2><span class="when">2023.10 – 2024.05</span></div>
+    <div class="tags"><span>개발 · 기획 · 설계</span><span>총 2명</span><span>RAG</span><span>MongoDB Atlas</span></div>
+    <p>게임 출시에 맞춰 공략 정보를 답해 주는 <b>B2C RAG 챗봇</b>의 검색 엔진을 만들었습니다. 불특정 다수가 쓰는 서비스라 응답 시간을 줄이면서 LLM 호출 비용도 관리해야 했습니다.</p>
+    <p>BM25와 벡터 검색을 <b>RRF로 융합하고</b>, 게임 고유명사를 <b>사용자 사전으로 등록한 한국어 토크나이저</b>를 썼습니다. 자주 나올 질문은 <b>답변을 미리 캐싱해 두고</b>, 검색에서 같은 질문으로 판정되면 <b>새로 생성하지 않고 저장된 답변을 돌려줬습니다.</b> 근거가 없는 질문은 답변 불가로 걸러냈습니다. 문서 전처리와 서비스 운영, 부서 간 소통도 함께 맡았습니다. 이때 만든 RAG 베이스라인이 이후 <a href="../marge/">MARGE</a>로 이어졌습니다.</p>
+    <figure><img src="img/flow-arthdal.svg" alt="아스달 연대기 지식의 서 전체 흐름 — 질문에 대해 BM25·벡터 검색을 RRF로 결합하고 캐시 적중 여부에 따라 저장된 답변 또는 RAG 답변을 반환합니다." loading="lazy" decoding="async"><figcaption>전체 흐름 — 캐시에 걸리면 생성 없이 저장된 답변을 돌려줍니다.</figcaption></figure>
+</section>
+
+</main>
+
+<footer>
+    <a href="../">← 프로필로</a>
+    <a href="../marbleai/">MarbleAI 번역 시스템</a>
+    <a href="../marge/">MARGE</a>
+    <a href="mailto:woodullee@naver.com">woodullee@naver.com</a>
+</footer>
+
+</div>
+<script>
+(function(){
+  var t = document.querySelectorAll('[data-rise]');
+  if(!('IntersectionObserver' in window)){ t.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: .05 });
+  t.forEach(function(e){ io.observe(e); });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.toc'); if(!nav) return;
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))});
+  function upd(){
+    var y=window.scrollY+window.innerHeight*0.28, i=0;
+    for(var k=0;k<secs.length;k++){ if(secs[k]&&secs[k].offsetTop<=y) i=k; }
+    for(var n=0;n<links.length;n++){ links[n].classList.toggle('on', n===i) }
+  }
+  window.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd); upd();
+})();
+</script>
+</body>
+</html>
