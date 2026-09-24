@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MARGE | 우상명</title>
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b2130'/%3E%3Cpath d='M7.5 11l3.1 10L15.5 12.5 20.4 21l3.1-10' fill='none' stroke='%23e3c77a' stroke-width='2.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MARGE | 우상명">
+<meta property="og:description" content="사내 RAG 엔진 MARGE. 1세대 엔진 설계·구현과 운영, 2세대 리뉴얼 초기 설계 참여.">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="css/marge.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="ph-arrow-right" viewBox="0 0 256 256"><path fill="currentColor" d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></symbol><symbol id="ph-arrow-left" viewBox="0 0 256 256"><path fill="currentColor" d="M228,128a12,12,0,0,1-12,12H69l51.52,51.51a12,12,0,0,1-17,17l-72-72a12,12,0,0,1,0-17l72-72a12,12,0,0,1,17,17L69,116H216A12,12,0,0,1,228,128Z"/></symbol><symbol id="ph-plus" viewBox="0 0 256 256"><path fill="currentColor" d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"/></symbol></defs></svg>
+<a class="skip" href="#overview">본문으로 건너뛰기</a>
+
+<nav class="nav" aria-label="목차">
+  <div class="nav__in">
+    <a class="nav__home" href="../"><svg class="ic " aria-hidden="true"><use href="#ph-arrow-left"/></svg><span>우상명</span></a>
+    <ul class="nav__links">
+      <li><a href="#top">프로젝트 소개</a></li>
+      <li><a href="#overview">한눈에 보기</a></li>
+      <li><a href="#paar">구현 과정</a></li>
+      <li><a href="#deepdive">자세히 보기</a></li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="rail" aria-label="바로가기">
+  <ol>
+    <li><a href="#top"><span class="n">01</span>프로젝트 소개</a></li>
+    <li><a href="#overview"><span class="n">02</span>한눈에 보기</a></li>
+    <li><a href="#case-gen1"><span class="n">03</span>1세대 MARGE</a></li>
+    <li><a href="#case-gen2"><span class="n">04</span>2세대 MARGE</a></li>
+    <li><a href="#deepdive"><span class="n">05</span>자세히 보기</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 히어로 ============ -->
+<header class="hero" id="top">
+  <div class="shell">
+    <p class="eyebrow" data-in>사내 RAG 엔진</p>
+    <h1 data-in>MARGE(MAgellan RaG Engine)</h1>
+    <p class="hero__sub" data-in>우상명 · AI Engineer · Netmarble<span>1세대 2024.06 – 2026 · 2세대 2026 –</span></p>
+  </div>
+</header>
+
+<!-- ============ 프로젝트 소개 ============ -->
+<section id="bridge" class="bridge" aria-label="프로젝트 소개">
+  <div class="shell bridge__in">
+    <div class="bridge__text">
+      <p class="bridge__line"><b>MARGE</b>는 넷마블의 <b>사내 RAG 엔진</b>입니다. 사내 문서를 근거로 구성원의 질문에 답하는 공통 엔진으로, HR · IT인프라 · 정책 등 사내 챗봇과 계열사 챗봇이 이 엔진 위에서 돌아갑니다.</p>
+      <p class="bridge__line"><b>1세대(고정 플로우 RAG)</b>는 2인 프로젝트로, 저는 <b>엔진 설계 · 기획 · 구현과 서비스 운영</b>을 맡았습니다. 쿼리 이해부터 <b>검색 · 답변 생성, 전처리 알고리즘, 문서 충돌 감지까지 직접 만들었고</b>, 전처리 파이프라인 환경(Airflow)과 시스템 인프라 · CI/CD는 동료가 주도했습니다.</p>
+      <p class="bridge__line">이후 운영을 이어가면서 누적된 기술부채를 해결하기 위해 <b>MARGE 2세대로 리뉴얼</b>을 진행했습니다. 저는 2세대 MARGE의 <b>초기 공동 설계와 1세대 엔진의 이식(검색 · 출력 · 호환 API)까지 진행</b>했습니다. 이후 직접 구현 및 고도화는 동료가 진행 중이고, 저는 <b>고도화 논의에 참여</b>하고 있습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 한눈에 보기 ============ -->
+<section id="overview" class="overview" aria-labelledby="overview-h">
+  <div class="shell">
+    <h2 id="overview-h" class="overview__h" data-in>한눈에 보기</h2>
+    <h3 class="sub-h" data-in>운영 실적</h3>
+    <ul class="stats__grid stats__grid--text">
+      <li class="stat" data-rise><b><i>2024년 6월</i>부터 운영</b><span>첫 라이브 이후 상시 운영</span></li>
+      <li class="stat" data-rise><b>사내 챗봇 <i>십수 종</i> 라이브</b><span>HR · IT인프라 · 정책 · QA · 보안 · 회계 등...</span></li>
+      <li class="stat" data-rise><b>누적 질문 <i>5만+ 건</i></b><span>사내·계열사 챗봇의 운영·개발 환경 합산</span></li>
+      <li class="stat" data-rise><b>계열사 <i>5곳</i> 확산</b><span>같은 엔진, 독립 지식베이스</span></li>
+      <li class="stat" data-rise><b>계열사 전용 환경 구축</b><span>별도 클라우드 환경으로 독립 공급</span></li>
+    </ul>
+    <div class="gen1__flow-link"><div class="mores mores--end"><a class="more" href="#dd-system" data-open="dd-system">1세대 시스템 구성<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a></div></div>
+  </div>
+</section>
+
+
+
+<!-- ============ 세대별 구현과 회고 ============ -->
+<section id="paar" class="paar" aria-label="세대별 구현과 회고">
+  <div class="shell">
+    <div class="paar__matrix">
+  <article class="case case--flow" id="case-gen1">
+    <header class="case__head">
+      <h2 class="case__title">1세대 MARGE</h2>
+      <p class="case__sum">고정 플로우 RAG</p>
+      <span class="role">직접 설계 · 구현</span>
+    </header>
+    <section class="gen1__topic" id="gen1-query" aria-labelledby="gen1-query-h">
+      <h3 id="gen1-query-h">쿼리 이해</h3>
+      <div class="gen1__paa">
+        <section class="gen1__step" aria-labelledby="gen1-query-problem">
+          <h4 id="gen1-query-problem"><b>P</b> Problem</h4>
+          <div class="flow__body"><p>유저 질문에는 관계자만 아는 <b>사내 고유명사나 축약어</b>가 들어오고, 멀티턴 대화에서는 <b>핵심 대상이 생략</b>되기도 합니다. 이런 질문을 그대로 검색하면 필요한 단서가 검색어에 드러나지 않습니다.</p></div>
+        </section>
+        <section class="gen1__step" aria-labelledby="gen1-query-analyze">
+          <h4 id="gen1-query-analyze"><b>A</b> Analyze</h4>
+          <div class="flow__body"><p>사내 용어는 챗봇별 사전으로 보완하고, 생략된 맥락은 대화 이력에서 복원해 <b>질문을 재작성</b>하면 검색에 필요한 정보를 채울 수 있습니다. 다만 재작성 과정에서 원래 의도가 달라질 수 있으므로 <b>원본 질문도 함께 검색에 활용합니다.</b></p></div>
+        </section>
+        <section class="gen1__step" aria-labelledby="gen1-query-action">
+          <h4 id="gen1-query-action"><b>A</b> Action</h4>
+          <div class="flow__body"><p>대화 이력과 챗봇별 <b>고유명사·동의어 사전</b>을 LLM에 제공해 질문을 재작성합니다. 검색에는 <b>원본 질문과 재작성 질문을 모두</b> 넘깁니다.</p></div>
+        </section>
+      </div>
+    </section>
+    <section class="gen1__topic" id="gen1-preprocess" aria-labelledby="gen1-preprocess-h">
+      <h3 id="gen1-preprocess-h">문서 전처리</h3>
+      <div class="gen1__paa">
+        <section class="gen1__step" aria-labelledby="gen1-preprocess-problem">
+          <h4 id="gen1-preprocess-problem"><b>P</b> Problem</h4>
+          <div class="flow__body"><p>문서는 길이가 불규칙하고 <b>수십만 토큰짜리도 있어 통째로 LLM에 넣을 수 없습니다.</b> 검색과 답변에 쓰려면 문서를 <b>미리 검색 단위로 잘라 두어야</b> 했습니다.</p></div>
+        </section>
+        <section class="gen1__step" aria-labelledby="gen1-preprocess-analyze">
+          <h4 id="gen1-preprocess-analyze"><b>A</b> Analyze</h4>
+          <div class="flow__body"><p>토큰 수 기준으로 기계적으로 자르면 <b>문장이나 설명이 중간에서 끊깁니다.</b> 잘린 조각은 검색돼도 반쪽짜리 근거가 됩니다.</p><p>그래서 <b>의미 단위로 자르는 전처리</b>가 필요했고, 사내 문서에 많은 <b>표와 서식을 중간에서 끊지 않고 잘라야</b> 했습니다. 나눈 세그먼트는 키워드 검색과 질문 기반 벡터 검색에 쓸 수 있도록 준비해야 했습니다.</p></div>
+        </section>
+        <section class="gen1__step" aria-labelledby="gen1-preprocess-action">
+          <h4 id="gen1-preprocess-action"><b>A</b> Action</h4>
+          <div class="flow__body"><p>구글 드라이브 링크로 문서를 가져오고 원본의 폴더·문서 경로를 확인합니다. 문서는 <b>LumberChunker</b>(<a class="cite" href="https://arxiv.org/abs/2406.17526" target="_blank" rel="noopener">Duarte et al., 2024</a>)로 나눕니다. LLM에게 본문을 슬라이딩 윈도우로 보여 주고 <b>의미가 나뉘는 지점마다 표시하게 합니다.</b></p><p>각 세그먼트를 DB에 저장할 때 <b>원본 문서와 상위 폴더 경로를 메타데이터로 달아</b> 출처를 역추적할 수 있게 합니다. 세그먼트는 BM25용으로 토크나이즈해 두고, 벡터 검색을 위한 <b>예상 질문 셋(Q-cluster)</b>도 생성합니다.</p><a class="more" href="#dd-preprocess" data-open="dd-preprocess">전처리 상세<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a></div>
+        </section>
+      </div>
+    </section>
+    <section class="gen1__topic" id="gen1-search" aria-labelledby="gen1-search-h">
+      <h3 id="gen1-search-h">검색</h3>
+      <div class="gen1__paa">
+        <section class="gen1__step" aria-labelledby="gen1-search-problem">
+          <h4 id="gen1-search-problem"><b>P</b> Problem</h4>
+          <div class="flow__body"><p>문서 세그먼트는 유저 질문보다 훨씬 깁니다. 세그먼트 전체를 하나의 벡터로 만들면 <b>질문과 관련된 부분이 나머지 내용에 묻혀, 관련 문서가 검색 결과에서 뒤로 밀릴 수 있습니다.</b></p><p>또한 <b>범용 데이터에서 보기 어려운 사내 고유명사</b>가 있어, 벡터 유사도만으로는 해당 표현을 정확히 찾기 어려웠습니다.</p></div>
+        </section>
+        <section class="gen1__step" aria-labelledby="gen1-search-analyze">
+          <h4 id="gen1-search-analyze"><b>A</b> Analyze</h4>
+          <div class="flow__body"><p>긴 세그먼트와 짧은 질문을 직접 비교하는 대신, 전처리에서 만든 <a class="cite" href="#dd-preprocess" data-open="dd-preprocess" aria-label="세그먼트별 예상 질문 생성: 전처리 상세 보기">세그먼트별 예상 질문</a>을 검색 대상으로 삼으면 <b>질문끼리 유사도를 비교</b>할 수 있습니다. 다만 벡터 검색은 사내 고유명사의 정확한 표기를 놓칠 수 있어 <b>키워드 검색도 함께</b> 쓰기로 했습니다.</p><p>두 검색에서 모은 후보를 바로 답변에 쓰기에는 범위가 넓고, 세그먼트 안에도 질문과 무관한 내용이 섞여 있습니다. <b>검색 순위와 원본의 폴더·문서 경로로 후보 범위를 좁힌 뒤</b>, 실제 답변에 필요한 부분을 세그먼트에서 가려내야 했습니다.</p></div>
+        </section>
+        <section class="gen1__step" aria-labelledby="gen1-search-action">
+          <h4 id="gen1-search-action"><b>A</b> Action</h4>
+          <div class="flow__body"><p><b>원본 질문과 재작성 질문을 병렬로 검색합니다.</b> 각 질문에 BM25와 Q-cluster 기반 벡터 검색을 적용해 후보 세그먼트를 찾고, 네 검색 결과를 RRF로 결합합니다.</p><p>후보를 <b>폴더·문서 경로별로 묶고</b>, 검색 순위가 낮은 가지를 제거해 범위를 좁힙니다.</p><p>남은 세그먼트에서는 LLM이 <b>답변에 사용할 문단과 인접 문단을 선택</b>합니다. 선택된 문단으로 최종 근거를 재구성하고, 선택된 문단이 없는 후보는 제외합니다.</p><a class="more" href="#dd-search" data-open="dd-search">검색 상세<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a></div>
+        </section>
+      </div>
+    </section>
+    <section class="gen1__topic" id="gen1-branch" aria-labelledby="gen1-branch-h">
+      <h3 id="gen1-branch-h">답변 분기</h3>
+      <div class="gen1__paa">
+        <section class="gen1__step" aria-labelledby="gen1-branch-problem">
+          <h4 id="gen1-branch-problem"><b>P</b> Problem</h4>
+          <div class="flow__body"><p>사내 챗봇은 상황에 따라 문서 근거 답변, FAQ 답 반환, 잡담, 거절, 사과 등 <b>서로 다른 형태로 응답해야 했습니다.</b> 이를 <b>하나의 프롬프트와 고정된 플로우로 모두 처리하기 어려웠습니다.</b></p></div>
+        </section>
+        <section class="gen1__step" aria-labelledby="gen1-branch-analyze">
+          <h4 id="gen1-branch-analyze"><b>A</b> Analyze</h4>
+          <div class="flow__body"><p>운영하면서 질문의 성격과 앞선 답변에 대한 사용자 반응에 따라 <b>서로 다른 응답 경로가 필요하다는 점을 확인했습니다.</b> 이후 MTRAG(<a class="cite" href="https://arxiv.org/abs/2501.03468" target="_blank" rel="noopener">Katsis et al., 2025</a>)의 질문 유형·답변 가능성 분류를 참고해 <b>기존 분기를 고도화하고, 응답 유형을 여섯 가지로 정리했습니다.</b></p>
+                <ul class="kv">
+                  <li><b>일반 답변</b> <span>검색된 근거로 답을 생성</span></li>
+                  <li><b>FAQ 답 반환</b> <span>등록된 FAQ 답을 그대로 내보냄</span></li>
+                  <li><b>잡담</b> <span>문서와 무관한 대화</span></li>
+                  <li><b>메타 질문</b> <span>챗봇 자신에 대한 질문</span></li>
+                  <li><b>정형 거절</b> <span>정책상 답하지 않는 질문에 미리 정한 문구로 답변</span></li>
+                  <li><b>사과</b> <span>사용자 반응이 세 번 연속 부정적일 때</span></li>
+                </ul></div>
+        </section>
+        <section class="gen1__step" aria-labelledby="gen1-branch-action">
+          <h4 id="gen1-branch-action"><b>A</b> Action</h4>
+          <div class="flow__body"><p>LLM이 질문의 성격을 체크리스트 항목별 T/F로 판정합니다. <b>판정 결과와 유형별 조건을 바탕으로 응답 유형을 선택</b>합니다. 앞선 답변에 대한 사용자 반응도 함께 살펴, 부정적 반응이 세 번 연속이면 일반 답변 대신 사과 문구를 냅니다.</p><p>문서를 근거로 답하는 유형에는 <b>문장마다 출처 문서를 달고</b>, 관련 <b>담당자를 답변 안에서 언급</b>해 유저가 바로 문의할 수 있게 했습니다.</p></div>
+        </section>
+      </div>
+    </section>
+    <section class="gen1__topic" id="gen1-quality" aria-labelledby="gen1-quality-h">
+      <h3 id="gen1-quality-h">문서 품질</h3>
+      <div class="gen1__paa">
+        <section class="gen1__step" aria-labelledby="gen1-quality-problem">
+          <h4 id="gen1-quality-problem"><b>P</b> Problem</h4>
+          <div class="flow__body"><p><b>검색 정확도가 아무리 높아도 문서 원본이 잘못되면 답변 역시 잘못됩니다.</b> 첫 협업 팀에는 오래 운영된 문서가 쌓여 있어, <b>같은 내용이 문서마다 다르게 적혀 있는 경우가 많았습니다.</b></p><p>그 팀은 이 문제를 <b>다른 어떤 솔루션도 다뤄 주지 않는다</b>고 했고, 다른 팀의 문서도 비슷할 것으로 예상했습니다.</p></div>
+        </section>
+        <section class="gen1__step" aria-labelledby="gen1-quality-analyze">
+          <h4 id="gen1-quality-analyze"><b>A</b> Analyze</h4>
+          <div class="flow__body"><p>문서끼리 내용이 어긋나는 문제는 <b>답변 과정에서 잡을 수도, 문서 자체를 고치도록 안내할 수도</b> 있었습니다.</p><p>당시 LLM은 한 호출에 판단 항목을 늘리면 정확도가 떨어졌기 때문에, 답변 과정에서 해결하려면 <b>파이프라인 추가가 필요</b>했습니다. 그렇게 하면 모든 질의 응답이 느려지므로, <b>문서 자체를 고치는 방향</b>으로 결정했습니다.</p></div>
+        </section>
+        <section class="gen1__step" aria-labelledby="gen1-quality-action">
+          <h4 id="gen1-quality-action"><b>A</b> Action</h4>
+          <div class="flow__body"><p>유저가 문서 자체를 고칠 수 있도록 유도하기 위해 <b>"충돌 감지 시스템"이라는 별도 기능</b>을 추가했습니다.</p><p>각 세그먼트의 Q-cluster 일부를 질의로 삼아 <b>실제 검색 경로를 그대로 태워</b> 관련 세그먼트를 모은 후, <b>문서 쌍마다 LLM이 모순되는 내용을 짚어내게</b> 했습니다. 그 결과에 대해 다시 LLM으로 정확성과 논리 일관성을 검토한 뒤, <b>모순이 실존하는지 최종 판정</b>하게 했습니다. 모순으로 판정된 문서 쌍은 <b>원본 문서를 지목해 유저에게 경고</b>합니다.</p><a class="more" href="#dd-conflict" data-open="dd-conflict">문서 충돌 감지 흐름<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a></div>
+        </section>
+      </div>
+    </section>
+    <div class="gen1__flow-link"><div class="mores mores--end"><a class="more" href="#dd-flow1" data-open="dd-flow1">전체 흐름<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a></div></div>
+    <section class="gen1__retrospect" id="gen1-retrospect" aria-labelledby="gen1-retrospect-h">
+      <div class="gen1__retro-head">
+        <p class="gen1__retro-label"><b>R</b> Retrospect</p>
+        <h3 id="gen1-retrospect-h">회고</h3>
+      </div>
+      <div class="gen1__retro-list">
+        <section class="gen1__retro-item" aria-labelledby="gen1-retro-conflict-h">
+          <h4 id="gen1-retro-conflict-h" class="gen1__retro-title">문서 충돌 감지</h4>
+          <div class="gen1__retro-copy">
+            <p>충돌 감지는 <b>실패에 가까웠습니다.</b> 첫 협업 팀과 달리 다른 팀 문서에서는 충돌이 드물었습니다. 문서가 바뀔 때마다 LLM으로 충돌 감지를 다시 실행해야 했고, <b>검사에 드는 시간과 비용에 비해 얻는 효과가 작았습니다.</b></p>
+            <p>첫 협업 팀에서 나타난 충돌이 다른 팀에서도 흔할 것이라고 가정한 것이 문제였습니다.</p>
+            <p>당시로 돌아간다면, 먼저 문서 간 내용 충돌이 여러 팀에서 반복되는 문제인지 확인하겠습니다. 충돌 감지가 필요하다면 <b>답변 속도가 느려지는 점을 감안하더라도, 별도 플로우를 만들기보다 RAG 답변 유형 중 하나로 처리</b>하겠습니다.</p>
+          </div>
+        </section>
+        <section class="gen1__retro-item" aria-labelledby="gen1-retro-flow-h">
+          <h4 id="gen1-retro-flow-h" class="gen1__retro-title">고정 플로우 구조</h4>
+          <div class="gen1__retro-copy">
+            <p>1세대의 일반 답변은 한 번 검색하고 답하는 고정 플로우였습니다. <b>검색이 빗나가면 다시 찾지 못했고</b>, 질문에 맞는 소스를 고르기도 어려웠습니다. 도구를 추가할 때마다 흐름 전체를 고쳐야 했습니다.</p>
+            <div class="gen1__retro-next">
+              <span class="gen1__retro-next-label">2세대에 반영</span>
+              <p><b>계획·검색·생성·검증을 분리</b>해 재검색과 도구 추가가 가능한 구조로 설계했습니다.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </article>
+    <article class="case case--flow" id="case-gen2">
+    <header class="case__head">
+      <h2 class="case__title">2세대 MARGE</h2>
+      <p class="case__sum">고정 플로우의 한계를 해결하기 위한 리뉴얼</p>
+      <span class="role">초기 설계 · 동료 고도화</span>
+    </header>
+    <div class="ptabs">
+      <div class="ptabs__panels">
+<div class="flow__body">
+            <p>1세대의 일반 답변은 검색 한 번으로 끝나는 고정 플로우였습니다. 검색이 빗나가도 다시 찾지 못했고, 도구를 추가하려면 흐름 전체를 고쳐야 했습니다.</p>
+            <p>이를 해결하기 위해 동료와 <b>Planner(계획) &rarr; Retriever(검색) &rarr; Generator(생성) &rarr; Verifier(검증)</b> 구조를 설계했습니다. 근거가 부족하면 다시 계획하고 검색할 수 있도록 순환 경로를 두었으며, 이 구조를 설계하는 데 <b>ADK 2.0의 그래프 워크플로우</b>를 활용했습니다.</p>
+            <p>저는 1세대 검색 엔진을 Retriever의 도구로 이식했습니다. <b>출처 표시·담당자 제공</b>은 Generator에, <b>등록된 거절문</b>은 Verifier의 차단 경로로 옮겼고 생성 가드레일을 추가했습니다.</p>
+            <p>1세대 API를 유지해 기존 웹을 고치지 않고 연결할 수 있게 했습니다. 동일한 질문에 대한 두 세대의 <b>최종 답변을 비교</b>한 뒤, 서비스 중단 없이 전환했습니다.</p>
+          </div>
+      </div>
+    </div>
+    <figure class="arch flowfig">
+      <figcaption>2세대 답변 흐름</figcaption>
+      <div class="flowfig__scroll"><svg class="is-wide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 872 480" role="img" aria-label="2세대 MARGE 답변 흐름도. 계획 단계에서 검색이 필요한지, 바로 답해도 되는지, 되물어야 하는지를 판정한다. 검색 단계는 근거가 모일 때까지 스스로 더 찾고, 생성 단계는 근거를 달아 답을 쓴다. 검증 단계는 채택·재생성·재계획·차단 네 가지로 판정하며, 답만 부족하면 생성부터, 근거가 부족하면 계획부터 다시 한다."><defs><marker id="g2-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker><marker id="g2-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk-g"/></marker></defs><rect class="box" x="72" y="10" width="468" height="44" rx="9"/><text class="t ink" x="306.0" y="38.0" text-anchor="middle">질문</text><path class="ln" d="M306.0 54 L306.0 70" marker-end="url(#g2-a)"/><rect class="box" x="72" y="74" width="468" height="58" rx="9"/><text class="t ink" x="94" y="99" text-anchor="start">① 계획</text><text class="s mut" x="94" y="119" text-anchor="start">의도를 분석해 retrieve · direct · clarify 판정</text><rect class="llm" x="478" y="84" width="46" height="22" rx="11"/><text class="s2 acc" x="501.0" y="99" text-anchor="middle">LLM</text><path class="ln" d="M540 103 L596 103" marker-end="url(#g2-a)"/><text class="s2 mut" x="570.0" y="96" text-anchor="middle">clarify</text><rect class="box" x="600" y="78" width="240" height="50" rx="9"/><text class="t ink" x="720.0" y="109.0" text-anchor="middle">되묻기</text><path class="ln" d="M306.0 132 L306.0 148" marker-end="url(#g2-a)"/><rect class="box" x="72" y="152" width="468" height="58" rx="9"/><text class="t ink" x="94" y="177" text-anchor="start">② 검색</text><text class="s mut" x="94" y="197" text-anchor="start">소스를 병렬로 검색하고, 근거가 모일 때까지 스스로 더 찾음</text><rect class="llm" x="478" y="162" width="46" height="22" rx="11"/><text class="s2 acc" x="501.0" y="177" text-anchor="middle">LLM</text><path class="ln" d="M306.0 210 L306.0 226" marker-end="url(#g2-a)"/><rect class="box" x="72" y="230" width="468" height="58" rx="9"/><text class="t ink" x="94" y="255" text-anchor="start">③ 생성</text><text class="s mut" x="94" y="275" text-anchor="start">유형별 전략으로 근거를 달아 답 작성</text><rect class="llm" x="478" y="240" width="46" height="22" rx="11"/><text class="s2 acc" x="501.0" y="255" text-anchor="middle">LLM</text><path class="ln" d="M306.0 288 L306.0 304" marker-end="url(#g2-a)"/><rect class="dec" x="72" y="308" width="468" height="58" rx="29"/><text class="t ink" x="102" y="333" text-anchor="start">④ 검증</text><text class="s mut" x="102" y="353" text-anchor="start">채택 · 재생성 · 재계획(최대 3회) · 차단</text><rect class="llm" x="468" y="318" width="46" height="22" rx="11"/><text class="s2 acc" x="491.0" y="333" text-anchor="middle">LLM</text><path class="ln" d="M540 337 L596 337" marker-end="url(#g2-a)"/><text class="s not" x="570.0" y="330" text-anchor="middle">차단</text><rect class="no" x="600" y="308" width="240" height="58" rx="9"/><text class="t not" x="720.0" y="336" text-anchor="middle">정중한 거절</text><text class="s mut" x="720.0" y="358" text-anchor="middle">등록된 거절문으로 응답</text><path class="ln" d="M306.0 366 L306.0 382" marker-end="url(#g2-a)"/><text class="s okt" x="318.0" y="378" text-anchor="start">채택</text><rect class="ok" x="72" y="386" width="468" height="66" rx="9"/><text class="t okt" x="306.0" y="414" text-anchor="middle">근거 답변</text><text class="s mut" x="306.0" y="436" text-anchor="middle">출처·담당자 함께 제공 · 근거 없으면 없다고 답함</text><path class="ln ln-g dsh" d="M72 330 L52 330 L52 262 L68 262" marker-end="url(#g2-g)"/><text class="s2 acc" x="68" y="240" text-anchor="end">재생성</text><path class="ln ln-g dsh" d="M72 352 L28 352 L28 110 L68 110" marker-end="url(#g2-g)"/><text class="s2 acc" x="68" y="92" text-anchor="end">재계획</text></svg></div>
+    </figure>
+    <div class="gen1__flow-link"><div class="mores mores--end"><a class="more" href="#dd-gen2" data-open="dd-gen2">2세대 상세<svg class="ic" aria-hidden="true"><use href="#ph-arrow-right"/></svg></a></div></div>
+  </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 자세히 보기 ============ -->
+<section id="deepdive" class="deep" aria-labelledby="deep-h">
+  <div class="shell">
+    <h2 id="deep-h">자세히 보기</h2>
+
+    <div class="deep__group">
+    <h3 class="sub-h">1세대</h3>
+    <div class="deep__list">
+    <details class="fold dd" id="dd-flow1">
+      <summary><span>전체 흐름</span><span class="role">공동 설계 · 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+      <div class="fold__body"><div class="fold__in">
+        <figure class="arch flowfig">
+          <figcaption>1세대 답변 흐름</figcaption>
+          <div class="flowfig__scroll"><svg class="is-wide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 872 584" role="img" aria-label="1세대 MARGE 답변 흐름도. 질문을 받아 쿼리를 이해하고, BM25와 벡터 검색을 RRF로 합친 하이브리드 검색으로 근거를 모은 뒤, LLM이 쓸 문단만 선별하고, 체크리스트로 답변 유형을 나눠 답을 만든다. FAQ 판정은 검색과 동시에 돌아 일치하면 등록된 FAQ 답을 그대로 낸다. 검색은 미리 만들어 둔 Q-cluster와 고유명사·동의어 사전을 쓴다."><defs><marker id="g1-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker><marker id="g1-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk-g"/></marker></defs><rect class="box" x="40" y="10" width="520" height="44" rx="9"/><text class="t ink" x="300.0" y="38.0" text-anchor="middle">질문</text><path class="ln" d="M300.0 54 L300.0 70" marker-end="url(#g1-a)"/><rect class="box" x="40" y="74" width="520" height="58" rx="9"/><text class="t ink" x="62" y="99" text-anchor="start">① 쿼리 이해</text><text class="s mut" x="62" y="119" text-anchor="start">이력으로 생략 복원 · 원본과 재작성 쿼리 병렬</text><rect class="llm" x="498" y="84" width="46" height="22" rx="11"/><text class="s2 acc" x="521.0" y="99" text-anchor="middle">LLM</text><path class="ln" d="M560 103 L612 103" marker-end="url(#g1-a)"/><text class="s2 mut" x="588.0" y="96" text-anchor="middle">동시에</text><rect class="box" x="616" y="74" width="224" height="58" rx="9"/><text class="t2 ink" x="638" y="99" text-anchor="start">FAQ 판정</text><text class="s mut" x="638" y="119" text-anchor="start">LLM 판단 + 질문 유사도</text><rect class="llm" x="778" y="84" width="46" height="22" rx="11"/><text class="s2 acc" x="801.0" y="99" text-anchor="middle">LLM</text><path class="ln" d="M300.0 132 L300.0 148" marker-end="url(#g1-a)"/><rect class="box" x="40" y="152" width="520" height="58" rx="9"/><text class="t ink" x="62" y="177" text-anchor="start">② 하이브리드 검색</text><text class="s mut" x="62" y="197" text-anchor="start">BM25 + 벡터 검색을 RRF로 융합</text><rect class="chip" x="498" y="162" width="46" height="22" rx="11"/><text class="s2 sub" x="521.0" y="177" text-anchor="middle">코드</text><path class="ln dsh" d="M560 181 L616 181"/><g class="arch-node" data-target="dd-search" tabindex="0" role="link" aria-label="검색 상세 자세히 보기 열기"><rect class="box" x="616" y="156" width="224" height="50" rx="9"/><text class="s2 mut" x="630" y="175" text-anchor="start">검색·선별 방식</text><text class="s2 acc" x="630" y="194" text-anchor="start">검색 상세 →</text></g><path class="ln" d="M300.0 210 L300.0 226" marker-end="url(#g1-a)"/><rect class="box" x="40" y="230" width="520" height="58" rx="9"/><text class="t ink" x="62" y="255" text-anchor="start">③ 근거 선별</text><text class="s mut" x="62" y="275" text-anchor="start">트리 가지치기 후 쓸 문단만 병렬로 선별</text><rect class="llm" x="498" y="240" width="46" height="22" rx="11"/><text class="s2 acc" x="521.0" y="255" text-anchor="middle">LLM</text><path class="ln" d="M300.0 288 L300.0 304" marker-end="url(#g1-a)"/><rect class="box" x="40" y="308" width="520" height="58" rx="9"/><text class="t ink" x="62" y="333" text-anchor="start">④ 답변 분기</text><text class="s mut" x="62" y="353" text-anchor="start">유형별 조건 확인 · 6가지 응답으로 분기</text><rect class="llm" x="498" y="318" width="46" height="22" rx="11"/><text class="s2 acc" x="521.0" y="333" text-anchor="middle">LLM</text><path class="ln" d="M300.0 366 L300.0 382" marker-end="url(#g1-a)"/><rect class="ok" x="40" y="386" width="520" height="84" rx="9"/><text class="t okt" x="300.0" y="414" text-anchor="middle">답변</text><text class="s mut" x="300.0" y="436" text-anchor="middle">FAQ 답 반환 · 일반 답변 · 잡담 · 메타 질문 · 정형 거절 · 사과</text><text class="s mut" x="300.0" y="454" text-anchor="middle">출처 문서 · 담당자 함께 제공</text><path class="ln" d="M728.0 132 L728.0 144 L856 144 L856 428 L564 428" marker-end="url(#g1-a)"/><text class="s2 mut" x="848" y="250" text-anchor="end">일치하면 FAQ 답 반환</text><rect class="pan" x="24" y="494" width="552" height="74" rx="12"/><text class="k acc" x="40" y="516" text-anchor="start">검색이 쓰는 자산</text><text class="s sub" x="40" y="538" text-anchor="start">Q-cluster · 고유명사·동의어 사전</text><text class="s2 mut" x="40" y="556" text-anchor="start">세그먼트별 예상 질문을 미리 만들어, 질문을 질문에 매칭</text><path class="ln dsh" d="M576 531 L616 531"/><g class="arch-node" data-target="dd-preprocess" tabindex="0" role="link" aria-label="전처리 상세 자세히 보기 열기"><rect class="box" x="616" y="506" width="224" height="50" rx="9"/><text class="s2 mut" x="630" y="525" text-anchor="start">만드는 과정</text><text class="s2 acc" x="630" y="544" text-anchor="start">전처리 상세 →</text></g></svg></div>
+        </figure>
+      </div></div>
+    </details>
+    <details class="fold dd" id="dd-conflict">
+      <summary><span>문서 충돌 감지 흐름</span><span class="role">직접 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+      <div class="fold__body"><div class="fold__in">
+        <div class="pdemo cdemo" id="conflict-demo" aria-label="같은 주제의 문서 조각을 모아 모순을 찾고, 다시 검토해 실제 모순만 경고하는 과정 예시">
+          <ol class="pdemo__steps" aria-label="충돌 감지 단계">
+            <li><button type="button" data-step="0"><i></i>같은 주제 묶기</button></li>
+            <li><button type="button" data-step="1"><i></i>쌍마다 모순 찾기</button></li>
+            <li><button type="button" data-step="2"><i></i>다시 검토</button></li>
+            <li><button type="button" data-step="3"><i></i>원본 지목 · 경고</button></li>
+          </ol>
+          <div class="pdemo__main">
+            <div class="pdemo__source">
+              <p class="pdemo__label">Q-cluster 질의 · “출장비 정산은 언제까지 하나요?”</p>
+              <div class="cdemo__segs">
+                <div class="cdemo__seg" data-seg="a"><p class="cdemo__doc"><b>A</b>출장 안내 · 2절</p><p>출장비는 출장이 끝난 뒤 <mark data-pair="ab">7일 이내</mark>에 <mark data-pair="ac">영수증 원본</mark>과 함께 제출합니다.</p></div>
+                <div class="cdemo__seg" data-seg="b"><p class="cdemo__doc"><b>B</b>경비 정산 FAQ · 4절</p><p>출장비 정산은 출장이 끝난 뒤 <mark data-pair="ab">14일 이내</mark>에 신청하면 됩니다.</p></div>
+                <div class="cdemo__seg" data-seg="c"><p class="cdemo__doc"><b>C</b>재무팀 공지</p><p>해외 출장은 <mark data-pair="ac">영수증 스캔본</mark>으로 제출할 수 있습니다.</p></div>
+              </div>
+            </div>
+            <div class="pdemo__result">
+              <p class="pdemo__label">문서 쌍 비교</p>
+              <p class="pdemo__placeholder">같은 주제의 조각을 모으면 쌍마다 비교합니다.</p>
+              <div class="cdemo__pairs">
+                <div class="cdemo__pair" data-pair="ab" data-verdict="real"><p class="cdemo__pair-head"><b>A ↔ B</b><span class="cdemo__tag cdemo__tag--cand">모순 후보</span><span class="cdemo__tag cdemo__tag--real">실제 모순</span></p><p>제출 기한 · 7일 ↔ 14일</p><p class="cdemo__why">같은 조건에서 기한이 다름</p></div>
+                <div class="cdemo__pair" data-pair="ac" data-verdict="pass"><p class="cdemo__pair-head"><b>A ↔ C</b><span class="cdemo__tag cdemo__tag--cand">모순 후보</span><span class="cdemo__tag cdemo__tag--pass">모순 아님</span></p><p>증빙 · 영수증 원본 ↔ 스캔본</p><p class="cdemo__why">C는 해외 출장에만 해당하는 예외</p></div>
+                <div class="cdemo__pair" data-pair="bc" data-verdict="none"><p class="cdemo__pair-head"><b>B ↔ C</b><span class="cdemo__tag">어긋남 없음</span></p></div>
+              </div>
+              <div class="cdemo__alert"><p class="cdemo__alert-head">문서 충돌 경고</p><p><b>출장 안내 2절</b>과 <b>경비 정산 FAQ 4절</b>의 출장비 제출 기한이 서로 다릅니다. 원본 문서를 확인해 주세요.</p></div>
+            </div>
+          </div>
+          <p class="pdemo__log" role="status" aria-live="polite">Q-cluster 질의로 같은 주제의 세그먼트를 모읍니다.</p>
+          <div class="pdemo__bar">
+            <div class="pdemo__controls">
+              <button type="button" data-act="prev" aria-label="이전 단계">←</button>
+              <button type="button" class="pdemo__play" data-act="toggle" aria-label="재생">재생</button>
+              <button type="button" data-act="next" aria-label="다음 단계">→</button>
+              <button type="button" data-act="speed" aria-label="재생 속도">1x</button>
+            </div>
+            <p>충돌 감지 과정을 보여주는 가상 문서 예시입니다.</p>
+          </div>
+        </div>
+        <figure class="arch flowfig">
+          <figcaption>문서 충돌 감지 흐름</figcaption>
+          <div class="flowfig__scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 336" role="img" aria-label="문서 충돌 감지 흐름도. Q-cluster 일부를 질의로 삼아 같은 주제의 세그먼트를 모으고, 문서 쌍마다 LLM이 어긋나는 내용을 짚어낸 뒤, 정확성과 논리 일관성을 다시 검토해 모순이 실제인지 판정한다. 모순이 아니면 문서 품질을 통과시키고, 실존하면 원본 문서를 지목해 사용자에게 상충 내용을 알린다."><defs><marker id="cf-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker><marker id="cf-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk-g"/></marker></defs><rect class="box" x="40" y="10" width="500" height="58" rx="9"/><text class="t ink" x="62" y="35" text-anchor="start">① 같은 주제 묶기</text><text class="s mut" x="62" y="55" text-anchor="start">Q-cluster 일부를 질의로 삼아 관련 세그먼트 수집</text><rect class="chip" x="478" y="20" width="46" height="22" rx="11"/><text class="s2 sub" x="501.0" y="35" text-anchor="middle">코드</text><path class="ln" d="M290.0 68 L290.0 84" marker-end="url(#cf-a)"/><rect class="box" x="40" y="88" width="500" height="58" rx="9"/><text class="t ink" x="62" y="113" text-anchor="start">② 쌍마다 모순 찾기</text><text class="s mut" x="62" y="133" text-anchor="start">문서 쌍마다 서로 어긋나는 내용을 짚어냄</text><rect class="llm" x="478" y="98" width="46" height="22" rx="11"/><text class="s2 acc" x="501.0" y="113" text-anchor="middle">LLM</text><path class="ln" d="M290.0 146 L290.0 162" marker-end="url(#cf-a)"/><rect class="dec" x="40" y="166" width="500" height="58" rx="29"/><text class="t ink" x="70" y="191" text-anchor="start">모순이 실제인가</text><text class="s mut" x="70" y="211" text-anchor="start">정확성·논리 일관성을 다시 검토</text><rect class="llm" x="468" y="176" width="46" height="22" rx="11"/><text class="s2 acc" x="491.0" y="191" text-anchor="middle">LLM</text><path class="ln" d="M540 195 L576 195" marker-end="url(#cf-a)"/><text class="s okt" x="560.0" y="188" text-anchor="middle">아니오</text><rect class="ok" x="580" y="170" width="200" height="50" rx="9"/><text class="t okt" x="680.0" y="201.0" text-anchor="middle">문서 품질 통과</text><path class="ln" d="M290.0 224 L290.0 248" marker-end="url(#cf-a)"/><text class="s not" x="302.0" y="244" text-anchor="start">예</text><rect class="no" x="40" y="252" width="500" height="66" rx="9"/><text class="t not" x="290.0" y="280" text-anchor="middle">원본 문서 지목 · 경고</text><text class="s mut" x="290.0" y="302" text-anchor="middle">사용자에게 상충 내용 안내</text></svg></div>
+        </figure>
+      </div></div>
+    </details>
+    <details class="fold dd" id="dd-preprocess">
+      <summary><span>전처리 상세</span><span class="role">공동 설계 · 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+      <div class="fold__body"><div class="fold__in">
+        <div class="pdemo" id="preprocess-demo" aria-label="문서 청킹과 검색 자산 생성 과정 예시">
+          <ol class="pdemo__steps" aria-label="전처리 단계">
+            <li><button type="button" data-step="0"><i></i>원문</button></li>
+            <li><button type="button" data-step="1"><i></i>의미 경계</button></li>
+            <li><button type="button" data-step="2"><i></i>세그먼트</button></li>
+            <li><button type="button" data-step="3"><i></i>검색 자산</button></li>
+          </ol>
+          <div class="pdemo__main">
+            <div class="pdemo__source">
+              <p class="pdemo__label">예시 문서 · 휴가와 출장 안내</p>
+              <div class="pdemo__lines">
+                <p><span>01</span>휴가 신청서는 결재 시스템에서 제출합니다.</p>
+                <p><span>02</span>결재가 완료되면 팀 일정에 반영합니다.</p>
+                <p><span>03</span>휴가 일정이 바뀌면 신청서를 수정합니다.</p>
+                <div class="pdemo__boundary"><span>LLM이 찾은 의미 경계</span></div>
+                <p><span>04</span>출장비는 사용 내역과 영수증을 제출합니다.</p>
+                <p><span>05</span>제출된 내역은 승인 후 정산합니다.</p>
+              </div>
+            </div>
+            <div class="pdemo__result">
+              <p class="pdemo__label">검색 단위</p>
+              <p class="pdemo__placeholder">의미 경계를 찾으면 세그먼트가 나타납니다.</p>
+              <div class="pdemo__segments">
+                <div class="pdemo__segment">
+                  <p class="pdemo__segment-title">세그먼트 1 <span>휴가 신청</span></p>
+                  <p>01–03행 · 휴가 신청과 일정 변경</p>
+                  <div class="pdemo__assets"><p><b>BM25</b><span>휴가 · 신청서 · 결재</span></p><p><b>Q-cluster</b><span>휴가 신청서는 어디에 제출하나요?</span></p></div>
+                </div>
+                <div class="pdemo__segment">
+                  <p class="pdemo__segment-title">세그먼트 2 <span>출장비 정산</span></p>
+                  <p>04–05행 · 출장비 제출과 정산</p>
+                  <div class="pdemo__assets"><p><b>BM25</b><span>출장비 · 영수증 · 정산</span></p><p><b>Q-cluster</b><span>출장비 정산에는 무엇을 제출하나요?</span></p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="pdemo__log" role="status" aria-live="polite">원문을 줄 단위로 정리합니다.</p>
+          <div class="pdemo__bar">
+            <div class="pdemo__controls">
+              <button type="button" data-act="prev" aria-label="이전 단계">←</button>
+              <button type="button" class="pdemo__play" data-act="toggle" aria-label="재생">재생</button>
+              <button type="button" data-act="next" aria-label="다음 단계">→</button>
+              <button type="button" data-act="speed" aria-label="재생 속도">1x</button>
+            </div>
+            <p>청킹과 검색 자산 생성을 보여주는 가상 문서 예시입니다.</p>
+          </div>
+        </div>
+        <ul>
+          <li><b>이미지 · 표</b>: 문서 안 이미지는 전부 <b>LLM이 읽어 텍스트로 바꿔</b> 넣습니다. 표는 따로 판정해 JSON으로 다시 뽑고, 병합 셀이 있으면 한 번 더 검토합니다.</li>
+          <li><b>청킹</b>: 본문에 줄 번호를 붙이고 8,000자씩 LLM에 보여 줍니다. <b>LLM이 내용이 바뀌는 줄 번호를 하나 찍으면 거기서 자르고</b>, 남은 부분부터 다시 보여 줍니다. 이렇게 나온 조각을 4,000토큰이 안 넘게 묶어서 세그먼트로 저장합니다.</li>
+          <li><b>Q-cluster</b>: 세그먼트마다 LLM이 <b>내용을 바탕으로 나올 법한 질문</b>을 만들어 별도 컬렉션에 쌓습니다.</li>
+        </ul>
+      </div></div>
+    </details>
+    <details class="fold dd" id="dd-search">
+      <summary><span>검색 상세</span><span class="role">직접 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+      <div class="fold__body"><div class="fold__in">
+        <div class="sdemo" id="search-demo" aria-label="질의 재작성부터 검색, 문서 경로 가지치기, 근거 선별까지의 가상 예시">
+          <ol class="sdemo__steps" aria-label="검색 단계">
+            <li><button type="button" data-step="0">질문 재작성</button></li>
+            <li><button type="button" data-step="1">두 질문 병렬 검색</button></li>
+            <li><button type="button" data-step="2">Q-cluster 매칭</button></li>
+            <li><button type="button" data-step="3">RRF 결합</button></li>
+            <li><button type="button" data-step="4">경로로 묶기</button></li>
+            <li><button type="button" data-step="5">가지치기</button></li>
+            <li><button type="button" data-step="6">근거 발췌</button></li>
+          </ol>
+          <div class="sdemo__scene">
+            <div class="sdemo__panel" data-panel="0">
+              <p class="sdemo__eyebrow">01 · 질문 준비</p>
+              <div class="sdemo__query-pair"><div class="sdemo__card"><small>원본 질문</small><strong>“루나 출장비는 어떻게 해?”</strong></div><span class="sdemo__arrow" aria-hidden="true">→</span><div class="sdemo__card sdemo__card--accent"><small>대화 이력으로 재작성</small><strong>“루나 프로젝트 출장비 정산에 필요한 서류는?”</strong></div></div>
+              <p class="sdemo__hint">원래 표현도 놓치지 않도록 두 질문을 모두 검색에 활용합니다.</p>
+            </div>
+            <div class="sdemo__panel" data-panel="1">
+              <p class="sdemo__eyebrow">02 · 원본 질문과 재작성 질문을 병렬 검색</p>
+              <div class="sdemo__searches"><div class="sdemo__card"><small>원본 질문</small><strong>“루나 출장비는 어떻게 해?”</strong><span>BM25 → 문서 제목·세그먼트 검색<br>벡터 → Q-cluster 검색</span></div><div class="sdemo__card sdemo__card--accent"><small>재작성 질문</small><strong>“루나 프로젝트 출장비 정산에 필요한 서류는?”</strong><span>BM25 → 문서 제목·세그먼트 검색<br>벡터 → Q-cluster 검색</span></div></div>
+              <p class="sdemo__hint">각 질문에서 BM25와 벡터 검색을 모두 수행해 검색 순위 네 개를 얻습니다.</p>
+            </div>
+            <div class="sdemo__panel" data-panel="2">
+              <div class="sdemo__vote-query"><div data-vote-query="original"><small>원본 질문</small><strong>“루나 출장비는 어떻게 해?”</strong></div><div data-vote-query="rewritten"><small>재작성 질문</small><strong>“루나 프로젝트 출장비 정산에 필요한 서류는?”</strong></div></div>
+              <div class="sdemo__vote-tree">
+                <div class="sdemo__vote-segment" data-vote-segment="expense"><div class="sdemo__vote-head"><div class="sdemo__vote-id"><small>출장비 안내 · 문서</small><b>S1 · 출장비 정산</b></div><span>매칭된 질문</span><strong data-vote-count="expense">4</strong></div><div class="sdemo__vote-children"><div data-vote-hit="o1"><i>①</i> 루나 출장비는 어떻게 정산하나요?</div><div data-vote-hit="o2"><i>②</i> 출장비 영수증은 어디에 내나요?</div><div data-vote-hit="o4"><i>④</i> 출장 후 비용은 어떻게 처리하나요?</div><div data-vote-hit="r3"><i>③</i> 영수증 제출 방법은?</div></div></div>
+                <div class="sdemo__vote-segment" data-vote-segment="faq"><div class="sdemo__vote-head"><div class="sdemo__vote-id"><small>정산 FAQ · 문서</small><b>S2 · 정산 서류</b></div><span>매칭된 질문</span><strong data-vote-count="faq">4</strong></div><div class="sdemo__vote-children"><div data-vote-hit="r1"><i>①</i> 출장비 정산에 필요한 서류는?</div><div data-vote-hit="r2"><i>②</i> 비용 정산 시 무엇을 제출하나요?</div><div data-vote-hit="o3"><i>③</i> 출장비 신청 방법은?</div><div data-vote-hit="r4"><i>④</i> 비용 처리 증빙은 무엇인가요?</div></div></div>
+                <div class="sdemo__vote-segment" data-vote-segment="leave"><div class="sdemo__vote-head"><div class="sdemo__vote-id"><small>휴가 안내 · 문서</small><b>S3 · 휴가비·신청</b></div><span>매칭된 질문</span><strong data-vote-count="leave">1</strong></div><div class="sdemo__vote-children"><div data-vote-hit="o5"><i>⑤</i> 휴가비는 언제 지급되나요?</div><div><i>–</i> 휴가 일정은 어떻게 바꾸나요?</div><div><i>–</i> 휴가 결재는 어디서 하나요?</div></div></div>
+                <div class="sdemo__vote-segment" data-vote-segment="equipment"><div class="sdemo__vote-head"><div class="sdemo__vote-id"><small>장비 안내 · 문서</small><b>S4 · 장비 구입</b></div><span>매칭된 질문</span><strong data-vote-count="equipment">1</strong></div><div class="sdemo__vote-children"><div data-vote-hit="r5"><i>⑤</i> 프로젝트 비용으로 장비를 사나요?</div><div><i>–</i> 대여 장비는 어떻게 반납하나요?</div><div><i>–</i> 장비 목록은 어디서 보나요?</div></div></div>
+              </div>
+            </div>
+            <div class="sdemo__panel" data-panel="3">
+              <div class="sdemo__rrf-key" aria-label="검색 순위가 높을수록 RRF 기여 점수가 큽니다"><span>① <i></i></span><span>② <i></i></span><span>③ <i></i></span></div>
+              <div class="sdemo__rrf-inputs"><div data-rrf-source="1"><b>원본 · BM25</b><span>① S1 · 출장비 정산</span><span>② S3 · 휴가비·신청</span></div><div data-rrf-source="2"><b>원본 · 벡터</b><span>① S1 · 출장비 정산</span><span>② S2 · 정산 서류</span></div><div data-rrf-source="3"><b>재작성 · BM25</b><span>① S1 · 출장비 정산</span><span>② S2 · 정산 서류</span><span>③ S4 · 장비 구입</span></div><div data-rrf-source="4"><b>재작성 · 벡터</b><span>① S2 · 정산 서류</span><span>② S1 · 출장비 정산</span></div></div>
+              <div class="sdemo__rrf-flow" aria-hidden="true"><span>↓</span><span>↓</span><span>↓</span><span>↓</span></div>
+              <div class="sdemo__rrf-buckets" aria-label="같은 세그먼트의 순위 점수를 한 카드로 모으는 예시"><div class="sdemo__rrf-bucket" data-rrf-bucket="expense"><strong>S1 · 출장비 정산</strong><small>출장비 안내 · 문서</small><div class="sdemo__rrf-tokens"><span data-rrf-token="1">원본 BM25 ①</span><span data-rrf-token="2">원본 벡터 ①</span><span data-rrf-token="3">재작성 BM25 ①</span><span data-rrf-token="4">재작성 벡터 ②</span></div><div class="sdemo__rrf-meter"><i style="--score:100%"></i></div></div><div class="sdemo__rrf-bucket" data-rrf-bucket="faq"><strong>S2 · 정산 서류</strong><small>정산 FAQ · 문서</small><div class="sdemo__rrf-tokens"><span data-rrf-token="2">원본 벡터 ②</span><span data-rrf-token="3">재작성 BM25 ②</span><span data-rrf-token="4">재작성 벡터 ①</span></div><div class="sdemo__rrf-meter"><i style="--score:74%"></i></div></div><div class="sdemo__rrf-bucket" data-rrf-bucket="leave"><strong>S3 · 휴가비·신청</strong><small>휴가 안내 · 문서</small><div class="sdemo__rrf-tokens"><span data-rrf-token="1">원본 BM25 ②</span></div><div class="sdemo__rrf-meter"><i style="--score:25%"></i></div></div><div class="sdemo__rrf-bucket" data-rrf-bucket="equipment"><strong>S4 · 장비 구입</strong><small>장비 안내 · 문서</small><div class="sdemo__rrf-tokens"><span data-rrf-token="3">재작성 BM25 ③</span></div><div class="sdemo__rrf-meter"><i style="--score:24%"></i></div></div></div>
+              <div class="sdemo__rrf-next" aria-label="RRF로 정렬된 후보 세그먼트 S1, S2, S3, S4가 모두 경로별 묶기로 넘어갑니다"><b>정렬된 후보</b><span>① S1</span><span>② S2</span><span>③ S3</span><span>④ S4</span><strong>→ 경로로 묶기</strong></div>
+            </div>
+            <div class="sdemo__panel sdemo__panel--tree" data-panel="tree">
+              <p class="sdemo__eyebrow">05–06 · 세그먼트의 폴더·문서 경로로 묶기</p>
+              <div class="sdemo__tree" role="img" aria-label="검색된 세그먼트 S1부터 S4를 원본 폴더와 문서 경로에 묶고, 순위가 낮은 S3과 S4의 문서 가지를 제거하는 예시">
+                <div class="sdemo__node sdemo__node--root">운영 <small>폴더</small></div>
+                <div class="sdemo__children"><div class="sdemo__branch"><div class="sdemo__node">루나 프로젝트 <small>폴더</small></div><div class="sdemo__children"><div class="sdemo__node sdemo__node--keep">출장비 안내 <small>문서 · S1 포함</small></div><div class="sdemo__node sdemo__node--keep">정산 FAQ <small>문서 · S2 포함</small></div><div class="sdemo__node sdemo__node--drop">휴가 안내 <small>문서 · S3 낮은 순위</small></div></div></div><div class="sdemo__branch sdemo__branch--drop"><div class="sdemo__node">기타 프로젝트 <small>폴더 · 낮은 순위</small></div><div class="sdemo__children"><div class="sdemo__node">장비 안내 <small>문서 · S4 낮은 순위</small></div></div></div></div>
+              </div>
+              <p class="sdemo__prune-note">낮은 순위의 문서·폴더 가지를 제거하고 관련 경로를 남깁니다.</p>
+            </div>
+            <div class="sdemo__panel" data-panel="6">
+              <p class="sdemo__eyebrow">07 · LLM 근거 발췌</p>
+              <div class="sdemo__evidence"><div class="sdemo__evidence-list"><div class="sdemo__card"><small>S1 · 출장비 안내 문서</small><p><mark>출장비는 사용 내역과 영수증을 제출</mark>합니다. 제출된 내역은 승인 후 정산합니다. <s>휴가 일정은 팀 캘린더에 반영합니다.</s></p></div><div class="sdemo__card"><small>S2 · 정산 FAQ 문서</small><p><mark>정산 서류는 영수증과 사용 내역</mark>입니다. <s>사무용 장비는 별도 양식으로 신청합니다.</s></p></div></div><span class="sdemo__arrow" aria-hidden="true">→</span><div class="sdemo__evidence-list"><div class="sdemo__card sdemo__card--accent"><small>S1에서 재구성</small><strong>출장비는 사용 내역과 영수증을 제출합니다. 제출된 내역은 승인 후 정산합니다.</strong></div><div class="sdemo__card sdemo__card--accent"><small>S2에서 재구성</small><strong>정산 서류는 영수증과 사용 내역입니다.</strong></div></div></div>
+            </div>
+          </div>
+          <p class="sdemo__log" role="status" aria-live="polite">대화 이력으로 질문을 재작성하고 원본도 보존합니다.</p>
+          <div class="sdemo__bar"><div class="sdemo__controls"><button type="button" data-act="prev" aria-label="이전 단계">←</button><button type="button" data-act="toggle" aria-label="재생">재생</button><button type="button" data-act="next" aria-label="다음 단계">→</button><button type="button" data-act="speed" aria-label="재생 속도">1x</button></div><p>가상 문서와 순위로 검색 흐름을 보여줍니다.</p></div>
+        </div>
+        <ul>
+          <li><b>질의 재작성</b>: 대화 이력과 고유명사·동의어 사전을 바탕으로 질문을 재작성합니다. <b>원본 질문과 재작성 질문을 병렬로 검색</b>합니다.</li>
+          <li><b>BM25 · 벡터 검색 방식</b>: 원본 쿼리와 재작성 쿼리 <b>각각에 BM25와 벡터 검색을 적용</b>합니다. BM25는 세그먼트와 문서 제목을 검색합니다. 벡터 검색은 각 쿼리를 예상 질문과 비교해 유사한 질문 목록을 얻고, <b>각 세그먼트가 그 목록에 얼마나 자주, 얼마나 위쪽에 나오는지를 반영해 점수를 매겨 정렬</b>합니다(weighted majority voting). 네 검색 순위는 RRF로 결합합니다.</li>
+          <li><b>토크나이저 · 임베딩</b>: 토크나이저는 사내 고유명사 처리와 속도, 관리 편의성을 보고 <b>Kiwi</b>를 골랐습니다. 프로젝트마다 별도 토크나이저에 고유명사를 등록해 놓고 사용합니다. 임베딩은 오픈소스 문장 쌍 데이터로 몇 개 모델을 비교해 <b>KoSimCSE-RoBERTa</b>를 골랐습니다. 쌍마다 코사인 유사도를 재서 분포를 그려 봤습니다. <b>비슷한 문장과 서로 다른 문장의 유사도 분포가 가장 뚜렷하게 나뉜 모델이 KoSimCSE-RoBERTa였습니다.</b> 다른 다국어 모델은 한국어에 대한 유사도 분포가 몰려 있었습니다.</li>
+          <li><b>문서 트리 축소</b>: 구글 드라이브의 <b>폴더 &rarr; 하위 폴더 &rarr; 문서 경로</b>를 세그먼트마다 메타데이터로 남깁니다. 검색 후보를 이 경로에 따라 묶고, 한 문서나 폴더의 세그먼트가 모두 낮은 순위라면 <b>그 가지를 통째로 떼어내고</b> 남은 가지는 온전히 유지합니다.</li>
+          <li><b>근거 선별</b>: 후보 세그먼트를 문단 단위(500자 이상)로 나눠 번호를 붙이고, LLM에게 <b>답에 실제로 쓸 수 있는 문단 번호와 그 인접 문단</b>을 고르게 합니다. 고른 문단만 남기고 세그먼트를 다시 조립하며, 하나도 안 고른 세그먼트는 버립니다.</li>
+        </ul>
+      </div></div>
+    </details>
+    <details class="fold dd dd--dim" id="dd-system">
+      <summary><span>시스템 구성</span><span class="role">엔진 직접 구현 · 인프라 동료 구현</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+      <div class="fold__body"><div class="fold__in">
+        <figure class="arch flowfig">
+          <figcaption>1세대 시스템 아키텍처</figcaption>
+          <div class="flowfig__scroll"><svg class="is-wide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 872 404" role="img" aria-label="1세대 시스템 아키텍처. 사내 챗봇과 메신저가 GKE 클러스터의 채팅 API를 부른다. 클러스터에는 채팅 API, 임베딩·형태소 API, 대화 이력, 문서 관리 API, Airflow 전처리 파이프라인이 있고, 문서 세그먼트와 벡터는 MongoDB에, 원본 문서는 GCS에 있으며 답변 생성과 판정은 Vertex AI의 LLM을 부른다. Airflow와 GKE 환경, 인프라는 동료가 맡았다."><defs><marker id="ar-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk"/></marker><marker id="ar-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="mk-g"/></marker></defs><rect class="box" x="276" y="10" width="320" height="44" rx="9"/><text class="t ink" x="436.0" y="38.0" text-anchor="middle">사내 챗봇 · 메신저</text><path class="ln" d="M436 54 L436 70" marker-end="url(#ar-a)"/><rect class="pan" x="24" y="74" width="824" height="190" rx="12"/><text class="k acc" x="40" y="98" text-anchor="start">GKE 클러스터 · dev · real 2환경</text><rect class="box hot" x="48" y="112" width="384" height="58" rx="9"/><text class="t ink" x="70" y="137" text-anchor="start">채팅 API · 응답 엔진</text><text class="s mut" x="70" y="157" text-anchor="start">쿼리 이해 · 검색 · 답변 생성</text><rect class="box" x="456" y="112" width="384" height="58" rx="9"/><text class="t ink" x="478" y="137" text-anchor="start">문서 관리 API</text><text class="s mut" x="478" y="157" text-anchor="start">업로드 · FAQ · 동의어 관리</text><rect class="box" x="48" y="186" width="184" height="58" rx="9"/><text class="t2 ink" x="70" y="211" text-anchor="start">임베딩·형태소 API</text><text class="s mut" x="70" y="231" text-anchor="start">검색 보조</text><rect class="box" x="248" y="186" width="184" height="58" rx="9"/><text class="t2 ink" x="270" y="221.0" text-anchor="start">대화 이력</text><rect class="box" x="456" y="186" width="384" height="58" rx="9"/><text class="t ink" x="478" y="211" text-anchor="start">전처리 파이프라인 · Airflow</text><text class="s mut" x="478" y="231" text-anchor="start">문서 파싱 → 세그먼트 → 벡터·키워드 인덱스</text><path class="ln" d="M156 264 L156 284" marker-end="url(#ar-a)"/><path class="ln" d="M436 264 L436 284" marker-end="url(#ar-a)"/><path class="ln" d="M716 264 L716 284" marker-end="url(#ar-a)"/><rect class="box" x="24" y="288" width="264" height="66" rx="9"/><text class="t2 ink" x="46" y="313" text-anchor="start">MongoDB</text><text class="s mut" x="46" y="333" text-anchor="start">문서 세그먼트 · 벡터 · FAQ</text><text class="s2 mut" x="46" y="344" text-anchor="start">챗봇마다 독립 DB</text><rect class="box" x="304" y="288" width="264" height="66" rx="9"/><text class="t2 ink" x="326" y="313" text-anchor="start">GCS</text><text class="s mut" x="326" y="333" text-anchor="start">원본 문서 · 설정</text><rect class="box dsh" x="584" y="288" width="264" height="66" rx="9"/><text class="t2 ink" x="606" y="313" text-anchor="start">LLM · Vertex AI</text><text class="s mut" x="606" y="333" text-anchor="start">답변 생성 · 판정 호출</text><text class="s2 mut" x="24" y="384" text-anchor="start">Airflow 및 GKE 환경과 인프라는 동료 담당</text></svg></div>
+        </figure>
+        <ul>
+          <li><b>GKE</b>: 상시 서빙되는 챗봇과 상주 구성요소가 있는 워크로드라 <b>GKE를 씁니다.</b></li>
+          <li><b>Airflow</b>: 전처리 파이프라인(문서 처리 · 청킹 · Q-cluster 생성)은 <b>Apache Airflow로 오케스트레이션</b>하고, <b>helm chart로 GKE에 배포</b>했습니다.</li>
+          <li><b>CI/CD · 모니터링</b>: 배포는 <b>Jenkins CI/CD</b>로 자동화하고, <b>GCP Logging</b>으로 모니터링을 구축했습니다.</li>
+        </ul>
+      </div></div>
+    </details>
+    </div>
+    </div>
+
+    <div class="deep__group">
+    <h3 class="sub-h">2세대</h3>
+    <div class="deep__list">
+    <details class="fold dd" id="dd-gen2">
+      <summary><span>2세대 상세</span><span class="role">동료 고도화</span><svg class="ic fold__ic" aria-hidden="true"><use href="#ph-plus"/></svg></summary>
+      <div class="fold__body"><div class="fold__in">
+        <p class="flow__ownership">초기 설계 이후 <b>직접 구현 및 고도화는 동료가 진행 중</b>이고, 저는 <b>고도화 논의에 참여</b>하고 있습니다. ‘2세대 상세’의 네 단계 설명은 <b>고도화된 현재 상태</b>를 기준으로 합니다.</p>
+        <h4>답변 처리 단계</h4>
+        <div class="flow__body">
+          <dl class="fold__dl strands">
+            <div><dt>Planner</dt><dd><p>질문을 받으면 <b>가장 먼저 무엇을 할지 정하는 단계</b>입니다. 검색이 필요한지(retrieve), 검색 없이 답해도 되는지(direct), 너무 모호해서 되물어야 하는지(clarify)를 판정합니다.</p><p>출력 필드를 <b>의도 &rarr; 상황 &rarr; 근거 &rarr; 결정 순서로 강제</b>해, 결정보다 근거를 먼저 쓰게 했습니다. 재시도로 돌아오면 <b>Verifier가 넘긴 피드백(남은 범위·검색어)을 참고해</b> 다시 계획합니다.</p></dd></div>
+            <div><dt>Retriever</dt><dd><p><b>근거가 모일 때까지 검색을 반복하는 단계</b>입니다. <b>문서 검색과 FAQ 검색이 기본 도구</b>로 주어지고, 프로젝트에 따라 도구를 더 붙일 수 있습니다.</p><p>검색할 때는 먼저 <b>문서 트리에서 폴더를 골라 범위를 좁히고</b>, 그 안에서 검색합니다. 매 스텝 더 찾을지 충분한지를 스스로 결정하고, 모인 근거를 읽고 다음 검색어와 범위를 다시 짭니다. <b>도구별 모듈이 병렬로 돌아 하나가 실패해도 검색은 계속됩니다.</b></p><p>문서 검색은 <b>1세대의 하이브리드 검색(BM25 · Q-cluster 벡터 · RRF)을 그대로 쓰고</b>, 쿼리 재작성과 후보 선별은 Planner와 Retriever가 맡습니다.</p></dd></div>
+            <div><dt>Generator</dt><dd><p>Planner가 direct로 보낸 질문이면 검색 없이 바로 답을 만듭니다. retrieve로 온 질문은 <b>GenerationClassifier</b>가 LLM 호출 한 번으로 faq와 rag 중 하나를 고릅니다.</p><p>Retriever가 찾은 FAQ가 질문에 맞으면 <b>FAQ에 등록된 답변을 그대로</b> 내보내고, 그렇지 않으면 <b>RAG 답변을 생성</b>합니다. 답변 생성 시 <b>출처를 반드시 같이 작성하도록</b> 하며, 올바르지 않은 출처는 룰베이스로 걸러냅니다.</p></dd></div>
+            <div><dt>Verifier</dt><dd>
+              <p>Generator의 답과 Retriever의 검색 기록을 받아 <b>채택·재생성·재계획·차단</b> 중 하나로 판정합니다. LLM이 판단 근거를 먼저 작성한 뒤 판정하도록 했습니다.</p>
+              <ul class="gen2__verdicts">
+                <li><b>accept(채택)</b>: 답이 검색된 근거를 제대로 반영하면 내보냅니다. 근거가 없고 더 찾아볼 범위나 검색어도 없으면, 내용이 없다는 답을 내보내되 <b>answered=false</b>로 기록해 문서 보강 대상을 찾는 데 씁니다.</li>
+                <li><b>regenerate(재생성)</b>: 근거는 있지만 답이 이를 빠뜨리거나 잘못 옮겼으면 <b>Generator만 다시 실행</b>합니다.</li>
+                <li><b>retry(재계획, 최대 3회)</b>: 근거가 없고 아직 찾아보지 않은 범위나 검색어가 있으면 <b>Planner로 돌아가 재검색</b>합니다. Retriever가 선택한 폴더와 단계별 검색 기록(검색어·범위·결과 수)을 보고 판단합니다.</li>
+                <li><b>block(차단)</b>: 정책 위반 시 LLM이 거절문을 새로 쓰지 않고 <b>등록된 거절문 중 번호를 선택</b>합니다.</li>
+              </ul>
+            </dd></div>
+          </dl>
+        </div>
+      </div></div>
+    </details>
+    </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell foot__in">
+    <a href="../"><svg class="ic " aria-hidden="true"><use href="#ph-arrow-left"/></svg>프로필로</a>
+    <a href="../marbleai/">MarbleAI 번역 시스템</a>
+    <a href="../others/">기타 프로젝트</a>
+    <a href="mailto:woodullee@naver.com">woodullee@naver.com</a>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Flip.min.js"></script>
+<script>if (window.gsap) gsap.registerPlugin(ScrollTrigger, Flip);</script>
+<script src="js/main.js"></script>
+<script src="js/preprocess-demo.js"></script>
+<script src="js/search-demo.js"></script>
+<script src="js/conflict-demo.js"></script>
+</body>
+</html>
